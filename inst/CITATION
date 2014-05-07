@@ -1,0 +1,23 @@
+citHeader("To cite HiClimR in publications use:")
+
+citEntry(entry = "Article",
+  title        = "An Improved Hierarchical Clustering in R for Climate Regionalization",
+  author       = c(
+                person("Hamada S.", "Badr", email="badr@jhu.edu", role = c("aut", "cre"),
+                comment = "development, enhancements, speed improvements, bug fixes"),
+                person("Benjamin F.", "Zaitchik", email="zaitchik@jhu.edu", role="aut"),
+                person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
+                 ),
+  journal      = "Journal of Statistical Software (JSS)",
+  year         = "2014",
+  volume       = "00",
+  number       = "00",
+  pages        = "00-00",
+  url          = "badr@jhu.edu",
+
+  textVersion  =
+  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014).",
+        "An Improved Hierarchical Clustering in R for Climate Regionalization.",
+        "Journal of Statistical Software (JSS), Initial Submission.",
+        "badr@jhu.edu.")
+)

@@ -1,0 +1,50 @@
+% File man/WorldMask.Rd
+% Part of the HiClimR R package
+% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Distributed under GPL 2 or later
+
+\name{WorldMask}
+\alias{WorldMask}
+\alias{info}
+\alias{mask}
+\docType{data}
+\title{World Mask for Geographic Masking in HiClimR}
+\description{
+  This data is used for geographic masking by \code{\link{geogMask}}
+  function in \code{HiClimR} package.
+}
+\usage{
+data(WorldMask)
+}
+\format{
+  \code{WorldMask} is a list with two components: \code{info} and \code{mask}. 
+  \code{info} is an (\code{284} rows by \code{10} columns) matrix. The rows are for
+  areas or countries while the columns are for codes required by \code{\link{geogMask}}.
+  \code{mask} is an (\code{3601} rows by \code{1801} columns) matrix with integer
+  values from \code{1} to \code{284} for the areas defined in \code{info}.
+
+}
+\details{
+  This data is used internally by \code{\link{geogMask}} function for geographic masking
+  in \code{HiClimR} package. The user is adviced to refer to the function manual for more
+  details. The world mask is available in \code{0.1} degree (\code{10} km) resolution. The
+  \code{info} data provides information for continents, regions, and country codes).
+}
+\source{
+  The data are based on the Humanitarian Information Unit (HIU) Large Scale
+  International Boundaries (LSIB) dataset.
+}
+\references{
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
+  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
+  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+
+  LSIB Data: http://hiu.state.gov/data/data.aspx.
+}
+\examples{
+require(HiClimR)
+
+geogMask()
+?geogMask
+}
+\keyword{datasets}

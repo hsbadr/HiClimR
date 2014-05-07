@@ -1,0 +1,198 @@
+% File man/validClimR.Rd
+% Part of the HiClimR R package
+% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Distributed under GPL 2 or later
+
+\newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
+
+\name{validClimR}
+\title{Validation of Hierarchical Climate Regionalization}
+\alias{validClimR}
+\description{
+  \code{\link{validClimR}} computes indices for cluster validation, and an 
+  objective tree cut for \code{regional} linkage custering method. 
+}
+\usage{
+validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
+}
+\arguments{
+  \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}
+
+  \item{k}{\code{NULL} or a n integer for the number of regions/clusters. 
+  Only for \code{regional} linkage method, \code{k = NULL} is supported, where the 
+  "optimal" number of regions will be used at a user specified significance 
+  level \code{alpha}. It is required to specify number of clusters \code{k} 
+  for the other methods, since they are not based on inter-cluster correlation. 
+  If \code{k = NULL} for these methods (except \code{regional}) linkage, the 
+  \code{validClimR} with be aborted. One can use \code{\link{validClimR}} function 
+  to compute inter-cluster correlation at different number of clusters to objectively 
+  cut the tree for the other methods, which could be computationally expensive to
+  cover the entire merging history for large number of spatial elements.}
+
+  \item{minSize}{minimum cluster size. The \code{regional} linkage method tend to 
+  isolate noisy data in small clusters. The \code{minSize} can be used to 
+  exclude these very small clusters from the \code{statSum} statistical 
+  summary, because they are most likely noisy data that need to be checked 
+  in a quality control step. The analysis may be then repeated.}
+
+  \item{alpha}{confidence level: the default is \code{alpha = 0.05} for 
+  95\% confidence level.}
+
+  \item{plot}{a logical: should the plot method be called?}
+
+  \item{colPalette}{a color palette or a list of colors such as that generated 
+  by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
+  \code{terrain.colors} or similar functions.}
+}
+\value{
+  An object of class \bold{HiClimR} which produces indices for validating 
+  the tree produced by the clustering process.
+  The object is a list with the following components:
+  
+  \item{cutLevel}{the minimum significant correlation used for objective 
+    tree cut together with the corresponding confidence level.}
+
+  \item{clustMean}{the cluster means which are the region's mean timeseries for
+    all selected regions.}
+
+  \item{clustSize}{cluster sizes for all selected regions.}
+
+  \item{clustFlag}{a flag \code{0 or 1} to indicate the cluster used
+    in \code{statSum} validation indices (\code{interCor}, 
+    \code{intraCor}, \code{diffCor}, and \code{statSum}), based on 
+    \code{minSize} minimum cluster size.
+    If \code{clustFlag = 0}, the cluster has been excluded because its size
+    is less than the \code{minSize} minmum cluster size. The sum of 
+    \code{clustFlag} elements represents the selected number clusters.}
+
+  \item{interCor}{inter-cluster correlations for all selected regions. It is 
+    the intra-cluster correlations between the mean of each cluster and its 
+    members. The average intra-cluster correlation is a weighted average for 
+    all clusters, and it is a measure for homogeneity.}
+
+  \item{intraCor}{intra-cluster correlations for all selected regions. It is
+    the inter-cluster correlations between cluster means. The maximum inter-cluster 
+    correlation is a measure for separation or contiguity, and it is 
+    used for objective tree cut (to find the "optimal" number of clusters).}
+
+  \item{diffCor}{difference between intra-cluster correlation and maximum 
+  	inter-cluster correlation for all selected regions.}
+
+  \item{statSum}{overall statistical summary for i\code{nterCluster}, 
+    \code{intraCor}, and \code{diffCor}.}
+
+  \item{region}{ordered regions vector of size \code{N} number of spatial 
+  	elements for the selected number of clusters, after excluding the
+  	small clusters defined by \code{minSize} argument.} 
+
+  \item{regionID}{ordered regions ID vector of length equals the selected number 
+  	of clusters, after excluding the small clusters defined by \code{minSize} argument.
+  	It helps in mapping ordered regions and their actual names before ordering.
+  	Only the \code{region} component uses ordered ID, while other components use
+  	the names used during the clustering process.}
+}
+\details{
+  The \code{validClimR} function is used for validation of a dendrogram tree
+  produced by \code{HiClimR}, by computing  detailed statistical information for 
+  each cluster about cluster means, sizes, intra- and inter-cluster correlations, 
+  and overall summary. It requires the preprocessed data matrix and the tree from 
+  \code{\link{HiClimR}} function as inputs. An optional parameter can be used to 
+  validate clustering for a selected number of clusters \code{k}. If \code{k = NULL},
+  the default which supports only the \code{regional} linkage method, objective cutting 
+  of the tree to find the optimal number of clusters will be applied based on a user 
+  specified significance level (/code{alpha} parameter). In \code{regional} linkage method, 
+  noisy spatial elements are isolated in very small-size clusters or individuals since
+  they do not correlate well with any other elements. They can be excluded from the
+  validation indices (\code{interCor}, \code{intraCor}, \code{diffCor}, and \code{statSum}),
+  based on \code{minSize} minimum cluster size. The excluded clusters are identified in
+  the output of \code{validClimR} in \code{clustFlag}, which takes a value of \code{1}
+  for selected clusters or \code{0} for excluded clusters. The sum of \code{clustFlag}
+  elements represents the selected number clusters.This should be followed by a quality
+  control step before repeating the analysis. 
+}
+\references{
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
+  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
+  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+
+  Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+  \emph{The New S Language}.
+  Wadsworth & Brooks/Cole. (S version.)
+
+  Everitt, B. (1974).
+  \emph{Cluster Analysis}.
+  London: Heinemann Educ. Books.
+
+  Hartigan, J. A. (1975).
+  \emph{Clustering  Algorithms}.
+  New York: Wiley.
+
+  Sneath, P. H. A. and R. R. Sokal (1973).
+  \emph{Numerical Taxonomy}.
+  San Francisco: Freeman.
+
+  Anderberg, M. R. (1973).
+  \emph{Cluster Analysis for Applications}.
+  Academic Press: New York.
+
+  Gordon, A. D. (1999).
+  \emph{Classification}. Second Edition.
+  London: Chapman and Hall / CRC
+
+  Murtagh, F. (1985).
+  \dQuote{Multidimensional Clustering Algorithms}, in
+  \emph{COMPSTAT Lectures 4}.
+  Wuerzburg: Physica-Verlag
+  (for algorithmic details of algorithms used).
+
+  McQuitty, L.L. (1966).
+  Similarity Analysis by Reciprocal Pairs for Discrete and Continuous
+  Data.
+  \emph{Educational and Psychological Measurement}, \bold{26}, 825--831.
+}
+\author{
+  Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 
+  Amin Dezfuli <dez@jhu.edu>. The \code{\link{HiClimR}} is a modification of 
+  \code{\link{hclust}} function, which is based on Fortran code 
+  contributed to STATLIB by F. Murtagh.
+}
+\seealso{
+  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
+  \code{\link{fastCor}}, \code{\link{grid2D}}, and \code{\link{minSigCor}}.
+}
+\examples{
+require(HiClimR)
+
+## Load test case data
+x <- TestCase$x
+
+## Generate longitude and latitude mesh vectors
+xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
+lon <- c(xGrid$lon)
+lat <- c(xGrid$lat)
+
+## Hierarchical Climate Regionalization
+y <- HiClimR(x, 
+  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  geogMask=FALSE, continent="Africa", 
+  meanThresh=10, varThresh=0,
+  detrend=TRUE, standardize=TRUE, nPC=NULL,
+  method="regional", hybrid=FALSE, kH=NULL, members=NULL,
+  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
+  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+
+## Validtion of Hierarchical Climate Regionalization
+z <- validClimR(y, k=NULL, minSize=1, alpha=0.01, plot=TRUE, colPalette=NULL)
+## Use a specified number of clusters (k = 12)
+z <- validClimR(y, k=12, minSize=1, alpha=0.01, plot=TRUE, colPalette=NULL)
+## Apply minimum cluster size (minSize = 25)
+z <- validClimR(y, k=NULL, minSize=25, alpha=0.01, plot=TRUE, colPalette=NULL)
+
+## The optimal number of clusters, including small clusters
+k <- length(z$clustFlag)
+
+## The selected number of clusters, after excluding small clusters (if minSize > 1)
+ks <- sum(z$clustFlag)
+
+}
+\keyword{HiClimR}
