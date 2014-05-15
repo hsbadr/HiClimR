@@ -11,7 +11,8 @@
 \description{
   \code{\link{fastCor}} is a helper function that compute Pearson correlation matrix
   for \code{\link{HiClimR}} and \code{\link{validClimR}} functions. It is similar 
-  to \code{\link{cor}} function in R but uses a faster implementation. It can be 
+  to \code{\link{cor}} function in R but uses a faster implementation on 64-bit
+  machines (an optimized \code{BLAS} library is highly recommended). It can be 
   used to compute correlation matrix for the columns of any data matrix.
 }
 \usage{
@@ -31,13 +32,14 @@ fastCor(xt)
   The \code{\link{fastCor}} function computes the correlation matrix by 
   calling the cross product function in the Basic Linear Algebra Subroutines 
   (BLAS) library used by R. A significant performance improvement can be 
-  achieved when building R with an optimized BLAS library, such as ATLAS, 
-  OpenBLAS, or the commercial Intel Math Kernel Library.
+  achieved when building R  on 64-bit machines with an optimized BLAS library,
+  such as ATLAS, OpenBLAS, or the commercial Intel Math Kernel Library.
 }
 \references{
   Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
-  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+  Hierarchical Climate Regionalization: An Improved Hierarchical
+  Clustering in R for Climate Regionalization. \emph{R package version},
+  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

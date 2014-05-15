@@ -36,13 +36,14 @@ data(TestCase)
 }
 \references{
   Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
-  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+  Hierarchical Climate Regionalization: An Improved Hierarchical
+  Clustering in R for Climate Regionalization. \emph{R package version},
+  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
 
   Harris, I., Jones, P., Osborn, T., and Lister, D.: Updated high-resolution grids of monthly
   climatic observations-the CRU TS3.10 Dataset, International journal of climatology, 2013.
   Available from:
-  http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__dataent_1256223773328276
+  \url{http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__dataent_1256223773328276}
 }
 \examples{
 require(HiClimR)

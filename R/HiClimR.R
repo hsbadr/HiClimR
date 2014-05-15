@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v 1.0.9 2014/05/07 12:07:00 EPS JHU $                 #
+# $Id: HiClimR.R, v 1.1.0 2014/05/14 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This is the main function of                                         #
 # HiClimR (Hierarchical Climate Regionalization) R package             #
@@ -39,9 +39,10 @@
 #----------------------------------------------------------------------#
 # References:                                                          #
 #                                                                      #
-#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014). Technical   #
-#  Note: An Improved Hierarchical Clustering in R for Climate          #
-#  Regionalization. Hydrology and Earth System Sciences, 00, 000-000.  #
+#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             #
+#  Hierarchical Climate Regionalization: An Improved Hierarchical      #
+#  Clustering in R for Climate Regionalization. R package version,     #
+#  1.1.0, http://cran.r-project.org/package=HiClimR.                   #
 #----------------------------------------------------------------------#
 # Clustering Methods:                                                  #
 #                                                                      #
@@ -93,6 +94,7 @@
 #  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.0    |  05/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#

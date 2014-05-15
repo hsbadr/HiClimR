@@ -64,8 +64,9 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
 }
 \references{
   Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
-  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+  Hierarchical Climate Regionalization: An Improved Hierarchical
+  Clustering in R for Climate Regionalization. \emph{R package version},
+  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

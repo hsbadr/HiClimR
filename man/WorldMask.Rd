@@ -36,15 +36,15 @@ data(WorldMask)
 }
 \references{
   Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
-  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+  Hierarchical Climate Regionalization: An Improved Hierarchical
+  Clustering in R for Climate Regionalization. \emph{R package version},
+  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
 
-  LSIB Data: http://hiu.state.gov/data/data.aspx.
+  LSIB Data: \url{http://hiu.state.gov/data/data.aspx}.
 }
 \examples{
 require(HiClimR)
 
 geogMask()
-?geogMask
 }
 \keyword{datasets}

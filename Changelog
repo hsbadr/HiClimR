@@ -1,4 +1,4 @@
-# $Id: Changelog, v 1.08 2014/05/06 12:07:00 EPS JHU $                 #
+# $Id: Changelog, v 1.1.0 2014/05/15 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This log is a part of HiClimR R package.                             #
 #----------------------------------------------------------------------#
@@ -22,12 +22,25 @@
 #  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
-# Function: HiClimR R Package Change Log		               #
+# Function: R Package HiClimR Change Log		               #
 #----------------------------------------------------------------------#
 
+#----------------------------------------------------------------------#
+2014-05-15: 1.1.0	Hamada Badr <badr@jhu.edu>
+#----------------------------------------------------------------------#
+	This version includes code cleanup, updates, and bug fixes.
+	The citation info has been updated to reflect the current
+	status of the technical paper, which will be cited and
+	included as vignettes upon publication. An issue with the
+	\code{fastCor} function that degrades its performance on
+	32-bit machines has been fixed. Now, A significant performance
+	improvement can only be achieved when building R on 64-bit
+	machines with an optimized BLAS library, such as ATLAS,
+	OpenBLAS, or the commercial Intel MKL.
 #----------------------------------------------------------------------#
 2014-05-07: 1.0.9	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#

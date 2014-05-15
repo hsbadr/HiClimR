@@ -1,4 +1,4 @@
-# $Id: fastCor.R, v 1.0.9 2014/05/07 12:07:00 EPS JHU $                 #
+# $Id: fastCor.R, v 1.1.0 2014/05/15 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -22,6 +22,7 @@
 #  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -31,7 +32,13 @@
 fastCor <- function (xt)
 {
     x <- t(xt) - colMeans(xt)
-    r <- tcrossprod(x / sqrt(rowSums(x^2))) 
-
+    
+    if (.Machine$sizeof.pointer == 8)
+    {
+        r <- tcrossprod(x / sqrt(rowSums(x^2)))
+    } else {
+        r <- cor(xt)
+    }
+    
     return(r)
 }

@@ -37,7 +37,7 @@ An Improved Hierarchical Clustering in R for Climate Regionalization}
   level. These include options for preprocessing and postprocessing as well as efficient
   code execution for large datasets.
   
-  \code{Badr et. al} (2014) describes the regionalization algorithms and data processing tools
+  Badr et. al (2014) describes the regionalization algorithms and data processing tools
   included in the package and presents a demonstration application in which the package is
   used to regionalize Africa on the basis of interannual precipitation variability.
   
@@ -393,8 +393,9 @@ HiClimR(
 }
 \references{
   Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Technical Note: An Improved Hierarchical Clustering in R for Climate Regionalization.
-  \emph{Journal of Statistical Software (JSS)}, Initial Submission.
+  Hierarchical Climate Regionalization: An Improved Hierarchical
+  Clustering in R for Climate Regionalization. \emph{R package version},
+  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
 
   Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
   \emph{The New S Language}.
@@ -467,6 +468,11 @@ y <- HiClimR(x,
   method="regional", hybrid=FALSE, kH=NULL, members=NULL,
   validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
   plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+
+#---------------------------------------------------------------#
+# Additional Examples:                                          #
+#---------------------------------------------------------------#
+
 ## Use Ward's method
 y <- HiClimR(x, 
   lon=lon, lat=lat, lonSkip=1, latSkip=1,
