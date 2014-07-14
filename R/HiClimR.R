@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v 1.1.0 2014/05/14 12:07:00 EPS JHU $                #
+# $Id: HiClimR.R, v 1.1.1 2014/07/14 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This is the main function of                                         #
 # HiClimR (Hierarchical Climate Regionalization) R package             #
@@ -74,14 +74,14 @@
 # A copy of the GNU General Public License is available at             #
 # http://www.r-project.org/Licenses                                    #
 #----------------------------------------------------------------------#
-#  HISTORY:                   					       #
+#  HISTORY:                                                            #
 #----------------------------------------------------------------------#
 #  Version  |  Date      |  Comment   |  Author       |  Email         #
 #----------------------------------------------------------------------#
-#  	    |  May 1992  |  Oringinal |  F. Murtagh   |                #
-#	    |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
+#           |  May 1992  |  Oringinal |  F. Murtagh   |                #
+#           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
 #           |  Apr 1998  |  Modified  |  F. Leisch    |                #
-#           |  Jun 2000  |  Modified  |  F. Leisch    |	       	       #
+#           |  Jun 2000  |  Modified  |  F. Leisch    |                #
 #----------------------------------------------------------------------#
 #  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  #
 #  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
@@ -94,7 +94,8 @@
 #  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.0    |  05/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -150,7 +151,8 @@ HiClimR <- function (
     n <- dim(x)[1]
     m <- dim(x)[2]
     if (is.null(n)) stop("	invalid data size")
-    if (is.na(n) || n > 65536L) stop("	size cannot be NA nor exceed 65536")
+    #if (is.na(n) || n > 65536L) stop("	size cannot be NA nor exceed 65536")
+    if (is.na(n)) stop("	size cannot be NA")
     if (n < 2) stop("	must have n \u2265 2 objects to cluster")
 
     # Check row names (important if detrending is requested)
@@ -237,7 +239,8 @@ HiClimR <- function (
     n <- dim(x)[1]
     m <- dim(x)[2]
     if (is.null(n)) stop("invalid data size")
-    if (is.na(n) || n > 65536L) stop("size cannot be NA nor exceed 65536")
+    #if (is.na(n) || n > 65536L) stop("size cannot be NA nor exceed 65536")
+    if (is.na(n)) stop("	size cannot be NA")
     if (n < 2) stop("must have n \u2265 2 objects to cluster")
 
     # Detrend data if requested

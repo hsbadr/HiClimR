@@ -2,8 +2,8 @@
 !                                                                      !
 !  HIERARCHICAL CLIMATE REGIONALIZATION (HiClimR):                     !
 !                                                                      !
-!  An Improved Hierarchical Clustering in R for 		       !
-!  Climate regionalization					       !
+!  An Improved Hierarchical Clustering in R for                        !
+!  Climate regionalization                                             !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
@@ -88,36 +88,36 @@
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
-!  This code is modified by Hamada Badr <badr@jhu.edu> from:	       !
-!  		File src/library/stats/src/hclust.f		       !
-!  Part of the R package, http://www.R-project.org		       !
+!  This code is modified by Hamada Badr <badr@jhu.edu> from:           !
+!               File src/library/stats/src/hclust.f                    !
+!  Part of the R package, http://www.R-project.org                     !
 !                                                                      !
-!  Copyright(C)  1995-2014  The R Core Team			       !
+!  Copyright(C)  1995-2014  The R Core Team                            !
 !                                                                      !
 !  This program is free software; you can redistribute it and/or       !
 !  modify it under the terms of the GNU General Public License as      !
 !  published by the Free Software Foundation; either version 2 of      !
-!  the License, or (at your option) any later version.		       !
+!  the License, or (at your option) any later version.                 !
 !                                                                      !
 !  This program is distributed in the hope that it will be useful,     !
 !  but WITHOUT ANY WARRANTY; without even the implied warranty of      !
 !  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       !
-!  GNU General Public License for more details.			       !
+!  GNU General Public License for more details.	                       !
 !                                                                      !
-!  A copy of the GNU General Public License is available at	       !
-!  http://www.r-project.org/Licenses				       !
+!  A copy of the GNU General Public License is available at            !
+!  http://www.r-project.org/Licenses                                   !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
-!  HISTORY:                   					       !
+!  HISTORY:                                                            !
 !                                                                      !
 !----------------------------------------------------------------------!
 !  Version  |  Date      |  Comment   |  Author       |  Email         !
 !----------------------------------------------------------------------!
-!  	    |  May 1992  |  Oringinal |  F. Murtagh   |                !
-!	    |  Dec 1996  |  Modified  |  Ross Ihaka   |                !
+!           |  May 1992  |  Oringinal |  F. Murtagh   |                !
+!           |  Dec 1996  |  Modified  |  Ross Ihaka   |                !
 !           |  Apr 1998  |  Modified  |  F. Leisch    |                !
-!           |  Jun 2000  |  Modified  |  F. Leisch    |	       	       !
+!           |  Jun 2000  |  Modified  |  F. Leisch    |                !
 !----------------------------------------------------------------------!
 !  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  !
 !  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
@@ -131,6 +131,7 @@
 !----------------------------------------------------------------------!
 !  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  !
 !  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
+!  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
@@ -138,7 +139,7 @@
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
-!  Function: Hierarchical Climate Regionalization		       !
+!  Function: Hierarchical Climate Regionalization                      !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !

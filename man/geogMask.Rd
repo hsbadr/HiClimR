@@ -14,7 +14,7 @@
 }
 \usage{
 geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
-  plot=FALSE, colPalette=NULL)
+  InDispute=TRUE, plot=FALSE, colPalette=NULL)
 }
 \arguments{
   \item{continent}{\code{NULL} or a string (or array of strings) to specify 
@@ -36,6 +36,10 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   \item{lon}{a vector of longitudes with length \code{N}.}
 
   \item{lat}{a vector of latitudes with length \code{N}.}
+
+  \item{InDispute}{a logical: should the areas in dispute be considered for
+  geographic masking by country? If \code{InDispute = TRUE} (the default),
+  areas in dispute will be considered as a part of the \code{country}.}
 
   \item{plot}{a logical: should the plot method be called?}
 

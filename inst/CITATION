@@ -9,14 +9,13 @@ citEntry(entry = "Article",
                 person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
                  ),
   journal      = "R package version",
-  pages        = "1.1.0",
+  pages        = "1.1.1",
   year         = "2014",
-
   url          = "http://cran.r-project.org/package=HiClimR",
 
   textVersion  =
   paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014).",
         "Hierarchical Climate Regionalization: An Improved Hierarchical Clustering in R for Climate Regionalization.",
-        "R package version, 1.1.0",
+        "R package version, 1.1.1",
         "http://cran.r-project.org/package=HiClimR.")
 )

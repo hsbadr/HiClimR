@@ -1,15 +1,15 @@
-# $Id: Changelog, v 1.1.0 2014/05/15 12:07:00 EPS JHU $                #
+# $Id: Changelog, v 1.1.1 2014/07/14 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This log is a part of HiClimR R package.                             #
 #----------------------------------------------------------------------#
-#  HISTORY:       					               #
+#  HISTORY:                                                            #
 #----------------------------------------------------------------------#
 #  Version  |  Date      |  Comment   |  Author       |  Email         #
 #----------------------------------------------------------------------#
-#  	    |  May 1992  |  Oringinal |  F. Murtagh   |                #
-#	    |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
+#           |  May 1992  |  Oringinal |  F. Murtagh   |                #
+#           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
 #           |  Apr 1998  |  Modified  |  F. Leisch    |                #
-#           |  Jun 2000  |  Modified  |  F. Leisch    |	       	       #
+#           |  Jun 2000  |  Modified  |  F. Leisch    |                #
 #----------------------------------------------------------------------#
 #  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  #
 #  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
@@ -23,146 +23,174 @@
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
-# Function: R Package HiClimR Change Log		               #
+# Function: R Package HiClimR Change Log                               #
 #----------------------------------------------------------------------#
 
 #----------------------------------------------------------------------#
+2014-07-14: 1.1.1	Hamada Badr <badr@jhu.edu>
+#----------------------------------------------------------------------#
+	- Minor fixes and memory optimizations especially for the
+		geographic masking function /code{geogMask}.
+	- The limit for data size has been removed (use with caution).
+	- An logical parameter \code{InDispute} has been added to
+		/code{geogMask} function to optionally consider areas
+		in dispute for geographic masking by country.
+	- Changelog has been updated and reformatted.
+#----------------------------------------------------------------------#
 2014-05-15: 1.1.0	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes code cleanup, updates, and bug fixes.
-	The citation info has been updated to reflect the current
-	status of the technical paper, which will be cited and
-	included as vignettes upon publication. An issue with the
-	\code{fastCor} function that degrades its performance on
-	32-bit machines has been fixed. Now, A significant performance
-	improvement can only be achieved when building R on 64-bit
-	machines with an optimized BLAS library, such as ATLAS,
-	OpenBLAS, or the commercial Intel MKL.
+	- Code cleanup and bug fixes.
+	- An issue with the \code{fastCor} function that degrades its
+		performance on 32-bit machines has been fixed.
+		A significant performance improvement can only be
+		achieved when building R on 64-bit machines with an
+		optimized BLAS library, such as ATLAS, OpenBLAS, or
+		the commercial Intel MKL.
+	- The citation info has been updated to reflect the current
+		status of the technical paper, which will be cited
+		and included as vignettes upon publication.
 #----------------------------------------------------------------------#
 2014-05-07: 1.0.9	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes minor changes for CRAN. For memory
-	considerations, smaller test case is provided (1 degree
-	resolution instead of 0.5 degree) and the resolution option
-	(\code{res} parameter) in geographic masking has been removed.
-	Mask data is only available in 0.1 degree (~10 km) resolustion.
-	"LazyLoad" and "LazData" are enabled in the description file.
-	The \code{worldMask} and \code{TestCase} data are converted to
-	lists to avoid conflicts of variable names (lon, lat, info,
-	and mask) with lazy loading of the data.
+	- Minor changes and fixes for CRAN.
+	- For memory considerations, smaller test case is provided
+		(1 degree resolution instead of 0.5 degree) and the
+		resolution option (\code{res} parameter) in geographic
+		masking has been removed.
+	- Mask data is only available in 0.1 degree (~10 km) resolustion.
+	- "LazyLoad" and "LazData" are enabled in the description file.
+	- The \code{worldMask} and \code{TestCase} data are converted to
+		lists to avoid conflicts of variable names (lon, lat,
+		info, and mask) with lazy loading of the data.
 #----------------------------------------------------------------------#
 2014-05-06: 1.08	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and code cleanup. For consistency,
-	region maps are unified for both gridded and ungridded data.
+	- Code cleanup and bug fixes.
+	- Region maps are unified for both gridded and ungridded data.
 #----------------------------------------------------------------------#
 2014-03-30: 1.07	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version adds hybrid hierarchical clustering feature that
-	utilizes the pros of the available methods, especially the
-	better overall homogeneity in Ward's method and the separation
-	and objective tree cut of the regional linkage method. The
-	logical parameter \code{hybrid} is added to enable a second
-	step of using regional linkage clustering method for
-	reconstructing the upper part of the tree at a cut of defined
-	by \code{kH} (number of clusters to restart with using the
-	\code{regional} linkage method). If \code{kH = NULL}, the tree will
-	be reconstructed for the upper part with the first merging cost
-	larger than the mean merging cost for the entire tree (merging
-	cost is the loss of overall homogeneity at each merging step).
-	If hybrid clustering is requested, the updated upper part of
-	the tree will be used for cluster validation.
+	- Hybrid hierarchical clustering feature that utilizes the
+		pros of the available methods, especially the better
+		overall homogeneity in Ward's method and the separation
+		and objective tree cut of the regional linkage method.
+	- The logical parameter \code{hybrid} is added to enable
+		a second step of using regional linkage clustering
+		method for reconstructing the upper part of the tree
+		at a cut of defined by \code{kH} (number of clusters to
+		restart with using the \code{regional} linkage method).
+	- If \code{kH = NULL}, the tree will be reconstructed for the
+		upper part with the first merging cost larger than the
+		mean merging cost for the entire tree (merging cost is
+		the loss of overall homogeneity at each merging step).
+	- If hybrid clustering is requested, the updated upper part
+		of the tree will be used for cluster validation.
 #----------------------------------------------------------------------#
 2014-03-25: 1.06	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes minor bug fixes.
+	- Code cleanup and bug fixes.
 #----------------------------------------------------------------------#
 2014-03-18: 1.05	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and enhancements, adding
-	support to generate region maps for ungridded data. It has
-	passed all 'R CMD check' without any warnings or notes, and
-	it is ready for contributing to CRAN.	
+	- Code cleanup and bug fixes.
+	- It adds support to generate region maps for ungridded data.
 #----------------------------------------------------------------------#
 2014-03-14: 1.04	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and enhancements. It is much
-	easier to follow. The \code{coarseR} function is now called inside
-        the core \code{HiClimR} function. The \code{coords} component has
-        been added to the output tree for the longitude and latitude 
-        coordinates since they may be changed by coarsening. The \code{lon} 
-        and \code{lat} vectors are more flexible for gridded data, as they 
-	will be automatically converted to a rectangular grid if necessary.
-	The \code{validClimR} function does not require \{lon} and 
-        \code{lat} arguments where they are now available in the output
-        tree (\{coords} component).
+	- Code cleanup and bug fixes.
+	- The \code{coarseR} function is  called inside the core
+		\code{HiClimR} function.
+	- The \code{coords} component has been added to the output
+		tree for the longitude and latitude coordinates since
+		they may be changed by coarsening. The \code{lon} 
+		and \code{lat} vectors are more flexible for gridded
+		data, as they will be automatically converted to a
+		rectangular grid if necessary.
+	- The \code{validClimR} function does not require \{lon} and 
+		\code{lat} arguments where they are now available in
+		the output tree (\{coords} component).
 #----------------------------------------------------------------------#
 2014-03-14: 1.03	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and enhancements. Now, the 
-	package has one main function \code{HiClimR}, which internally calls
-	all other functions including \code{validClimR} function. It has 
-	unified component names for all functions. Objective tree cut is 
-	supported only for the \code{regional} linkage method. Otherwise, 
-	the number of clusters \code{k} should be specified. The new 
-	clustering method has been renamed from \code{HiClimR} to
-	\code{regional} linkage method.
+	- Code cleanup and bug fixes.
+	- The package has one main function \code{HiClimR}, which
+		internally calls all other functions including
+		\code{validClimR} function.
+	- It has unified component names for all functions.
+	- Objective tree cut is supported only for the \code{regional}
+		linkage method. Otherwise, the number of clusters
+		\code{k} should be specified.
+	- The new clustering method has been renamed from \code{HiClimR}
+		to \code{regional} linkage method.
 #----------------------------------------------------------------------#
 2014-03-14: 1.02	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and enhancements. It adds 
-	a new feature in \code{HiCLimR} that enables users to return 
-	the preprocessed data used for clustering, by a logical argument
-	(\code{retData}. The data will be returned in a component \code{data} 
-	of the output tree. This can be used to utilize the preprocessing 
-	features in \code{HiCLimR} for further analysis. Ordered regions vector 
-	for the selected number of clusters are now returned in the \code{region} 
-	component of \code{validCLimR} output with a length equals to the 
-	number of spatial elements \code{N}.
+	- Code cleanup and bug fixes.
+	- It adds a new feature in \code{HiCLimR} that enables users
+		to return the preprocessed data used for clustering,
+		by a logical argument (\code{retData}.
+	- The data will be returned in a component \code{data} of the
+		output tree. This can be used to utilize the
+		\code{HiCLimR} preprocessing for further analysis.
+	- Ordered regions vector for the selected number of clusters
+		are now returned in the \code{region} component of
+		\code{validCLimR} output with a length equals to the 
+		number of spatial elements \code{N}.
 #----------------------------------------------------------------------#
 2014-03-14: 1.01	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	This version includes bug fixes and enhancements. It adds 
-	a new feature in \code{validCLimR} that enables users to
-	exclude very small clusters from validation indices (\code{interCor}, 
-	\code{intraCor}, \code{diffCor}, and \code{statSum}), by 
-	setting a value for the minimum cluster size (\code{minSize} 
-	parameter) greater than one. The excluded clusters can be identified 
-	from the output of \code{validClimR} in \code{clustFlag} component, 
-	which takes a value of \code{1} for valid clusters or \code{0} for 
-	excluded clusters. In \code{HiClimR} method, noisy spatial elements (or 
-	stations) are isolated in very small-size clusters or individuals 
-	since they do not correlate well with any other elements. This should 
-	be followed by a quality control step before repeating the analysis.
-	The function \code{coarseR} has been added for coarsening spatial 
-	resolution of the input matrix \code{x}.
+	- Code cleanup and bug fixes.
+	- It adds a new feature in \code{validCLimR} that enables users
+		to exclude very small clusters from validation indices
+		(\code{interCor}, \code{intraCor}, \code{diffCor}, and
+		\code{statSum}), by setting a value for the minimum
+		cluster size (\code{minSize} parameter) greater than one.
+	- The excluded clusters can be identified from the output of
+		\code{validClimR} in \code{clustFlag} component, which
+		takes a value of \code{1} for valid clusters or \code{0}
+		for excluded clusters. In \code{HiClimR} method, noisy
+		spatial elements (or stations) are isolated in very
+		small-size clusters or individuals since they do not
+		correlate well with any other elements. This should be
+		followed by a quality control step.
+	- The function \code{coarseR} has been added for coarsening
+		spatial resolution of the input matrix \code{x}.
 #----------------------------------------------------------------------#
 2014-03-14: 1.00	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	Initial version of \code{HiClimR} package that  modifies the very 
-	efficient code of \code{\link{hclust}} function in the \code{stats} 
-	library. It adds an improved clustering method (called, 
-	\code{HiClimR}) to the set of available methods. The method is explained 
-	in the context of a spatio-temporal problem, in which \code{N} spatial 
-	elements (e.g., weather stations) are divided into \code{k} regions, given 
-	that each element has a time series of length \code{M}. It is based on 
-	inter-regional correlation distance between the temporal means of different 
-	regions (or elements at the first merging step). The dissimilarity/similarity 
-	between any two regions, in both \code{HiClimR} and \code{average} linkage 
-	metho ds, is based on their means (timeseries). \code{HiClimR} modifies
-	\code{average} update formulae by incorporating the standard deviation of 
-	the timeseries of the the merged region,  which is a function of the 
-	correlation between the individual regions, and their standard deviations 
-	before merging. It is equal to the average of their standard deviations if 
-	and only if the correlation between the two merged regions is 100%. In this 
-	special case, the \code{HiClimR} method is reduced to the classic 
-	\code{average} linkage clustering method. Several features have been 
-	implemented to facilitate spatiotemporal analysis applications as well as 
-	cluster validation function \code{\link{validClimR}}, which implements an 
-	objective tree cutting to find the optimal number of clusters for a 
-	user-specified confidence level. These include options for preprocessing 
-	and postprocessing as well as efficient code execution for large datasets. 
-	It is also applicable to any correlation-based clustering.
+	- Initial version of \code{HiClimR} package that modifies the
+		very efficient code of \code{\link{hclust}} function in
+		the \code{stats} library.
+	- It adds an improved clustering method (called, \code{HiClimR})
+		to the set of available methods.
+	- The method is explained in the context of a spatio-temporal
+		problem, in which \code{N} spatial elements (e.g., weather
+		stations) are divided into \code{k} regions, given that
+		each element has a time series of length \code{M}.
+	- It is based on inter-regional correlation distance between the
+		temporal means of different regions (or elements at the
+		first merging step).
+	- The dissimilarity/similarity between any two regions, in both
+		\code{HiClimR} and \code{average} linkage methods, is
+		based on their means (timeseries).
+	- The new \code{HiClimR} method modifies \code{average} update
+		formulae by incorporating the standard deviation of the
+		timeseries of the the merged region,  which is a function
+		of the correlation between the individual regions, and
+		their standard deviations before merging. It is equal to
+		the average of their standard deviations if and only if
+		the correlation between the two merged regions is 100%.
+		In this special case, the \code{HiClimR} method is reduced
+		to the classic \code{average} linkage clustering method.
+	- Several features have been implemented to facilitate spatiotemporal
+		analysis applications as well as cluster validation function
+		\code{\link{validClimR}}, which implements an objective
+		tree cutting to find the optimal number of clusters for a
+		user-specified confidence level. These include options for
+		preprocessing and postprocessing as well as efficient code
+		execution for large datasets.
+	- It is also applicable to any correlation-based clustering.

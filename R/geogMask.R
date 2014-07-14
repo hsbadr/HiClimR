@@ -1,15 +1,15 @@
-# $Id: geogMask.R, v 1.1.0 2014/05/15 12:07:00 EPS JHU $               #
+# $Id: geogMask.R, v 1.1.1 2014/07/14 12:07:00 EPS JHU $               #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
-#  HISTORY:                   					       #
+#  HISTORY:                                                            #
 #----------------------------------------------------------------------#
 #  Version  |  Date      |  Comment   |  Author       |  Email         #
 #----------------------------------------------------------------------#
-#  	    |  May 1992  |  Oringinal |  F. Murtagh   |                #
-#	    |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
+#           |  May 1992  |  Oringinal |  F. Murtagh   |                #
+#           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
 #           |  Apr 1998  |  Modified  |  F. Leisch    |                #
-#           |  Jun 2000  |  Modified  |  F. Leisch    |	       	       #
+#           |  Jun 2000  |  Modified  |  F. Leisch    |                #
 #----------------------------------------------------------------------#
 #  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  #
 #  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
@@ -23,6 +23,7 @@
 #----------------------------------------------------------------------#
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -30,7 +31,7 @@
 #----------------------------------------------------------------------#
 
 # Function: Geographic mask for an area from longitude and latitute
-geogMask <- function (continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL, plot=FALSE, colPalette=NULL)
+geogMask <- function (continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL, InDispute=TRUE, plot=FALSE, colPalette=NULL)
 {
     
     if (is.null(continent) && is.null(region) && is.null(country))
@@ -63,6 +64,13 @@ geogMask <- function (continent=NULL, region=NULL, country=NULL, lon=NULL, lat=N
             {
                 area <- union(area, which(gregexpr(pattern = WorldMask$info[area[i],3], WorldMask$info[,1]) != -1))
             }
+            
+            # Areas in dispute
+            InDisputeArea <- which(gregexpr(pattern ='In dispute', WorldMask$info[,1]) != -1)
+            if (InDispute)
+            {
+                    area <- union(area, InDisputeArea[which(grepl(WorldMask$info[243,1], WorldMask$info[InDisputeArea,1]))])
+            }
         }
 
         dx <- as.numeric(rownames(WorldMask$mask))[2] - as.numeric(rownames(WorldMask$mask))[1]
@@ -74,7 +82,16 @@ geogMask <- function (continent=NULL, region=NULL, country=NULL, lon=NULL, lat=N
         i <- (round(lon, rx) - as.numeric(rownames(WorldMask$mask))[1]) / dx + 1
         j <- (round(lat, ry) - as.numeric(colnames(WorldMask$mask))[1]) / dy + 1
 
-        gMask <- seq(1,length(lon))[-which(diag(WorldMask$mask[i,j]) %in% area)]
+        #gMask <- seq(1,length(lon))[-which(diag(WorldMask$mask[i,j]) %in% area)]
+        gMask <- NULL
+        for (nn in 1:length(lon))
+        {
+                nnMask <- ifelse(is.na(WorldMask$mask[i[nn],j[nn]]), -999, WorldMask$mask[i[nn],j[nn]])
+                if (!any(area == nnMask))
+                {
+                        gMask <- c(gMask, nn)
+                }
+        }
     }
 
     if (plot)
