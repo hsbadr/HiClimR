@@ -1,4 +1,4 @@
-# $Id: Changelog, v 1.1.1 2014/07/14 12:07:00 EPS JHU $                #
+# $Id: Changelog, v 1.1.2 2014/07/26 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This log is a part of HiClimR R package.                             #
 #----------------------------------------------------------------------#
@@ -6,7 +6,7 @@
 #----------------------------------------------------------------------#
 #  Version  |  Date      |  Comment   |  Author       |  Email         #
 #----------------------------------------------------------------------#
-#           |  May 1992  |  Oringinal |  F. Murtagh   |                #
+#           |  May 1992  |  Original  |  F. Murtagh   |                #
 #           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
 #           |  Apr 1998  |  Modified  |  F. Leisch    |                #
 #           |  Jun 2000  |  Modified  |  F. Leisch    |                #
@@ -24,6 +24,7 @@
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -31,13 +32,23 @@
 #----------------------------------------------------------------------#
 
 #----------------------------------------------------------------------#
+2014-07-26: 1.1.2	Hamada Badr <badr@jhu.edu>
+#----------------------------------------------------------------------#
+	- A bug has been fixed where data mean is added to centered
+		data if \code{standardize = FALSE}. In this case, the
+		the objective tree cut for \{regional} linkage method
+		and the output \code{data} component are now corrected
+		to match input parameters especially when clustring of
+		raw data (without standardization) is requested
+		(centered data was used in previous versions).
+#----------------------------------------------------------------------#
 2014-07-14: 1.1.1	Hamada Badr <badr@jhu.edu>
 #----------------------------------------------------------------------#
-	- Minor fixes and memory optimizations especially for the
-		geographic masking function /code{geogMask}.
+	- Minor bug fixes and memory optimizations especially for
+		the geographic masking function \code{geogMask}.
 	- The limit for data size has been removed (use with caution).
-	- An logical parameter \code{InDispute} has been added to
-		/code{geogMask} function to optionally consider areas
+	- A logical parameter \code{InDispute} has been added to
+		\code{geogMask} function to optionally consider areas
 		in dispute for geographic masking by country.
 	- Changelog has been updated and reformatted.
 #----------------------------------------------------------------------#

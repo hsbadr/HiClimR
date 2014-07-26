@@ -1,6 +1,6 @@
 Package: HiClimR
-Version: 1.1.1
-Date: 2014-07-14
+Version: 1.1.2
+Date: 2014-07-26
 Title: Hierarchical Climate Regionalization: An Improved Hierarchical
         Clustering in R for Climate Regionalization
 Author: Hamada S. Badr [aut, cre], 
@@ -21,10 +21,10 @@ Description: HiClimR package modifies and improves hierarchical clustering in R
              included in the package and presents a demonstration application in which the package
              is used to regionalize Africa on the basis of interannual precipitation variability.
              It is applicable to any correlation-based clustering.
-Packaged: 2014-07-14 16:47:14 UTC; Hamada
+Packaged: 2014-07-26 21:01:24 UTC; Hamada
 LazyLoad: yes
 LazyData: yes
 ByteCompile: yes
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2014-07-14 23:33:26
+Date/Publication: 2014-07-27 08:10:00

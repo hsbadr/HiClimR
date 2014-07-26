@@ -1,4 +1,4 @@
-# $Id: minSigCor.R, v 1.1.1 2014/07/14 12:07:00 EPS JHU $              #
+# $Id: minSigCor.R, v 1.1.2 2014/07/26 12:07:00 EPS JHU $              #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -6,7 +6,7 @@
 #----------------------------------------------------------------------#
 #  Version  |  Date      |  Comment   |  Author       |  Email         #
 #----------------------------------------------------------------------#
-#           |  May 1992  |  Oringinal |  F. Murtagh   |                #
+#           |  May 1992  |  Original  |  F. Murtagh   |                #
 #           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
 #           |  Apr 1998  |  Modified  |  F. Leisch    |                #
 #           |  Jun 2000  |  Modified  |  F. Leisch    |                #
@@ -24,6 +24,7 @@
 #  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
