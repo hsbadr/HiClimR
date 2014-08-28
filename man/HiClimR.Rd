@@ -31,9 +31,9 @@ An Improved Hierarchical Clustering in R for Climate Regionalization}
   It is equal to the average of their standard deviations if and only if the correlation 
   between the two merged regions is \code{100\%}. In this special case, the \code{regional} 
   linkage method is reduced to the classic \code{average} linkage clustering method. 
-  The added features have been facilitate spatiotemporal analysis applications as well as 
-  cluster validation function \code{\link{validClimR}}, which implements an objective 
-  tree cutting to find the optimal number of clusters for a user-specified confidence 
+  Many features are added to facilitate spatiotemporal analysis applications and to utilize 
+  a cluster validation function \code{\link{validClimR}}, which implements an objective 
+  tree cutting to find an optimal number of clusters for a user-specified confidence 
   level. These include options for preprocessing and postprocessing as well as efficient
   code execution for large datasets.
   
@@ -50,7 +50,7 @@ HiClimR(
   x, 
 
   # Coarsening spatial resolution
-  lon=NULL, lat=NULL, lonSkip=1, latSkip=1,
+  lon=NULL, lat=NULL, lonStep=1, latStep=1,
 
   # Geographic masking:
   geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL,
@@ -91,14 +91,18 @@ HiClimR(
 
   \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
-  \item{lonSkip}{an integer greater than or equal to \code{1} for longitdue 
-  step to coarsen the data. If \code{lonStep = 1}, the data will not be coarsened
-  in the longitudinal dimension.}
+  \item{lonStep}{an integer greater than or equal to \code{1} for longitdue 
+  step to coarsen gridded data in the longitudinal direction. If \code{lonStep = 1}, 
+  gridded data will not be coarsened in the longitudinal direction (the default).
+  If \code{lonStep = 2}, every other grid in longitudinal direction will be retained.}
   
-  \item{latSkip}{an integer greater than or equal to \code{1} for latitude 
-  step to coarsen the data. If \code{lonStep = 1}, the data will not be coarsened
-  in the latitudinal dimension.}
-
+  \item{latStep}{an integer greater than or equal to \code{1} for latitude 
+  step to coarsen gridded data in the latitudinal direction. If \code{latStep = 1}, 
+  gridded data will not be coarsened in the latitudinal direction (the default). 
+  If \code{latStep = 2}, every other grid in latitudinal direction will be retained.
+  \code{lonStep} and \code{latStep} are independent so that user can optionally 
+  apply different coarsening level to each dimension.}
+  
   \item{geogMask}{a logical: if \code{geogMask = TRUE}, \code{\link{geogMask}} 
   function will be called. Additional arguments are required. 
   It requires the longitute and latitude vector together with a string 
@@ -132,7 +136,7 @@ HiClimR(
   This is used with \code{varThresh} to mask zero- and near-zero-variance 
   data, Observations with mean less than or equal to meanThresh will 
   be removed. If \code{meanThresh = NULL}, then the \code{varThresh} will 
-  be used eighther to mask zero-variance data by default or by increased 
+  be used either to mask zero-variance data by default or by increased 
   variance threshold to mask near-zero-variance data.}
 
   \item{varThresh}{zero or a threshold for the temporal variance: This is 
@@ -168,7 +172,7 @@ HiClimR(
   \item{hybrid}{a logical: should the upper part of the tree be reconstructed
   using \code{regional} linkage clustering method?
   This adds hybrid hierarchical clustering feature to get the best of
-  the availables methods. It utilizes the pros of availabled methods, especially
+  the availables methods. It utilizes the pros of available methods, especially
   the better overall homogeneity in Ward's method and the separation, contguity, 
   and objective tree cut of the regional linkage method.
   If \code{hybrid = FALSE}, only the default clustering using the slected
@@ -270,7 +274,7 @@ HiClimR(
     (only returned if the distance object has a \code{"method"}
     attribute).}
 
-  \item{skip}{a vector of \code{lonSkip} and \code{latSkip} if \code{coarseR = TRUE}.}
+  \item{skip}{a vector of \code{lonStep} and \code{latStep} if \code{coarseR = TRUE}.}
 
   \item{PCA}{if \code{nPC != NULL}, the eigenvalues, explained variance,
     and accumulated variance will be stored here.}
@@ -278,9 +282,9 @@ HiClimR(
   \item{coords}{an (\code{Nc} rows by \code{2} columns) matrix of 'double' values:
     longitude and latitude coordinates for the preprocessed data used for clustering, 
     where \code{NC} is the number of spatial elements to be clustered after coarsening 
-    spatial resolution by \code{lonSkip} and \code{latSkip}. It will be returned only 
+    spatial resolution by \code{lonStep} and \code{latStep}. It will be returned only 
     if \code{lon} and \code{lat} vectors were defined. It will be similar to the provided 
-    \code{lon} and \code{lat} if \code{lonSkip = 1} and \code{latSkip = 1}.}
+    \code{lon} and \code{lat} if \code{lonStep = 1} and \code{latStep = 1}.}
 
   \item{data}{the preprocessed data used for clustering will be stored here. 
     If \code{rawData = TRUE} and {nPC != NULL}, the preprocessed data without
@@ -312,15 +316,15 @@ HiClimR(
     is less than the \code{minSize} minmum cluster size. The sum of 
     \code{clustFlag} elements represents the selected number clusters.}
 
-  \item{interCor}{inter-cluster correlations for all selected regions. It is 
-    the intra-cluster correlations between the mean of each cluster and its 
-    members. The average intra-cluster correlation is a weighted average for 
-    all clusters, and it is a measure for homogeneity.}
-
-  \item{intraCor}{intra-cluster correlations for all selected regions. It is
+  \item{interCor}{inter-cluster correlations for all selected regions. It is
     the inter-cluster correlations between cluster means. The maximum inter-cluster 
     correlation is a measure for separation or contiguity, and it is 
     used for objective tree cut (to find the "optimal" number of clusters).}
+
+  \item{intraCor}{intra-cluster correlations for all selected regions. It is 
+    the intra-cluster correlations between the mean of each cluster and its 
+    members. The average intra-cluster correlation is a weighted average for 
+    all clusters, and it is a measure for homogeneity.}
 
   \item{diffCor}{difference between intra-cluster correlation and maximum 
   	inter-cluster correlation for all selected regions.}
@@ -451,17 +455,20 @@ require(HiClimR)
 # Typical use of HiClimR:                                       #
 #---------------------------------------------------------------#
 
-## Load test case data
-x <- TestCase$x
+## Load the test data included/loaded in the package (1 degree resolution)
+x <- TestCase$x ; lon <- TestCase$lon ; lat <- TestCase$lat
 
-## Generate longitude and latitude mesh vectors
+## To replicate the results using original test data (0.5 degree resolution)
+#load("HiClimR-test.RData")
+
+## Generate/check longitude and latitude mesh vectors for gridded data
 xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
 ## Hierarchical Climate Regionalization
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=FALSE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,
@@ -475,7 +482,7 @@ y <- HiClimR(x,
 
 ## Use Ward's method
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=FALSE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,
@@ -484,7 +491,7 @@ y <- HiClimR(x,
   plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
 ## Use hybrid Ward-Regional method
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=FALSE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,
@@ -508,7 +515,7 @@ lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
 ## Coarsening spatial resolution 
-xc <- coarseR(x=x, lon=lon, lat=lat, lonSkip=2, latSkip=2)
+xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=2, latStep=2)
 lon <- xc$lon
 lat <- xc$lat
 x <- xc$x
@@ -527,7 +534,7 @@ gMask <- geogMask(continent="Africa", lon=lon, lat=lat, plot=TRUE, colPalette=NU
 ## Hierarchical Climate Regionalization
 ## Without geographic masking
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=FALSE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,
@@ -536,7 +543,7 @@ y <- HiClimR(x,
   plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
 ## With geographic masking (specify the mask produced bove to save time)
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=TRUE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,

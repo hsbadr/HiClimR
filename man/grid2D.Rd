@@ -18,11 +18,11 @@ grid2D(lon=lon, lat=lat)
 \arguments{
   \item{lon}{a vector of unique longitudes with length \code{n}.
   For gridded data, \code{n * m = N} where m is the length of
-  unique latitudes and N is the total number od spatial elements.}
+  unique latitudes and N is the total number of spatial elements.}
 
   \item{lat}{a vector of unique latitudes with length \code{m}.
   For gridded data, \code{n * m = N} where n is the length of
-  unique longitudes and N is the total number od spatial elements.}
+  unique longitudes and N is the total number of spatial elements.}
 }
 \value{
   A list with the following components:

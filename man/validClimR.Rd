@@ -65,15 +65,15 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
     is less than the \code{minSize} minmum cluster size. The sum of 
     \code{clustFlag} elements represents the selected number clusters.}
 
-  \item{interCor}{inter-cluster correlations for all selected regions. It is 
-    the intra-cluster correlations between the mean of each cluster and its 
-    members. The average intra-cluster correlation is a weighted average for 
-    all clusters, and it is a measure for homogeneity.}
-
-  \item{intraCor}{intra-cluster correlations for all selected regions. It is
+  \item{interCor}{inter-cluster correlations for all selected regions. It is
     the inter-cluster correlations between cluster means. The maximum inter-cluster 
     correlation is a measure for separation or contiguity, and it is 
     used for objective tree cut (to find the "optimal" number of clusters).}
+
+  \item{intraCor}{intra-cluster correlations for all selected regions. It is 
+    the intra-cluster correlations between the mean of each cluster and its 
+    members. The average intra-cluster correlation is a weighted average for 
+    all clusters, and it is a measure for homogeneity.}
 
   \item{diffCor}{difference between intra-cluster correlation and maximum 
   	inter-cluster correlation for all selected regions.}
@@ -174,7 +174,7 @@ lat <- c(xGrid$lat)
 
 ## Hierarchical Climate Regionalization
 y <- HiClimR(x, 
-  lon=lon, lat=lat, lonSkip=1, latSkip=1,
+  lon=lon, lat=lat, lonStep=1, latStep=1,
   geogMask=FALSE, continent="Africa", 
   meanThresh=10, varThresh=0,
   detrend=TRUE, standardize=TRUE, nPC=NULL,

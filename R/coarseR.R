@@ -1,4 +1,4 @@
-# $Id: coarseR.R, v 1.1.2 2014/07/26 12:07:00 EPS JHU $                #
+# $Id: coarseR.R, v 1.1.3 2014/08/28 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -25,13 +25,14 @@
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
 # Function: Coarsening spatial resolution for gridded data             #
 #----------------------------------------------------------------------#
 
-coarseR <- function (x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)
+coarseR <- function (x=x, lon=lon, lat=lat, lonStep=1, latStep=1)
 {
     xc <- list()
     xc$lon <- lon
@@ -48,18 +49,18 @@ coarseR <- function (x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)
 	    
 	    rownames(x) <- paste(c(xGrid$lon), c(xGrid$lat), sep=",")
     		
-    	    lon1 <- lon0[seq(1, length(lon0), by=lonSkip)]
-   	    lat1 <- lat0[seq(1, length(lat0), by=latSkip)]
+    	    lon1 <- lon0[seq(1, length(lon0), by=lonStep)]
+   	    lat1 <- lat0[seq(1, length(lat0), by=latStep)]
 	    
     	    xc$lon <- c(grid2D(lon1, lat1)$lon)
     	    xc$lat <- c(grid2D(lon1, lat1)$lat)
     		
-    	    if (lonSkip > 1 || latSkip > 1)
+    	    if (lonStep > 1 || latStep > 1)
     	    {
     	    	xc$x <- x[which(rownames(x) %in% paste(xc$lon, xc$lat, sep=",")),]
     	    }
     	} else {
-    	    if (lonSkip > 1 || latSkip > 1)
+    	    if (lonStep > 1 || latStep > 1)
     	    {
                 write("	warning: ungridded data is not supported for coarsening!", "")
             }

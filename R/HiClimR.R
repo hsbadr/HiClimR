@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v 1.1.2 2014/07/26 12:07:00 EPS JHU $                #
+# $Id: HiClimR.R, v 1.1.3 2014/08/28 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This is the main function of                                         #
 # HiClimR (Hierarchical Climate Regionalization) R package             #
@@ -42,7 +42,7 @@
 #  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             #
 #  Hierarchical Climate Regionalization: An Improved Hierarchical      #
 #  Clustering in R for Climate Regionalization. R package version,     #
-#  1.1.0, http://cran.r-project.org/package=HiClimR.                   #
+#  1.1.3, http://cran.r-project.org/package=HiClimR.                   #
 #----------------------------------------------------------------------#
 # Clustering Methods:                                                  #
 #                                                                      #
@@ -97,6 +97,7 @@
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -109,7 +110,7 @@ HiClimR <- function (
     x, 
     
     # Coarsening spatial resolution
-    lon=NULL, lat=NULL, lonSkip=1, latSkip=1,
+    lon=NULL, lat=NULL, lonStep=1, latStep=1,
     
     # Geographic masking:
     geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL, 
@@ -135,12 +136,12 @@ HiClimR <- function (
     write("PROCESSING STARTED", "")
 
     # Coarsening spatial resolution
-    if (lonSkip > 1 && latSkip > 1)
+    if (lonStep > 1 && latStep > 1)
     {
 	write("Coarsening spatial resolution...", "")
-	    xc <- coarseR(x=x, lon=lon, lat=lat, lonSkip=lonSkip, latSkip=latSkip)
+	    xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=lonStep, latStep=latStep)
     } else {
-	xc <- coarseR(x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)	
+	xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)	
     }
     lon <- xc$lon
     lat <- xc$lat
@@ -379,8 +380,8 @@ HiClimR <- function (
                  dist.method = "correlation")
     class(tree) <- "hclust"
         
-    tree$skip <- c(lonSkip, latSkip)
-    names(tree$skip) <- c('lonSkip', 'latSkip')
+    tree$skip <- c(lonStep, latStep)
+    names(tree$skip) <- c('lonStep', 'latStep')
 	
     if (!is.null(nPC))
     {

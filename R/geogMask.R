@@ -1,4 +1,4 @@
-# $Id: geogMask.R, v 1.1.2 2014/07/26 12:07:00 EPS JHU $               #
+# $Id: geogMask.R, v 1.1.3 2014/08/28 12:07:00 EPS JHU $               #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -25,6 +25,7 @@
 #  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -34,60 +35,62 @@
 # Function: Geographic mask for an area from longitude and latitute
 geogMask <- function (continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL, InDispute=TRUE, plot=FALSE, colPalette=NULL)
 {
+    # Get World mask from LazyData (to avoid spurious R check notes for some flavors!)
+    wMask <- get('WorldMask', envir=.GlobalEnv)
     
     if (is.null(continent) && is.null(region) && is.null(country))
     {
         gMask <- list()
-        gMask$continent <- unique(sort(WorldMask$info[,7]))
-        gMask$region <- unique(sort(WorldMask$info[,6]))
-        gMask$country <- unique(as.character(sort(WorldMask$info[!is.na(WorldMask$info[,3]),3])))
+        gMask$continent <- unique(sort(wMask$info[,7]))
+        gMask$region <- unique(sort(wMask$info[,6]))
+        gMask$country <- unique(as.character(sort(wMask$info[!is.na(wMask$info[,3]),3])))
     } else {
 
         if (is.null(lon) || is.null(lat) || length(lon) != length(lat)) stop("invalid coordinates")
 
         if (!is.null(continent))
         {
-            area <- which(WorldMask$info[,7] %in% continent)
+            area <- which(wMask$info[,7] %in% continent)
 
             if (length(area) < 1) stop("invalid continent")
 
         } else if (!is.null(region)) {
-            area <- which(WorldMask$info[,6] %in% region)
+            area <- which(wMask$info[,6] %in% region)
 
             if (length(area) < 1) stop("invalid region")
 
         } else if (!is.null(country)) {
-            area <- which(WorldMask$info[,3] %in% country)
+            area <- which(wMask$info[,3] %in% country)
 
             if (length(area) < 1) stop("invalid country")
 
             for (i in 1:length(area))
             {
-                area <- union(area, which(gregexpr(pattern = WorldMask$info[area[i],3], WorldMask$info[,1]) != -1))
+                area <- union(area, which(gregexpr(pattern = wMask$info[area[i],3], wMask$info[,1]) != -1))
             }
             
             # Areas in dispute
-            InDisputeArea <- which(gregexpr(pattern ='In dispute', WorldMask$info[,1]) != -1)
+            InDisputeArea <- which(gregexpr(pattern ='In dispute', wMask$info[,1]) != -1)
             if (InDispute)
             {
-                    area <- union(area, InDisputeArea[which(grepl(WorldMask$info[243,1], WorldMask$info[InDisputeArea,1]))])
+                    area <- union(area, InDisputeArea[which(grepl(wMask$info[243,1], wMask$info[InDisputeArea,1]))])
             }
         }
 
-        dx <- as.numeric(rownames(WorldMask$mask))[2] - as.numeric(rownames(WorldMask$mask))[1]
-        dy <- as.numeric(colnames(WorldMask$mask))[2] - as.numeric(colnames(WorldMask$mask))[1]
+        dx <- as.numeric(rownames(wMask$mask))[2] - as.numeric(rownames(wMask$mask))[1]
+        dy <- as.numeric(colnames(wMask$mask))[2] - as.numeric(colnames(wMask$mask))[1]
 
         rx <- abs(as.integer(round(log(dx, 10))))
         ry <- abs(as.integer(round(log(dy, 10))))
 
-        i <- (round(lon, rx) - as.numeric(rownames(WorldMask$mask))[1]) / dx + 1
-        j <- (round(lat, ry) - as.numeric(colnames(WorldMask$mask))[1]) / dy + 1
+        i <- (round(lon, rx) - as.numeric(rownames(wMask$mask))[1]) / dx + 1
+        j <- (round(lat, ry) - as.numeric(colnames(wMask$mask))[1]) / dy + 1
 
-        #gMask <- seq(1,length(lon))[-which(diag(WorldMask$mask[i,j]) %in% area)]
+        #gMask <- seq(1,length(lon))[-which(diag(wMask$mask[i,j]) %in% area)]
         gMask <- NULL
         for (nn in 1:length(lon))
         {
-                nnMask <- ifelse(is.na(WorldMask$mask[i[nn],j[nn]]), -999, WorldMask$mask[i[nn],j[nn]])
+                nnMask <- ifelse(is.na(wMask$mask[i[nn],j[nn]]), -999, wMask$mask[i[nn],j[nn]])
                 if (!any(area == nnMask))
                 {
                         gMask <- c(gMask, nn)

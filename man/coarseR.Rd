@@ -7,13 +7,13 @@
 
 \name{coarseR}
 \title{Coarsening spatial resolution for gridded data}
-\alias{coarseR}
+\alias{coarseR} 
 \description{
   \code{\link{coarseR}} is a helper function that helps coarsening spatial 
   resolution of the input matrix for the \code{\link{HiClimR}} function. 
 }
 \usage{
-coarseR(x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)
+coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)
 }
 \arguments{
   \item{x}{an (\code{N} rows by \code{M} columns) matrix of 'double' values: 
@@ -29,13 +29,17 @@ coarseR(x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)
 
   \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
-  \item{lonSkip}{an integer greater than or equal to \code{1} for longitdue 
-  step to coarsen the data. If \code{lonStep = 1}, the data will not be coarsened
-  in the longitudinal dimension.}
+  \item{lonStep}{an integer greater than or equal to \code{1} for longitdue 
+  step to coarsen gridded data in the longitudinal direction. If \code{lonStep = 1}, 
+  gridded data will not be coarsened in the longitudinal direction (the default).
+  If \code{lonStep = 2}, every other grid in longitudinal direction will be retained.}
   
-  \item{latSkip}{an integer greater than or equal to \code{1} for latitude 
-  step to coarsen the data. If \code{lonStep = 1}, the data will not be coarsened
-  in the latitudinal dimension.}
+  \item{latStep}{an integer greater than or equal to \code{1} for latitude 
+  step to coarsen gridded data in the latitudinal direction. If \code{latStep = 1}, 
+  gridded data will not be coarsened in the latitudinal direction (the default). 
+  If \code{latStep = 2}, every other grid in latitudinal direction will be retained.
+  \code{lonStep} and \code{latStep} are independent so that user can optionally 
+  apply different coarsening level to each dimension.}
 }
 \value{
   A list with the following components:
@@ -52,7 +56,7 @@ coarseR(x=x, lon=lon, lat=lat, lonSkip=1, latSkip=1)
   spatial dimension:longitude, latitude, or both. It is available  for testing
   the \code{HiClimR} package on old computers or machines with small memory 
   resources. The rows of output matrix (\code{x} component) will be also named 
-  by longitude and latitude coordinates. If \code{lonSkip = 1} and \code{latSkip = 1}, 
+  by longitude and latitude coordinates. If \code{lonStep = 1} and \code{latStep = 1}, 
   \code{\link{coarseR}} function will rename rows of matrix \code{x}.
 }
 \references{
@@ -82,7 +86,7 @@ lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
 ## Coarsening spatial resolution
-xc <- coarseR(x=x, lon=lon, lat=lat, lonSkip=2, latSkip=2)
+xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=2, latStep=2)
 lon <- xc$lon
 lat <- xc$lat
 x <- xc$x
