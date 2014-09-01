@@ -1,4 +1,4 @@
-# $Id: grid2D.R, v 1.1.3 2014/08/28 12:07:00 EPS JHU $                 #
+# $Id: grid2D.R, v 1.1.4 2014/09/01 12:07:00 EPS JHU $                 #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -26,6 +26,7 @@
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#

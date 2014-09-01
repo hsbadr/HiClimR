@@ -42,15 +42,13 @@
 !  variability. It is applicable to any correlation-based clustering.  !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !                                                                      !
-!  References:                                                         !
+!                                                                      !                                                         !  References:                                                         !
 !                                                                      !
 !  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             !
 !  Hierarchical Climate Regionalization: An Improved Hierarchical      !
 !  Clustering in R for Climate Regionalization. R package version,     !
-!  1.1.3, http://cran.r-project.org/package=HiClimR.                   !
-!                                                                      !                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!  1.1.4, http://cran.r-project.org/package=HiClimR.                   !
+!                                                                      !                                                         !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
 !  Clustering Methods:                                                 !
 !                                                                      !
@@ -134,6 +132,7 @@
 !  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
+!  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !

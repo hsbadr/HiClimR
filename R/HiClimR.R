@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v 1.1.3 2014/08/28 12:07:00 EPS JHU $                #
+# $Id: HiClimR.R, v 1.1.4 2014/09/01 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This is the main function of                                         #
 # HiClimR (Hierarchical Climate Regionalization) R package             #
@@ -42,7 +42,7 @@
 #  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             #
 #  Hierarchical Climate Regionalization: An Improved Hierarchical      #
 #  Clustering in R for Climate Regionalization. R package version,     #
-#  1.1.3, http://cran.r-project.org/package=HiClimR.                   #
+#  1.1.4, http://cran.r-project.org/package=HiClimR.                   #
 #----------------------------------------------------------------------#
 # Clustering Methods:                                                  #
 #                                                                      #
@@ -98,6 +98,7 @@
 #  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#
@@ -141,7 +142,7 @@ HiClimR <- function (
 	write("Coarsening spatial resolution...", "")
 	    xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=lonStep, latStep=latStep)
     } else {
-	xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)	
+        xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)	
     }
     lon <- xc$lon
     lat <- xc$lat
@@ -276,7 +277,12 @@ HiClimR <- function (
     # Re-adding the mean for nonstandardized data (July 26, 2014)
     if (!standardize)
     {
-        x <- x + xmean[-mask]
+        if (length(mask) > 0)
+        {
+            x <- x + xmean[-mask]
+        } else {
+            x <- x + xmean        
+        }
     }
 
     # Reconstruct data from PCs if requested
