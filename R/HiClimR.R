@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v 1.1.4 2014/09/01 12:07:00 EPS JHU $                #
+# $Id: HiClimR.R, v 1.1.5 2014/11/12 12:07:00 EPS JHU $                #
 #----------------------------------------------------------------------#
 # This is the main function of                                         #
 # HiClimR (Hierarchical Climate Regionalization) R package             #
@@ -31,18 +31,13 @@
 #  for a user-specified confidence level. These include options for    #
 #  preprocessing and postprocessing as well as efficient code          #
 #  execution for large datasets.                                       #
-#  Badr et. al (2014) describes the regionalization algorithms and     #
-#  data processing tools included in the package and presents          #
-#  a demonstration application in which the package is used to         #
-#  regionalize Africa on the basis of interannual precipitation        #
-#  variability. It is applicable to any correlation-based clustering.  #
+#  It is applicable to any correlation-based clustering.               #
 #----------------------------------------------------------------------#
 # References:                                                          #
 #                                                                      #
 #  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             #
-#  Hierarchical Climate Regionalization: An Improved Hierarchical      #
-#  Clustering in R for Climate Regionalization. R package version,     #
-#  1.1.4, http://cran.r-project.org/package=HiClimR.                   #
+#  Hierarchical Climate Regionalization. CRAN,                         #
+#  http://cran.r-project.org/package=HiClimR.                          #
 #----------------------------------------------------------------------#
 # Clustering Methods:                                                  #
 #                                                                      #
@@ -99,6 +94,7 @@
 #  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
 # COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
 #----------------------------------------------------------------------#

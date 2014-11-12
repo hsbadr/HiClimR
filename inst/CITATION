@@ -1,21 +1,20 @@
 citHeader("To cite HiClimR in publications use:")
 
 citEntry(entry = "Article",
-  title        = "Hierarchical Climate Regionalization: An Improved Hierarchical Clustering in R for Climate Regionalization",
+  title        = "Hierarchical Climate Regionalization",
   author       = c(
                 person("Hamada S.", "Badr", email="badr@jhu.edu", role = c("aut", "cre"),
                 comment = "development, enhancements, speed improvements, bug fixes"),
                 person("Benjamin F.", "Zaitchik", email="zaitchik@jhu.edu", role="aut"),
                 person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
                  ),
-  journal      = "R package version",
-  pages        = "1.1.4",
+  journal      = "CRAN",
   year         = "2014",
   url          = "http://cran.r-project.org/package=HiClimR",
 
   textVersion  =
   paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):",
-        "Hierarchical Climate Regionalization: An Improved Hierarchical Clustering in R for Climate Regionalization,",
-        "R package version, 1.1.4,",
+        "Hierarchical Climate Regionalization,",
+        "CRAN,",
         "http://cran.r-project.org/package=HiClimR.")
 )
