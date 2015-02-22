@@ -38,7 +38,7 @@
 !                                                                      !                                        
 !  References:                                                         !
 !                                                                      !
-!  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).             !
+!  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).             !
 !  Hierarchical Climate Regionalization. CRAN,                         !
 !  http://cran.r-project.org/package=HiClimR.                          !
 !                                                                      !
@@ -84,7 +84,7 @@
 !               File src/library/stats/src/hclust.f                    !
 !  Part of the R package, http://www.R-project.org                     !
 !                                                                      !
-!  Copyright(C)  1995-2014  The R Core Team                            !
+!  Copyright(C)  1995-2015  The R Core Team                            !
 !                                                                      !
 !  This program is free software; you can redistribute it and/or       !
 !  modify it under the terms of the GNU General Public License as      !
@@ -128,10 +128,12 @@
 !  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
 !  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
+!----------------------------------------------------------------------!
+!  1.1.6    |  22/02/15  |  GitHub    |  Hamada Badr  |  badr@jhu.edu  !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !
-!  COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.       !
+! COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.      !
 !                                                                      !
 !++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                      !

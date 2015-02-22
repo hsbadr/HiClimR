@@ -1,6 +1,6 @@
 % File man/HiClimR.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
@@ -37,7 +37,7 @@ An Improved Hierarchical Clustering in R for Climate Regionalization}
   level. These include options for preprocessing and postprocessing as well as efficient
   code execution for large datasets.
   
-  Badr et. al (2014) describes the regionalization algorithms and data processing tools
+  Badr et. al (2015) describes the regionalization algorithms and data processing tools
   included in the package and presents a demonstration application in which the package is
   used to regionalize Africa on the basis of interannual precipitation variability.
   
@@ -202,7 +202,7 @@ HiClimR(
   \item{rawStats}{a logical: should validation indices be computed based on 
   the raw data or PCA-filtered data?}
 
-  \item{k}{\code{NULL} or an integer for the number of regions/clusters. 
+  \item{k}{\code{NULL} or an integer \code{k > 1} for the number of regions/clusters. 
   Only for \code{regional} linkage method, \code{k = NULL} is supported, where the 
   "optimal" number of regions will be used at a user specified significance 
   level \code{alpha}. It is required to specify number of clusters \code{k} 
@@ -358,7 +358,7 @@ HiClimR(
 
   The different clustering methods provided by \code{\link{hclust}}) are 
   available. The \emph{regional} linkage clustering method mainimizes inter-cluster 
-  correlations between cluster means (see \code{Badr et al. 2014}). 
+  correlations between cluster means (see \code{Badr et al. 2015}). 
   \emph{Ward's} minimum variance method aims at finding compact, spherical clusters. 
   The \emph{complete linkage} method finds similar clusters. The \emph{single 
   linkage} method (which is closely related to the minimal spanning tree) 
@@ -396,10 +396,9 @@ HiClimR(
   observation sequence number.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 
   Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
   \emph{The New S Language}.
@@ -451,113 +450,107 @@ HiClimR(
 \examples{
 require(HiClimR)
 
-#---------------------------------------------------------------#
-# Typical use of HiClimR:                                       #
-#---------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
+# Typical use of HiClimR:                                                          #
+#----------------------------------------------------------------------------------#
 
 ## Load the test data included/loaded in the package (1 degree resolution)
-x <- TestCase$x ; lon <- TestCase$lon ; lat <- TestCase$lat
+x <- TestCase$x
 
-## To replicate the results using original test data (0.5 degree resolution)
-#load("HiClimR-test.RData")
+lon <- TestCase$lon
+lat <- TestCase$lat
 
 ## Generate/check longitude and latitude mesh vectors for gridded data
-xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
+
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
 ## Hierarchical Climate Regionalization
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=FALSE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="regional", hybrid=FALSE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
-#---------------------------------------------------------------#
-# Additional Examples:                                          #
-#---------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
+# Additional Examples:                                                             #
+#----------------------------------------------------------------------------------#
+
 
 ## Use Ward's method
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=FALSE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="ward", hybrid=FALSE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
+    members = NULL, validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
 ## Use hybrid Ward-Regional method
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=FALSE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="ward", hybrid=TRUE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL, 
+    members = NULL, validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## Check senitivity to kH for the hybrid method above
 
-#---------------------------------------------------------------#
-# Advanced examples to provide more information about code      #
-# functionality and usage of the available helper functions     #
-# that can be used separately or for other applications.        #
-#---------------------------------------------------------------#
+#----------------------------------------------------------------------------------#
+# Advanced examples to provide more information about code                         #
+# functionality and usage of the available helper functions                        #
+# that can be used separately or for other applications.                           #
+#----------------------------------------------------------------------------------#
 
 ## Load test case data
 x <- TestCase$x
 
 ## Generate longitude and latitude mesh vectors
-xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
-## Coarsening spatial resolution 
-xc <- coarseR(x=x, lon=lon, lat=lat, lonStep=2, latStep=2)
+## Coarsening spatial resolution
+xc <- coarseR(x = x, lon = lon, lat = lat, lonStep = 2, latStep = 2)
 lon <- xc$lon
 lat <- xc$lat
 x <- xc$x
 
 ## Use fastCor function to compute the correlation matrix
-t0 <- proc.time() ; xcor <- fastCor(t(x)) ; proc.time() - t0
+t0 <- proc.time()
+xcor <- fastCor(t(x))
+proc.time() - t0
 ## compare with cor function
-t0 <- proc.time() ; xcor0 <- cor(t(x)) ; proc.time() - t0
+t0 <- proc.time()
+xcor0 <- cor(t(x))
+proc.time() - t0
 
 ## Check the valid options for geographic masking
 geogMask()
 
 ## geographic mask for Africa
-gMask <- geogMask(continent="Africa", lon=lon, lat=lat, plot=TRUE, colPalette=NULL)
+gMask <- geogMask(continent = "Africa", lon = lon, lat = lat, plot = TRUE, 
+    colPalette = NULL)
 
-## Hierarchical Climate Regionalization
-## Without geographic masking
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=FALSE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="regional", hybrid=FALSE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+## Hierarchical Climate Regionalization Without geographic masking
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
 ## With geographic masking (specify the mask produced bove to save time)
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=TRUE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="regional", hybrid=FALSE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = TRUE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Find minimum significant correlation at 95% confidence level
-rMin <- minSigCor(n=nrow(x), alpha=0.05, r=seq(0, 1, by=1e-6))
+rMin <- minSigCor(n = nrow(x), alpha = 0.05, r = seq(0, 1, by = 1e-06))
 
 ## Validtion of Hierarchical Climate Regionalization
-z <- validClimR(y, k=NULL, minSize=1, alpha=0.01, plot=TRUE, colPalette=NULL)
+z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, plot = TRUE, colPalette = NULL)
+
 ## Apply minimum cluster size (minSize = 25)
-z <- validClimR(y, k=NULL, minSize=25, alpha=0.01, plot=TRUE, colPalette=NULL)
+z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, plot = TRUE, colPalette = NULL)
 
 ## The optimal number of clusters, including small clusters
 k <- length(z$clustFlag)
@@ -566,20 +559,19 @@ k <- length(z$clustFlag)
 ks <- sum(z$clustFlag)
 
 ## Dendrogram plot
-plot(y, hang=-1, labels=FALSE)
+plot(y, hang = -1, labels = FALSE)
 
 ## Tree cut
-cutTree <- cutree(y, k=k)
+cutTree <- cutree(y, k = k)
 table(cutTree)
 
 ## Visualization for gridded data
-RegionsMap <- matrix(z$region, nrow=length(unique(y$coords[,1])), byrow=TRUE)
-colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
-  "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
-image(unique(y$coords[,1]), unique(y$coords[,2]), RegionsMap, col=colPalette(ks))
+RegionsMap <- matrix(z$region, nrow = length(unique(y$coords[, 1])), byrow = TRUE)
+colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan", 
+    "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
+image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette(ks))
 
 ## Visualization for gridded or ungridded data
-plot(y$coords[,1], y$coords[,2], col=z$region, pch=20)
-
+plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
 }
 \keyword{HiClimR}

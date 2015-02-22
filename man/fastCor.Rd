@@ -1,6 +1,6 @@
 % File man/fastCor.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
@@ -36,10 +36,9 @@ fastCor(xt)
   such as ATLAS, OpenBLAS, or the commercial Intel Math Kernel Library.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 
@@ -60,6 +59,5 @@ x <- TestCase$x
 t0 <- proc.time() ; xcor <- fastCor(t(x)) ; proc.time() - t0
 ## compare with cor function
 t0 <- proc.time() ; xcor0 <- cor(t(x)) ; proc.time() - t0
-
 }
 \keyword{HiClimR}

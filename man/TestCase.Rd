@@ -1,6 +1,6 @@
 % File man/TestCase.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \name{TestCase}
@@ -35,10 +35,9 @@ data(TestCase)
   variations in other phenomena.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 
   Harris, I., Jones, P., Osborn, T., and Lister, D.: Updated high-resolution grids of monthly
   climatic observations-the CRU TS3.10 Dataset, International journal of climatology, 2013.

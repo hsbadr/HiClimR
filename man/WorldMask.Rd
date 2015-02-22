@@ -1,6 +1,6 @@
 % File man/WorldMask.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \name{WorldMask}
@@ -35,12 +35,11 @@ data(WorldMask)
   International Boundaries (LSIB) dataset.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 
-  LSIB Data: \url{http://hiu.state.gov/data/data.aspx}.
+  LSIB Data: \url{https://hiu.state.gov/data/}.
 }
 \examples{
 require(HiClimR)

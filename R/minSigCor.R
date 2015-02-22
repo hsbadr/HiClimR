@@ -1,4 +1,4 @@
-# $Id: minSigCor.R, v 1.1.5 2014/11/12 12:07:00 EPS JHU $              #
+# $Id: minSigCor.R, v1.1.6 2015/02/22 12:00:00 hsbadr EPS JHU          #
 #----------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                        #
 #----------------------------------------------------------------------#
@@ -29,21 +29,22 @@
 #  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
 #----------------------------------------------------------------------#
-# COPYRIGHT(C) Department of Earth and Planetary Sciences, JHU.        #
+#  1.1.6    |  22/02/15  |  GitHub    |  Hamada Badr  |  badr@jhu.edu  #
+#----------------------------------------------------------------------#
+# COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.      #
 #----------------------------------------------------------------------#
 # Function: Minimum significant correlation for a sample size          #
 #----------------------------------------------------------------------#
 
-minSigCor <- function (n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
-{
+minSigCor <- function(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-06)) {
+
     dof <- n - 2
-    Fstat <- r^2 * dof / (1 - r^2)
+    Fstat <- r^2 * dof/(1 - r^2)
     p.value <- 1 - pf(Fstat, 1, dof)
     p.value[p.value > alpha] <- NA
-    i <- which(p.value == max(p.value, na.rm=TRUE))
+    i <- which(p.value == max(p.value, na.rm = TRUE))
     
-    RsMin <- list(cor=r[i], p.value=p.value[i])
-
+    RsMin <- list(cor = r[i], p.value = p.value[i])
+    
     return(RsMin)
 }
-

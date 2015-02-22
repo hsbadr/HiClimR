@@ -9,11 +9,11 @@ citEntry(entry = "Article",
                 person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
                  ),
   journal      = "CRAN",
-  year         = "2014",
+  year         = "2015",
   url          = "http://cran.r-project.org/package=HiClimR",
 
   textVersion  =
-  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):",
+  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):",
         "Hierarchical Climate Regionalization,",
         "CRAN,",
         "http://cran.r-project.org/package=HiClimR.")

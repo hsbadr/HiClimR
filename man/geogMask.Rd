@@ -1,6 +1,6 @@
 % File man/geogMask.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
@@ -88,7 +88,7 @@ require(HiClimR)
 x <- TestCase$x
 
 ## Generate longitude and latitude mesh vectors
-xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
@@ -96,8 +96,6 @@ lat <- c(xGrid$lat)
 geogMask()
 
 ## geographic mask for Africa
-gMask <- geogMask(continent="Africa", lon=lon, lat=lat, 
-  plot=TRUE, colPalette=NULL)
-
+gMask <- geogMask(continent = "Africa", lon = lon, lat = lat, plot = TRUE)
 }
 \keyword{HiClimR}

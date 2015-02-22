@@ -1,6 +1,6 @@
 % File man/validClimR.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
@@ -18,7 +18,7 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
 \arguments{
   \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}
 
-  \item{k}{\code{NULL} or a n integer for the number of regions/clusters. 
+  \item{k}{\code{NULL} or a n integer \code{k > 1} for the number of regions/clusters. 
   Only for \code{regional} linkage method, \code{k = NULL} is supported, where the 
   "optimal" number of regions will be used at a user specified significance 
   level \code{alpha}. It is required to specify number of clusters \code{k} 
@@ -111,10 +111,9 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
   control step before repeating the analysis. 
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 
   Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
   \emph{The New S Language}.
@@ -168,32 +167,30 @@ require(HiClimR)
 x <- TestCase$x
 
 ## Generate longitude and latitude mesh vectors
-xGrid <- grid2D(lon=unique(TestCase$lon), lat=unique(TestCase$lat))
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
 ## Hierarchical Climate Regionalization
-y <- HiClimR(x, 
-  lon=lon, lat=lat, lonStep=1, latStep=1,
-  geogMask=FALSE, continent="Africa", 
-  meanThresh=10, varThresh=0,
-  detrend=TRUE, standardize=TRUE, nPC=NULL,
-  method="regional", hybrid=FALSE, kH=NULL, members=NULL,
-  validClimR=TRUE, k=NULL, minSize=1, alpha=0.01, 
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE)
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Validtion of Hierarchical Climate Regionalization
-z <- validClimR(y, k=NULL, minSize=1, alpha=0.01, plot=TRUE, colPalette=NULL)
+z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, plot = TRUE)
+
 ## Use a specified number of clusters (k = 12)
-z <- validClimR(y, k=12, minSize=1, alpha=0.01, plot=TRUE, colPalette=NULL)
+z <- validClimR(y, k = 12, minSize = 1, alpha = 0.01, plot = TRUE)
+
 ## Apply minimum cluster size (minSize = 25)
-z <- validClimR(y, k=NULL, minSize=25, alpha=0.01, plot=TRUE, colPalette=NULL)
+z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, plot = TRUE)
 
 ## The optimal number of clusters, including small clusters
 k <- length(z$clustFlag)
 
 ## The selected number of clusters, after excluding small clusters (if minSize > 1)
 ks <- sum(z$clustFlag)
-
 }
 \keyword{HiClimR}

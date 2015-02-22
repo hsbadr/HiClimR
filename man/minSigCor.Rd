@@ -1,6 +1,6 @@
 % File man/minSigCor.Rd
 % Part of the HiClimR R package
-% Copyright(C) 2013-2014 Department of Earth and Planetary Sciences, JHU.
+% Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
@@ -42,10 +42,9 @@ minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
   function objective tree cut based on the specified confidence level.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
+  Hierarchical Climate Regionalization. \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 
@@ -60,7 +59,6 @@ minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
 require(HiClimR)
 
 ## Find minimum significant correlation at 95% confidence level
-rMin <- minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
-
+rMin <- minSigCor(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-06))
 }
 \keyword{HiClimR}
