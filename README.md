@@ -18,5 +18,7 @@
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
 **Package Source:** [HiClimR_1.1.6.tar.gz](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR_1.1.6.tar.gz)
+
 **User Manual:** [HiClimR-manual.pdf](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-manual.pdf)
+
 **Test Data:** [HiClimR-test.RData](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-test.RData)
