@@ -146,7 +146,7 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
 ```
 
-**Package Source:** [HiClimR_1.1.6.tar.gz](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR_1.1.6.tar.gz)
+**Package Source:** [HiClimR_1.1.6.tar.gz](https://github.com/hsbadr/HiClimR)
 
 **User Manual:** [HiClimR-manual.pdf](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-manual.pdf)
 
