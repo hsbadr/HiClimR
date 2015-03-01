@@ -8,7 +8,7 @@ URL: https://github.com/hsbadr/HiClimR
 Depends: R (>= 2.10)
 Enhances: stats
 License: GPL (>= 2)
-Description: A tool for hierarchical climate regionalization applicable to any correlation-based clustering.
+Description: A tool for Hierarchical Climate Regionalization applicable to any correlation-based clustering.
              It adds several features and a new clustering method (called, `regional` linkage) to hierarchical 
              clustering in R (`hclust` function in `stats` library): regridding, coarsening spatial resolution,
              geographic masking, data filtering by thresholds, data preprocessing (detrending, standardization,
