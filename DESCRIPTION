@@ -1,6 +1,6 @@
 Package: HiClimR
 Version: 1.1.6
-Date: 2015-02-22
+Date: 2015-03-01
 Title: Hierarchical Climate Regionalization
 Author: Hamada S. Badr [aut, cre], Benjamin F. Zaitchik [aut], Amin K. Dezfuli [aut]
 Maintainer: Hamada S. Badr <badr@jhu.edu>
@@ -10,13 +10,13 @@ Enhances: stats
 License: GPL (>= 2)
 Description: A tool for hierarchical climate regionalization applicable to any correlation-based clustering.
              It adds several features and a new clustering method (called, regional linkage) to hierarchical 
-             clustering in R ('hclust' function in 'stats' library): regridding, coarsening spatial resolution,
+             clustering in R (`hclust` function in `stats` library): regridding, coarsening spatial resolution,
              geographic masking, data filtering by thresholds, data preprocessing (detrending, standardization,
              and PCA), faster correlation function, hybrid hierarchical clustering, and cluster validation.
-Packaged: 2015-02-22 23:51:24 UTC; Hamada
+Packaged: 2015-03-01 12:00:00 UTC; Hamada
 LazyData: yes
 LazyLoad: yes
 ByteCompile: yes
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2015-02-22 12:00:00
+Date/Publication: 2015-03-01 12:00:00
