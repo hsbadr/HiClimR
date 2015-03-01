@@ -136,7 +136,6 @@ cutTree <- cutree(y, k = k)
 table(cutTree)
 
 ## Visualization for gridded data
-
 RegionsMap <- matrix(z$region, nrow = length(unique(y$coords[, 1])), byrow = TRUE)
 colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
     "#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
