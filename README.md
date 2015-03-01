@@ -1,6 +1,6 @@
 # HiClimR
 ###A tool for **Hi**erarchical **Clim**ate **R**egionalization
-`HiClimR` adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library):
+`HiClimR` is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library):
 
 * regridding,
 * coarsening spatial resolution,
