@@ -17,6 +17,14 @@
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
+## Getting the Code
+
+[`HiClimR`](http://cran.r-project.org/package=HiClimR) is licensed under the GPL (>= 2). You can find our source code repository on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
+
+## Documentation
+
+For information on how to use [`HiClimR`](http://cran.r-project.org/package=HiClimR) check out [HiClimR manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples section bellow.
+
 ## Examples:
 
 ```R
@@ -144,10 +152,3 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 ## Visualization for gridded or ungridded data
 plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
 ```
-
-
-**Test Data:** [HiClimR-test.RData](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-test.RData)
-
-**User Manual:** [HiClimR-manual.pdf](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-manual.pdf)
-
-**Source Code:** [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR)
