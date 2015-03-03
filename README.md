@@ -15,15 +15,15 @@
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options.
 
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
-*[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
+*[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
 ## Getting the Code
 
-[`HiClimR`](http://cran.r-project.org/package=HiClimR) is licensed under the GPL (>= 2). You can find our source code repository on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under the GPL (>= 2). You can find our source code repository on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
 
 ## Documentation
 
-For information on how to use [`HiClimR`](http://cran.r-project.org/package=HiClimR) check out [HiClimR manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples section bellow.
+For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
 
 ## Examples:
 
