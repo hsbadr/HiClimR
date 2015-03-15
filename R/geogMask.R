@@ -109,7 +109,7 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL, lon = NULL
     }
     
     if (plot) {
-        if (length(lon) == length(unique(lon)) * length(unique(lat))) {
+        if (as.numeric(length(lon)) == as.numeric(length(unique(lon)) * length(unique(lat)))) {
             Regions <- rep(-1, length(lon))
             Regions[gMask] <- NA
             RegionsMap <- matrix(Regions, nrow = length(unique(lon)), byrow = TRUE)
