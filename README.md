@@ -5,6 +5,9 @@
 * data regridding
 * coarsening spatial resolution
 * geographic masking
+   * by continents
+   * by regions
+   * by countries
 * data filtering by thresholds:
     * `meanThresh` for mean
     * `varThresh` for variance
@@ -21,6 +24,9 @@
 * multi-variate clustering (MVC)
 * hybrid hierarchical clustering
 * cluster validation
+   * summary statistics
+   * objective tree cut
+* visualization
 
 ## Design and Implementation
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options.
