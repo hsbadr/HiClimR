@@ -77,7 +77,7 @@ There are many ways to install an R package from precombiled binareies of source
 
 #### From CRAN
 
-This is the easiest way to install an R package on **Linux**, **Mac**, or **Windows**. You just fire up an R shell and type:
+This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an R shell and type:
 
 ```R
         install.packages("HiClimR")
@@ -95,26 +95,18 @@ On **Linux** and **Mac**, you can download the source code and use `R CMD instal
         install.packages("devtools")
 ```
 
-2. Make sure you have a working development environment.
+2. Make sure you have a working development environment:
 
     * **Windows**: Install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
     * **Mac**: Install Xcode from the Mac App Store.
     * **Linux**: Install a compiler and various development libraries (details vary across different flavors of Linux).
 
-3. Follow the instructions below depending on platform.
+3. Install `HiClimR` from GitHub:
 
-    * **Mac and Linux**:
-
-        ```R
-        devtools::install_github("hsbadr/HiClimR")
-        ```
-
-    * **Windows**:
-
-        ```R
+```R
         library(devtools)
         install_github("hsbadr/HiClimR")
-        ```
+```
 
 ## Source
 
