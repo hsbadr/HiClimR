@@ -75,9 +75,11 @@ A copy of the GNU General Public License is available at http://www.r-project.or
 
 #### From CRAN
 
-This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an R shell and type:
+This is the easiest way to install an R package on **Linux**, **Mac**, or **Windows**. You just fire up an R shell and type:
 
 `> install.packages("devtools")`
+
+In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package.
 
 #### From Source
 
