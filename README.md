@@ -41,6 +41,13 @@
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
+#### 2014-03-14: version 1.0.1
+
+* Code cleanup and bug fixes.
+* It adds a new feature in `validCLimR` that enables users to exclude very small clusters from validation indices `interCor`, `intraCor`, `diffCor`, and `statSum`, by setting a value for the minimum cluster size (`minSize` parameter) greater than one.
+* The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters. In `HiClimR` method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements. This should be followed by a quality control step.
+* The function `coarseR` has been added for coarsening spatial resolution of the input matrix `x`.
+
 #### 2014-03-14: version 1.0.0
 * Initial version of `HiClimR` package that modifies the very efficient code of `hclust` function in the `stats` library.
 * It adds an improved clustering method (called, `HiClimR`) to the set of available methods.
