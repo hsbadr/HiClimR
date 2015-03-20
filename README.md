@@ -41,6 +41,14 @@
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
+#### 2014-03-14: version 1.0.3
+
+* Code cleanup and bug fixes.
+* The package has one main function `HiClimR`, which internally calls all other functions including `validClimR` function.
+* It has unified component names for all functions.
+* Objective tree cut is supported only for the `regional` linkage method. Otherwise, the number of clusters `k` should be specified.
+* The new clustering method has been renamed from `HiClimR` to `regional` linkage method.
+
 #### 2014-03-14: version 1.0.2
 
 * Code cleanup and bug fixes.
