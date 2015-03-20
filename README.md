@@ -8,6 +8,8 @@
 * data filtering by thresholds,
 * data preprocessing (detrending, standardization, and PCA),
 * faster correlation function,
+* preliminary big data support,
+* multi-variate clustering,
 * hybrid hierarchical clustering, and
 * cluster validation.
 
