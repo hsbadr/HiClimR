@@ -75,7 +75,7 @@ In theory the package should just install, however, you may be asked to select y
 
 #### From GitHub
 
-On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. However, this is intended for developers and requires a build environment (compilers, libraries, ... etc). In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools). To install it:
+On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. However, this is intended for developers and requires a build environment (compilers, libraries, ... etc). In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
 
 * Install the release version of `devtools` from CRAN:
 
