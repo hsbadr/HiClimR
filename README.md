@@ -34,6 +34,24 @@
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
+## License
+
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) <badr@jhu.edu> from src/library/stats/R/hclust.R part of [R package](http://www.R-project.org) Copyright(C) 1995-2015 The R Core Team.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+A copy of the GNU General Public License is available at http://www.r-project.org/Licenses.
+
+## Documentation
+
+For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
+
+## Source Code
+
+The source code repository can be found on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
+
 ## History
 
 |    Version    |     Date     |  Comment      |  Author          |  Email         |
@@ -104,24 +122,6 @@
 * The new `HiClimR` method modifies `average` update formulae by incorporating the standard deviation of the timeseries of the the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
 * Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
 * It is also applicable to any correlation-based clustering.
-
-## Source Code
-
-The source code repository can be found on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
-
-## License
-
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) <badr@jhu.edu> from src/library/stats/R/hclust.R part of [R package](http://www.R-project.org) Copyright(C) 1995-2015 The R Core Team.
-
-This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-A copy of the GNU General Public License is available at http://www.r-project.org/Licenses.
-
-## Documentation
-
-For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
 
 ## Examples:
 
