@@ -1,6 +1,6 @@
 # HiClimR
 ###A tool for **Hi**erarchical **Clim**ate **R**egionalization
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including...
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including:
 
 * data regridding
 * coarsening spatial resolution
@@ -33,6 +33,13 @@
 
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
+
+## Change Log
+
+#### 2014-05-06: 1.08    Hamada Badr <badr@jhu.edu>
+
+* Code cleanup and bug fixes.
+* Region maps are unified for both gridded and ungridded data.
 
 ## Getting the Code
 
