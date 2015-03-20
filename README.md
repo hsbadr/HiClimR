@@ -36,9 +36,9 @@ Table of Contents
    * splitting big data matrix
    * computing upper-triangular matrix
    * using optimized `BLAS` library on 64-Bit machines
-    * `ATLAS`
-    * `OpenBLAS`
-    * `Intel MKL` 
+           * `ATLAS`
+           * `OpenBLAS`
+           * `Intel MKL` 
 * preliminary big data support
    * considering memory-efficient algorithms
 * multi-variate clustering (MVC)
