@@ -36,10 +36,20 @@
 
 ## Change Log
 
-#### 2014-05-06: version 1.08
+#### 2014-05-06: version 1.0.8
 
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
+
+#### 2014-03-14: version 1.0.0
+* Initial version of `HiClimR` package that modifies the very efficient code of `hclust` function in the `stats` library.
+* It adds an improved clustering method (called, `HiClimR`) to the set of available methods.
+* The method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into \code{k} regions, given that each element has a time series of length `M`.
+* It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step).
+* The dissimilarity/similarity between any two regions, in both `HiClimR` and `average` linkage methods, is based on their means (timeseries).
+* The new `HiClimR` method modifies `average` update formulae by incorporating the standard deviation of the timeseries of the the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is 100%. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
+* Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
+* It is also applicable to any correlation-based clustering.
 
 ## Getting the Code
 
