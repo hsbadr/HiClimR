@@ -73,17 +73,48 @@ A copy of the GNU General Public License is available at http://www.r-project.or
 
 ## Installation
 
+There are many ways to install an R package from precombiled binareies of source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install `HiClimR`: 
+
 #### From CRAN
 
 This is the easiest way to install an R package on **Linux**, **Mac**, or **Windows**. You just fire up an R shell and type:
 
-`> install.packages("devtools")`
+        ```R
+        install.packages("HiClimR")
+        ```
 
-In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package.
+In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using R-GUI or R-Studio, you can find a menu for package installation where you can just search for `HiClimR` and install it.
 
-#### From Source
+#### From GitHub
 
-#### Using [`devtools`](https://github.com/hsbadr/devtools)
+On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. However, this is intended for developers and requires a build environment (compilers, libraries, ... etc). In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools). To install it:
+
+1. Install the release version of `devtools` from CRAN:
+
+        ```R
+        install.packages("devtools")
+        ```
+
+2. Make sure you have a working development environment.
+
+    * **Windows**: Install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
+    * **Mac**: Install Xcode from the Mac App Store.
+    * **Linux**: Install a compiler and various development libraries (details vary across different flavors of Linux).
+
+3. Follow the instructions below depending on platform.
+
+    * **Mac and Linux**:
+
+        ```R
+        devtools::install_github("hsbadr/HiClimR")
+        ```
+
+    * **Windows**:
+
+        ```R
+        library(devtools)
+        install_github("hsbadr/HiClimR")
+        ```
 
 ## Source
 
