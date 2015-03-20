@@ -34,6 +34,41 @@
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
+## History
+
+#----------------------------------------------------------------------#
+#  Version  |  Date      |  Comment   |  Author       |  Email         #
+#----------------------------------------------------------------------#
+#           |  May 1992  |  Original  |  F. Murtagh   |                #
+#           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
+#           |  Apr 1998  |  Modified  |  F. Leisch    |                #
+#           |  Jun 2000  |  Modified  |  F. Leisch    |                #
+#----------------------------------------------------------------------#
+#  1.0.0    |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.1    |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.2    |  03/09/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.3    |  03/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.4    |  03/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.5    |  03/18/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.6    |  03/25/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.7    |  03/30/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.0.8    |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#----------------------------------------------------------------------#
+#  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
+#----------------------------------------------------------------------#
+#  1.1.6    |  01/03/15  |  GitHub    |  Hamada Badr  |  badr@jhu.edu  #
+#----------------------------------------------------------------------#
+#  1.2.0    |  20/03/15  |  MVC   |  Hamada Badr  |  badr@jhu.edu      #
+#----------------------------------------------------------------------#
+# COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.      #
+#----------------------------------------------------------------------#
+
 ## Change Log
 
 #### 2014-05-06: version 1.0.8
@@ -41,7 +76,12 @@
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
-#### 2014-03-14: version 1.0.3
+#### 2014-03-14: version 1.0.4
+
+* An issue has been addressed for zero-length mask vector: `Error in -mask : invalid argument to unary operator`.
+  * This error has been intoduced in v1.1.2+ after fixing the data-mean bug.
+
+#### 2014-03-12: version 1.0.3
 
 * Code cleanup and bug fixes.
 * The package has one main function `HiClimR`, which internally calls all other functions including `validClimR` function.
@@ -49,27 +89,27 @@
 * Objective tree cut is supported only for the `regional` linkage method. Otherwise, the number of clusters `k` should be specified.
 * The new clustering method has been renamed from `HiClimR` to `regional` linkage method.
 
-#### 2014-03-14: version 1.0.2
+#### 2014-03-09: version 1.0.2
 
 * Code cleanup and bug fixes.
 * It adds a new feature in `HiCLimR` that enables users to return the preprocessed data used for clustering, by a logical argument `retData`.
 * The data will be returned in a component`data` of the output tree. This can be used to utilize the `HiCLimR` preprocessing for further analysis.
 * Ordered regions vector for the selected number of clusters are now returned in the `region` component of `validCLimR` output with a length equals to the number of spatial elements `N`.
 
-#### 2014-03-14: version 1.0.1
+#### 2014-03-08: version 1.0.1
 
 * Code cleanup and bug fixes.
 * It adds a new feature in `validCLimR` that enables users to exclude very small clusters from validation indices `interCor`, `intraCor`, `diffCor`, and `statSum`, by setting a value for the minimum cluster size (`minSize` parameter) greater than one.
 * The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters. In `HiClimR` method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements. This should be followed by a quality control step.
 * The function `coarseR` has been added for coarsening spatial resolution of the input matrix `x`.
 
-#### 2014-03-14: version 1.0.0
+#### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies the very efficient code of `hclust` function in the `stats` library.
 * It adds an improved clustering method (called, `HiClimR`) to the set of available methods.
-* The method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into \code{k} regions, given that each element has a time series of length `M`.
+* The method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`.
 * It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step).
 * The dissimilarity/similarity between any two regions, in both `HiClimR` and `average` linkage methods, is based on their means (timeseries).
-* The new `HiClimR` method modifies `average` update formulae by incorporating the standard deviation of the timeseries of the the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is 100%. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
+* The new `HiClimR` method modifies `average` update formulae by incorporating the standard deviation of the timeseries of the the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
 * Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
 * It is also applicable to any correlation-based clustering.
 
