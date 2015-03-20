@@ -2,7 +2,7 @@
 ###A tool for **Hi**erarchical **Clim**ate **R**egionalization
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including...
 
-* regridding
+* data regridding
 * coarsening spatial resolution
 * geographic masking
 * data filtering by thresholds:
@@ -13,7 +13,11 @@
     * standardization
     * PCA
 * faster correlation function
+   * splitting big data matrix
+   * computing upper-triangular matrix
+   * using BLAS library on 64-Bit machines
 * preliminary big data support
+   * considering memory-efficient algorithms
 * multi-variate clustering (MVC)
 * hybrid hierarchical clustering
 * cluster validation
