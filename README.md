@@ -9,8 +9,8 @@
    * by regions
    * by countries
 * data filtering by thresholds:
-    * `meanThresh` for mean
-    * `varThresh` for variance
+    * mean threshold
+    * variance threshold
 * data preprocessing:
     * detrending
     * standardization
