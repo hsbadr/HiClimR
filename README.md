@@ -28,6 +28,33 @@
    * objective tree cut
 * visualization of region maps
 
+**Table of Contents**
+	- [Design and Implementation](#)
+	- [License](#)
+	- [Documentation](#)
+	- [Source Code](#)
+	- [History](#)
+	- [Change Log](#)
+			- [2015-03-20: version 1.2.0](#)
+			- [2015-03-01: version 1.1.6](#)
+			- [2014-11-12: version 1.1.5](#)
+			- [2014-09-01: version 1.1.4](#)
+			- [2014-08-28: version 1.1.3](#)
+			- [2014-07-26: version 1.1.2](#)
+			- [2014-07-14: version 1.1.1](#)
+			- [2014-05-15: version 1.1.0](#)
+			- [2014-05-07: version 1.0.9](#)
+			- [2014-05-06: version 1.0.8](#)
+			- [2014-03-30: version 1.0.7](#)
+			- [2014-03-25: version 1.0.6](#)
+			- [2014-03-18: version 1.0.5](#)
+			- [2014-03-14: version 1.0.4](#)
+			- [2014-03-12: version 1.0.3](#)
+			- [2014-03-09: version 1.0.2](#)
+			- [2014-03-08: version 1.0.1](#)
+			- [2014-03-07: version 1.0.0](#)
+	- [Examples:](#)
+
 ## Design and Implementation
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options.
 
