@@ -35,7 +35,10 @@ Table of Contents
 * faster correlation function
    * splitting big data matrix
    * computing upper-triangular matrix
-   * using BLAS library on 64-Bit machines
+   * using optimized `BLAS` library on 64-Bit machines
+    * `ATLAS`
+    * `OpenBLAS`
+    * `Intel MKL` 
 * preliminary big data support
    * considering memory-efficient algorithms
 * multi-variate clustering (MVC)
@@ -143,7 +146,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 #### 2014-05-15: version 1.1.0
 
 * Code cleanup and bug fixes.
-* An issue with the `fastCor` function that degrades its performance on 32-bit machines has been fixed. A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized BLAS library, such as ATLAS, OpenBLAS, or the commercial Intel MKL.
+* An issue with the `fastCor` function that degrades its performance on 32-bit machines has been fixed. A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized `BLAS` library, such as `ATLAS`, `OpenBLAS`, or the commercial `Intel MKL`.
 * The citation info has been updated to reflect the current status of the technical paper, which will be cited and included as vignettes upon publication.
 
 #### 2014-05-07: version 1.0.9
