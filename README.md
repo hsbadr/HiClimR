@@ -6,8 +6,8 @@
 * coarsening spatial resolution
 * geographic masking
 * data filtering by thresholds:
-    * meanThresh for mean
-    * varThresh for variance
+    * `meanThresh` for mean
+    * `varThresh` for variance
 * data preprocessing:
     * detrending
     * standardization
