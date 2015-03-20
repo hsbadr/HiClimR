@@ -37,7 +37,7 @@
 ## History
 
 |  Version  |  Date      |  Comment   |  Author          |  Email        |
-|-----------|------------|------------|------------------|---------------|
+|:---------:|:----------:|:----------:|:----------------:|:-------------:|
 |           |  May 1992  |  Original  |  F. Murtagh      |               |
 |           |  Dec 1996  |  Modified  |  Ross Ihaka      |               |
 |           |  Apr 1998  |  Modified  |  F. Leisch       |               |
