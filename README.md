@@ -79,9 +79,9 @@ There are many ways to install an R package from precombiled binareies of source
 
 This is the easiest way to install an R package on **Linux**, **Mac**, or **Windows**. You just fire up an R shell and type:
 
-        ```R
+```R
         install.packages("HiClimR")
-        ```
+```
 
 In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using R-GUI or R-Studio, you can find a menu for package installation where you can just search for `HiClimR` and install it.
 
