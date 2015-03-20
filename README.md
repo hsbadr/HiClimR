@@ -41,6 +41,13 @@
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
+#### 2014-03-14: version 1.0.2
+
+* Code cleanup and bug fixes.
+* It adds a new feature in `HiCLimR` that enables users to return the preprocessed data used for clustering, by a logical argument `retData`.
+* The data will be returned in a component`data` of the output tree. This can be used to utilize the `HiCLimR` preprocessing for further analysis.
+* Ordered regions vector for the selected number of clusters are now returned in the `region` component of `validCLimR` output with a length equals to the number of spatial elements `N`.
+
 #### 2014-03-14: version 1.0.1
 
 * Code cleanup and bug fixes.
