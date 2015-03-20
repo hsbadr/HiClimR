@@ -36,10 +36,10 @@
 
 ## Change Log
 
-#### 2014-05-06: 1.08    Hamada Badr <badr@jhu.edu>
+#### 2014-05-06: version 1.08
 
-* Code cleanup and bug fixes.
-* Region maps are unified for both gridded and ungridded data.
+* Code cleanup and bug fixes
+* Region maps are unified for both gridded and ungridded data
 
 ## Getting the Code
 
