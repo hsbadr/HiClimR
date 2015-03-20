@@ -61,7 +61,7 @@ For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=
 
 ## Installation
 
-There are many ways to install an R package from precombiled binareies of source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install `HiClimR`: 
+There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install `HiClimR`: 
 
 #### From CRAN
 
