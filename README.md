@@ -85,15 +85,22 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 #### 2015-03-20: version 1.2.0
 
-*
+* Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, and `standardize` with the same length of `x`. Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
+* Preliminary big data support: function `fastCor` can now split the data matrix into `nSplit` splits with a logical parameter `upperTri` to compute the upper-triangular matrix only, which includes all required info since the correlation/dissimilarity matrix is symmetric. This almost doubles the use of existing memory for big date.
+* Fix "integer overflow" for big/large data.
+* Added `verbose` parameter for all functions and a logical parameter `dendrogram` for plotting dendrogram.
+* Backword compatibility with previous versions.
 
 #### 2015-03-01: version 1.1.6
 
-*
+* Setting minimum `k = 2`, for objective tree cutting: this addresses an issue caused by undefined `k = NULL` in `validClimR` function when all inter-cluster correlations are significant at the user-specified significance level.
+* Code reformatting using [`formatR`](http://cran.r-project.org/package=formatR).
+* Package description and URLs have been revised.
+* Source code is now maintained on GitHub by author(s).
 
 #### 2014-11-12: version 1.1.5
 
-*
+* Updating description, URL, and citation info.
 
 #### 2014-09-01: version 1.1.4
 
@@ -101,23 +108,34 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 #### 2014-08-28: version 1.1.3
 
-*
+* The user manual has been revised.
+* `lonSkip` and `latSkip` have been renamed to `lonStep` and `latStep`, respectively.
+* Minor bug fixes.
 
 #### 2014-07-26: version 1.1.2
 
-*
+* A bug has been fixed where data mean is added to centered data if `standardize = FALSE`. In this case, the objective tree cut for `regional` linkage method and the output `data` component are now corrected to match input parameters especially when clustring of raw data (without standardization) is requested (centered data was used in previous versions).
 
 #### 2014-07-14: version 1.1.1
 
-*
+* Minor bug fixes and memory optimizations especially for the geographic masking function `geogMask`.
+* The limit for data size has been removed (use with caution).
+* A logical parameter `InDispute` has been added to `geogMask` function to optionally consider areas in dispute for geographic masking by country.
+* Changelog has been updated and reformatted.
 
 #### 2014-05-15: version 1.1.0
 
-*
+* Code cleanup and bug fixes.
+* An issue with the `fastCor` function that degrades its performance on 32-bit machines has been fixed. A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized BLAS library, such as ATLAS, OpenBLAS, or the commercial Intel MKL.
+* The citation info has been updated to reflect the current status of the technical paper, which will be cited and included as vignettes upon publication.
 
 #### 2014-05-07: version 1.0.9
 
-*
+* Minor changes and fixes for CRAN.
+* For memory considerations, smaller test case is provided (1 degree resolution instead of 0.5 degree) and the resolution option (`res` parameter) in geographic masking has been removed.
+* Mask data is only available in 0.1 degree (~10 km) resolustion.
+* `LazyLoad` and `LazyData` are enabled in the description file.
+* The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading of the data.
 
 #### 2014-05-06: version 1.0.8
 
@@ -126,19 +144,26 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 #### 2014-03-30: version 1.0.7
 
-*
+* Hybrid hierarchical clustering feature that utilizes the pros of the available methods, especially the better overall homogeneity in Ward's method and the separation and objective tree cut of the regional linkage method.
+* The logical parameter `hybrid` is added to enable a second step of using regional linkage clustering method for reconstructing the upper part of the tree at a cut of defined by `kH` (number of clusters to restart with using the `regional` linkage method).
+* If `kH = NULL`, the tree will be reconstructed for the upper part with the first merging cost larger than the mean merging cost for the entire tree (merging cost is the loss of overall homogeneity at each merging step).
+* If hybrid clustering is requested, the updated upper part of the tree will be used for cluster validation.
 
 #### 2014-03-25: version 1.0.6
 
-*
+* Code cleanup and bug fixes.
 
 #### 2014-03-18: version 1.0.5
 
-* Updating description, URL, and citation info.
+* Code cleanup and bug fixes.
+* It adds support to generate region maps for ungridded data.
 
 #### 2014-03-14: version 1.0.4
 
-* 
+* Code cleanup and bug fixes.
+* The `coarseR` function is  called inside the core `HiClimR` function.
+* The `coords` component has been added to the output tree for the longitude and latitude coordinates since they may be changed by coarsening. The `lon` and `lat` vectors are more flexible for gridded data, as they will be automatically converted to a rectangular grid if necessary.
+* The `validClimR` function does not require `lon` and `lat` arguments where they are now available in the output tree (`coords` component).
 
 #### 2014-03-12: version 1.0.3
 
