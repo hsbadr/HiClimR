@@ -14,7 +14,7 @@ Table of Contents
     * [Source](#source)
     * [History](#history)
     * [Changes](#changes)
-    * [Examples:](#examples)
+    * [Examples](#examples)
 
 ## Features
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including:
@@ -214,7 +214,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 * Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
 * It is also applicable to any correlation-based clustering.
 
-## Examples:
+## Examples
 
 ```R
 require(HiClimR)
