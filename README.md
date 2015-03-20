@@ -71,7 +71,7 @@ This is the easiest way to install an R package on **Windows**, **Mac**, or **Li
         install.packages("HiClimR")
 ```
 
-In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using R-GUI or R-Studio, you can find a menu for package installation where you can just search for `HiClimR` and install it.
+In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for `HiClimR` and install it.
 
 #### From GitHub
 
