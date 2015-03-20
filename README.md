@@ -3,6 +3,37 @@ HiClimR
 
 ``HiClimR`` — A tool for **Hi**erarchical **Clim**ate **R**egionalization
 
+Table of Contents
+=================
+
+  * [HiClimR](#hiclimr)
+    * [Features](#features)
+    * [Design](#design)
+    * [Documentation](#documentation)
+    * [License](#license)
+    * [Source](#source)
+    * [History](#history)
+    * [Changes](#changes)
+        * [2015-03-20: version 1.2.0](#2015-03-20-version-120)
+        * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
+        * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
+        * [2014-09-01: version 1.1.4](#2014-09-01-version-114)
+        * [2014-08-28: version 1.1.3](#2014-08-28-version-113)
+        * [2014-07-26: version 1.1.2](#2014-07-26-version-112)
+        * [2014-07-14: version 1.1.1](#2014-07-14-version-111)
+        * [2014-05-15: version 1.1.0](#2014-05-15-version-110)
+        * [2014-05-07: version 1.0.9](#2014-05-07-version-109)
+        * [2014-05-06: version 1.0.8](#2014-05-06-version-108)
+        * [2014-03-30: version 1.0.7](#2014-03-30-version-107)
+        * [2014-03-25: version 1.0.6](#2014-03-25-version-106)
+        * [2014-03-18: version 1.0.5](#2014-03-18-version-105)
+        * [2014-03-14: version 1.0.4](#2014-03-14-version-104)
+        * [2014-03-12: version 1.0.3](#2014-03-12-version-103)
+        * [2014-03-09: version 1.0.2](#2014-03-09-version-102)
+        * [2014-03-08: version 1.0.1](#2014-03-08-version-101)
+        * [2014-03-07: version 1.0.0](#2014-03-07-version-100)
+    * [Examples:](#examples)
+
 ## Features
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including:
 
