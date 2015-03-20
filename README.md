@@ -91,9 +91,9 @@ On **Linux** and **Mac**, you can download the source code and use `R CMD instal
 
 1. Install the release version of `devtools` from CRAN:
 
-        ```R
+```R
         install.packages("devtools")
-        ```
+```
 
 2. Make sure you have a working development environment.
 
