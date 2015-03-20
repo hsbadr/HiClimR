@@ -83,15 +83,62 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 ## Change Log
 
+#### 2015-03-20: version 1.2.0
+
+*
+
+#### 2015-03-01: version 1.1.6
+
+*
+
+#### 2014-11-12: version 1.1.5
+
+*
+
+#### 2014-09-01: version 1.1.4
+
+* An issue has been addressed for zero-length mask vector: `Error in -mask : invalid argument to unary operator`. This error has been intoduced in v1.1.2+ after fixing the data-mean bug.
+
+#### 2014-08-28: version 1.1.3
+
+*
+
+#### 2014-07-26: version 1.1.2
+
+*
+
+#### 2014-07-14: version 1.1.1
+
+*
+
+#### 2014-05-15: version 1.1.0
+
+*
+
+#### 2014-05-07: version 1.0.9
+
+*
+
 #### 2014-05-06: version 1.0.8
 
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
+#### 2014-03-30: version 1.0.7
+
+*
+
+#### 2014-03-25: version 1.0.6
+
+*
+
+#### 2014-03-18: version 1.0.5
+
+* Updating description, URL, and citation info.
+
 #### 2014-03-14: version 1.0.4
 
-* An issue has been addressed for zero-length mask vector: `Error in -mask : invalid argument to unary operator`.
-  * This error has been intoduced in v1.1.2+ after fixing the data-mean bug.
+* 
 
 #### 2014-03-12: version 1.0.3
 
