@@ -82,7 +82,7 @@ For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=
 [⇪](#hiclimr)
 ## Installation
 
-There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install `HiClimR`: 
+There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR): 
 
 #### From CRAN
 
@@ -92,14 +92,14 @@ This is the easiest way to install an R package on **Windows**, **Mac**, or **Li
         install.packages("HiClimR")
 ```
 
-In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for `HiClimR` and install it.
+In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) and install it.
 
 [⇪](#hiclimr)
 #### From GitHub
 
-On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. However, this is intended for developers and requires a build environment (compilers, libraries, ... etc). In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
+This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](http://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
 
-* Install the release version of `devtools` from CRAN:
+* Install the release version of `devtools` from [**CRAN**](http://cran.r-project.org):
 
 ```R
         install.packages("devtools")
@@ -111,7 +111,7 @@ On **Linux** and **Mac**, you can download the source code and use `R CMD instal
     * **Mac**: Install Xcode from the Mac App Store.
     * **Linux**: Install a compiler and various development libraries (details vary across different flavors of Linux).
 
-* Install `HiClimR` from GitHub:
+* Install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ```R
         library(devtools)
