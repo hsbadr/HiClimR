@@ -42,7 +42,7 @@ Table of Contents
 
 ## Features
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in **R** (`hclust` function in `stats` library) including:
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
 
 * data regridding
 * coarsening spatial resolution
@@ -91,7 +91,7 @@ There are many ways to install an R package from precombiled binareies or source
 
 #### From CRAN
 
-This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an **R** shell and type:
+This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an [**R**](http://www.r-project.org) shell and type:
 
 ```R
         install.packages("HiClimR")
@@ -131,7 +131,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 [⇪](#hiclimr)
 ## License
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](http://www.R-project.org) Copyright © 1995-2015 The **R** Core Team.
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](http://www.R-project.org) Copyright © 1995-2015 The [**R**](http://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
