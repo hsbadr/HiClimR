@@ -391,7 +391,7 @@ x2 <- x / 2 + matrix(rnorm(nrow(x) * ncol(x), mean=0, sd=1), nrow(x), ncol(x))
 
 ## Multi-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
-    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
     nPC = NULL, method = "regional", hybrid = FALSE,
     kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
