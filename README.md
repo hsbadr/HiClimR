@@ -60,8 +60,6 @@ Table of Contents
            * `ATLAS`
            * `OpenBLAS`
            * `Intel MKL` 
-* preliminary big data support
-   * considering memory-efficient algorithms
 * multi-variate clustering (MVC)
 * hybrid hierarchical clustering
 * cluster validation
