@@ -308,7 +308,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 require(HiClimR)
 
 #----------------------------------------------------------------------------------#
-# Typical use of HiClimR:                                                          #
+# Typical use of HiClimR for single-variate clustering:                            #
 #----------------------------------------------------------------------------------#
 
 ## Load the test data included/loaded in the package (1 degree resolution)
@@ -352,6 +352,10 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 
 ```R
 require(HiClimR)
+
+#----------------------------------------------------------------------------------#
+# Typical use of HiClimR for multi-variate clustering:                             #
+#----------------------------------------------------------------------------------#
 
 ## Load the test data included/loaded in the package (1 degree resolution)
 x1 <- TestCase$x
