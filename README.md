@@ -69,7 +69,7 @@ Table of Contents
    * objective tree cut
 * visualization of region maps
 
-|                                     >>>| [TOP OF THE PAGE](#hiclimr)  |<<<                                     |
+| >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>| [TOP OF THE PAGE](#hiclimr)  |<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< |
 |---------------------------------------:|:----------------------------:|:---------------------------------------|
 
 ## Implementation
