@@ -37,6 +37,7 @@ Table of Contents
         * [2014-03-07: version 1.0.0](#2014-03-07-version-100)
     * [Examples](#examples)
 
+[⇪](#hiclimr)
 ## Features
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including:
 
@@ -76,14 +77,12 @@ Table of Contents
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## Documentation
 
 For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## Installation
 
 There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install `HiClimR`: 
@@ -98,8 +97,7 @@ This is the easiest way to install an R package on **Windows**, **Mac**, or **Li
 
 In theory the package should just install, however, you may be asked to select your local mirror, i.e. which server should you use to download the package. If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for `HiClimR` and install it.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### From GitHub
 
 On **Linux** and **Mac**, you can download the source code and use `R CMD install` to install it. However, this is intended for developers and requires a build environment (compilers, libraries, ... etc). In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
@@ -123,14 +121,12 @@ On **Linux** and **Mac**, you can download the source code and use `R CMD instal
         install_github("hsbadr/HiClimR")
 ```
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## Source
 
 The source code repository can be found on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## License
 
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [R package](http://www.R-project.org) Copyright © 1995-2015 The R Core Team.
@@ -143,8 +139,7 @@ A copy of the GNU General Public License is available at http://www.r-project.or
 
 Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## History
 
 |    Version    |     Date     |  Comment      |  Author          |  Email         |
@@ -172,8 +167,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.0**   |   03/20/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## Changes
 
 #### 2015-03-20: version 1.2.0
@@ -184,8 +178,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Added `verbose` parameter for all functions and a logical parameter `dendrogram` for plotting dendrogram.
 * Backword compatibility with previous versions.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2015-03-01: version 1.1.6
 
 * Setting minimum `k = 2`, for objective tree cutting: this addresses an issue caused by undefined `k = NULL` in `validClimR` function when all inter-cluster correlations are significant at the user-specified significance level.
@@ -193,35 +186,30 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Package description and URLs have been revised.
 * Source code is now maintained on GitHub by author(s).
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-11-12: version 1.1.5
 
 * Updating description, URL, and citation info.
 
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-09-01: version 1.1.4
 
 * An issue has been addressed for zero-length mask vector: `Error in -mask : invalid argument to unary operator`. This error has been intoduced in v1.1.2+ after fixing the data-mean bug.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-08-28: version 1.1.3
 
 * The user manual has been revised.
 * `lonSkip` and `latSkip` have been renamed to `lonStep` and `latStep`, respectively.
 * Minor bug fixes.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-07-26: version 1.1.2
 
 * A bug has been fixed where data mean is added to centered data if `standardize = FALSE`. In this case, the objective tree cut for `regional` linkage method and the output `data` component are now corrected to match input parameters especially when clustring of raw data (without standardization) is requested (centered data was used in previous versions).
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-07-14: version 1.1.1
 
 * Minor bug fixes and memory optimizations especially for the geographic masking function `geogMask`.
@@ -229,16 +217,14 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * A logical parameter `InDispute` has been added to `geogMask` function to optionally consider areas in dispute for geographic masking by country.
 * Changelog has been updated and reformatted.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-05-15: version 1.1.0
 
 * Code cleanup and bug fixes.
 * An issue with the `fastCor` function that degrades its performance on 32-bit machines has been fixed. A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized `BLAS` library, such as `ATLAS`, `OpenBLAS`, or the commercial `Intel MKL`.
 * The citation info has been updated to reflect the current status of the technical paper, which will be cited and included as vignettes upon publication.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-05-07: version 1.0.9
 
 * Minor changes and fixes for CRAN.
@@ -247,15 +233,13 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * `LazyLoad` and `LazyData` are enabled in the description file.
 * The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading of the data.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-05-06: version 1.0.8
 
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-30: version 1.0.7
 
 * Hybrid hierarchical clustering feature that utilizes the pros of the available methods, especially the better overall homogeneity in Ward's method and the separation and objective tree cut of the regional linkage method.
@@ -263,21 +247,18 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * If `kH = NULL`, the tree will be reconstructed for the upper part with the first merging cost larger than the mean merging cost for the entire tree (merging cost is the loss of overall homogeneity at each merging step).
 * If hybrid clustering is requested, the updated upper part of the tree will be used for cluster validation.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-25: version 1.0.6
 
 * Code cleanup and bug fixes.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-18: version 1.0.5
 
 * Code cleanup and bug fixes.
 * It adds support to generate region maps for ungridded data.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-14: version 1.0.4
 
 * Code cleanup and bug fixes.
@@ -285,8 +266,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The `coords` component has been added to the output tree for the longitude and latitude coordinates since they may be changed by coarsening. The `lon` and `lat` vectors are more flexible for gridded data, as they will be automatically converted to a rectangular grid if necessary.
 * The `validClimR` function does not require `lon` and `lat` arguments where they are now available in the output tree (`coords` component).
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-12: version 1.0.3
 
 * Code cleanup and bug fixes.
@@ -295,8 +275,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Objective tree cut is supported only for the `regional` linkage method. Otherwise, the number of clusters `k` should be specified.
 * The new clustering method has been renamed from `HiClimR` to `regional` linkage method.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-09: version 1.0.2
 
 * Code cleanup and bug fixes.
@@ -304,8 +283,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The data will be returned in a component`data` of the output tree. This can be used to utilize the `HiCLimR` preprocessing for further analysis.
 * Ordered regions vector for the selected number of clusters are now returned in the `region` component of `validCLimR` output with a length equals to the number of spatial elements `N`.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-08: version 1.0.1
 
 * Code cleanup and bug fixes.
@@ -313,8 +291,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters. In `HiClimR` method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements. This should be followed by a quality control step.
 * The function `coarseR` has been added for coarsening spatial resolution of the input matrix `x`.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 #### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies the very efficient code of `hclust` function in the `stats` library.
 * It adds an improved clustering method (called, `HiClimR`) to the set of available methods.
@@ -325,8 +302,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
 * It is also applicable to any correlation-based clustering.
 
-[TOP OF THE PAGE](#hiclimr)
-
+[⇪](#hiclimr)
 ## Examples
 
 ```R
