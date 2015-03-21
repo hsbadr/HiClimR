@@ -177,7 +177,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-03-21: version 1.2.0
 
-* Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, and `standardize` with the same length of `x`. Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
+* Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, `standardize`, and `weightedVar` with the same length of `x`. The filtered variables are weighted and combined by column (for each object: spatial points or stations) after preprocessing (detrending and standardization) and before PCA (if requested) and computing the correlation/dissimilarity matrix. The default weight is `weightedVar = 1` for all variables.
+* Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
 * Preliminary big data support: function `fastCor` can now split the data matrix into `nSplit` splits with a logical parameter `upperTri` to only compute the upper-triangular part of the correlation matrix, which includes all required information since the correlation/dissimilarity matrix is symmetric. This almost doubles the use of existing memory for big date.
 * Fix "integer overflow" for big/large data.
 * Added `verbose` parameter for all functions and a logical parameter `dendrogram` for plotting dendrogram.
