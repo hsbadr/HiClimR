@@ -430,4 +430,4 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
 ```
 
-[TOP OF THE PAGE](#hiclimr)
+[⇪](#hiclimr)
