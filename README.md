@@ -324,7 +324,7 @@ xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
-## Hierarchical Climate Regionalization
+## Single-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE,
@@ -378,10 +378,18 @@ xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
+## Test if we can replicate single-variate region map with repeated variable
+y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
+    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
+    nPC = NULL, method = "regional", hybrid = FALSE,
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
 ## Generate a random matrix with the same size
 x2 <- x / 2 + matrix(rnorm(nrow(x) * ncol(x), mean=0, sd=1), nrow(x), ncol(x))
 
-## Hierarchical Climate Regionalization
+## Multi-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
     varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
