@@ -3,8 +3,8 @@ HiClimR
 
 ``HiClimR`` — A tool for **Hi**erarchical **Clim**ate **R**egionalization
 
-Table of Contents
-=================
+Contents
+========
 
   * [HiClimR](#hiclimr)
     * [Features](#features)
