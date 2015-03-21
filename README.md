@@ -65,6 +65,9 @@ Table of Contents
            * `OpenBLAS`
            * `Intel MKL` 
 * multi-variate clustering (MVC)
+   * filtering all variables before preprocessing
+   * detrending and standardization of each variable
+   * applying weights for preprocessed variables
 * hybrid hierarchical clustering
 * cluster validation
    * summary statistics
