@@ -386,8 +386,8 @@ y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1,
     kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
     alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
-## Generate a random matrix with the same size
-x2 <- x / 2 + matrix(rnorm(nrow(x) * ncol(x), mean=0, sd=1), nrow(x), ncol(x))
+## Generate a random matrix with the same number of rows
+x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 
 ## Multi-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
