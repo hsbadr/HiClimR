@@ -302,6 +302,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 [⇪](#hiclimr)
 ## Examples
 
+#### Single-Variate Clustering
+
 ```R
 require(HiClimR)
 
@@ -344,6 +346,41 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     members = NULL, validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## Check senitivity to kH for the hybrid method above
+```
+[⇪](#hiclimr)
+#### Multi-Variate Clustering
+
+```R
+require(HiClimR)
+
+## Load the test data included/loaded in the package (1 degree resolution)
+x1 <- TestCase$x
+lon <- TestCase$lon
+lat <- TestCase$lat
+    
+## Generate/check longitude and latitude mesh vectors for gridded data
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
+lon <- c(xGrid$lon)
+lat <- c(xGrid$lat)
+
+## Generate a random matrix with the same size
+x2 <- x / 2 + matrix(rnorm(nrow(x) * ncol(x), mean=0, sd=1), nrow(x), ncol(x))
+
+## Hierarchical Climate Regionalization
+y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
+    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
+    nPC = NULL, method = "regional", hybrid = FALSE,
+    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
+    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+## You can apply all clustering methods and options
+```
+
+[⇪](#hiclimr)
+#### Miscellaneous Examples
+
+```R
+require(HiClimR)
 
 #----------------------------------------------------------------------------------#
 # Advanced examples to provide more information about code                         #
