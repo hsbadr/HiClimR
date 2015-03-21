@@ -114,7 +114,7 @@ This is intended for developers and requires a development environment (compiler
 
     * **Windows**: Install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
     * **Mac**: Install Xcode from the Mac App Store.
-    * **Linux**: Install a compiler and various development libraries (details vary across different flavors of Linux).
+    * **Linux**: Install a compiler and various development libraries (details vary across different flavors of **Linux**).
 
 * Install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
