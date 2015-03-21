@@ -1,9 +1,8 @@
-HiClimR
+HiClimR  — A tool for **Hi**erarchical **Clim**ate **R**egionalization
 =======
 
-  * [HiClimR](#hiclimr)  — A tool for **Hi**erarchical **Clim**ate **R**egionalization
     * [Features](#features)
-    * [Design](#design)
+    * [Implementation](#implementation)
     * [Documentation](#documentation)
     * [Installation](#installation)
     * [Source](#source)
@@ -44,7 +43,7 @@ HiClimR
    * objective tree cut
 * visualization of region maps
 
-## Design
+## Implementation
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options.
 
 ![blank-container](http://blaustein.eps.jhu.edu/~hbadr1/images/HiClimR.png)
