@@ -37,7 +37,6 @@ Table of Contents
         * [2014-03-07: version 1.0.0](#2014-03-07-version-100)
     * [Examples](#examples)
 
-[⇪](#hiclimr)
 ## Features
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in R (`hclust` function in `stats` library) including:
 
