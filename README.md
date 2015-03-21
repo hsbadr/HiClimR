@@ -364,41 +364,41 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #### Multi-Variate Clustering
 
 ```R
-require(HiClimR)
+        require(HiClimR)
+        
+        #----------------------------------------------------------------------------------#
+        # Typical use of HiClimR for multi-variate clustering:                             #
+        #----------------------------------------------------------------------------------#
+        
+        ## Load the test data included/loaded in the package (1 degree resolution)
+        x1 <- TestCase$x
+        lon <- TestCase$lon
+        lat <- TestCase$lat
+ 
+        ## Generate/check longitude and latitude mesh vectors for gridded data
+        xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
+        lon <- c(xGrid$lon)
+        lat <- c(xGrid$lat)
 
-#----------------------------------------------------------------------------------#
-# Typical use of HiClimR for multi-variate clustering:                             #
-#----------------------------------------------------------------------------------#
+        ## Test if we can replicate single-variate region map with repeated variable
+        y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+            geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
+            varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
+            nPC = NULL, method = "regional", hybrid = FALSE,
+            kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
+            alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
-## Load the test data included/loaded in the package (1 degree resolution)
-x1 <- TestCase$x
-lon <- TestCase$lon
-lat <- TestCase$lat
-    
-## Generate/check longitude and latitude mesh vectors for gridded data
-xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
-lon <- c(xGrid$lon)
-lat <- c(xGrid$lat)
+        ## Generate a random matrix with the same number of rows
+        x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 
-## Test if we can replicate single-variate region map with repeated variable
-y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
-    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
-    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
-    nPC = NULL, method = "regional", hybrid = FALSE,
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
-    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
-
-## Generate a random matrix with the same number of rows
-x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
-
-## Multi-Variate Hierarchical Climate Regionalization
-y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
-    geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
-    varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
-    nPC = NULL, method = "regional", hybrid = FALSE,
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
-    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
-## You can apply all clustering methods and options
+        ## Multi-Variate Hierarchical Climate Regionalization
+        y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+            geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
+            varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
+            nPC = NULL, method = "regional", hybrid = FALSE,
+            kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
+            alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+        ## You can apply all clustering methods and options
 ```
 
 [⇪](#hiclimr)
