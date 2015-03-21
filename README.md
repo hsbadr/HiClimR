@@ -17,7 +17,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-20: version 1.2.0](#2015-03-20-version-120)
+        * [2015-03-20: version 1.2.0](#2015-03-21-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
         * [2014-09-01: version 1.1.4](#2014-09-01-version-114)
@@ -162,12 +162,12 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.4**   |   09/01/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.0**   |   03/20/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.0**   |   03/21/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 ## Changes
 
-#### 2015-03-20: version 1.2.0
+#### 2015-03-21: version 1.2.0
 
 * Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, and `standardize` with the same length of `x`. Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
 * Preliminary big data support: function `fastCor` can now split the data matrix into `nSplit` splits with a logical parameter `upperTri` to only compute the upper-triangular part of the correlation matrix, which includes all required information since the correlation/dissimilarity matrix is symmetric. This almost doubles the use of existing memory for big date.
