@@ -73,8 +73,8 @@ Table of Contents
    * the lower part of the tree uses user-selected method
    * the upper part of the tree uses regional linkage method
 * cluster validation
-   * summary statistics
-   * objective tree cut
+   * summary statistics based on raw data of data reconstructed by PCA
+   * objective tree cut using minimum significant correlation between region means
 * visualization of region maps
 
 [⇪](#hiclimr)
