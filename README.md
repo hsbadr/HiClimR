@@ -69,6 +69,9 @@ Table of Contents
    * detrending and standardization of each variable
    * applying weights for the preprocessed variables
 * hybrid hierarchical clustering
+   * the upper part of the tree is reconstructed above a cut
+   * the lower part of the tree uses user-selected method
+   * the upper part of the tree uses regional linkage method
 * cluster validation
    * summary statistics
    * objective tree cut
