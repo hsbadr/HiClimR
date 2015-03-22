@@ -7,6 +7,7 @@ Table of Contents
 =================
 
   * [HiClimR](#hiclimr)
+    * [Introduction](#introduction)
     * [Features](#features)
     * [Implementation](#implementation)
     * [Documentation](#documentation)
@@ -40,9 +41,13 @@ Table of Contents
         * [Multi-Variate Clustering](#multi-variate-clustering)
         * [Miscellaneous Examples](#miscellaneous-examples)
 
+## Introduction
+
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to utilize a cluster validation function, which implements an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut using `regional` linkage method to get the best of the available methods. Multi-variate clustering (MVC) provides options to filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
+
 ## Features
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. It adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
+[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
 
 * data regridding
 * coarsening spatial resolution
@@ -81,8 +86,6 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 [⇪](#hiclimr)
 ## Implementation
-
-Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Many features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to utilize a cluster validation function, which implements an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut using `regional` linkage method to get the best of the availables methods. Multi-variate clustering (MVC) provides options to filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
 
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options.
 
