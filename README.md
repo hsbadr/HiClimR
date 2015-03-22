@@ -16,7 +16,7 @@ Table of Contents
     * [Source](#source)
     * [License](#license)
     * [History](#history)
-    * [Changelog](#changelog)
+    * [Changes](#changes)
         * [2015-03-21: version 1.2.0](#2015-03-22-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
@@ -176,7 +176,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.2.0**   |   03/21/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
-## Changelog
+## Changes
 
 #### 2015-03-22: version 1.2.0
 
