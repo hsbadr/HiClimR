@@ -48,7 +48,6 @@ Table of Contents
 ## Features
 
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
-
 * data regridding
 * coarsening spatial resolution
 * geographic masking
