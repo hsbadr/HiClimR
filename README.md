@@ -408,7 +408,7 @@ x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
-    nPC = NULL, method = "regional", hybrid = FALSE,
+    weightedVar = list(1, 1), nPC = NULL, method = "regional", hybrid = FALSE,
     kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1,
     alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## You can apply all clustering methods and options
