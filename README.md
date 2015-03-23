@@ -1,7 +1,7 @@
 HiClimR
 =======
 
-``HiClimR`` — A Tool for **Hi**erarchical **Clim**ate **R**egionalization
+``HiClimR`` — **Hi**erarchical **Clim**ate **R**egionalization
 
 Table of Contents
 =================
