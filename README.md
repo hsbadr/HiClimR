@@ -75,7 +75,7 @@ Table of Contents
 * multi-variate clustering (MVC)
    * filtering all variables before preprocessing
    * detrending and standardization of each variable
-   * applying weights for the preprocessed variables
+   * applying weight for the preprocessed variables
 * cluster validation
    * summary statistics based on raw data ot the data reconstructed by PCA
    * objective tree cut using minimum significant correlation between region means
