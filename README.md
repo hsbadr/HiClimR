@@ -187,44 +187,63 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-03-24: version 1.2.0
 
-* Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, `standardize`, and `weightedVar` with the same length of `x`. The filtered variables are weighted and combined by column (for each object: spatial points or stations) after preprocessing (detrending and standardization) and before PCA (if requested) and computing the correlation/dissimilarity matrix. The default weight is `weightedVar = 1` for all variables.
-* Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
-* Preliminary big data support: function `fastCor` can now split the data matrix into `nSplit` splits with a logical parameter `upperTri` to only compute the upper-triangular part of the correlation matrix, which includes all required information since the correlation/dissimilarity matrix is symmetric. This almost doubles the use of existing memory for big date.
-* Fix "integer overflow" for big/large data.
-* Added `verbose` parameter for all functions and a logical parameter `dendrogram` for plotting dendrogram.
-* Backword compatibility with previous versions.
+* Multi-variate clustering (MVC)
+   * the input matrix `x` can now be a list of matrices (one matrix for each variable)
+   * data preprocessing is specified by lists with length of `x`
+     * `meanThresh`, `varThresh`, `detrend`, `standardize`, and `weightedVar`
+       * filtering with `meanThresh`, `varThresh` thresholds
+       * detrending with `detrend` option if requested
+       * standardization with `standardize` option if requested
+       * weighting by the new `weightedVar` option (default is `1`)
+       * combining variables by column (for each object: spatial points or stations)
+       * applying PCA (if requested) and computing the correlation/dissimilarity matrix
+   * Each variable is separately preprocessed to allow for all possible options
+   * Check the update user manual for more details!
+* Preliminary big data support
+   * function `fastCor` can now split the data matrix into `nSplit` splits
+   * a logical parameter `upperTri` to compute only the upper-triangular half of the correlation matrix
+     * it includes all required information since the correlation/dissimilarity matrix is symmetric
+     * this almost doubles the use of existing memory for big date.
+   * Fix "integer overflow" for big/large data.
+* Adds a logical parameter `verbose` for printing processing information
+* Adds a logical parameter `dendrogram` for plotting dendrogram
+* Backword compatibility with previous versions
+* The user manual is updated and revised
 
 [⇪](#hiclimr)
 #### 2015-03-01: version 1.1.6
 
-* Setting minimum `k = 2`, for objective tree cutting: this addresses an issue caused by undefined `k = NULL` in `validClimR` function when all inter-cluster correlations are significant at the user-specified significance level.
-* Code reformatting using [`formatR`](http://cran.r-project.org/package=formatR).
-* Package description and URLs have been revised.
-* Source code is now maintained on GitHub by author(s).
+* Setting minimum `k = 2`, for objective tree cutting
+   * this addresses an issue caused by undefined `k = NULL` in `validClimR` function
+   * when all inter-cluster correlations are significant at the user-specified significance level
+* Code reformatting using [`formatR`](http://cran.r-project.org/package=formatR)
+* Package description and URLs have been revised
+* Source code is now maintained on GitHub by authors
 
 [⇪](#hiclimr)
 #### 2014-11-12: version 1.1.5
 
-* Updating description, URL, and citation info.
+* Updating description, URL, and citation info
 
 
 [⇪](#hiclimr)
 #### 2014-09-01: version 1.1.4
 
-* An issue has been addressed for zero-length mask vector: `Error in -mask : invalid argument to unary operator`. This error has been intoduced in v1.1.2+ after fixing the data-mean bug.
+* Addresses an issue for zero-length mask vector: `Error in -mask : invalid argument to unary operator`
+   * this error was intoduced in v1.1.2+ after fixing the data-mean bug
 
 [⇪](#hiclimr)
 #### 2014-08-28: version 1.1.3
 
-* The user manual has been revised.
-* `lonSkip` and `latSkip` have been renamed to `lonStep` and `latStep`, respectively.
-* Minor bug fixes.
+* The user manual is revised
+* `lonSkip` and `latSkip` renamed to `lonStep` and `latStep`, respectively
+* Minor bug fixes
 
 [⇪](#hiclimr)
 #### 2014-07-26: version 1.1.2
 
 * A bug has been fixed where data mean is added to centered data if `standardize = FALSE`
-   * the objective tree cut oand the output `data` component are now corrected 
+   * objective tree cut and `data` component are now corrected 
      * to match input parameters especially when clustring of raw data
      * centered data was used in previous versions
 
