@@ -208,10 +208,11 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    * Check the update user manual for more details!
 * Preliminary big data support
    * function `fastCor` can now split the data matrix into `nSplit` splits
-   * a logical parameter `upperTri` to compute only the upper-triangular half of the correlation matrix
+   * adds a logical parameter `upperTri` to `fastCor` function
+     * computes only the upper-triangular half of the correlation/dissimilarity matrix
      * it includes all required information since the correlation/dissimilarity matrix is symmetric
-     * this almost doubles the use of existing memory for big date.
-   * Fix "integer overflow" for big/large data.
+     * this almost doubles the use of existing memory
+   * fixes "integer overflow" for very large number of objects to be clustered
 * Adds a logical parameter `verbose` for printing processing information
 * Adds a logical parameter `dendrogram` for plotting dendrogram
 * Backword compatibility with previous versions
