@@ -472,9 +472,8 @@ y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 require(HiClimR)
 
 #----------------------------------------------------------------------------------#
-# Advanced examples to provide more information about code                         #
-# functionality and usage of the available helper functions                        #
-# that can be used separately or for other applications.                           #
+# Miscellaneous examples to provide more information about functionality and usage #
+# of the helper functions that can be used separately or for other applications.   #                          #
 #----------------------------------------------------------------------------------#
 
 ## Load test case data
