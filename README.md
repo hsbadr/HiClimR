@@ -200,8 +200,9 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
         * `length(standardize) = length(x) = nvars`
         * `length(weightedVar) = length(x) = nvars`
      * filtering with `meanThresh`, `varThresh` thresholds
-     * detrending with `detrend` option if requested
-     * standardization with `standardize` option if requested
+     * detrending with `detrend` option, if requested
+     * standardization with `standardize` option, if requested
+        * strongly recommended since variables may have different magnitudes  
      * weighting by the new `weightedVar` option (default is `1`)
      * combining variables by column (for each object: spatial points or stations)
      * applying PCA (if requested) and computing the correlation/dissimilarity matrix
