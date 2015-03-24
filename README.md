@@ -310,16 +310,18 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 [⇪](#hiclimr)
 #### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies `hclust` function in `stats` library.
-* It adds a new clustering method to the set of available methods.
+* adds a new clustering method to the set of available methods.
 * The new method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`.
-   *  It minimizes the inter-regional correlation between region means.
-   *  It modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region
-     *  It is a function of the correlation between the individual regions, and their standard deviations before merging.
-     *  It equals the average of their standard deviations if and only if the correlation between the two merged regions is `100%`.
+   *  minimizes the inter-regional correlation between region means.
+   *  modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region
+     *  a function of the correlation between the individual regions, and their standard deviations before merging.
+     *  equals the average of their standard deviations if and only if the correlation between the two merged regions is `100%`.
      *  In this special case, the new method is reduced to the classic `average` linkage clustering method.
 * Several features are included to facilitate spatiotemporal analysis applications:
-   *  options for preprocessing and postprocessing as well as efficient code execution for large datasets.
-   *  cluster validation function `validClimR` that implements an objective tree cut to find an optimal number of clusters for a user-specified confidence level.
+   *  options for preprocessing and postprocessing
+   *  efficient code execution for large datasets.
+   *  cluster validation function `validClimR`
+     *  implements an objective tree cut to find an optimal number of clusters for a user-specified confidence level.
 * It is also applicable to any correlation-based clustering.
 
 [⇪](#hiclimr)
