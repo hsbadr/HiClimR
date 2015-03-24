@@ -223,31 +223,36 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 [⇪](#hiclimr)
 #### 2014-07-26: version 1.1.2
 
-* A bug has been fixed where data mean is added to centered data if `standardize = FALSE`. In this case, the objective tree cut for `regional` linkage method and the output `data` component are now corrected to match input parameters especially when clustring of raw data (without standardization) is requested (centered data was used in previous versions).
+* A bug has been fixed where data mean is added to centered data if `standardize = FALSE`
+   * the objective tree cut oand the output `data` component are now corrected 
+     * to match input parameters especially when clustring of raw data
+     * centered data was used in previous versions
 
 [⇪](#hiclimr)
 #### 2014-07-14: version 1.1.1
 
-* Minor bug fixes and memory optimizations especially for the geographic masking function `geogMask`.
-* The limit for data size has been removed (use with caution).
-* A logical parameter `InDispute` has been added to `geogMask` function to optionally consider areas in dispute for geographic masking by country.
-* Changelog has been updated and reformatted.
+* Minor bug fixes and memory optimizations especially for the geographic masking function `geogMask`
+* The limit for data size has been removed (use with caution)
+* A logical parameter `InDispute` is added to `geogMask` function to optionally consider areas in dispute for geographic masking by country
 
 [⇪](#hiclimr)
 #### 2014-05-15: version 1.1.0
 
-* Code cleanup and bug fixes.
-* An issue with the `fastCor` function that degrades its performance on 32-bit machines has been fixed. A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized `BLAS` library, such as `ATLAS`, `OpenBLAS`, or the commercial `Intel MKL`.
-* The citation info has been updated to reflect the current status of the technical paper, which will be cited and included as vignettes upon publication.
+* Code cleanup and bug fixes
+* An issue with `fastCor` function that degrades its performance on 32-bit machines has been fixed
+   * A significant performance improvement can only be achieved when building R on 64-bit machines with an optimized `BLAS` library, such as `ATLAS`, `OpenBLAS`, or the commercial `Intel MKL`
+* The citation info has been updated to reflect the current status of the technical paper
 
 [⇪](#hiclimr)
 #### 2014-05-07: version 1.0.9
 
-* Minor changes and fixes for CRAN.
-* For memory considerations, smaller test case is provided (1 degree resolution instead of 0.5 degree) and the resolution option (`res` parameter) in geographic masking has been removed.
-* Mask data is only available in 0.1 degree (~10 km) resolustion.
-* `LazyLoad` and `LazyData` are enabled in the description file.
-* The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading of the data.
+* Minor changes and fixes for CRAN
+* For memory considerations,
+   * smaller test case with 1 degree resolution instead of 0.5 degree
+   * the resolution option (`res` parameter) in geographic masking is removed
+   * Mask data is only available in 0.1 degree (~10 km) resolustion
+* `LazyLoad` and `LazyData` are enabled in the description file
+* The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading
 
 [⇪](#hiclimr)
 #### 2014-05-06: version 1.0.8
