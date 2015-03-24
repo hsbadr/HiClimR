@@ -314,8 +314,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The new method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`.
    *  It minimizes the inter-regional correlation between region means.
    *  It modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region
-     *  which is a function of the correlation between the individual regions, and their standard deviations before merging.
-     *  It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`.
+     *  It is a function of the correlation between the individual regions, and their standard deviations before merging.
+     *  It equals the average of their standard deviations if and only if the correlation between the two merged regions is `100%`.
      *  In this special case, the new method is reduced to the classic `average` linkage clustering method.
 * Several features are included to facilitate spatiotemporal analysis applications:
    *  options for preprocessing and postprocessing as well as efficient code execution for large datasets.
