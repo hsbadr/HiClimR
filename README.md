@@ -258,21 +258,25 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 [⇪](#hiclimr)
 #### 2014-03-30: version 1.0.7
 
-* Hybrid hierarchical clustering feature that utilizes the pros of the available methods, especially the better overall homogeneity in Ward's method and the separation and objective tree cut of the regional linkage method.
-* The logical parameter `hybrid` is added to enable a second step of using regional linkage clustering method for reconstructing the upper part of the tree at a cut of defined by `kH` (number of clusters to restart with using the `regional` linkage method).
-* If `kH = NULL`, the tree will be reconstructed for the upper part with the first merging cost larger than the mean merging cost for the entire tree (merging cost is the loss of overall homogeneity at each merging step).
-* If hybrid clustering is requested, the updated upper part of the tree will be used for cluster validation.
+* Hybrid hierarchical clustering feature that utilizes the pros of the available methods
+   * especially the better overall homogeneity in Ward's method and the separation and objective tree cut of the regional linkage method.
+   * The logical parameter `hybrid` is added to enable a second clustering step
+     * using `regional` linkage for reconstructing the upper part of the tree at a cut
+     * defined by `kH` (number of clusters to restart with using the `regional` linkage method)
+     * If `kH = NULL`, the tree will be reconstructed for the upper part with the first merging cost larger than the mean merging cost for the entire tree
+       * merging cost is the loss of overall homogeneity at each merging step
+* If hybrid clustering is requested, the updated upper-part of the tree will be used for cluster validation.
 
 [⇪](#hiclimr)
 #### 2014-03-25: version 1.0.6
 
-* Code cleanup and bug fixes.
+* Code cleanup and bug fixes
 
 [⇪](#hiclimr)
 #### 2014-03-18: version 1.0.5
 
-* Code cleanup and bug fixes.
-* It adds support to generate region maps for ungridded data.
+* Code cleanup and bug fixes
+* Adds support to generate region maps for ungridded data
 
 [⇪](#hiclimr)
 #### 2014-03-14: version 1.0.4
@@ -280,9 +284,9 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Code cleanup and bug fixes
 * The `coarseR` function is  called inside the core `HiClimR` function
 * Adds `coords` component to the output tree for the longitude and latitude coordinates
-   * since they may be changed by coarsening. 
+   * they may be changed by coarsening
 * `validClimR` function does not require `lon` and `lat` arguments
-   * they are now available in the output tree (`coords` component).
+   * they are now available in the output tree (`coords` component)
 
 [⇪](#hiclimr)
 #### 2014-03-12: version 1.0.3
