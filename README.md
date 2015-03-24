@@ -491,14 +491,9 @@ lat <- xc$lat
 x <- xc$x
 
 ## Use fastCor function to compute the correlation matrix
-t0 <- proc.time()
-xcor <- fastCor(t(x))
-proc.time() - t0
-
+t0 <- proc.time(); xcor <- fastCor(t(x)); proc.time() - t0
 ## compare with cor function
-t0 <- proc.time()
-xcor0 <- cor(t(x))
-proc.time() - t0
+t0 <- proc.time(); xcor0 <- cor(t(x)); proc.time() - t0
 
 ## Check the valid options for geographic masking
 geogMask()
