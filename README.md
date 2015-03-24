@@ -277,56 +277,59 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 [⇪](#hiclimr)
 #### 2014-03-14: version 1.0.4
 
-* Code cleanup and bug fixes.
-* The `coarseR` function is  called inside the core `HiClimR` function.
-* The `coords` component has been added to the output tree for the longitude and latitude coordinates since they may be changed by coarsening. The `lon` and `lat` vectors are more flexible for gridded data, as they will be automatically converted to a rectangular grid if necessary.
-* The `validClimR` function does not require `lon` and `lat` arguments where they are now available in the output tree (`coords` component).
+* Code cleanup and bug fixes
+* The `coarseR` function is  called inside the core `HiClimR` function
+* Adds `coords` component to the output tree for the longitude and latitude coordinates
+   * since they may be changed by coarsening. 
+* `validClimR` function does not require `lon` and `lat` arguments
+   * they are now available in the output tree (`coords` component).
 
 [⇪](#hiclimr)
 #### 2014-03-12: version 1.0.3
 
-* Code cleanup and bug fixes.
-* The package has one main function `HiClimR`, which internally calls all other functions including `validClimR` function.
-* It has unified component names for all functions.
-* Objective tree cut is supported only for the `regional` linkage method. Otherwise, the number of clusters `k` should be specified.
-* The new clustering method has been renamed from `HiClimR` to `regional` linkage method.
+* Code cleanup and bug fixes
+* One main/wrapper function `HiClimR` internally calls all other functions
+* Unified component names for all functions
+* Objective tree cut is supported only for the `regional` linkage method
+   * Otherwise, the number of clusters `k` should be specified
+* The new clustering method has been renamed from `HiClimR` to `regional` linkage method
 
 [⇪](#hiclimr)
 #### 2014-03-09: version 1.0.2
 
 * Code cleanup and bug fixes.
 * adds a new feature that to return the preprocessed data used for clustering, by a logical argument `retData`.
-   * The data will be returned in a component`data` of the output tree
-   * This can be used to utilize `HiCLimR` preprocessing options for further analysis
+   * the data will be returned in a component`data` of the output tree
+   * this can be used to utilize `HiCLimR` preprocessing options for further analysis
 * Ordered regions vector for the selected number of clusters are now returned in the `region` component
-     * length equals to the number of spatial elements `N`.
+     * length equals the number of spatial elements `N`
 
 [⇪](#hiclimr)
 #### 2014-03-08: version 1.0.1
 
 * Code cleanup and bug fixes
-* adds a new feature in `validCLimR` that enables users to exclude very small clusters from validation indices `interCor`, `intraCor`, `diffCor`, and `statSum`, by setting a value for the minimum cluster size (`minSize > 1`)
-   * The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters
-   * In `HiClimR` (currently, `regional` linkage) method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements
-   * This should be followed by a quality control step
-* The function `coarseR` has been added for coarsening spatial resolution of the input matrix `x`
+* Adds a new feature in `validCLimR` that enables users to exclude very small clusters from validation indices `interCor`, `intraCor`, `diffCor`, and `statSum`, by setting a value for the minimum cluster size (`minSize > 1`)
+   * the excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters
+   * in `HiClimR` (currently, `regional` linkage) method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements
+   * this should be followed by a quality control step
+* Adds `coarseR` function for coarsening spatial resolution of the input matrix `x`
 
 [⇪](#hiclimr)
 #### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies `hclust` function in `stats` library
-* adds a new clustering method to the set of available methods
+* Adds a new clustering method to the set of available methods
 * The new method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`
    *  minimizes the inter-regional correlation between region means
    *  modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region
      *  a function of the correlation between the individual regions, and their standard deviations before merging
      *  equals the average of their standard deviations if and only if the correlation between the two merged regions is `100%`.
-     *  In this special case, the new method is reduced to the classic `average` linkage clustering method
+     *  in this special case, the new method is reduced to the classic `average` linkage clustering method
 * Several features are included to facilitate spatiotemporal analysis applications:
    *  options for preprocessing and postprocessing
    *  efficient code execution for large datasets.
    *  cluster validation function `validClimR`
      *  implements an objective tree cut to find an optimal number of clusters
-* It is also applicable to any correlation-based clustering
+* Applicable to any correlation-based clustering
 
 [⇪](#hiclimr)
 ## Examples
