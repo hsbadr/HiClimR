@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-21: version 1.2.0](#2015-03-22-version-120)
+        * [2015-03-24: version 1.2.0](#2015-03-24-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
         * [2014-09-01: version 1.1.4](#2014-09-01-version-114)
@@ -180,12 +180,12 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.4**   |   09/01/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.0**   |   03/21/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.0**   |   03/24/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 ## Changes
 
-#### 2015-03-22: version 1.2.0
+#### 2015-03-24: version 1.2.0
 
 * Multi-variate clustering (MVC): the input matrix `x` can now be a list of matrices (one matrix for each variable). Data preprocessing is specified by lists of `meanThresh`, `varThresh`, `detrend`, `standardize`, and `weightedVar` with the same length of `x`. The filtered variables are weighted and combined by column (for each object: spatial points or stations) after preprocessing (detrending and standardization) and before PCA (if requested) and computing the correlation/dissimilarity matrix. The default weight is `weightedVar = 1` for all variables.
 * Each variable is separately preprocessed to allow for all possible options. Check the update user manual for more details!
@@ -309,13 +309,15 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 [⇪](#hiclimr)
 #### 2014-03-07: version 1.0.0
-* Initial version of `HiClimR` package that modifies the very efficient code of `hclust` function in the `stats` library.
+* Initial version of `HiClimR` package that modifies `hclust` function in `stats` library.
 * It adds an improved clustering method (called, `HiClimR`) to the set of available methods.
-* The method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`.
-* It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step).
-* The dissimilarity/similarity between any two regions, in both `HiClimR` and `average` linkage methods, is based on their means (timeseries).
-* The new `HiClimR` method modifies `average` update formulae by incorporating the standard deviation of the timeseries of the the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
-* Several features have been implemented to facilitate spatiotemporal analysis applications as well as cluster validation function `validClimR`, which implements an objective tree cutting to find the optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets.
+* The new method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`.
+        * It minimizes the inter-regional correlation between region means.
+        * It modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region,  which is a function of the correlation between the individual regions, and their standard deviations before merging.
+        * It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `HiClimR` method is reduced to the classic `average` linkage clustering method.
+* Several features are included to facilitate spatiotemporal analysis applications:
+        * options for preprocessing and postprocessing as well as efficient code execution for large datasets.
+        * cluster validation function `validClimR`, which implements an objective tree cut to find an optimal number of clusters for a user-specified confidence level.
 * It is also applicable to any correlation-based clustering.
 
 [⇪](#hiclimr)
