@@ -189,14 +189,22 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 * Multi-variate clustering (MVC)
    * the input matrix `x` can now be a list of matrices (one matrix for each variable)
-   * data preprocessing is specified by lists with length of `x`
+     * `length(x) = nvars` where `nvars` is the number of variables
+     * number of rows `N` = number of objects (e.g., stations) to be clustered
+     * number of columns `M` may vary for each variables (e.g., different temporal periods)
+   * Each variable is separately preprocessed to allow for all possible options
+     * preprocessing is specified by lists with length of `x` (number of variables)
+       * `length(meanThresh) = length(x) = nvars`
+       * `length(varThresh) = length(x) = nvars`
+       * `length(detrend) = length(x) = nvars`
+       * `length(standardize) = length(x) = nvars`
+       * `length(weightedVar) = length(x) = nvars`
      * filtering with `meanThresh`, `varThresh` thresholds
      * detrending with `detrend` option if requested
      * standardization with `standardize` option if requested
      * weighting by the new `weightedVar` option (default is `1`)
      * combining variables by column (for each object: spatial points or stations)
      * applying PCA (if requested) and computing the correlation/dissimilarity matrix
-   * Each variable is separately preprocessed to allow for all possible options
    * Check the update user manual for more details!
 * Preliminary big data support
    * function `fastCor` can now split the data matrix into `nSplit` splits
