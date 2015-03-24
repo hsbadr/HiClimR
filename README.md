@@ -199,7 +199,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
         * `length(detrend) = length(x) = nvars`
         * `length(standardize) = length(x) = nvars`
         * `length(weightedVar) = length(x) = nvars`
-     * filtering with `meanThresh`, `varThresh` thresholds
+     * filtering with `meanThresh` and `varThresh` thresholds
      * detrending with `detrend` option, if requested
      * standardization with `standardize` option, if requested
         * strongly recommended since variables may have different magnitudes  
