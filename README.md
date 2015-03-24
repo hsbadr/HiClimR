@@ -194,11 +194,11 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
      * number of columns `M` may vary for each variables (e.g., different temporal periods)
    * Each variable is separately preprocessed to allow for all possible options
      * preprocessing is specified by lists with length of `x` (number of variables)
-       * `length(meanThresh) = length(x) = nvars`
-       * `length(varThresh) = length(x) = nvars`
-       * `length(detrend) = length(x) = nvars`
-       * `length(standardize) = length(x) = nvars`
-       * `length(weightedVar) = length(x) = nvars`
+        * `length(meanThresh) = length(x) = nvars`
+        * `length(varThresh) = length(x) = nvars`
+        * `length(detrend) = length(x) = nvars`
+        * `length(standardize) = length(x) = nvars`
+        * `length(weightedVar) = length(x) = nvars`
      * filtering with `meanThresh`, `varThresh` thresholds
      * detrending with `detrend` option if requested
      * standardization with `standardize` option if requested
