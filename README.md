@@ -190,13 +190,12 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Multi-variate clustering (MVC)
    * the input matrix `x` can now be a list of matrices (one matrix for each variable)
    * data preprocessing is specified by lists with length of `x`
-     * `meanThresh`, `varThresh`, `detrend`, `standardize`, and `weightedVar`
-       * filtering with `meanThresh`, `varThresh` thresholds
-       * detrending with `detrend` option if requested
-       * standardization with `standardize` option if requested
-       * weighting by the new `weightedVar` option (default is `1`)
-       * combining variables by column (for each object: spatial points or stations)
-       * applying PCA (if requested) and computing the correlation/dissimilarity matrix
+     * filtering with `meanThresh`, `varThresh` thresholds
+     * detrending with `detrend` option if requested
+     * standardization with `standardize` option if requested
+     * weighting by the new `weightedVar` option (default is `1`)
+     * combining variables by column (for each object: spatial points or stations)
+     * applying PCA (if requested) and computing the correlation/dissimilarity matrix
    * Each variable is separately preprocessed to allow for all possible options
    * Check the update user manual for more details!
 * Preliminary big data support
