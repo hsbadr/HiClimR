@@ -304,7 +304,9 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 * Code cleanup and bug fixes.
 * It adds a new feature in `validCLimR` that enables users to exclude very small clusters from validation indices `interCor`, `intraCor`, `diffCor`, and `statSum`, by setting a value for the minimum cluster size (`minSize` parameter) greater than one.
-* The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters. In `HiClimR` method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements. This should be followed by a quality control step.
+   * The excluded clusters can be identified from the output of `validClimR` in `clustFlag` component, which takes a value of `1` for valid clusters or `0` for excluded clusters.
+   * In `HiClimR` (currently, `regional` linkage) method, noisy spatial elements (or stations) are isolated in very small-size clusters or individuals since they do not correlate well with any other elements.
+   * This should be followed by a quality control step.
 * The function `coarseR` has been added for coarsening spatial resolution of the input matrix `x`.
 
 [⇪](#hiclimr)
@@ -321,7 +323,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    *  options for preprocessing and postprocessing
    *  efficient code execution for large datasets.
    *  cluster validation function `validClimR`
-     *  implements an objective tree cut to find an optimal number of clusters for a user-specified confidence level.
+     *  implements an objective tree cut to find an optimal number of clusters
 * It is also applicable to any correlation-based clustering.
 
 [⇪](#hiclimr)
