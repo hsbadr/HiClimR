@@ -206,7 +206,6 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
      * weighting by the new `weightedVar` option (default is `1`)
      * combining variables by column (for each object: spatial points or stations)
      * applying PCA (if requested) and computing the correlation/dissimilarity matrix
-   * Check the update user manual for more details!
 * Preliminary big data support
    * function `fastCor` can now split the data matrix into `nSplit` splits
    * adds a logical parameter `upperTri` to `fastCor` function
