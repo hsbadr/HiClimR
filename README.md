@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-24: version 1.2.0](#2015-03-24-version-120)
+        * [2015-03-25: version 1.2.0](#2015-03-25-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
         * [2014-09-01: version 1.1.4](#2014-09-01-version-114)
@@ -180,12 +180,12 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.4**   |   09/01/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.0**   |   03/24/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.0**   |   03/25/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 ## Changes
 
-#### 2015-03-24: version 1.2.0
+#### 2015-03-25: version 1.2.0
 
 * Multi-variate clustering (MVC)
    * the input matrix `x` can now be a list of matrices (one matrix for each variable)
