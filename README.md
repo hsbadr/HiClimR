@@ -412,7 +412,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL,
-    members = NULL, nSplit = 10, upperTRI = TRUE, verbose = TRUE,
+    members = NULL, nSplit = 10, upperTri = TRUE, verbose = TRUE,
     validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
