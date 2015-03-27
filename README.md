@@ -216,6 +216,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    * fixes "integer overflow" for very large number of objects to be clustered
 * Adds a logical parameter `verbose` for printing processing information
 * Adds a logical parameter `dendrogram` for plotting dendrogram
+* Uses `\dontrun{}` to skip time-consuming examples
+   * for more examples: https://github.com/hsbadr/HiClimR#examples
 * Backword compatibility with previous versions
 * The user manual is updated and revised
 
