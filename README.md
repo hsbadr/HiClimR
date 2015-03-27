@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-26: version 1.2.0](#2015-03-26-version-120)
+        * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
         * [2014-09-01: version 1.1.4](#2014-09-01-version-114)
@@ -180,12 +180,12 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.4**   |   09/01/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.0**   |   03/26/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 ## Changes
 
-#### 2015-03-26: version 1.2.0
+#### 2015-03-27: version 1.2.0
 
 * Multi-variate clustering (MVC)
    * the input matrix `x` can now be a list of matrices (one matrix for each variable)
@@ -212,7 +212,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    * adds a logical parameter `upperTri` to `fastCor` function
      * computes only the upper-triangular half of the correlation/dissimilarity matrix
      * it includes all required information since the correlation/dissimilarity matrix is symmetric
-     * this almost doubles the use of existing memory
+     * this almost halves memory use, which can be very important for big data.
    * fixes "integer overflow" for very large number of objects to be clustered
 * Adds a logical parameter `verbose` for printing processing information
 * Adds a logical parameter `dendrogram` for plotting dendrogram
