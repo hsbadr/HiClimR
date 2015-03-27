@@ -57,19 +57,19 @@ Table of Contents
    * by regions
    * by countries
 * data filtering by thresholds:
-    * mean threshold
-    * variance threshold
+   * mean threshold
+   * variance threshold
 * data preprocessing:
-    * detrending
-    * standardization
-    * PCA
+   * detrending
+   * standardization
+   * PCA
 * faster correlation function
    * splitting big data matrix
    * computing upper-triangular matrix
    * using optimized `BLAS` library on 64-Bit machines
-           * `ATLAS`
-           * `OpenBLAS`
-           * `Intel MKL` 
+     * `ATLAS`
+     * `OpenBLAS`
+     * `Intel MKL` 
 * hybrid hierarchical clustering
    * the upper part of the tree is reconstructed above a cut
    * the lower part of the tree uses user-selected method
