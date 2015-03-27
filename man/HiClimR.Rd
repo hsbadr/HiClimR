@@ -564,10 +564,13 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
+## For more examples: https://github.com/hsbadr/HiClimR#examples
+
+\dontrun{
+
 #----------------------------------------------------------------------------------#
 # Additional Examples:                                                             #
 #----------------------------------------------------------------------------------#
-
 
 ## Use Ward's method
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
@@ -593,6 +596,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## Check senitivity to kH for the hybrid method above
+
 
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for multi-variate clustering:                             #
@@ -709,5 +713,7 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 
 ## Visualization for gridded or ungridded data
 plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
+
+}
 }
 \keyword{HiClimR}

@@ -104,8 +104,11 @@ t0 <- proc.time() ; xcor <- fastCor(t(x)) ; proc.time() - t0
 ## compare with cor function
 t0 <- proc.time() ; xcor0 <- cor(t(x)) ; proc.time() - t0
 
+\dontrun{
+
 ## Split the data into 10 splits and return upper-triangular half only
 xcor10 <- fastCor(t(x), nSplit = 10, upperTri = TRUE)
 
+}
 }
 \keyword{HiClimR}
