@@ -26,22 +26,26 @@ data(TestCase)
   latitudes corrrdinates, where \code{80 * 80 = 6400} for this gridded data.
 }
 \details{
-  CRU TS 3.21 data (1901-2012) are high-resolution (\code{0.5 x 0.5} degree)
-  monthly gridded precipitation. This test data is a subset with 1 degree resolution
-  for African precipitation in January, 1949-1989.
+  CRU TS 3.21 data (1901-2012) is monthly gridded precipitation with \code{0.5} 
+  degree resolution. This test data is a subset with 1 degree resolution for 
+  African precipitation in January, 1949-1989.
 }
 \source{
   Climatic Research Unit (CRU) time-series datasets of variations in climate with
   variations in other phenomena.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
-  Hierarchical Climate Regionalization. \emph{CRAN},
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
 
-  Harris, I., Jones, P., Osborn, T., and Lister, D.: Updated high-resolution grids of monthly
-  climatic observations-the CRU TS3.10 Dataset, International journal of climatology, 2013.
-  Available from:
+  Harris, I., Jones, P., Osborn, T., and Lister, D. (2013):
+  Updated high-resolution grids of monthly climatic observations-the CRU TS3.10 Dataset, 
+  \emph{International journal of climatology}, Available from: 
   \url{http://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__dataent_1256223773328276}
 }
 \examples{

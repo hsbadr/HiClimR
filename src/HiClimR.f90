@@ -1,149 +1,125 @@
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  HIERARCHICAL CLIMATE REGIONALIZATION (HiClimR):                     !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  HiClimR package modifies and improves hierarchical clustering in R  !
-!  ('hclust' function in 'stats' library), climate regionalization.    !
-!  It adds a new clustering method (called, regional linkage) to the   !
-!  set of available methods  together with several features including  !
-!  regridding (grid2D function), coarsening spatial resolution         !
-!  (coarseR function), geographic masking (geogMask function), data    !
-!  thresholds, detrending and standardization preprocessing, faster    !
-!  correlation function (fastCor function), and cluster validation     !
-!  (validClimR and minSigCor functions). The regional linkage method   !
-!  is explained in the context of a spatio-temporal problem, in which  !
-!  N spatial elements (e.g., weather stations) are divided into k      !
-!  regions, given that each element has a time series of length M.     !
-!  It is based on inter-regional correlation distance between the      !
-!  temporal means of different regions (or elements at the first       !
-!  merging step). It modifies the update formulae of average linkage   !
-!  method by incorporating the standard deviation of the timeseries    !
-!  of the the merged region, which is a function of the correlation    !
-!  between the individual regions, and their standard deviations       !
-!  before merging. It is equal to the average of their standard        !
-!  deviations if and only if the correlation between the two merged    !
-!  regions is 100%. In this special case, the regional linkage method  !
-!  is reduced to the classic average linkage clustering method. The    !
-!  added features facilitate spatiotemporal analysis applications as   !
-!  well as cluster validation function validClimR, which implements    !
-!  an objective tree cutting to find the optimal number of clusters    !
-!  for a user-specified confidence level. These include options for    !
-!  preprocessing and postprocessing as well as efficient code          !
-!  execution for large datasets.                                       !
-!  It is applicable to any correlation-based clustering.               !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !                                        
-!  References:                                                         !
-!                                                                      !
-!  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).             !
-!  Hierarchical Climate Regionalization. CRAN,                         !
-!  http://cran.r-project.org/package=HiClimR.                          !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  Clustering Methods:                                                 !
-!                                                                      !
-!  0. REGIONAL linkage or minimum inter-regional correlation.          !
-!  1. WARD's minimum variance or error sum of squares method.          !
-!  2. SINGLE linkage or nearest neighbor method.                       !
-!  3. COMPLETE linkage or diameter.                                    !
-!  4. AVERAGE linkage, group average, or UPGMA method.                 !
-!  5. MCQUITTY's or WPGMA method.                                      !
-!  6. MEDIAN, Gower's or WPGMC method.                                 !
-!  7. CENTROID or UPGMC method.                                        !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  Parameters:                                                         !
-!                                                                      !
-!  N                 the number of points being clustered              !
-!                                                                      !
-!  LEN               index for lower triangle; LEN = N.N-1/2           !
-!                                                                      !
-!  IOPT              clustering method to be used                      !
-!                                                                      !
-!  VAR(N)            variances of all variables                        !
-!                                                                      !
-!  DISS(LEN)         dissimilarities in lower half diagonal storage    !
-!                                                                      !
-!  IA, IB, CRIT      history of agglomerations; dimensions N,          !
-!                    first N-1 locations only used                     !
-!                                                                      !
-!  MEMBR, NN, DISNN  vectors of length N, used to store cluster        !
-!                    cardinalities, current nearest neighbour, and     !
-!                    the dissimilarity assoc. with the latter.         !
-!                    MEMBR must be initialized by R to the             !
-!                    default of rep(1, N).                             !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  This code is modified by Hamada Badr <badr@jhu.edu> from:           !
-!               File src/library/stats/src/hclust.f                    !
-!  Part of the R package, http://www.R-project.org                     !
-!                                                                      !
-!  Copyright(C)  1995-2015  The R Core Team                            !
-!                                                                      !
-!  This program is free software; you can redistribute it and/or       !
-!  modify it under the terms of the GNU General Public License as      !
-!  published by the Free Software Foundation; either version 2 of      !
-!  the License, or (at your option) any later version.                 !
-!                                                                      !
-!  This program is distributed in the hope that it will be useful,     !
-!  but WITHOUT ANY WARRANTY; without even the implied warranty of      !
-!  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       !
-!  GNU General Public License for more details.	                       !
-!                                                                      !
-!  A copy of the GNU General Public License is available at            !
-!  http://www.r-project.org/Licenses                                   !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  HISTORY:                                                            !
-!                                                                      !
-!----------------------------------------------------------------------!
-!  Version  |  Date      |  Comment   |  Author       |  Email         !
-!----------------------------------------------------------------------!
-!           |  May 1992  |  Original  |  F. Murtagh   |                !
-!           |  Dec 1996  |  Modified  |  Ross Ihaka   |                !
-!           |  Apr 1998  |  Modified  |  F. Leisch    |                !
-!           |  Jun 2000  |  Modified  |  F. Leisch    |                !
-!----------------------------------------------------------------------!
-!  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  !
-!  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.02     |  03/09/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.03     |  03/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.04     |  03/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.05     |  03/18/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.06     |  03/25/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.07     |  03/30/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!----------------------------------------------------------------------!
-!  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  !
-!----------------------------------------------------------------------!
-!  1.1.6    |  01/03/15  |  GitHub    |  Hamada Badr  |  badr@jhu.edu  !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-! COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.      !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
-!  Function: Hierarchical Climate Regionalization                      !
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
-!                                                                      !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  HIERARCHICAL CLIMATE REGIONALIZATION (HiClimR):                        !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  References:                                                            !
+!                                                                         !
+!  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                !
+!  A Tool for Hierarchical Climate Regionalization.                       !
+!  Earth Science Informatics, In Review.                                  !
+!                                                                         !
+!  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                !
+!  Hierarchical Climate Regionalization. CRAN,                            !
+!  http://cran.r-project.org/package=HiClimR.                             !
+!                                                                         !
+!  Source Code: https://github.com/hsbadr/HiClimR                         !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  Clustering Methods:                                                    !
+!                                                                         !
+!  0. REGIONAL linkage or minimum inter-regional correlation.             !
+!  1. WARD's minimum variance or error sum of squares method.             !
+!  2. SINGLE linkage or nearest neighbor method.                          !
+!  3. COMPLETE linkage or diameter.                                       !
+!  4. AVERAGE linkage, group average, or UPGMA method.                    !
+!  5. MCQUITTY's or WPGMA method.                                         !
+!  6. MEDIAN, Gower's or WPGMC method.                                    !
+!  7. CENTROID or UPGMC method.                                           !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  Parameters:                                                            !
+!                                                                         !
+!  N                 the number of points being clustered                 !
+!                                                                         !
+!  LEN               index for lower triangle; LEN = N.N-1/2              !
+!                                                                         !
+!  IOPT              clustering method to be used                         !
+!                                                                         !
+!  VAR(N)            variances of all variables                           !
+!                                                                         !
+!  DISS(LEN)         dissimilarities in lower half diagonal storage       !
+!                                                                         !
+!  IA, IB, CRIT      history of agglomerations; dimensions N,             !
+!                    first N-1 locations only used                        !
+!                                                                         !
+!  MEMBR, NN, DISNN  vectors of length N, used to store cluster           !
+!                    cardinalities, current nearest neighbour, and        !
+!                    the dissimilarity assoc. with the latter.            !
+!                    MEMBR must be initialized by R to the                !
+!                    default of rep(1, N).                                !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  This code is modified by Hamada S. Badr <badr@jhu.edu> from:           !
+!               File src/library/stats/src/hclust.f                       !
+!  Part of the R package, http://www.R-project.org                        !
+!                                                                         !
+!  Copyright(C)  1995-2015  The R Core Team                               !
+!                                                                         !
+!  This program is free software; you can redistribute it and/or          !
+!  modify it under the terms of the GNU General Public License as         !
+!  published by the Free Software Foundation; either version 2 of         !
+!  the License, or (at your option) any later version.                    !
+!                                                                         !
+!  This program is distributed in the hope that it will be useful,        !
+!  but WITHOUT ANY WARRANTY; without even the implied warranty of         !
+!  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          !
+!  GNU General Public License for more details.	                          !
+!                                                                         !
+!  A copy of the GNU General Public License is available at               !
+!  http://www.r-project.org/Licenses                                      !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  HISTORY:                                                               !
+!                                                                         !
+!-------------------------------------------------------------------------!
+!  Version  |  Date      |  Comment   |  Author          |  Email         !
+!-------------------------------------------------------------------------!
+!           |  May 1992  |  Original  |  F. Murtagh      |                !
+!           |  Dec 1996  |  Modified  |  Ross Ihaka      |                !
+!           |  Apr 1998  |  Modified  |  F. Leisch       |                !
+!           |  Jun 2000  |  Modified  |  F. Leisch       |                !
+!-------------------------------------------------------------------------!
+!   1.0.0   |  03/07/14  |  HiClimR   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.1   |  03/08/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.2   |  03/09/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.3   |  03/12/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.4   |  03/14/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.5   |  03/18/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.6   |  03/25/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.7   |  03/30/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.0.8   |  05/06/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!-------------------------------------------------------------------------!
+!   1.0.9   |  05/07/14  |   CRAN     |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.0   |  05/15/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.1   |  07/14/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.2   |  07/26/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.3   |  08/28/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.4   |  09/01/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.1.5   |  11/12/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!-------------------------------------------------------------------------!
+!   1.1.6   |  03/01/15  |   GitHub   |  Hamada S. Badr  |  badr@jhu.edu  !
+!-------------------------------------------------------------------------!
+!   1.2.0   |  03/27/15  |    MVC     |  Hamada S. Badr  |  badr@jhu.edu  !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+! COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!  Function: Hierarchical Climate Regionalization                         !
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
     SUBROUTINE HiClimR(N,LEN,IOPT,IA,IB,CRIT,MEMBR,VAR,DISS)
-!                                                                      !
-!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
+!                                                                         !
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 
 !  Args
 

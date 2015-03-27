@@ -1,43 +1,46 @@
-# $Id: validClimR.R, v1.1.6 2015/03/01 12:00:00 hsbadr EPS JHU         #
-#----------------------------------------------------------------------#
-# This function is a part of HiClimR R package.                        #
-#----------------------------------------------------------------------#
-#  HISTORY:                                                            #
-#----------------------------------------------------------------------#
-#  Version  |  Date      |  Comment   |  Author       |  Email         #
-#----------------------------------------------------------------------#
-#           |  May 1992  |  Original  |  F. Murtagh   |                #
-#           |  Dec 1996  |  Modified  |  Ross Ihaka   |                #
-#           |  Apr 1998  |  Modified  |  F. Leisch    |                #
-#           |  Jun 2000  |  Modified  |  F. Leisch    |                #
-#----------------------------------------------------------------------#
-#  1.00     |  03/07/14  |  Modified  |  Hamada Badr  |  badr@jhu.edu  #
-#  1.01     |  03/08/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.02     |  03/09/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.03     |  03/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.04     |  03/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.05     |  03/18/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.06     |  03/25/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.07     |  03/30/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.08     |  05/06/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#----------------------------------------------------------------------#
-#  1.0.9    |  05/07/14  |  CRAN      |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.0    |  05/15/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.1    |  07/14/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.2    |  07/26/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.3    |  08/28/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.4    |  09/01/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#  1.1.5    |  11/12/14  |  Updated   |  Hamada Badr  |  badr@jhu.edu  #
-#----------------------------------------------------------------------#
-#  1.1.6    |  01/03/15  |  GitHub    |  Hamada Badr  |  badr@jhu.edu  #
-#----------------------------------------------------------------------#
-# COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.      #
-#----------------------------------------------------------------------#
-# Function: Validation of Hierarchical Climate Regionalization         #
-#----------------------------------------------------------------------#
+# $Id: validClimR.R, v1.2.0 2015/03/27 12:00:00 hsbadr EPS JHU            #
+#-------------------------------------------------------------------------#
+# This function is a part of HiClimR R package.                           #
+#-------------------------------------------------------------------------#
+#  HISTORY:                                                               #
+#-------------------------------------------------------------------------#
+#  Version  |  Date      |  Comment   |  Author          |  Email         #
+#-------------------------------------------------------------------------#
+#           |  May 1992  |  Original  |  F. Murtagh      |                #
+#           |  Dec 1996  |  Modified  |  Ross Ihaka      |                #
+#           |  Apr 1998  |  Modified  |  F. Leisch       |                #
+#           |  Jun 2000  |  Modified  |  F. Leisch       |                #
+#-------------------------------------------------------------------------#
+#   1.0.0   |  03/07/14  |  HiClimR   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.1   |  03/08/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.2   |  03/09/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.3   |  03/12/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.4   |  03/14/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.5   |  03/18/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.6   |  03/25/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+#   1.0.7   |  03/30/14  |  Hybrid    |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.0.8   |  05/06/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+#   1.0.9   |  05/07/14  |  CRAN      |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.0   |  05/15/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.1   |  07/14/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.2   |  07/26/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.3   |  08/28/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.4   |  09/01/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.1.5   |  11/12/14  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+#   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+#   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+# COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
+#-------------------------------------------------------------------------#
+# Function: Validation of Hierarchical Climate Regionalization            #
+#-------------------------------------------------------------------------#
 
-validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FALSE, 
-    colPalette = NULL) {
+validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, 
+	verbose = TRUE, plot = FALSE, colPalette = NULL) {
 
     # Coordinates
     lon <- y$coords[, 1]
@@ -48,11 +51,12 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
     
     # Cut tree based on minimum significant inter-regional correlation
     if (is.null(k)) {
+    	if (verbose) write("Cutting tree based on minimum significant inter-cluster correlation...", "")
         # Check clustering method
         if (y$method != "regional" && is.null(y$treeH)) {
-            write("Objective tree cut is supported only for Regional Linkage method!", 
+            write("---> WARNING: objective tree cut is supported only for regional linkage method!", 
                 "")
-            write(paste("   ", y$method, "method requires a prespecified number of clusters!"), 
+            write(paste("---> WARNING: ", y$method, "method requires a prespecified number of clusters!"), 
                 "")
         } else {
             if (is.null(y$treeH)) {
@@ -61,9 +65,21 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
                 cutHight <- y$treeH$height
             }
             
-            # Minimum significant correlation coefficient at 95% confidence level
+            # multi-variate clustering
+            nvars <- y$nvars
+            missVal <- y$missVal
+            n.missVal <- 0
+            if (length(missVal) > 0) {
+            	for (nvar in 1:length(missVal)) {
+            		n.missVal <- n.missVal + length(missVal[[nvar]])
+            	}
+            }
+
+            # Minimum significant correlation coefficient
+			if (verbose) write("Computing minimum significant correlation coefficient...", "")
             # for sample size of n years
-            nn <- dim(x)[2] - length(y$missVal)
+            #nn <- dim(x)[2] - length(y$missVal)
+            nn <- (dim(x)[2] - n.missVal) / nvars
             RsMin <- minSigCor(n = nn, alpha = alpha, r = seq(0, 1, by = 1e-06))$cor
             
             k <- ifelse(length(which(1 - cutHight < RsMin)) > 0, (length(cutHight) - 
@@ -84,6 +100,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
             cutTree <- cutree(y, k = k)
         } else {
             # The reconstructed upper part tree
+            if (verbose) write("Retrieving the reconstructed upper-part tree...", "")
             yH <- y$treeH
             
             cutTreeH <- cutree(yH, k = k)
@@ -104,16 +121,16 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
         }
         
         # Region Means
+        if (verbose) write("Computing region means...", "")
         RM <- t(apply(x, 2, function(r) tapply(r, cutTree, mean)))
         
-        # Correlation between Region Means 
-        RMcor <- t(fastCor(RM) * clustFlag) * clustFlag
-        RMcor[lower.tri(RMcor, diag = TRUE)] <- NA
-        
-        write("check point", "")
-        write(paste(dim(RM), dim(t(x))), "")
+        # Correlation between Region Means
+		if (verbose) write("Computing inter-cluster correlations...", "")
+        RMcor <- t(fastCor(RM, upperTri = TRUE, verbose = verbose) * clustFlag) * clustFlag
+        #RMcor[lower.tri(RMcor, diag = TRUE)] <- NA
         
         # Correlation between Region Means and Region Members
+		if (verbose) write("Computing intra-cluster correlations...", "")
         Rcor <- cor(RM, t(x))
         
         # Average Correlation between Region Means and Members
@@ -121,7 +138,8 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
             clustFlag)
         
         clustFlag[is.na(clustFlag)] <- 0
-        
+
+        if (verbose) write("Computing summary statistics...", "")
         index$cutLevel <- c(alpha, RsMin)
         index$clustMean <- RM
         index$clustSize <- table(cutTree)
@@ -165,7 +183,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
             1)]
         
         if (plot) {
-            write("Generating region maps...", "")
+            if (verbose) write("Generating region map...", "")
             if (is.null(colPalette)) {
                 # colPalette <- colorRampPalette(c('#00007F', 'blue', '#007FFF',
                 # 'cyan', '#7FFF7F', 'yellow', '#FF7F00', 'red', '#7F0000'))
@@ -183,5 +201,6 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, plot = FAL
         class(index) <- "HiClimR"
     }
     
+    #gc()
     return(index)
 }

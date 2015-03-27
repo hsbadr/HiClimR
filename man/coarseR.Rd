@@ -13,7 +13,7 @@
   resolution of the input matrix for the \code{\link{HiClimR}} function. 
 }
 \usage{
-coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)
+coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1, verbose = TRUE)
 }
 \arguments{
   \item{x}{an (\code{N} rows by \code{M} columns) matrix of 'double' values: 
@@ -40,6 +40,8 @@ coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)
   If \code{latStep = 2}, every other grid in latitudinal direction will be retained.
   \code{lonStep} and \code{latStep} are independent so that user can optionally 
   apply different coarsening level to each dimension.}
+  
+  \item{verbose}{logical to print processing information if \code{verbose = TRUE}.}
 }
 \value{
   A list with the following components:
@@ -51,17 +53,21 @@ coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1)
   \item{x}{coarser resolution of the input data matrix \code{x}.} 
 }
 \details{
-  For high-resolution data, the computational requirements may not be met on
-  old machines. This function enables the user to use coarser data in any 
+  For high-resolution data, the computational and memory requirements may not be 
+  met on old machines. This function enables the user to use coarser data in any 
   spatial dimension:longitude, latitude, or both. It is available  for testing
-  the \code{HiClimR} package on old computers or machines with small memory 
+  or running \code{HiClimR} package on old computers or machines with small memory 
   resources. The rows of output matrix (\code{x} component) will be also named 
   by longitude and latitude coordinates. If \code{lonStep = 1} and \code{latStep = 1}, 
-  \code{\link{coarseR}} function will rename rows of matrix \code{x}.
+  \code{\link{coarseR}} function will just rename rows of matrix \code{x}.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
-  Hierarchical Climate Regionalization. \emph{CRAN},
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{

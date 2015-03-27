@@ -1,6 +1,28 @@
 citHeader("To cite HiClimR in publications use:")
 
 citEntry(entry = "Article",
+  title        = "A Tool for Hierarchical Climate Regionalization",
+  author       = c(
+                person("Hamada S.", "Badr", email="badr@jhu.edu", role = c("aut", "cre"),
+                comment = "development, enhancements, speed improvements, bug fixes"),
+                person("Benjamin F.", "Zaitchik", email="zaitchik@jhu.edu", role="aut"),
+                person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
+                 ),
+  journal      = "Earth Science Informatics",
+  volume       = "", 
+  number       = "", 
+  pages        = "",
+  year         = "2015",
+  url          = "In Review",
+
+  textVersion  =
+  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):",
+        "A Tool for Hierarchical Climate Regionalization,",
+        "Earth Science Informatics,",
+        "In Review.")
+)
+
+citEntry(entry = "Article",
   title        = "Hierarchical Climate Regionalization",
   author       = c(
                 person("Hamada S.", "Badr", email="badr@jhu.edu", role = c("aut", "cre"),
@@ -9,11 +31,12 @@ citEntry(entry = "Article",
                 person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
                  ),
   journal      = "CRAN",
-  year         = "2015",
+  year         = "2014",
+#  note         = {R package version 1.2.0}, 
   url          = "http://cran.r-project.org/package=HiClimR",
 
   textVersion  =
-  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):",
+  paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):",
         "Hierarchical Climate Regionalization,",
         "CRAN,",
         "http://cran.r-project.org/package=HiClimR.")

@@ -14,7 +14,7 @@
 }
 \usage{
 geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
-  InDispute=TRUE, plot=FALSE, colPalette=NULL)
+  InDispute=TRUE, verbose = TRUE, plot=FALSE, colPalette=NULL)
 }
 \arguments{
   \item{continent}{\code{NULL} or a string (or array of strings) to specify 
@@ -41,7 +41,9 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   geographic masking by country? If \code{InDispute = TRUE} (the default),
   areas in dispute will be considered as a part of the \code{country}.}
 
-  \item{plot}{a logical: should the plot method be called?}
+  \item{verbose}{logical to print processing information if \code{verbose = TRUE}.}
+
+  \item{plot}{logical to call the plotting method if \code{plot = TRUE}.}
 
   \item{colPalette}{a color palette or a list of colors such as that generated 
   by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
@@ -67,10 +69,13 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   (http://hiu.state.gov/data/data.aspx).
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014).
-  Hierarchical Climate Regionalization: An Improved Hierarchical
-  Clustering in R for Climate Regionalization. \emph{R package version},
-  \code{1.1.0}, \url{http://cran.r-project.org/package=HiClimR}.
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
+  \url{http://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

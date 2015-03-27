@@ -6,48 +6,46 @@
 \newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
 \name{HiClimR}
-\title{Hierarchical Climate Regionalization: 
-An Improved Hierarchical Clustering in R for Climate Regionalization}
+\title{Hierarchical Climate Regionalization}
 \alias{HiClimR}
 \description{
-  \code{HiClimR} package modifies and improves hierarchical clustering in R (\code{\link{hclust}} 
-  function in the \code{stats} library), for climate regionalization. It adds a new clustering
-  method (called, \code{regional} linkage) to the set of available methods together with
-  several features including regridding (\code{\link{grid2D}} function), coarsening 
-  spatial resolution (\code{\link{coarseR}} function), geographic masking 
-  (\code{\link{geogMask}} function), data thresholds, detrending and standardization 
-  preprocessing, faster correlation function(\code{\link{fastCor}} function), hybrid
-  hierarchical clustering (\code{hybrid} logical argument), and 
-  cluster validation (\code{\link{validClimR}} and \code{\link{minSigCor}} functions). 
+  \pkg{HiClimR} is a tool for \bold{Hi}erarchical \bold{Clim}ate \bold{R}egionalization 
+  applicable to any correlation-based clustering. Climate regionalization is the process 
+  of dividing an area into smaller regions that are homogeneous with respect to a specified 
+  climatic metric. Several features are added to facilitate the applications of climate 
+  regionalization (or spatiotemporal analysis in general) and to implement cluster validation 
+  with an objective tree cutting to find an optimal number of clusters for a user-specified 
+  confidence level. These include options for preprocessing and postprocessing as well as 
+  efficient code execution for large datasets and options for splitting big data and 
+  computing only the upper-triangular half of the correlation/dissimilarity matrix to 
+  overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part 
+  of the tree above a cut to get the best of the available methods. Multi-variate clustering 
+  (MVC) provides options for filtering all variables before preprocessing, detrending and 
+  standardization of each variable, and applying weights for the preprocessed variables. 
+  The correlation distance for MVC represents the (weighted) average of distances between 
+  all variables.
+
+  \code{\link{HiClimR}} is the main function that calls all helper functions. It adds 
+  several features and a new clustering method (called, \emph{regional} linkage) to 
+  hierarchical clustering in R (\code{\link{hclust}} function in \emph{stats} library): 
+  data regridding (\code{\link{grid2D}} function), coarsening spatial resolution 
+  (\code{\link{coarseR}} function), geographic masking (\code{\link{geogMask}} function), 
+  data filtering by mean and/or variance thresholds, data preprocessing (detrending, 
+  standardization, and PCA), faster correlation function with preliminary big data support
+  (\code{\link{fastCor}} function), hybrid hierarchical clustering, multi-variate clustering 
+  (MVC), cluster validation (\code{\link{validClimR}} and \code{\link{minSigCor}} functions), 
+  and visualization of region maps. Badr et. al (2015) describes the regionalization 
+  algorithms, features, and data processing tools included in the package and presents a 
+  demonstration application in which the package is used to regionalize Africa on the 
+  basis of interannual precipitation variability.
   
-  The \code{regional} linkage method is explained in the context of a spatio-temporal 
-  problem, in which \code{N} spatial elements (e.g., weather stations) are divided 
-  into \code{k} regions, given that each element has a time series of length \code{M}. 
-  It is based on inter-regional correlation distance between the temporal means of 
-  different regions (or elements at the first merging step). It modifies the update 
-  formulae of \code{average} linkage method by incorporating the standard deviation 
-  of the timeseries of the the merged region,  which is a function of the correlation 
-  between the individual regions, and their standard deviations before merging. 
-  It is equal to the average of their standard deviations if and only if the correlation 
-  between the two merged regions is \code{100\%}. In this special case, the \code{regional} 
-  linkage method is reduced to the classic \code{average} linkage clustering method. 
-  Many features are added to facilitate spatiotemporal analysis applications and to utilize 
-  a cluster validation function \code{\link{validClimR}}, which implements an objective 
-  tree cutting to find an optimal number of clusters for a user-specified confidence 
-  level. These include options for preprocessing and postprocessing as well as efficient
-  code execution for large datasets.
-  
-  Badr et. al (2015) describes the regionalization algorithms and data processing tools
-  included in the package and presents a demonstration application in which the package is
-  used to regionalize Africa on the basis of interannual precipitation variability.
-  
-  \emph{It is applicable to any correlation-based clustering.}
+  \emph{\pkg{HiClimR} is applicable to any correlation-based clustering.}
 }
 \usage{
 HiClimR(
 
   # Input data matrix (N spatial elements x M observations)
-  x, 
+  x = list(),
 
   # Coarsening spatial resolution
   lon=NULL, lat=NULL, lonStep=1, latStep=1,
@@ -56,34 +54,50 @@ HiClimR(
   geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL,
 
   # Data thresholds:
-  meanThresh=NULL, varThresh=0, 
+  meanThresh = if(class(x) == "list") vector("list", length(x)) else list(NULL), 
+  varThresh = if(class(x) == "list") as.list(rep(0, length(x))) else list(0), 
 
   # Data preprocessing:
-  detrend=FALSE, standardize=FALSE, nPC=NULL, 
+  detrend = if(class(x) == "list") as.list(rep(FALSE, length(x))) else list(FALSE), 
+  standardize = if(class(x) == "list") as.list(rep(FALSE, length(x))) else list(FALSE), 
+  weightedVar = if(class(x) == "list") as.list(rep(1, length(x))) else list(1),
+  nPC=NULL, 
 
   # Clustering options:
   method="ward", hybrid=FALSE, kH=NULL, members=NULL, 
+
+  # Big data support:
+  nSplit = 1, upperTri = TRUE, verbose = TRUE,
 
   # Cluster validation:
   validClimR=TRUE, rawStats=TRUE, k=NULL, minSize=1, alpha=0.05, 
 
   # Graphical options:
-  plot=TRUE, colPalette=NULL, hang=-1, labels=FALSE
+  plot=TRUE, dendrogram = TRUE, colPalette=NULL, hang=-1, labels=FALSE
 
   )
+
 }
 \arguments{
   \item{x}{an (\code{N} rows by \code{M} columns) matrix of 'double' values: 
   \code{N} objects (spatial points or stations) to be clustered by \code{M} 
-  observations (temporal points or years).F or gridded data, the \code{N}
-  objects should be created from the original matrix \code{dataMat} using
-  \code{as.vector(dataMat)}, where \code{dataMat} is an (\code{n} rows by
+  observations (temporal points or years). For gridded data, the \code{N}
+  objects should be created from the original matrix \code{x0} using
+  \code{as.vector(x0)}, where \code{x0} is an (\code{n} rows by
   \code{m} columns) matrix, \code{n = length(unique(lon))} and
   \code{m = length(unique(lat))}. Zero-variance rows (e.g., stations 
   with zero variability) and/or missing values (e.g., years with missing 
   observations) are allowed. The zero-variance rows and the columns with
   missing values will be removed. However, it is recommended to take care of 
-  both zero-variance rows and missing values before clustering.}
+  both zero-variance rows and missing values before clustering.
+  For Multi-Variate Clustering (MVC), \code{x} can be a list of \code{nvar} matrices 
+  for the \code{nvar} variables (one matrix for each variable). The matrixes in
+  \code{x} list should have the same number of rows (objects: spatial points or stations) 
+  Data preprocessing is specified by lists of \code{meanThresh}, \code{varThresh}, 
+  \code{detrend}, and \code{standardize} with the same length of \code{x} where 
+  \code{length(x) = nvar}. Each variable is separately preprocessed to allow for all 
+  possible options. However, it is strongly recommended to standardize all variables 
+  since their magnitude range could be different.}
 
   \item{lon}{a vector of longitudes with length \code{N}. For gridded data, 
   the length may have the value (\code{n}) provided that \code{n * m = N} where 
@@ -137,26 +151,54 @@ HiClimR(
   data, Observations with mean less than or equal to meanThresh will 
   be removed. If \code{meanThresh = NULL}, then the \code{varThresh} will 
   be used either to mask zero-variance data by default or by increased 
-  variance threshold to mask near-zero-variance data.}
+  variance threshold to mask near-zero-variance data.
+  For Multi-Variate Clustering (MVC), \code{meanThresh} is a list of thresholds 
+  with the same length of \code{x} where \code{length(x) = nvar}. 
+  Each variable is separately preprocessed to allow for all possible options.
+  However, it is strongly recommended to standardize all variables since their
+  magnitude range could be different.}
 
   \item{varThresh}{zero or a threshold for the temporal variance: This is 
   used with \code{meanThresh} to mask zero- and near-zero-variance data, 
   Observations with variance less than or equal to varThresh will 
   be removed. If \code{varThresh = 0}, then the zero-variance data 
-  will masked (defaut).}
+  will masked (defaut).
+  For Multi-Variate Clustering (MVC), \code{varThresh} is a list of thresholds 
+  with the same length of \code{x} where \code{length(x) = nvar}. 
+  Each variable is separately preprocessed to allow for all possible options.
+  However, it is strongly recommended to standardize all variables since their
+  magnitude range could be different.}
 
   \item{detrend}{a logical: should the data be detrended before clustering? 
   Detrending (removing the linear trend) is important when variations from 
   temporal point to another is of interest (e.g., interannual variability). 
   The columns of the data matrix \code{x} should be temporally ordered (constant 
-  step size) or have appropriate names (e.g., \code{colnames(x) = years[1:M]).}}
+  step size) or have appropriate names (e.g., \code{colnames(x) = years[1:M]}).
+  For Multi-Variate Clustering (MVC), \code{detrend} is a list of thresholds 
+  with the same length of \code{x} where \code{length(x) = nvar}. 
+  Each variable is separately preprocessed to allow for all possible options.
+  However, it is strongly recommended to standardize all variables since their
+  magnitude range could be different.}
 
   \item{standardize}{a logical: should the data be standardized before 
   clustering? The standardized data makes use of the mean of equally-weighted 
   objects within each cluster (cluster mean = mean of standardized variables 
   within the cluster). Otherwise, the mean of raw data will be used (cluster 
   mean = mean of raw variables within the cluster). The variance of the mean 
-  is updated at each agglomeration step.}
+  is updated at each agglomeration step.
+  For Multi-Variate Clustering (MVC), \code{standardize} is a list of thresholds 
+  with the same length of \code{x} where \code{length(x) = nvar}. 
+  Each variable is separately preprocessed to allow for all possible options.
+  However, it is strongly recommended to standardize all variables since their
+  magnitude range could be different.}
+
+  \item{weightedVar}{a list of positive wights (\code{weightedVar > 0}) for 
+  Multi-Variate Clustering (MVC) with the same length of \code{x} where 
+  \code{length(x) = number of variables}. The filtered variables 
+  are weighted and combined by column (for each object: spatial points or stations) 
+  after preprocessing (detrending and standardization) and before PCA (if requested) 
+  and computing the correlation/dissimilarity matrix. The default weight is 
+  \code{weightedVar = 1} for all variables.}
 
   \item{nPC}{\code{NULL} or number of principal components (PCs) to be retained. 
   If \code{nPC = NULL}, then the raw data will be used for clustering. 
@@ -173,14 +215,13 @@ HiClimR(
   using \code{regional} linkage clustering method?
   This adds hybrid hierarchical clustering feature to get the best of
   the availables methods. It utilizes the pros of available methods, especially
-  the better overall homogeneity in Ward's method and the separation, contguity, 
-  and objective tree cut of the regional linkage method.
+  the better overall homogeneity in \emph{ward}'s method and the separation, 
+  contguity, and objective tree cut of \emph{regional} linkage method.
   If \code{hybrid = FALSE}, only the default clustering using the slected
-  \code{method} will be used (i.e., no hybrid clustering).
-  Otherwise, the upper part of the tree will be reconstructed above a cut of
-  /code{kH} clusters using \code{regional} linkage method. Note: hybrid option
-  is redundant when using \code{regional} linkage as the main clustering
-  method (\code{method} argument)!}
+  \code{method} will be used (i.e., no hybrid clustering).Otherwise, the upper part 
+  of the tree will be reconstructed above a cut of /code{kH} clusters using 
+  \code{regional} linkage method. Note: \code{hybrid} option is redundant 
+  when using \code{regional} linkage as the main clustering method.}
   
   \item{kH}{\code{NULL} or an integer for the number of regions/clusters in the
   upper part of the tree to be reconstructed with \code{regional} linkage method,
@@ -192,7 +233,32 @@ HiClimR(
   
   \item{members}{\code{NULL} or a vector with length size of \code{d}. 
   See the \sQuote{Details} section.}
-  
+
+  \item{nSplit}{integer number greater than or equal to one, to split the data matrix into 
+  \code{nSplit} splits of the total number of columns \code{ncol(xt)}. If \code{nSplit = 1},
+  the default method will be used to compute correlation matrix for the full data matrix 
+  (no splits). If \code{nSplit > 1}, the correlation matrix (or the upper-triangular part 
+  if \code{upperTri = TRUE}) will be allocated and filled with the computed correlation 
+  sub-matrix for each split. the first \code{n-1} splits have equal size while the last 
+  split may include any remaining columns. This is used with \code{upperTri = TRUE} to  
+  compute only the upper-triangular part of the correlation matrix. The maximum number of 
+  splits \code{nSplitMax = floor(N / 2)} makes splits with 2 columns; 
+  if \code{nSplit > nSplitMax}, \code{nSplitMax} will be used. Very large number of splits
+  \code{nSplit} makes computation slower but it could handle big data or if the available 
+  memory is not enough to allocate the correlation matrix, which helps in solving the 
+  \dQuote{Error: cannot allocate vector of size...} memory limitation problem. It is
+  recommended to start with a small number of splits. If the data is very large
+  compared to the physical memory, it is highly recommended to use a 64-Bit machine 
+  with enough memory resources and/or use coarsening feature for gridded data by setting 
+  \code{lonStep > 1} and \code{latStep > 1}.}
+
+  \item{upperTri}{logical to compute only the upper-triangular half of the correlation 
+  matrix if \code{upperTri = TRUE} and \code{nSplit > 1}., which includes all required info 
+  since the correlation/dissimilarity matrix is symmetric. This almost halves memory use, 
+  which can be very important for big data.}
+
+  \item{verbose}{logical to print processing information if \code{verbose = TRUE}.}
+
   \item{validClimR}{a logical: If \code{validClimR = TRUE}, \code{\link{validClimR}} 
   will be called to compute validation indices including statistical summary for
   inter- and intra-cluster correlations. This is computationally expensive. It can
@@ -222,7 +288,9 @@ HiClimR(
   \item{alpha}{confidence level: the default is \code{alpha = 0.05} for 
   95\% confidence level.}
 
-  \item{plot}{a logical: should the plot method be called?}
+  \item{plot}{logical to call the plotting method if \code{plot = TRUE}.}
+
+  \item{dendrogram}{logical to enable or disable dendrogram plotting.}
 
   \item{colPalette}{a color palette or a list of colors such as that generated 
   by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
@@ -286,6 +354,10 @@ HiClimR(
     if \code{lon} and \code{lat} vectors were defined. It will be similar to the provided 
     \code{lon} and \code{lat} if \code{lonStep = 1} and \code{latStep = 1}.}
 
+  \item{nvars}{number of variables used for multi-variate clustering (MVC).}
+
+  \item{ncols}{number of columns for each variable.}
+
   \item{data}{the preprocessed data used for clustering will be stored here. 
     If \code{rawData = TRUE} and {nPC != NULL}, the preprocessed data without
     filtering (PCA) will be returned here.}
@@ -347,27 +419,38 @@ HiClimR(
   \code{\link{rect.hclust}()} functions for \code{hclust} objects.
 }
 \details{
-  The \code{\link{HiClimR}} function is based on \code{\link{hclust}}). It 
-  performs a hierarchical cluster analysis using Pearson correlation distance 
-  dissimilarity for the \eqn{N} objects being clustered. Initially, each 
-  object is assigned to its own cluster and then the algorithm proceeds 
-  iteratively, at each stage joining the two most similar clusters, continuing 
-  until there is just a single cluster. At each stage distances between 
-  clusters are recomputed by a dissimilarity update formula according to 
-  the particular clustering method being used.
+  \code{\link{HiClimR}} function is based on \code{\link{hclust}}, which now uses an
+  optimized algorithm to deal with only the upper/lower triangular-half of the symmetric
+  dissimilarity matrix instead of the old algorithm that uses the full matrix in the 
+  merging steps. It performs a hierarchical cluster analysis using Pearson correlation 
+  distance dissimilarity for the \eqn{N} objects being clustered. Initially, each object 
+  is assigned to its own cluster and then the algorithm proceeds iteratively, at each 
+  stage joining the two most similar clusters, continuing until there is just a single 
+  cluster. At each stage distances between clusters are recomputed by a dissimilarity 
+  update formula according to the particular clustering method being used.
 
-  The different clustering methods provided by \code{\link{hclust}}) are 
-  available. The \emph{regional} linkage clustering method mainimizes inter-cluster 
-  correlations between cluster means (see \code{Badr et al. 2015}). 
-  \emph{Ward's} minimum variance method aims at finding compact, spherical clusters. 
-  The \emph{complete linkage} method finds similar clusters. The \emph{single 
-  linkage} method (which is closely related to the minimal spanning tree) 
-  adopts a \sQuote{friends of friends} clustering strategy. The other methods 
-  can be regarded as aiming for clusters with characteristics somewhere 
-  between the single and complete link methods. Note however, that methods 
-  \code{"median"} and \code{"centroid"} are \emph{not} leading to a 
-  \emph{monotone distance} measure, or equivalently the resulting dendrograms 
-  can have so called \emph{inversions} (which are hard to interpret).
+  All clustering methods in \code{\link{hclust}} are included. The \emph{regional} 
+  linkage method mainimizes inter-cluster correlations between cluster means 
+  (see \code{Badr et al. 2015}). \emph{Ward's} minimum variance method aims at finding 
+  compact, spherical clusters. The \emph{complete linkage} method finds similar clusters. 
+  The \emph{single linkage} method (which is closely related to the minimal spanning tree) 
+  adopts a \sQuote{friends of friends} clustering strategy. The other methods can be 
+  regarded as aiming for clusters with characteristics somewhere between the single and 
+  complete link methods. Note however, that methods \code{"median"} and \code{"centroid"} 
+  are \emph{not} leading to a \emph{monotone distance} measure, or equivalently the 
+  resulting dendrograms can have so called \emph{inversions} (which are hard to interpret).
+  
+  The \code{regional} linkage method is explained in the context of a spatio-temporal 
+  problem, in which \code{N} spatial elements (e.g., weather stations) are divided 
+  into \code{k} regions, given that each element has a time series of length \code{M}. 
+  It is based on inter-regional correlation distance between the temporal means of 
+  different regions (or elements at the first merging step). It modifies the update 
+  formulae of \code{average} linkage method by incorporating the standard deviation 
+  of the merged region timeseries,  which is a function of the correlation between the 
+  individual regions, and their standard deviations before merging. It is equal to the 
+  average of their standard deviations if and only if the correlation between the two 
+  merged regions is \code{100\%}. In this special case, the \code{regional} linkage 
+  method is reduced to the classic \code{average} linkage clustering method.
 
   If \code{members != NULL}, then \code{d} is taken to be a
   dissimilarity matrix between clusters instead of dissimilarities
@@ -396,44 +479,53 @@ HiClimR(
   observation sequence number.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
-  Hierarchical Climate Regionalization. \emph{CRAN},
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
 
-  Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
-  \emph{The New S Language}.
-  Wadsworth & Brooks/Cole. (S version.)
+  Wilks, D. S. (2011): 
+  \emph{Statistical methods in the atmospheric sciences},
+  Academic press.
 
-  Everitt, B. (1974).
-  \emph{Cluster Analysis}.
-  London: Heinemann Educ. Books.
-
-  Hartigan, J. A. (1975).
-  \emph{Clustering  Algorithms}.
-  New York: Wiley.
-
-  Sneath, P. H. A. and R. R. Sokal (1973).
-  \emph{Numerical Taxonomy}.
-  San Francisco: Freeman.
-
-  Anderberg, M. R. (1973).
-  \emph{Cluster Analysis for Applications}.
-  Academic Press: New York.
-
-  Gordon, A. D. (1999).
+  Gordon, A. D. (1999):
   \emph{Classification}. Second Edition.
   London: Chapman and Hall / CRC
 
-  Murtagh, F. (1985).
+  Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988):
+  \emph{The New S Language}.
+  Wadsworth & Brooks/Cole. (S version.)
+
+  Murtagh, F. (1985):
   \dQuote{Multidimensional Clustering Algorithms}, in
   \emph{COMPSTAT Lectures 4}.
   Wuerzburg: Physica-Verlag
   (for algorithmic details of algorithms used).
 
-  McQuitty, L.L. (1966).
-  Similarity Analysis by Reciprocal Pairs for Discrete and Continuous
-  Data.
-  \emph{Educational and Psychological Measurement}, \bold{26}, 825--831.
+  Hartigan, J. A. (1975):
+  \emph{Clustering  Algorithms}.
+  New York: Wiley.
+
+  Everitt, B. (1974):
+  \emph{Cluster Analysis}.
+  London: Heinemann Educ. Books.
+
+  Anderberg, M. R. (1973):
+  \emph{Cluster Analysis for Applications}.
+  Academic Press: New York.
+
+  Sneath, P. H. A. and R. R. Sokal (1973):
+  \emph{Numerical Taxonomy}.
+  San Francisco: Freeman.
+
+  McQuitty, L.L. (1966):
+  Similarity Analysis by Reciprocal Pairs for Discrete and Continuous Data.
+  \emph{Educational and Psychological Measurement}, \bold{26}, 825-831.
+  
+  Source Code: \url{https://github.com/hsbadr/HiClimR}
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 
@@ -451,27 +543,26 @@ HiClimR(
 require(HiClimR)
 
 #----------------------------------------------------------------------------------#
-# Typical use of HiClimR:                                                          #
+# Typical use of HiClimR for single-variate clustering:                            #
 #----------------------------------------------------------------------------------#
 
 ## Load the test data included/loaded in the package (1 degree resolution)
 x <- TestCase$x
-
 lon <- TestCase$lon
 lat <- TestCase$lat
 
 ## Generate/check longitude and latitude mesh vectors for gridded data
 xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
-
 lon <- c(xGrid$lon)
 lat <- c(xGrid$lat)
 
-## Hierarchical Climate Regionalization
-y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
-    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
-    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+## Single-Variate Hierarchical Climate Regionalization
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE, 
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 #----------------------------------------------------------------------------------#
 # Additional Examples:                                                             #
@@ -479,24 +570,69 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 
 
 ## Use Ward's method
-y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
-    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
-    members = NULL, validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
+## Use data splitting for big data
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL,
+    members = NULL, nSplit = 10, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Use hybrid Ward-Regional method
-y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
-    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL, 
-    members = NULL, validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
+    continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL,
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## Check senitivity to kH for the hybrid method above
 
 #----------------------------------------------------------------------------------#
-# Advanced examples to provide more information about code                         #
-# functionality and usage of the available helper functions                        #
-# that can be used separately or for other applications.                           #
+# Typical use of HiClimR for multi-variate clustering:                             #
+#----------------------------------------------------------------------------------#
+
+## Load the test data included/loaded in the package (1 degree resolution)
+x1 <- TestCase$x
+lon <- TestCase$lon
+lat <- TestCase$lat
+
+## Generate/check longitude and latitude mesh vectors for gridded data
+xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
+lon <- c(xGrid$lon)
+lat <- c(xGrid$lat)
+
+## Test if we can replicate single-variate region map with repeated variable
+y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
+    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
+    nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
+## Generate a random matrix with the same number of rows
+x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
+
+## Multi-Variate Hierarchical Climate Regionalization
+y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
+    varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
+    weightedVar = list(1, 1), nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+## You can apply all clustering methods and options
+
+#----------------------------------------------------------------------------------#
+# Miscellaneous examples to provide more information about functionality and usage #
+# of the helper functions that can be used separately or for other applications.   #
 #----------------------------------------------------------------------------------#
 
 ## Load test case data
@@ -514,13 +650,9 @@ lat <- xc$lat
 x <- xc$x
 
 ## Use fastCor function to compute the correlation matrix
-t0 <- proc.time()
-xcor <- fastCor(t(x))
-proc.time() - t0
+t0 <- proc.time(); xcor <- fastCor(t(x)); proc.time() - t0
 ## compare with cor function
-t0 <- proc.time()
-xcor0 <- cor(t(x))
-proc.time() - t0
+t0 <- proc.time(); xcor0 <- cor(t(x)); proc.time() - t0
 
 ## Check the valid options for geographic masking
 geogMask()
@@ -532,25 +664,29 @@ gMask <- geogMask(continent = "Africa", lon = lon, lat = lat, plot = TRUE,
 ## Hierarchical Climate Regionalization Without geographic masking
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
-    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## With geographic masking (specify the mask produced bove to save time)
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = TRUE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
-    alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Find minimum significant correlation at 95% confidence level
 rMin <- minSigCor(n = nrow(x), alpha = 0.05, r = seq(0, 1, by = 1e-06))
 
 ## Validtion of Hierarchical Climate Regionalization
-z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, plot = TRUE, colPalette = NULL)
+z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL)
 
 ## Apply minimum cluster size (minSize = 25)
-z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, plot = TRUE, colPalette = NULL)
+z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL)
 
 ## The optimal number of clusters, including small clusters
 k <- length(z$clustFlag)

@@ -13,7 +13,8 @@
   objective tree cut for \code{regional} linkage custering method. 
 }
 \usage{
-validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
+validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, 
+    verbose = TRUE, plot=FALSE, colPalette=NULL)
 }
 \arguments{
   \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}
@@ -38,7 +39,9 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
   \item{alpha}{confidence level: the default is \code{alpha = 0.05} for 
   95\% confidence level.}
 
-  \item{plot}{a logical: should the plot method be called?}
+  \item{verbose}{logical to print processing information if \code{verbose = TRUE}.}
+
+  \item{plot}{logical to call the plotting method if \code{plot = TRUE}.}
 
   \item{colPalette}{a color palette or a list of colors such as that generated 
   by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
@@ -111,44 +114,13 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, plot=FALSE, colPalette=NULL)
   control step before repeating the analysis. 
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
-  Hierarchical Climate Regionalization. \emph{CRAN},
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
-
-  Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
-  \emph{The New S Language}.
-  Wadsworth & Brooks/Cole. (S version.)
-
-  Everitt, B. (1974).
-  \emph{Cluster Analysis}.
-  London: Heinemann Educ. Books.
-
-  Hartigan, J. A. (1975).
-  \emph{Clustering  Algorithms}.
-  New York: Wiley.
-
-  Sneath, P. H. A. and R. R. Sokal (1973).
-  \emph{Numerical Taxonomy}.
-  San Francisco: Freeman.
-
-  Anderberg, M. R. (1973).
-  \emph{Cluster Analysis for Applications}.
-  Academic Press: New York.
-
-  Gordon, A. D. (1999).
-  \emph{Classification}. Second Edition.
-  London: Chapman and Hall / CRC
-
-  Murtagh, F. (1985).
-  \dQuote{Multidimensional Clustering Algorithms}, in
-  \emph{COMPSTAT Lectures 4}.
-  Wuerzburg: Physica-Verlag
-  (for algorithmic details of algorithms used).
-
-  McQuitty, L.L. (1966).
-  Similarity Analysis by Reciprocal Pairs for Discrete and Continuous
-  Data.
-  \emph{Educational and Psychological Measurement}, \bold{26}, 825--831.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

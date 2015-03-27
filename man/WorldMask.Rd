@@ -35,8 +35,12 @@ data(WorldMask)
   International Boundaries (LSIB) dataset.
 }
 \references{
-  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).
-  Hierarchical Climate Regionalization. \emph{CRAN},
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+  A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
+  In Review.
+
+  Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+  Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
 
   LSIB Data: \url{https://hiu.state.gov/data/}.
