@@ -46,6 +46,7 @@ Table of Contents
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to implement a cluster validation function with an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut to get the best of the available methods. Multi-variate clustering (MVC) provides options for filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
 
 [⇪](#hiclimr)
+
 ## Features
 
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
@@ -85,6 +86,7 @@ Table of Contents
 The `regional` linkage method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`. It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step). It modifies the update formulae of `average` linkage method by incorporating the standard deviation of the merged region timeseries, which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `regional` linkage method is reduced to the classic `average` linkage clustering method.
 
 [⇪](#hiclimr)
+
 ## Implementation
 
 [Badr et. al (2015)](http://blaustein.eps.jhu.edu/~hbadr1/#Publications) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multi-variate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering.
@@ -93,11 +95,13 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 *[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
 [⇪](#hiclimr)
+
 ## Documentation
 
 For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
 
 [⇪](#hiclimr)
+
 ## Installation
 
 There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR): 
@@ -113,6 +117,7 @@ This is the easiest way to install an R package on **Windows**, **Mac**, or **Li
 In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) and install it.
 
 [⇪](#hiclimr)
+
 #### From GitHub
 
 This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](http://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
@@ -137,11 +142,13 @@ This is intended for developers and requires a development environment (compiler
 ```
 
 [⇪](#hiclimr)
+
 ## Source
 
 The source code repository can be found on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
 
 [⇪](#hiclimr)
+
 ## License
 
 [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](http://www.R-project.org) Copyright © 1995-2015 The [**R**](http://www.r-project.org) Core Team.
@@ -155,6 +162,7 @@ A copy of the GNU General Public License is available at http://www.r-project.or
 Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
 
 [⇪](#hiclimr)
+
 ## History
 
 |    Version    |     Date     |  Comment      |  Author          |  Email         |
@@ -183,6 +191,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
+
 ## Changes
 
 #### 2015-03-27: version 1.2.0
@@ -222,6 +231,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The user manual is updated and revised
 
 [⇪](#hiclimr)
+
 #### 2015-03-01: version 1.1.6
 
 * Setting minimum `k = 2`, for objective tree cutting
@@ -232,18 +242,21 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Source code is now maintained on GitHub by authors
 
 [⇪](#hiclimr)
+
 #### 2014-11-12: version 1.1.5
 
 * Updating description, URL, and citation info
 
 
 [⇪](#hiclimr)
+
 #### 2014-09-01: version 1.1.4
 
 * Addresses an issue for zero-length mask vector: `Error in -mask : invalid argument to unary operator`
    * this error was intoduced in v1.1.2+ after fixing the data-mean bug
 
 [⇪](#hiclimr)
+
 #### 2014-08-28: version 1.1.3
 
 * The user manual is revised
@@ -251,6 +264,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Minor bug fixes
 
 [⇪](#hiclimr)
+
 #### 2014-07-26: version 1.1.2
 
 * A bug has been fixed where data mean is added to centered data if `standardize = FALSE`
@@ -259,6 +273,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
      * centered data was used in previous versions
 
 [⇪](#hiclimr)
+
 #### 2014-07-14: version 1.1.1
 
 * Minor bug fixes and memory optimizations especially for the geographic masking function `geogMask`
@@ -266,6 +281,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * A logical parameter `InDispute` is added to `geogMask` function to optionally consider areas in dispute for geographic masking by country
 
 [⇪](#hiclimr)
+
 #### 2014-05-15: version 1.1.0
 
 * Code cleanup and bug fixes
@@ -274,6 +290,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The citation info has been updated to reflect the current status of the technical paper
 
 [⇪](#hiclimr)
+
 #### 2014-05-07: version 1.0.9
 
 * Minor changes and fixes for CRAN
@@ -285,12 +302,14 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading
 
 [⇪](#hiclimr)
+
 #### 2014-05-06: version 1.0.8
 
 * Code cleanup and bug fixes
 * Region maps are unified for both gridded and ungridded data
 
 [⇪](#hiclimr)
+
 #### 2014-03-30: version 1.0.7
 
 * Hybrid hierarchical clustering feature that utilizes the pros of the available methods
@@ -303,17 +322,20 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * If hybrid clustering is requested, the updated upper-part of the tree will be used for cluster validation.
 
 [⇪](#hiclimr)
+
 #### 2014-03-25: version 1.0.6
 
 * Code cleanup and bug fixes
 
 [⇪](#hiclimr)
+
 #### 2014-03-18: version 1.0.5
 
 * Code cleanup and bug fixes
 * Adds support to generate region maps for ungridded data
 
 [⇪](#hiclimr)
+
 #### 2014-03-14: version 1.0.4
 
 * Code cleanup and bug fixes
@@ -324,6 +346,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    * they are now available in the output tree (`coords` component)
 
 [⇪](#hiclimr)
+
 #### 2014-03-12: version 1.0.3
 
 * Code cleanup and bug fixes
@@ -334,6 +357,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * The new clustering method has been renamed from `HiClimR` to `regional` linkage method
 
 [⇪](#hiclimr)
+
 #### 2014-03-09: version 1.0.2
 
 * Code cleanup and bug fixes.
@@ -344,6 +368,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
      * length equals the number of spatial elements `N`
 
 [⇪](#hiclimr)
+
 #### 2014-03-08: version 1.0.1
 
 * Code cleanup and bug fixes
@@ -354,6 +379,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Adds `coarseR` function for coarsening spatial resolution of the input matrix `x`
 
 [⇪](#hiclimr)
+
 #### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies `hclust` function in `stats` library
 * Adds a new clustering method to the set of available methods
@@ -371,6 +397,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Applicable to any correlation-based clustering
 
 [⇪](#hiclimr)
+
 ## Examples
 
 #### Single-Variate Clustering
@@ -430,6 +457,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 ## Check senitivity to kH for the hybrid method above
 ```
 [⇪](#hiclimr)
+
 #### Multi-Variate Clustering
 
 ```R
@@ -473,6 +501,7 @@ y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 ```
 
 [⇪](#hiclimr)
+
 #### Miscellaneous Examples
 
 ```R
