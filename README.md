@@ -98,7 +98,7 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 ## Documentation
 
-For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the examples bellow.
+For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out [user manual](http://cran.r-project.org/web/packages/HiClimR/HiClimR.pdf) and the [examples](#examples) bellow.
 
 [⇪](#hiclimr)
 
