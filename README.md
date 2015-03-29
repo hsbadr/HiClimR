@@ -56,10 +56,10 @@ Table of Contents
    * by continents
    * by regions
    * by countries
-* data filtering by thresholds:
+* data filtering by thresholds
    * mean threshold
    * variance threshold
-* data preprocessing:
+* data preprocessing
    * detrending
    * standardization
    * PCA
