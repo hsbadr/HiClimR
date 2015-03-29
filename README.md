@@ -79,7 +79,7 @@ Table of Contents
    * detrending and standardization of each variable
    * applying weight for the preprocessed variables
 * cluster validation
-   * summary statistics based on raw data ot the data reconstructed by PCA
+   * summary statistics based on raw data or the data reconstructed by PCA
    * objective tree cut using minimum significant correlation between region means
 * visualization of region maps
 
