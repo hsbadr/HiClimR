@@ -585,8 +585,8 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 ## Visualization for gridded or ungridded data
 plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20, cex = 1)
 ## Change cex size as appropriate!
-## It’s a number indicating the amount by which plotting symbols should be scaled relative to the default.
-## 1=default, 1.5 is 50% larger, 0.5 is 50% smaller, etc.
+## It’s a number indicating the amount by which plotting symbols should be scaled
+## relative to the default: 1 = default, 1.5 is 50% larger, 0.5 is 50% smaller, etc.
 
 ```
 
