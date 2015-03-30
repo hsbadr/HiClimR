@@ -712,7 +712,7 @@ colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
 image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette(ks))
 
 ## Visualization for gridded or ungridded data
-plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20)
+plot(y$coords[, 1], y$coords[, 2], col = z$region, pch = 20, cex = 1)
 
 }
 }
