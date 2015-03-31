@@ -194,6 +194,10 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 ## Changes
 
+#### 2015-MM-DD: version 1.2.1
+
+* Minor `verbose` fixes
+
 #### 2015-03-27: version 1.2.0
 
 * Multi-variate clustering (MVC)
