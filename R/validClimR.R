@@ -51,7 +51,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
     
     # Cut tree based on minimum significant inter-regional correlation
     if (is.null(k)) {
-    	if (verbose) write("Cutting tree based on minimum significant inter-cluster correlation...", "")
+    	if (verbose) write("Cutting tree based on minimum significant correlation...", "")
         # Check clustering method
         if (y$method != "regional" && is.null(y$treeH)) {
             write("---> WARNING: objective tree cut is supported only for regional linkage method!", 
@@ -121,7 +121,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
         }
         
         # Region Means
-        if (verbose) write("Computing region means...", "")
+        if (verbose) write("Computing cluster means...", "")
         RM <- t(apply(x, 2, function(r) tapply(r, cutTree, mean)))
         
         # Correlation between Region Means

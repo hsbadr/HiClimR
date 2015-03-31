@@ -225,36 +225,36 @@ HiClimR <- function(x = list(),
     	
     	m <- mm[nvar]
     	x <- xx[,(mm0 + 1):(mm0 + m)]
-    	    	
-	    # Remove rows with observations mean bellow meanThresh
-	    if (verbose) write("---> Checking rows with observations mean bellow meanThresh...", "")
+
+        if (verbose) write("---> Computing mean for each row...", "")
 	    # xmean <- rowMeans(x, na.rm=TRUE)
 	    xmean <- rowMeans(x)
+        
+        # Remove rows with observations mean bellow meanThresh
 	    if (!is.null(meanThresh[[nvar]])) {
+            if (verbose) write("---> Checking rows with mean bellow meanThresh...", "")
 	        meanMask <- which(is.na(xmean) | xmean <= meanThresh[[nvar]])
+            if (verbose) write(paste("--->\t ", length(meanMask), "rows found, mean \u2264 ", 
+                meanThresh[[nvar]]), "")
 	        if (length(meanMask) > 0) {
-	            if (verbose) write(paste("--->\t ", length(meanMask), "rows found, mean \u2264 ", 
-	                meanThresh[[nvar]]), "")
-	            
 	            mask <- union(mask, meanMask)
 	        }
 	    }
 	    
 	    # Center data (this has no effect on correlations but speedup compuations)
 	    x <- x - xmean
+        if (verbose) write("---> Computing variance for each row...", "")
 	    v <- rowSums(x^2, na.rm = TRUE)
     
 	    # Remove rows with near-zero-variance observations
-	    if (verbose) write("---> Checking rows with near-zero-variance observations...", "")
 	    if (is.null(varThresh[[nvar]])) {
 	        varThresh[[nvar]] <- 0
 	    }
 	    varMask <- which(is.na(v) | v <= varThresh[[nvar]])
+        if (verbose) write("---> Checking rows with near-zero-variance...", "")
+        if (verbose) write(paste("--->\t ", length(varMask), "rows found, variance \u2264 ", 
+            varThresh[[nvar]]), "")
 	    if (length(varMask) > 0) {
-	        # stop('data cannot include zero-variance rows')
-	        if (verbose) write(paste("--->\t ", length(varMask), "rows found, variance \u2264 ", 
-	            varThresh[[nvar]]), "")
-	        
         	mask <- union(mask, varMask)
     	}
     	
