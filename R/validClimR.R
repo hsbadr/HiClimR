@@ -1,4 +1,4 @@
-# $Id: validClimR.R, v1.2.0 2015/03/27 12:00:00 hsbadr EPS JHU            #
+# $Id: validClimR.R, v1.2.1 2015/03/31 12:00:00 hsbadr EPS JHU            #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -33,6 +33,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  03/31/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -40,7 +41,7 @@
 #-------------------------------------------------------------------------#
 
 validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05, 
-	verbose = TRUE, plot = FALSE, colPalette = NULL) {
+	verbose = TRUE, plot = FALSE, colPalette = NULL, pch = 15, cex = 1) {
 
     # Coordinates
     lon <- y$coords[, 1]
@@ -195,7 +196,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
             Longitude <- y$coords[, 1]
             Latitude <- y$coords[, 2]
             plot(Longitude, Latitude, col = colPalette(max(Regions, na.rm = TRUE))[Regions], 
-                pch = 20)
+                pch = pch, cex = cex)
         }
         
         class(index) <- "HiClimR"

@@ -18,6 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
+        * [2015-03-31: version 1.2.1](#2015-03-31-version-121)
         * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
@@ -189,13 +190,19 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.1**   |   03/31/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
 
-#### 2015-MM-DD: version 1.2.1
+#### 2015-03-31: version 1.2.1
 
+* Important Notes:
+   * Longitudes takes values from `-180` to `180` (not `0` to `360`)
+   * For gridded data: the rows of input data matrix for each variable is ordered by longitudes
+        * check \code{TestCase$x} for more details!
+* More plotting options (`pch` and `cex`)
 * `geogMask` supports ungridded data
 * Minor `verbose` fixes and updates
 
@@ -588,10 +595,8 @@ colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
 image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette(ks))
 
 ## Visualization for gridded or ungridded data
-plot(y$coords[, 1], y$coords[, 2], col = y$region, pch = 20, cex = 1)
-## Change cex size as appropriate!
-## It’s a number indicating the amount by which plotting symbols should be scaled
-## relative to the default: 1 = default, 1.5 is 50% larger, 0.5 is 50% smaller, etc.
+plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(Regions, na.rm = TRUE))[y$region], pch = 15, cex = 1)
+## Change pch and cex as appropriate!
 
 ```
 

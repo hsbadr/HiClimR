@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v1.2.0 2015/03/27 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v1.2.1 2015/03/31 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -76,6 +76,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  03/31/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -93,7 +94,8 @@ HiClimR <- function(x = list(),
 	nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, members = NULL, 
 	nSplit = 1, upperTri = TRUE, verbose = TRUE, 
 	validClimR = TRUE, rawStats = TRUE, k = NULL, minSize = 1, alpha = 0.05, 
-    plot = TRUE, dendrogram = TRUE, colPalette = NULL, hang = -1, labels = FALSE) {
+    plot = TRUE, dendrogram = TRUE, colPalette = NULL, hang = -1, labels = FALSE, 
+    pch = 15, cex = 1) {
 
     start.time.proc <- proc.time()
     start.time.sys <- Sys.time()
@@ -206,7 +208,7 @@ HiClimR <- function(x = list(),
         if (verbose) write("Geographic masking...", "")
         if (is.null(gMask)) {
             gMask <- geogMask(continent = continent, region = region, country = country, 
-                lon = lon, lat = lat, verbose = verbose, plot = FALSE, colPalette = colPalette)
+                lon = lon, lat = lat, verbose = verbose, plot = FALSE)
         }
         
         if (min(gMask) >= 1 && max(gMask) <= n) {
@@ -547,8 +549,8 @@ HiClimR <- function(x = list(),
     # Cluster validation
     if (validClimR) {
         if (verbose) write("Calling cluster validation...", "")
-        z <- validClimR(y = tree, k = k, minSize = minSize, alpha = alpha, 
-        	verbose = verbose, plot = plot, colPalette = colPalette)
+        z <- validClimR(y = tree, k = k, minSize = minSize, alpha = alpha, verbose = verbose, 
+            plot = plot, colPalette = colPalette, pch = pch, cex = cex)
         
         tree <- c(tree, z)
     }

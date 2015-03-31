@@ -73,7 +73,7 @@ HiClimR(
   validClimR=TRUE, rawStats=TRUE, k=NULL, minSize=1, alpha=0.05, 
 
   # Graphical options:
-  plot=TRUE, dendrogram = TRUE, colPalette=NULL, hang=-1, labels=FALSE
+  plot=TRUE, dendrogram = TRUE, colPalette=NULL, hang=-1, labels=FALSE, pch = 15, cex = 1
 
   )
 
@@ -97,11 +97,14 @@ HiClimR(
   \code{detrend}, and \code{standardize} with the same length of \code{x} where 
   \code{length(x) = nvar}. Each variable is separately preprocessed to allow for all 
   possible options. However, it is strongly recommended to standardize all variables 
-  since their magnitude range could be different.}
+  since their magnitude range could be different.
+  Note that: for gridded data, the rows of input data matrix for each variable is 
+  ordered by longitudes (check \code{TestCase$x} for more details).}
 
-  \item{lon}{a vector of longitudes with length \code{N}. For gridded data, 
-  the length may have the value (\code{n}) provided that \code{n * m = N} where 
-  \code{n = length(unique(lon))} and \code{m = length(unique(lat))}.}
+  \item{lon}{a vector of longitudes with length \code{N}. Longitudes takes 
+  values from \code{-180} to \code{180} (not \code{0} to \code{360}).
+  For gridded data, the length may have the value (\code{n}) provided that 
+  \code{n * m = N} where \code{n = length(unique(lon))} and \code{m = length(unique(lat))}.}
 
   \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
@@ -303,6 +306,13 @@ HiClimR(
   \item{labels}{A character vector of labels for the leaves of the
     tree. By default the row names or row numbers of the original data are
     used. If \code{labels = FALSE} no labels at all are plotted.}
+
+  \item{pch}{Either an integer specifying a symbol or a single character to 
+  be used as the default in plotting points. See \code{\link{points}} for 
+  possible values.}
+
+  \item{cex}{A numerical value giving the amount by which plotting symbols should 
+  be magnified relative to the \code{default = 1}.}
 }
 \value{
   An object of class \bold{HiClimR} and \bold{hclust}, which 
@@ -712,7 +722,8 @@ colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
 image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette(ks))
 
 ## Visualization for gridded or ungridded data
-plot(y$coords[, 1], y$coords[, 2], col = y$region, pch = 20, cex = 1)
+plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(Regions, na.rm = TRUE))[y$region],
+    pch = 15, cex = 1)
 
 }
 }

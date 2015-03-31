@@ -1,4 +1,4 @@
-# $Id: geogMask.R, v1.2.0 2015/03/27 12:00:00 hsbadr EPS JHU              #
+# $Id: geogMask.R, v1.2.1 2015/03/31 12:00:00 hsbadr EPS JHU              #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -33,6 +33,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  03/31/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -40,8 +41,9 @@
 #-------------------------------------------------------------------------#
 
 # Function: Geographic mask for an area from longitude and latitute
-geogMask <- function(continent = NULL, region = NULL, country = NULL, lon = NULL, 
-    lat = NULL, InDispute = TRUE, verbose = TRUE, plot = FALSE, colPalette = NULL) {
+geogMask <- function(continent = NULL, region = NULL, country = NULL, 
+    lon = NULL, lat = NULL, InDispute = TRUE, verbose = TRUE, 
+    plot = FALSE, colPalette = NULL, pch = 15, cex = 1) {
     
     # Get World mask from LazyData
     wMask <- get("WorldMask", envir = .GlobalEnv)
@@ -123,7 +125,7 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL, lon = NULL
         }
         Longitude <- lon
         Latitude <- lat
-        plot(Longitude, Latitude, col = Regions, pch = 20)
+        plot(Longitude, Latitude, col = Regions, pch = pch, cex = cex)
     }
     
     #gc()

@@ -14,7 +14,7 @@
 }
 \usage{
 geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
-  InDispute=TRUE, verbose = TRUE, plot=FALSE, colPalette=NULL)
+  InDispute=TRUE, verbose = TRUE, plot=FALSE, colPalette=NULL, pch = 15, cex = 1)
 }
 \arguments{
   \item{continent}{\code{NULL} or a string (or array of strings) to specify 
@@ -33,9 +33,12 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   \code{country} ISO3 character code(s) can be obtained by running 
   \code{geogMask()}.}
 
-  \item{lon}{a vector of longitudes with length \code{N}.}
+  \item{lon}{a vector of longitudes with length \code{N}. Longitudes takes 
+  values from \code{-180} to \code{180} (not \code{0} to \code{360}).
+  For gridded data, the length may have the value (\code{n}) provided that 
+  \code{n * m = N} where \code{n = length(unique(lon))} and \code{m = length(unique(lat))}.}
 
-  \item{lat}{a vector of latitudes with length \code{N}.}
+  \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
   \item{InDispute}{a logical: should the areas in dispute be considered for
   geographic masking by country? If \code{InDispute = TRUE} (the default),
@@ -48,6 +51,13 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   \item{colPalette}{a color palette or a list of colors such as that generated 
   by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
   \code{terrain.colors} or similar functions.}
+
+  \item{pch}{Either an integer specifying a symbol or a single character to 
+  be used as the default in plotting points. See \code{\link{points}} for 
+  possible values.}
+
+  \item{cex}{A numerical value giving the amount by which plotting symbols should 
+  be magnified relative to the \code{default = 1}.}
 }
 \value{
   A vector of indices for the spatial elements to be masked, 

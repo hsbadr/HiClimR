@@ -13,8 +13,8 @@
   objective tree cut for \code{regional} linkage custering method. 
 }
 \usage{
-validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, 
-    verbose = TRUE, plot=FALSE, colPalette=NULL)
+validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE, 
+    plot=FALSE, colPalette=NULL, pch = 15, cex = 1)
 }
 \arguments{
   \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}
@@ -46,6 +46,13 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05,
   \item{colPalette}{a color palette or a list of colors such as that generated 
   by \code{rainbow}, \code{heat.colors}, \code{topo.colors}, 
   \code{terrain.colors} or similar functions.}
+
+  \item{pch}{Either an integer specifying a symbol or a single character to 
+  be used as the default in plotting points. See \code{\link{points}} for 
+  possible values.}
+
+  \item{cex}{A numerical value giving the amount by which plotting symbols should 
+  be magnified relative to the \code{default = 1}.}
 }
 \value{
   An object of class \bold{HiClimR} which produces indices for validating 
