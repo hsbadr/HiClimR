@@ -112,25 +112,18 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL, lon = NULL
     }
     
     if (plot) {
-        if (verbose) write("Generating geographic mask map...", "")
-        if (as.numeric(length(lon)) == as.numeric(length(unique(lon)) * length(unique(lat)))) {
-            Regions <- rep(-1, length(lon))
-            Regions[gMask] <- NA
-            RegionsMap <- matrix(Regions, nrow = length(unique(lon)), byrow = TRUE)
+        if (verbose) write("Generating geographic mask map...", "")        
+        Regions <- rep(1, length(lon))
+        Regions[gMask] <- NA
             
-            if (is.null(colPalette)) {
-                # colPalette <- colorRampPalette(c('#00007F', 'blue', '#007FFF',
-                # 'cyan', '#7FFF7F', 'yellow', '#FF7F00', 'red', '#7F0000'))
-                colPalette <- colorRampPalette(c("#8DD3C7", "#FFFFB3", 
-                  "#BEBADA", "#FB8072", "#80B1D3", "#FDB462", "#B3DE69", 
-                  "#FCCDE5", "#D9D9D9", "#BC80BD", "#CCEBC5", "#FFED6F"))
-            }
-            Longitude <- unique(lon)
-            Latitude <- unique(lat)
-            image(Longitude, Latitude, RegionsMap, col = colPalette(2))
-        } else {
-            write("---> plot is avaiable only for gridded data", "")
+        if (is.null(colPalette)) {
+            colPalette <- colorRampPalette(c("#8DD3C7", "#FFFFB3", 
+              "#BEBADA", "#FB8072", "#80B1D3", "#FDB462", "#B3DE69", 
+              "#FCCDE5", "#D9D9D9", "#BC80BD", "#CCEBC5", "#FFED6F"))
         }
+        Longitude <- lon
+        Latitude <- lat
+        plot(Longitude, Latitude, col = Regions, pch = 20)
     }
     
     #gc()
