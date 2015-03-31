@@ -199,8 +199,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 #### 2015-03-31: version 1.2.1
 
 * Updated user manual with the following notes:
-   * Longitudes takes values from `-180` to `180` (not `0` to `360`)
-   * For gridded data: the rows of input data matrix for each variable is ordered by longitudes
+   * longitudes takes values from `-180` to `180` (not `0` to `360`)
+   * for gridded data, the rows of input data matrix for each variable is ordered by longitudes
         * check `TestCase$x` for more details!
 * More plotting options (`pch` and `cex`)
 * `geogMask` supports ungridded data
