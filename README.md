@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-31: version 1.2.1](#2015-04-01-version-121)
+        * [2015-04-01: version 1.2.1](#2015-04-01-version-121)
         * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
