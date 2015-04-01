@@ -207,7 +207,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-04-01: version 1.2.1
 
-* Updates variance for multi-variate clustering
+* Updating variance for multi-variate clustering
 * More plotting options (`pch` and `cex`)
 * `geogMask` supports ungridded data
 * Updated user manual with the following notes:
