@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-03-31: version 1.2.1](#2015-03-31-version-121)
+        * [2015-03-31: version 1.2.1](#2015-04-01-version-121)
         * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
@@ -70,7 +70,16 @@ Table of Contents
    * using optimized `BLAS` library on 64-Bit machines
      * `ATLAS`
      * `OpenBLAS`
-     * `Intel MKL` 
+     * `Intel MKL`
+* different clustering methods
+   * `regional` linakage or minimum inter-regional correlation
+   * `ward`'s minimum variance or error sum of squares method
+   * `single` linkage or nearest neighbor method
+   * `complete` linkage or diameter
+   * `average` linkage, group average, or UPGMA method
+   * `mcquitty`'s or WPGMA method
+   * `median`, Gower's or WPGMC method
+   * `centroid` or UPGMC method
 * hybrid hierarchical clustering
    * the upper part of the tree is reconstructed above a cut
    * the lower part of the tree uses user-selected method
@@ -196,14 +205,15 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 ## Changes
 
-#### 2015-03-31: version 1.2.1
+#### 2015-04-01: version 1.2.1
 
+* Updates variance for multi-variate clustering
+* More plotting options (`pch` and `cex`)
+* `geogMask` supports ungridded data
 * Updated user manual with the following notes:
    * longitudes takes values from `-180` to `180` (not `0` to `360`)
    * for gridded data, the rows of input data matrix for each variable is ordered by longitudes
         * check `TestCase$x` for more details!
-* More plotting options (`pch` and `cex`)
-* `geogMask` supports ungridded data
 * Minor `verbose` fixes and updates
 
 #### 2015-03-27: version 1.2.0

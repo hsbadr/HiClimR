@@ -20,14 +20,14 @@
 !                                                                         !
 !  Clustering Methods:                                                    !
 !                                                                         !
-!  0. REGIONAL linkage or minimum inter-regional correlation.             !
-!  1. WARD's minimum variance or error sum of squares method.             !
-!  2. SINGLE linkage or nearest neighbor method.                          !
-!  3. COMPLETE linkage or diameter.                                       !
-!  4. AVERAGE linkage, group average, or UPGMA method.                    !
-!  5. MCQUITTY's or WPGMA method.                                         !
-!  6. MEDIAN, Gower's or WPGMC method.                                    !
-!  7. CENTROID or UPGMC method.                                           !
+!  0. REGIONAL linkage or minimum inter-regional correlation              !
+!  1. WARD's minimum variance or error sum of squares method              !
+!  2. SINGLE linkage or nearest neighbor method                           !
+!  3. COMPLETE linkage or diameter                                        !
+!  4. AVERAGE linkage, group average, or UPGMA method                     !
+!  5. MCQUITTY's or WPGMA method                                          !
+!  6. MEDIAN, Gower's or WPGMC method                                     !
+!  7. CENTROID or UPGMC method                                            !
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !
@@ -106,6 +106,7 @@
 !   1.1.6   |  03/01/15  |   GitHub   |  Hamada S. Badr  |  badr@jhu.edu  !
 !-------------------------------------------------------------------------!
 !   1.2.0   |  03/27/15  |    MVC     |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.2.1   |  04/01/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !

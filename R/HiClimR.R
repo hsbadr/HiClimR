@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v1.2.1 2015/03/31 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v1.2.1 2015/04/01 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -17,14 +17,14 @@
 #-------------------------------------------------------------------------#
 #  Clustering Methods:                                                    #
 #                                                                         #
-#  0. REGIONAL linakage or minimum inter-regional correlation.            #
-#  1. WARD's minimum variance or error sum of squares method.             #
-#  2. SINGLE linkage or nearest neighbor method.                          #
-#  3. COMPLETE linkage or diameter.                                       #
-#  4. AVERAGE linkage, group average, or UPGMA method.                    #
-#  5. MCQUITTY's or WPGMA method.                                         #
-#  6. MEDIAN, Gower's or WPGMC method.                                    #
-#  7. CENTROID or UPGMC method.                                           #
+#  0. REGIONAL linakage or minimum inter-regional correlation             #
+#  1. WARD's minimum variance or error sum of squares method              #
+#  2. SINGLE linkage or nearest neighbor method                           #
+#  3. COMPLETE linkage or diameter                                        #
+#  4. AVERAGE linkage, group average, or UPGMA method                     #
+#  5. MCQUITTY's or WPGMA method                                          #
+#  6. MEDIAN, Gower's or WPGMC method                                     #
+#  7. CENTROID or UPGMC method                                            #
 #-------------------------------------------------------------------------#
 # This code is modified by Hamada S. Badr <badr@jhu.edu> from:            #
 # File src/library/stats/R/hclust.R                                       #
@@ -76,7 +76,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
-#   1.2.1   |  03/31/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  04/01/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -310,7 +310,7 @@ HiClimR <- function(x = list(),
         	x <- x * sqrt(m - 1)
     	} else {
         	# Variance of each variable (object/station)
-        	v <- v/(m - 1)
+        	v <- v / (m - 1)
     	}    
     	# Re-adding the mean for nonstandardized data (July 26, 2014)
     	if (!standardize[[nvar]]) {
@@ -325,7 +325,7 @@ HiClimR <- function(x = list(),
     	missVal[[nvar]] <- attr(x, "na.action")
     }
 	x <- xxx
-
+    
     # Free memory
 	rm(xxx, xx, mm0)
 
@@ -341,9 +341,15 @@ HiClimR <- function(x = list(),
     if (n < 2) 
         stop("must have n \u2265 2 objects to cluster")
 
+    # Update variance for multi-variate clustering
+    if (nvars > 1) {
+        if (verbose) write("---> Updating variance for multi-variate clustering...", "")
+        v <- rowSums(x^2, na.rm = TRUE) / (m - 1)
+    }
+
     # Reconstruct data from PCs if requested
     if (!is.null(nPC)) {
-        if (verbose) write("Reconstructing data from PCs...", "")
+        if (verbose) write("---> Reconstructing data from PCs...", "")
         if (nPC >= 1 && nPC <= min(n, m)) {
             xSVD <- La.svd(t(x), nPC, nPC)
             eigVal <- xSVD$d
@@ -363,7 +369,7 @@ HiClimR <- function(x = list(),
     # Correlation matrix (fast calculation using BLAS library)
 	if (verbose) write("Computing correlation/dissimilarity matrix...", "")
     if (!is.null(nPC)) {
-        v1 <- rowSums(x1^2)
+        v1 <- rowSums(x1^2, na.rm = TRUE)
         # Correlation matrix (fast calculation using BLAS library)
         #r1 <- tcrossprod(x1/sqrt(v1))
         r1 <- fastCor(t(x1), nSplit = nSplit, upperTri = TRUE, verbose = verbose)
@@ -554,7 +560,7 @@ HiClimR <- function(x = list(),
         
         tree <- c(tree, z)
     }
-    
+
     class(tree) <- c("hclust", "HiClimR")
     if (verbose) write("\nPROCESSING COMPLETED", "")
     
