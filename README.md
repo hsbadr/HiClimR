@@ -215,7 +215,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
    * for gridded data, the rows of input data matrix for each variable is ordered by longitudes
      * check `rownames(TestCase$x)` for example!
         * each row represents a station (grid point)
-        * the row name is in the form of `longitude,latitude`
+        * row name is in the form of `longitude,latitude`
 * Minor `verbose` fixes and updates
 
 #### 2015-03-27: version 1.2.0
