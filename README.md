@@ -9,7 +9,7 @@ Table of Contents
   * [HiClimR](#hiclimr)
     * [Introduction](#introduction)
     * [Features](#features)
-    * [Implementation](#implementation)e
+    * [Implementation](#implementation)
     * [Documentation](#documentation)
     * [Installation](#installation)
         * [From CRAN](#from-cran)
