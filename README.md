@@ -213,7 +213,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Updated user manual with the following notes:
    * longitudes takes values from `-180` to `180` (not `0` to `360`)
    * for gridded data, the rows of input data matrix for each variable is ordered by longitudes
-        * check `rownames(TestCase$x)` for more details!
+        * check `rownames(TestCase$x)` for example!
 * Minor `verbose` fixes and updates
 
 #### 2015-03-27: version 1.2.0
