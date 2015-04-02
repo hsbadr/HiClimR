@@ -199,7 +199,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.1**   |   03/31/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.1**   |   04/01/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
