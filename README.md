@@ -83,7 +83,7 @@ Table of Contents
 * hybrid hierarchical clustering
    * the upper part of the tree is reconstructed above a cut
    * the lower part of the tree uses user-selected method
-   * the upper part of the tree uses regional linkage method
+   * the upper part of the tree uses `regional` linkage method
 * multi-variate clustering (MVC)
    * filtering all variables before preprocessing
    * detrending and standardization of each variable
