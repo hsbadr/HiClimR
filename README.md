@@ -18,7 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
-        * [2015-04-03: version 1.2.1](#2015-04-03-version-121)
+        * [2015-04-08: version 1.2.1](#2015-04-08-version-121)
         * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
         * [2015-03-01: version 1.1.6](#2015-03-01-version-116)
         * [2014-11-12: version 1.1.5](#2014-11-12-version-115)
@@ -199,13 +199,13 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.1.5**   |   11/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.1.6**   |   03/01/15   |  **GitHub**   |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **1.2.1**   |   04/03/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.1**   |   04/08/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
 
-#### 2015-04-03: version 1.2.1
+#### 2015-04-08: version 1.2.1
 
 * Updating variance for multi-variate clustering
 * More plotting options (`pch` and `cex`)
