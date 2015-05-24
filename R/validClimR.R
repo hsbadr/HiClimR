@@ -1,4 +1,4 @@
-# $Id: validClimR.R, v1.2.1 2015/04/01 12:00:00 hsbadr EPS JHU            #
+# $Id: validClimR.R, v1.2.1 2015/05/24 12:00:00 hsbadr EPS JHU            #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -33,7 +33,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
-#   1.2.1   |  04/01/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -52,12 +52,12 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
     
     # Cut tree based on minimum significant inter-regional correlation
     if (is.null(k)) {
-    	if (verbose) write("Cutting tree based on minimum significant correlation...", "")
+    	if (verbose) write("---> Cutting tree based on minimum significant correlation...", "")
         # Check clustering method
         if (y$method != "regional" && is.null(y$treeH)) {
-            write("---> WARNING: objective tree cut is supported only for regional linkage method!", 
+            write("--->\t WARNING: objective tree cut is supported only for regional linkage method!", 
                 "")
-            write(paste("---> WARNING: ", y$method, "method requires a prespecified number of clusters!"), 
+            write(paste("--->\t WARNING: ", y$method, "method requires a prespecified number of clusters!"), 
                 "")
         } else {
             if (is.null(y$treeH)) {
@@ -77,7 +77,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
             }
 
             # Minimum significant correlation coefficient
-			if (verbose) write("Computing minimum significant correlation coefficient...", "")
+			if (verbose) write("---> Computing minimum significant correlation coefficient...", "")
             # for sample size of n years
             #nn <- dim(x)[2] - length(y$missVal)
             nn <- (dim(x)[2] - n.missVal) / nvars
@@ -101,7 +101,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
             cutTree <- cutree(y, k = k)
         } else {
             # The reconstructed upper part tree
-            if (verbose) write("Retrieving the reconstructed upper-part tree...", "")
+            if (verbose) write("---> Retrieving the reconstructed upper-part tree...", "")
             yH <- y$treeH
             
             cutTreeH <- cutree(yH, k = k)
@@ -122,16 +122,16 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
         }
         
         # Region Means
-        if (verbose) write("Computing cluster means...", "")
+        if (verbose) write("---> Computing cluster means...", "")
         RM <- t(apply(x, 2, function(r) tapply(r, cutTree, mean)))
         
         # Correlation between Region Means
-		if (verbose) write("Computing inter-cluster correlations...", "")
+		if (verbose) write("---> Computing inter-cluster correlations...", "")
         RMcor <- t(fastCor(RM, upperTri = TRUE, verbose = verbose) * clustFlag) * clustFlag
         #RMcor[lower.tri(RMcor, diag = TRUE)] <- NA
         
         # Correlation between Region Means and Region Members
-		if (verbose) write("Computing intra-cluster correlations...", "")
+		if (verbose) write("---> Computing intra-cluster correlations...", "")
         Rcor <- cor(RM, t(x))
         
         # Average Correlation between Region Means and Members
@@ -140,7 +140,7 @@ validClimR <- function(y = NULL, k = NULL, minSize = 1, alpha = 0.05,
         
         clustFlag[is.na(clustFlag)] <- 0
 
-        if (verbose) write("Computing summary statistics...", "")
+        if (verbose) write("---> Computing summary statistics...", "")
         index$cutLevel <- c(alpha, RsMin)
         index$clustMean <- RM
         index$clustSize <- table(cutTree)

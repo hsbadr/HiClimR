@@ -75,14 +75,14 @@ fastCor(xt, nSplit = 1, upperTri = FALSE, verbose = TRUE)
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
   A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
-  In Review.
+  1-10, \url{http://dx.doi.org/10.1007/s12145-015-0221-7}.
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization, \emph{CRAN},
   \url{http://cran.r-project.org/package=HiClimR}.
   
   bigcor: \emph{Large correlation matrices in R},
-  \url{https://rmazing.wordpress.com/2013/02/22/bigcor-large-correlation-matrices-in-r/}
+  \url{https://rmazing.wordpress.com}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

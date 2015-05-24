@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v1.2.1 2015/04/01 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v1.2.1 2015/05/24 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -76,7 +76,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
-#   1.2.1   |  04/01/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -176,9 +176,11 @@ HiClimR <- function(x = list(),
     lat <- xc$lat
     x <- xc$x
     rm(xc)
-    
+
+    if (verbose) write("Checking data...", "")
+
     # Check data dimensions
-    if (verbose) write("Checking data dimensions...", "")
+    if (verbose) write("---> Checking dimensions...", "")
     n <- dim(x)[1]
     m <- dim(x)[2]
     if (is.null(n)) 
@@ -191,13 +193,13 @@ HiClimR <- function(x = list(),
         stop("must have n \u2265 2 objects to cluster")
     
     # Check row names (important if detrending is requested)
-    if (verbose) write("Checking row names...", "")
+    if (verbose) write("---> Checking row names...", "")
     if (is.null(rownames(x))) {
         rownames(x) <- seq(1, n)
     }
     
     # Check column names (important if detrending is requested)
-    if (verbose) write("Checking column names...", "")
+    if (verbose) write("---> Checking column names...", "")
     if (is.null(colnames(x))) {
         colnames(x) <- seq(1, m)
     }
@@ -236,7 +238,7 @@ HiClimR <- function(x = list(),
 	    if (!is.null(meanThresh[[nvar]])) {
             if (verbose) write("---> Checking rows with mean bellow meanThresh...", "")
 	        meanMask <- which(is.na(xmean) | xmean <= meanThresh[[nvar]])
-            if (verbose) write(paste("--->\t ", length(meanMask), "rows found, mean \u2264 ", 
+            if (verbose) write(paste("--->", length(meanMask), "rows found, mean \u2264 ", 
                 meanThresh[[nvar]]), "")
 	        if (length(meanMask) > 0) {
 	            mask <- union(mask, meanMask)
@@ -254,7 +256,7 @@ HiClimR <- function(x = list(),
 	    }
 	    varMask <- which(is.na(v) | v <= varThresh[[nvar]])
         if (verbose) write("---> Checking rows with near-zero-variance...", "")
-        if (verbose) write(paste("--->\t ", length(varMask), "rows found, variance \u2264 ", 
+        if (verbose) write(paste("--->", length(varMask), "rows found, variance \u2264 ", 
             varThresh[[nvar]]), "")
 	    if (length(varMask) > 0) {
         	mask <- union(mask, varMask)
@@ -301,7 +303,7 @@ HiClimR <- function(x = list(),
     
     	# Standardize data if requested
     	if (standardize[[nvar]]) {
-    	    if (verbose) write("---> Standardizing the data...", "")
+    	    if (verbose) write("---> Standardizing data...", "")
         	x <- x/sqrt(v)
         	# Variance of each variable (object/station)
         	v <- rep(1, n)
@@ -366,8 +368,10 @@ HiClimR <- function(x = list(),
         }
     }
 
+	if (verbose) write("Agglomerative Hierarchical Clustering...", "")
+
     # Correlation matrix (fast calculation using BLAS library)
-	if (verbose) write("Computing correlation/dissimilarity matrix...", "")
+	if (verbose) write("---> Computing correlation/dissimilarity matrix...", "")
     if (!is.null(nPC)) {
         v1 <- rowSums(x1^2, na.rm = TRUE)
         # Correlation matrix (fast calculation using BLAS library)
@@ -423,7 +427,7 @@ HiClimR <- function(x = list(),
         members <- rep(1, n) else if (length(members) != n) 
         stop("invalid length of members")
     
-    if (verbose) write("Starting clustering process...", "")
+    if (verbose) write("---> Starting clustering process...", "")
     # Call Fortran subroutine for agglomerative hierarchical clustering
     storage.mode(d) <- "double"
     hcl <- .Fortran("HiClimR", n = n, len = len, method = as.integer(method), 
@@ -435,7 +439,7 @@ HiClimR <- function(x = list(),
     hcass <- .Fortran("hcass2", n = n, ia = hcl$ia, ib = hcl$ib, order = integer(n), 
         iia = integer(n), iib = integer(n), PACKAGE = "HiClimR")
     
-    if (verbose) write("Constructing dendrogram tree...", "")
+    if (verbose) write("---> Constructing dendrogram tree...", "")
     # Construct 'hclust'/'HiClimR' dendogram tree
     tree <- list(merge = cbind(hcass$iia[1L:(n - 1)], hcass$iib[1L:(n - 
         1)]), height = hcl$crit[1L:(n - 1)], order = hcass$order, labels = rownames(x), 
@@ -477,7 +481,8 @@ HiClimR <- function(x = list(),
     #}
     
     if (hybrid) {
-        if (verbose) write("Reonstructing the upper part of the tree...", "")
+        if (verbose) write("Hybrid Hierarchical Clustering...", "")
+
         if (verbose && tree$method == "regional") {
             write("---> WARNING: hybrid option is redundant when using regional linkage method!", 
                 "")
@@ -495,7 +500,7 @@ HiClimR <- function(x = list(),
             methodH <- pmatch("regional", METHODS) - 1
             
             # Update variances dissimilarities of the upper part of the tree
-		    if (verbose) write("Updating correlation/dissimilarity matrix for hybrid clustering...", "")
+		    if (verbose) write("---> Updating correlation/dissimilarity matrix...", "")
             cutTreeH <- cutree(tree, k = kH)
             RMH <- t(apply(tree$data, 2, function(r) tapply(r, cutTreeH, 
                 mean)))
@@ -505,6 +510,7 @@ HiClimR <- function(x = list(),
             dH <- 1 - rH
             
             # Call Fortran subroutine for agglomerative hierarchical clustering
+            if (verbose) write("---> Reonstructing the upper part of the tree...", "")
             storage.mode(d) <- "double"
             hclH <- .Fortran("HiClimR", n = kH, len = lenH, method = as.integer(methodH), 
                 ia = integer(kH), ib = integer(kH), crit = double(kH), 
@@ -525,6 +531,7 @@ HiClimR <- function(x = list(),
             class(treeH) <- "hclust"
             
             # Add the new upper part of the tree to the original tree
+            if (verbose) write("---> Merging upper and lower parts of the tree...", "")
             tree$treeH <- treeH
         }
     }

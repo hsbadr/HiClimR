@@ -37,7 +37,7 @@ data(WorldMask)
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
   A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
-  In Review.
+  1-10, \url{http://dx.doi.org/10.1007/s12145-015-0221-7}.
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization, \emph{CRAN},

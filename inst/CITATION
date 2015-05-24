@@ -9,17 +9,20 @@ citEntry(entry = "Article",
                 person("Amin K.", "Dezfuli", email="dez@jhu.edu", role="aut")
                  ),
   journal      = "Earth Science Informatics",
-  volume       = "", 
-  number       = "", 
-  pages        = "",
+  pages        = "1-10",
   year         = "2015",
-  url          = "In Review",
+  issn         = "1865-0473",
+  doi          = "10.1007/s12145-015-0221-7",
+  url          = "http://dx.doi.org/10.1007/s12145-015-0221-7",
+  publisher    = "Springer Berlin Heidelberg",
+  keywords     = "Climate regionalization; Spatio-temporal analysis; Africa; Precipitation; Hierarchical clustering; Hybrid clustering; Multi-variate clustering; Cluster validation",
+  language     = "English",
 
   textVersion  =
   paste("Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):",
         "A Tool for Hierarchical Climate Regionalization,",
-        "Earth Science Informatics,",
-        "In Review.")
+        "Earth Science Informatics,", "1-10",
+        "http://dx.doi.org/10.1007/s12145-015-0221-7")
 )
 
 citEntry(entry = "Article",

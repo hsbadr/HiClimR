@@ -1,4 +1,4 @@
-# $Id: geogMask.R, v1.2.1 2015/04/01 12:00:00 hsbadr EPS JHU              #
+# $Id: geogMask.R, v1.2.1 2015/05/24 12:00:00 hsbadr EPS JHU              #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -33,7 +33,7 @@
 #   1.1.6   |  03/01/15  |  GitHub    |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
-#   1.2.1   |  04/01/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -47,7 +47,8 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL,
     
     # Get World mask from LazyData
     wMask <- get("WorldMask", envir = .GlobalEnv)
-    
+
+    if (verbose) write("---> Checking geographic masking options...", "")
     if (is.null(continent) && is.null(region) && is.null(country)) {
         gMask <- list()
         gMask$continent <- unique(sort(wMask$info[, 7]))
@@ -55,23 +56,30 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL,
         gMask$country <- unique(as.character(sort(wMask$info[!is.na(wMask$info[, 
             3]), 3])))
     } else {
-        
+        if (verbose) write("---> Checking geographic masking data...", "")
+
         if (is.null(lon) || is.null(lat) || length(lon) != length(lat)) 
             stop("invalid coordinates")
         
         if (!is.null(continent)) {
+            if (verbose) write("---> Geographic masking by continent...", "")
+
             area <- which(wMask$info[, 7] %in% continent)
             
             if (length(area) < 1) 
                 stop("invalid continent")
             
         } else if (!is.null(region)) {
+            if (verbose) write("---> Geographic masking by region...", "")
+
             area <- which(wMask$info[, 6] %in% region)
             
             if (length(area) < 1) 
                 stop("invalid region")
             
         } else if (!is.null(country)) {
+            if (verbose) write("---> Geographic masking by country...", "")
+
             area <- which(wMask$info[, 3] %in% country)
             
             if (length(area) < 1) 
@@ -114,7 +122,7 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL,
     }
     
     if (plot) {
-        if (verbose) write("Generating geographic mask map...", "")        
+        if (verbose) write("---> Generating geographic mask map...", "")        
         Regions <- rep(1, length(lon))
         Regions[gMask] <- NA
             

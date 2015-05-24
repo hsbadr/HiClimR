@@ -217,6 +217,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
         * each row represents a station (grid point)
         * row name is in the form of `longitude,latitude`
 * Minor `verbose` fixes and updates
+* Minor `README` corrections and updates
 * Citation updated: technical paper has been published
 
 #### 2015-03-27: version 1.2.0
