@@ -35,7 +35,7 @@ citEntry(entry = "Article",
                  ),
   journal      = "CRAN",
   year         = "2014",
-#  note         = {R package version 1.2.0}, 
+#  note         = {R package version 1.2.2}, 
   url          = "http://cran.r-project.org/package=HiClimR",
 
   textVersion  =

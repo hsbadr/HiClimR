@@ -1,3 +1,7 @@
 useDynLib(HiClimR)
-
 exportPattern("^[[:alpha:]]+")
+
+importFrom("graphics", "axis", "par")
+importFrom("grDevices", "colorRampPalette", "dev.new")
+importFrom("stats", "cor", "cutree", "fitted", "lm", "na.omit", "pf", "var")
+importFrom("utils", "combn")

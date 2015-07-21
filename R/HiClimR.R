@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v1.2.1 2015/05/24 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v1.2.2 2015/07/21 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -77,6 +77,7 @@
 #-------------------------------------------------------------------------#
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -206,16 +207,22 @@ HiClimR <- function(x = list(),
     
     # Mask geographic region
     mask <- NULL
+
     if (geogMask) {
         if (verbose) write("Geographic masking...", "")
+
         if (is.null(gMask)) {
             gMask <- geogMask(continent = continent, region = region, country = country, 
                 lon = lon, lat = lat, verbose = verbose, plot = FALSE)
+        } else {
+            if (verbose) write("---> Geographic mask is provided!", "")
         }
-        
-        if (min(gMask) >= 1 && max(gMask) <= n) {
-            mask <- union(mask, as.integer(gMask))
-        }
+
+		if (length(gMask) > 0 && class(gMask) != "list") {
+	        if (min(gMask) >= 1 && max(gMask) <= n) {
+	            mask <- union(mask, as.integer(gMask))
+	        }
+	    }
     }
     
     mm0 <- 0
