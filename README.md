@@ -18,6 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
+        * [2015-08-05: version 1.2.3](#2015-08-05-version-123)
         * [2015-07-21: version 1.2.2](#2015-07-21-version-122)
         * [2015-05-24: version 1.2.1](#2015-05-24-version-121)
         * [2015-03-27: version 1.2.0](#2015-03-27-version-120)
@@ -203,16 +204,32 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.2.0**   |   03/27/15   |  **MVC**      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.1**   |   05/24/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.2**   |   07/21/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **1.2.3**   |   08/05/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2015-08-05: version 1.2.3
+
+* Fixed `geogmask` confusing country codes/names
+* Fixed `geogmask` filtering InDispute areas
+* Corrected data construction in the user manual
+   * `x` should be created using `as.vector(t(x0))`
+   * `x0` is the `n by m` original data matrix
+   * `n = length(unique(lon))` and `m = length(unique(lat))`
+* `coarseR` now returns the original row numbers
+* Minor `README` corrections and updates
+
+[⇪](#hiclimr)
 
 #### 2015-07-21: version 1.2.2
 
 * Changes for `Undefined global functions`
 * Checking geographic masking output
 * Minor `README` corrections and updates
+
+[⇪](#hiclimr)
 
 #### 2015-05-24: version 1.2.1
 
@@ -228,6 +245,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Minor `verbose` fixes and updates
 * Minor `README` corrections and updates
 * Citation updated: technical paper has been published
+
+[⇪](#hiclimr)
 
 #### 2015-03-27: version 1.2.0
 

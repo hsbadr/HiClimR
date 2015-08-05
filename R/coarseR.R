@@ -1,4 +1,4 @@
-# $Id: coarseR.R, v1.2.2 2015/07/21 12:00:00 hsbadr EPS JHU               #
+# $Id: coarseR.R, v1.2.3 2015/08/05 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -35,6 +35,7 @@
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -65,6 +66,11 @@ coarseR <- function(x = x, lon = lon, lat = lat, lonStep = 1, latStep = 1, verbo
             if (lonStep > 1 || latStep > 1) {
                 xc$x <- x[which(rownames(x) %in% paste(xc$lon, xc$lat, 
                   sep = ",")), ]
+                
+                # Return the original row numbers
+                rownumbers <- 1:nrow(x)
+                xc$rownum <- rownumbers[which(rownames(x) %in% paste(xc$lon, xc$lat, 
+                  sep = ","))]
             }
         } else {
             if (lonStep > 1 || latStep > 1) {

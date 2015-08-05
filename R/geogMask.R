@@ -1,4 +1,4 @@
-# $Id: geogMask.R, v1.2.2 2015/07/21 12:00:00 hsbadr EPS JHU              #
+# $Id: geogMask.R, v1.2.3 2015/08/05 12:00:00 hsbadr EPS JHU              #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -35,6 +35,7 @@
 #   1.2.0   |  03/27/15  |  MVC       |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
@@ -86,17 +87,20 @@ geogMask <- function(continent = NULL, region = NULL, country = NULL,
             if (length(area) < 1) 
                 stop("invalid country")
             
-            for (i in 1:length(area)) {
-                area <- union(area, which(gregexpr(pattern = wMask$info[area[i], 
-                  3], wMask$info[, 1]) != -1))
-            }
+            # Fix confusing country codes/names
+            #for (i in 1:length(area)) {
+            #    area <- union(area, which(gregexpr(pattern = wMask$info[area[i], 
+            #      3], wMask$info[, 1]) != -1))
+            #}
             
             # Areas in dispute
             InDisputeArea <- which(gregexpr(pattern = "In dispute", wMask$info[, 
                 1]) != -1)
             if (InDispute) {
-                area <- union(area, InDisputeArea[which(grepl(wMask$info[243, 
-                  1], wMask$info[InDisputeArea, 1]))])
+                for (i in 1:length(area)) {
+                    area <- union(area, InDisputeArea[which(grepl(wMask$info[area[i], 
+                    1], wMask$info[InDisputeArea, 1]))])
+                }
             }
         }
         

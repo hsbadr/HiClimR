@@ -108,6 +108,7 @@
 !   1.2.0   |  03/27/15  |    MVC     |  Hamada S. Badr  |  badr@jhu.edu  !
 !   1.2.1   |  05/24/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
 !   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
+!   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  !
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !

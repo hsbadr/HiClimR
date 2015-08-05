@@ -83,7 +83,7 @@ HiClimR(
   \code{N} objects (spatial points or stations) to be clustered by \code{M} 
   observations (temporal points or years). For gridded data, the \code{N}
   objects should be created from the original matrix \code{x0} using
-  \code{as.vector(x0)}, where \code{x0} is an (\code{n} rows by
+  \code{as.vector(t(x0))}, where \code{x0} is an (\code{n} rows by
   \code{m} columns) matrix, \code{n = length(unique(lon))} and
   \code{m = length(unique(lat))}. Zero-variance rows (e.g., stations 
   with zero variability) and/or missing values (e.g., years with missing 
