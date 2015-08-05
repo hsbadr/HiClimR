@@ -212,8 +212,8 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-08-05: version 1.2.3
 
-* Fixed `geogmask` confusing country codes/names
-* Fixed `geogmask` filtering InDispute areas
+* Fixed `geogMask` confusing country codes/names
+* Fixed `geogMask` filtering InDispute areas
 * Corrected data construction in the user manual
    * `x` should be created using `as.vector(t(x0))`
    * `x0` is the `n by m` original data matrix
