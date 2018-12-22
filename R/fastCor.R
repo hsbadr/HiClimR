@@ -49,6 +49,11 @@ fastCor <-
            optBLAS = FALSE,
            verbose = TRUE) {
     
+    # Remove zero-variance data
+    nn <- ncol(xt)
+    ii <- which(apply(xt, 2, var) > 0)
+    xt <- xt[, ii]
+    
     x <- t(xt) - colMeans(xt)
     
     m <- nrow(xt)
@@ -154,6 +159,9 @@ fastCor <-
     if (upperTri)
       r[col(r) >= row(r)] <- NA
     
+    rr <- matrix(NA, nrow = nn, ncol = nn)
+    rr[ii, ii] <- r
+    
     #gc()
-    return(r)
+    return(rr)
   }
