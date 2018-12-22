@@ -3,7 +3,7 @@
 % Copyright(C) 2013-2015 Department of Earth and Planetary Sciences, JHU.
 % Distributed under GPL 2 or later
 
-\newcommand{\CRANpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
+\newcommand{\CRANpkg}{\href{https://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
 \name{validClimR}
 \title{Validation of Hierarchical Climate Regionalization}
@@ -123,11 +123,11 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
   A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics}, 
-  1-10, \url{http://dx.doi.org/10.1007/s12145-015-0221-7}.
+  1-10, \url{https://dx.doi.org/10.1007/s12145-015-0221-7}.
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization, \emph{CRAN},
-  \url{http://cran.r-project.org/package=HiClimR}.
+  \url{https://cran.r-project.org/package=HiClimR}.
 }
 \author{
   Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 

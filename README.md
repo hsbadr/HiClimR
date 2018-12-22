@@ -46,13 +46,13 @@ Table of Contents
 
 ## Introduction
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to implement a cluster validation function with an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut to get the best of the available methods. Multi-variate clustering (MVC) provides options for filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to implement a cluster validation function with an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut to get the best of the available methods. Multi-variate clustering (MVC) provides options for filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
 
 [⇪](#hiclimr)
 
 ## Features
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](http://www.r-project.org) (`hclust` function in `stats` library) including:
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) adds several features and a new clustering method (called, `regional` linkage) to hierarchical clustering in [**R**](https://www.r-project.org) (`hclust` function in `stats` library) including:
 
 * data regridding
 * coarsening spatial resolution
@@ -102,40 +102,40 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 ## Implementation
 
-[Badr et. al (2015)](http://dx.doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multi-variate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
+[Badr et. al (2015)](https://dx.doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multi-variate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
 
-![HiClimR Flowchart](http://pages.jh.edu/~hbadr1/images/HiClimR_flowchart.png)
-*[`HiClimR`](http://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
+![HiClimR Flowchart](https://pages.jh.edu/~hbadr1/images/HiClimR_flowchart.png)
+*[`HiClimR`](https://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
 [⇪](#hiclimr)
 
 ## Documentation
 
-For information on how to use [**`HiClimR`**](http://cran.r-project.org/package=HiClimR), check out the most updated [user manual](http://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-manual.pdf) and [examples](#examples) bellow.
+For information on how to use [**`HiClimR`**](https://cran.r-project.org/package=HiClimR), check out the most updated [user manual](https://blaustein.eps.jhu.edu/~hbadr1/files/HiClimR-manual.pdf) and [examples](#examples) bellow.
 
 [⇪](#hiclimr)
 
 ## Installation
 
-There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR): 
+There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR): 
 
 #### From CRAN
 
-This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an [**R**](http://www.r-project.org) shell and type:
+This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an [**R**](https://www.r-project.org) shell and type:
 
 ```R
         install.packages("HiClimR")
 ```
 
-In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) and install it.
+In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) and install it.
 
 [⇪](#hiclimr)
 
 #### From GitHub
 
-This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](http://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
+This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
 
-* Install the release version of `devtools` from [**CRAN**](http://cran.r-project.org):
+* Install the release version of `devtools` from [**CRAN**](https://cran.r-project.org):
 
 ```R
         install.packages("devtools")
@@ -143,11 +143,11 @@ This is intended for developers and requires a development environment (compiler
 
 * Make sure you have a working development environment:
 
-    * **Windows**: Install [Rtools](http://cran.r-project.org/bin/windows/Rtools/).
+    * **Windows**: Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
     * **Mac**: Install Xcode from the Mac App Store.
     * **Linux**: Install a compiler and various development libraries (details vary across different flavors of **Linux**).
 
-* Install [**`HiClimR`**](http://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
+* Install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ```R
         library(devtools)
@@ -164,13 +164,13 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 ## License
 
-[**`HiClimR`**](http://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](http://www.R-project.org) Copyright © 1995-2015 The [**R**](http://www.r-project.org) Core Team.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](https://blaustein.eps.jhu.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2015 The [**R**](https://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-A copy of the GNU General Public License is available at http://www.r-project.org/Licenses.
+A copy of the GNU General Public License is available at https://www.r-project.org/Licenses.
 
 Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
 
@@ -291,7 +291,7 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 * Setting minimum `k = 2`, for objective tree cutting
    * this addresses an issue caused by undefined `k = NULL` in `validClimR` function
    * when all inter-cluster correlations are significant at the user-specified significance level
-* Code reformatting using [`formatR`](http://cran.r-project.org/package=formatR)
+* Code reformatting using [`formatR`](https://cran.r-project.org/package=formatR)
 * Package description and URLs have been revised
 * Source code is now maintained on GitHub by authors
 

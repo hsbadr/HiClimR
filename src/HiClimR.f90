@@ -12,7 +12,7 @@
 !                                                                         !
 !  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                !
 !  Hierarchical Climate Regionalization. CRAN,                            !
-!  http://cran.r-project.org/package=HiClimR.                             !
+!  https://cran.r-project.org/package=HiClimR.                             !
 !                                                                         !
 !  Source Code: https://github.com/hsbadr/HiClimR                         !
 !                                                                         !
@@ -56,7 +56,7 @@
 !                                                                         !
 !  This code is modified by Hamada S. Badr <badr@jhu.edu> from:           !
 !               File src/library/stats/src/hclust.f                       !
-!  Part of the R package, http://www.R-project.org                        !
+!  Part of the R package, https://www.R-project.org                        !
 !                                                                         !
 !  Copyright(C)  1995-2015  The R Core Team                               !
 !                                                                         !
@@ -71,7 +71,7 @@
 !  GNU General Public License for more details.	                          !
 !                                                                         !
 !  A copy of the GNU General Public License is available at               !
-!  http://www.r-project.org/Licenses                                      !
+!  https://www.r-project.org/Licenses                                      !
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !
