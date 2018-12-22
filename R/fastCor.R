@@ -52,19 +52,7 @@ fastCor <-
     m <- nrow(xt)
     n <- ncol(xt)
     
-    ## The correlation matrix is currently allocated in memory,
-    ## but it can be allocated in a file using the framework of ff package
-    ## when it supports 64-Bit object length
-    ## This is mainly because R does not have an int64 or long type
-    ## R does not recognize integers that are larger than .Machine$max.integer
-    ## There is a workaround to make ff package use numeric length
-    #useFF <- False
-    #if (useFF) {
-    #	require(ff, quietly = TRUE)
-    #	r <- ff(vmode = "double", dim = c(n, n))
-    #} else {
     r <- matrix(NA, nrow = n, ncol = n)
-    #}
     rownames(r) <- colnames(xt)
     colnames(r) <- rownames(r)
     
