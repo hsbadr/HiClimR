@@ -42,47 +42,56 @@
 # Function: Coarsening spatial resolution for gridded data                #
 #-------------------------------------------------------------------------#
 
-coarseR <- function(x = x, lon = lon, lat = lat, lonStep = 1, latStep = 1, verbose = TRUE) {
-
+coarseR <-
+  function(x = x,
+           lon = lon,
+           lat = lat,
+           lonStep = 1,
+           latStep = 1,
+           verbose = TRUE) {
     xc <- list()
     xc$lon <- lon
     xc$lat <- lat
     xc$x <- x
     
     if (!is.null(lon) && !is.null(lat)) {
-        if (as.numeric(dim(x)[1]) == as.numeric(length(unique(lon)) * length(unique(lat)))) {
-            lon0 <- unique(lon)
-            lat0 <- unique(lat)
-            xGrid <- grid2D(lon0, lat0)
-            
-            rownames(x) <- paste(c(xGrid$lon), c(xGrid$lat), sep = ",")
-            
-            lon1 <- lon0[seq(1, length(lon0), by = lonStep)]
-            lat1 <- lat0[seq(1, length(lat0), by = latStep)]
-            
-            xc$lon <- c(grid2D(lon1, lat1)$lon)
-            xc$lat <- c(grid2D(lon1, lat1)$lat)
-            
-            if (lonStep > 1 || latStep > 1) {
-                xc$x <- x[which(rownames(x) %in% paste(xc$lon, xc$lat, 
-                  sep = ",")), ]
-                
-                # Return the original row numbers
-                rownumbers <- 1:nrow(x)
-                xc$rownum <- rownumbers[which(rownames(x) %in% paste(xc$lon, xc$lat, 
-                  sep = ","))]
-            }
-        } else {
-            if (lonStep > 1 || latStep > 1) {
-                if (verbose) write("---> WARNING: ungridded data is not supported for coarsening!", 
-                  "")
-            }
+      if (as.numeric(dim(x)[1]) == as.numeric(length(unique(lon)) * length(unique(lat)))) {
+        lon0 <- unique(lon)
+        lat0 <- unique(lat)
+        xGrid <- grid2D(lon0, lat0)
+        
+        rownames(x) <-
+          paste(c(xGrid$lon), c(xGrid$lat), sep = ",")
+        
+        lon1 <- lon0[seq(1, length(lon0), by = lonStep)]
+        lat1 <- lat0[seq(1, length(lat0), by = latStep)]
+        
+        xc$lon <- c(grid2D(lon1, lat1)$lon)
+        xc$lat <- c(grid2D(lon1, lat1)$lat)
+        
+        if (lonStep > 1 || latStep > 1) {
+          xc$x <- x[which(rownames(x) %in% paste(xc$lon, xc$lat,
+                                                 sep = ",")),]
+          
+          # Return the original row numbers
+          rownumbers <- 1:nrow(x)
+          xc$rownum <-
+            rownumbers[which(rownames(x) %in% paste(xc$lon, xc$lat,
+                                                    sep = ","))]
         }
+      } else {
+        if (lonStep > 1 || latStep > 1) {
+          if (verbose)
+            write("---> WARNING: ungridded data is not supported for coarsening!",
+                  "")
+        }
+      }
     } else {
-        if (verbose) write("---> WARNING: valid longitude and latitude vectors are not provided!", 
-            "")
+      if (verbose)
+        write("---> WARNING: valid longitude and latitude vectors are not provided!",
+              "")
     }
-
+    
     #gc()
     return(xc)
-}
+  }

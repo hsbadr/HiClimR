@@ -42,10 +42,12 @@
 # Function: Minimum significant correlation for a sample size             #
 #-------------------------------------------------------------------------#
 
-minSigCor <- function(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-06)) {
-
+minSigCor <-
+  function(n = 41,
+           alpha = 0.05,
+           r = seq(0, 1, by = 1e-06)) {
     dof <- n - 2
-    Fstat <- r^2 * dof/(1 - r^2)
+    Fstat <- r ^ 2 * dof / (1 - r ^ 2)
     p.value <- 1 - pf(Fstat, 1, dof)
     p.value[p.value > alpha] <- NA
     i <- which(p.value == max(p.value, na.rm = TRUE))
@@ -54,4 +56,4 @@ minSigCor <- function(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-06)) {
     
     #gc()
     return(RsMin)
-}
+  }

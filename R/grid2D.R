@@ -43,16 +43,15 @@
 #-------------------------------------------------------------------------#
 
 grid2D <- function(lon = lon, lat = lat) {
-
-    gGrid <- list()
-    
-    lon <- unique(lon)
-    lat <- unique(lat)
-    if (!is.null(lon) && !is.null(lat)) {
-        gGrid$lon <- tcrossprod(rep(1, length(lat)), lon)
-        gGrid$lat <- tcrossprod(lat, rep(1, length(lon)))
-    }
-    
-    #gc()
-    return(gGrid)
+  gGrid <- list()
+  
+  lon <- unique(lon)
+  lat <- unique(lat)
+  if (!is.null(lon) && !is.null(lat)) {
+    gGrid$lon <- tcrossprod(rep(1, length(lat)), lon)
+    gGrid$lat <- tcrossprod(lat, rep(1, length(lon)))
+  }
+  
+  #gc()
+  return(gGrid)
 }
