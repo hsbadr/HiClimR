@@ -18,7 +18,7 @@
   compute correlation matrix for the columns of any data matrix.
 }
 \usage{
-fastCor(xt, nSplit = 1, upperTri = FALSE, verbose = TRUE)
+fastCor(xt, nSplit = 1, upperTri = FALSE, optBLAS = FALSE, verbose = TRUE)
 }
 \arguments{
   \item{xt}{an (\code{M} rows by \code{N} columns) matrix of 'double' values: 
@@ -49,6 +49,9 @@ fastCor(xt, nSplit = 1, upperTri = FALSE, verbose = TRUE)
   matrix if \code{upperTri = TRUE} and \code{nSplit > 1}., which includes all required info 
   since the correlation/dissimilarity matrix is symmetric. This almost halves memory use, 
   which can be very important for big data.}
+
+  \item{optBLAS}{logical to use optimized BLAS library if installed and \code{optBLAS = TRUE}
+  only on 64-bit machines.}
 
   \item{verbose}{logical to print processing information if \code{verbose = TRUE}.}
 }

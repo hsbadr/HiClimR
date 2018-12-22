@@ -46,7 +46,9 @@ fastCor <-
   function(xt,
            nSplit = 1,
            upperTri = FALSE,
+           optBLAS = FALSE,
            verbose = TRUE) {
+    
     x <- t(xt) - colMeans(xt)
     
     m <- nrow(xt)
@@ -75,7 +77,7 @@ fastCor <-
     
     if (nSplit == 1) {
       #if (verbose) write("\t full data mtrix: no splits", "")
-      if (.Machine$sizeof.pointer == 8) {
+      if (optBLAS & .Machine$sizeof.pointer == 8) {
         r <- tcrossprod(x / sqrt(rowSums(x ^ 2)))
       } else {
         r <- cor(xt)
@@ -137,7 +139,7 @@ fastCor <-
             ),
             ""
           )
-        if (.Machine$sizeof.pointer == 8) {
+        if (optBLAS & .Machine$sizeof.pointer == 8) {
           r[i2, i1] <- t(tcrossprod(x[i1,] / sqrt(rowSums(x[i1,] ^ 2)),
                                     x[i2,] / sqrt(rowSums(x[i2,] ^ 2))))
         } else {
