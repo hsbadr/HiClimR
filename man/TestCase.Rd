@@ -43,10 +43,10 @@ data(TestCase)
   Hierarchical Climate Regionalization, \emph{CRAN},
   \url{https://cran.r-project.org/package=HiClimR}.
 
-  Harris, I., Jones, P., Osborn, T., and Lister, D. (2013):
-  Updated high-resolution grids of monthly climatic observations-the CRU TS3.10 Dataset, 
-  \emph{International journal of climatology}, Available from: 
-  \url{https://badc.nerc.ac.uk/view/badc.nerc.ac.uk__ATOM__dataent_1256223773328276}
+  Harris, I., Jones, P. D., Osborn, T. J., and Lister, D. H. (2014):
+  Updated high-resolution grids of monthly climatic observations - the CRU TS3.10 Dataset,
+  \emph{International journal of climatology}, \bold{34}, 623-642,
+  \url{https://dx.doi.org/10.1002/joc.3711}.
 }
 \examples{
 require(HiClimR)
