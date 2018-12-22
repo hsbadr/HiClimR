@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v1.2.3 2015/08/05 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v2.0.0 2018/12/22 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -11,7 +11,7 @@
 #                                                                         #
 #  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                #
 #  Hierarchical Climate Regionalization. CRAN,                            #
-#  https://cran.r-project.org/package=HiClimR.                             #
+#  https://cran.r-project.org/package=HiClimR.                            #
 #                                                                         #
 #  Source Code: https://github.com/hsbadr/HiClimR                         #
 #-------------------------------------------------------------------------#
@@ -28,9 +28,9 @@
 #-------------------------------------------------------------------------#
 # This code is modified by Hamada S. Badr <badr@jhu.edu> from:            #
 # File src/library/stats/R/hclust.R                                       #
-# Part of the R package, https://www.R-project.org                         #
+# Part of the R package, https://www.R-project.org                        #
 #                                                                         #
-# Copyright(C)  1995-2015  The R Core Team                                #
+# Copyright(C)  1995-2018  The R Core Team                                #
 #                                                                         #
 # This program is free software; you can redistribute it and/or modify    #
 # it under the terms of the GNU General Public License as published by    #
@@ -80,7 +80,9 @@
 #   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-# COPYRIGHT(C) 2013-2015 Earth and Planetary Sciences (EPS), JHU.         #
+#   2.0.0   |  12/22/18  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#-------------------------------------------------------------------------#
+# COPYRIGHT(C) 2013-2018 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
 # Function: Hierarchical Climate Regionalization                          #
 #-------------------------------------------------------------------------#

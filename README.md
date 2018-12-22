@@ -18,6 +18,7 @@ Table of Contents
     * [License](#license)
     * [History](#history)
     * [Changes](#changes)
+        * [2018-12-22: version 2.0.0](#2018-12-22-version-200)
         * [2015-08-05: version 1.2.3](#2015-08-05-version-123)
         * [2015-07-21: version 1.2.2](#2015-07-21-version-122)
         * [2015-05-24: version 1.2.1](#2015-05-24-version-121)
@@ -164,7 +165,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 ## License
 
-[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://pages.jh.edu/~hbadr1/) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2015 The [**R**](https://www.r-project.org) Core Team.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://pages.jh.edu/~hbadr1/) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2018 The [**R**](https://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
@@ -172,7 +173,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 A copy of the GNU General Public License is available at https://www.r-project.org/Licenses.
 
-Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
+Copyright © 2013-2018 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
 
 [⇪](#hiclimr)
 
@@ -205,10 +206,22 @@ Copyright © 2013-2015 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 |   **1.2.1**   |   05/24/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.2**   |   07/21/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.3**   |   08/05/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.0.0**   |   12/22/18   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2018-12-22: version 2.0.0
+
+* Fixed NOTE: Registering native routines
+* `fastCor`: Removed zero-variance data
+* `fastCor`: Introduced `optBLAS`
+* `fastCor`: Code cleanup
+* Reformatted R source code
+* Updated and fixed the examples
+* Updated CRU TS dataset citation
+* Updated `README` and all URLs
 
 #### 2015-08-05: version 1.2.3
 
@@ -490,7 +503,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
+    validClimR = TRUE, k = 5, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Use data splitting for big data
@@ -637,7 +650,7 @@ colPalette <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan",
 image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette(ks))
 
 ## Visualization for gridded or ungridded data
-plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(Regions, na.rm = TRUE))[y$region], pch = 15, cex = 1)
+plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(y$region, na.rm = TRUE))[y$region], pch = 15, cex = 1)
 ## Change pch and cex as appropriate!
 
 ```
