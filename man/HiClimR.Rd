@@ -47,8 +47,11 @@ HiClimR(
   # Input data matrix (N spatial elements x M observations)
   x = list(),
 
+  # Geographic coordinates
+  lon=NULL, lat=NULL,
+
   # Coarsening spatial resolution
-  lon=NULL, lat=NULL, lonStep=1, latStep=1,
+  lonStep=1, latStep=1,
 
   # Geographic masking:
   geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL,
