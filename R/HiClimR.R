@@ -113,7 +113,7 @@ HiClimR <- function(x = list(),
                       as.list(rep(FALSE, length(x)))
                     else
                       list(FALSE),
-                    weightedVar = if (class(x) == "list")
+                    weightMVC = if (class(x) == "list")
                       as.list(rep(1, length(x)))
                     else
                       list(1),
@@ -163,8 +163,8 @@ HiClimR <- function(x = list(),
           length(varThresh) != nvars ||
           length(detrend) != nvars ||
           length(standardize) != nvars ||
-          length(weightedVar) != nvars) {
-        stop("meanThresh, varThresh, detrend, standardize and weightedVar length mismatch")
+          length(weightMVC) != nvars) {
+        stop("meanThresh, varThresh, detrend, standardize and weightMVC length mismatch")
       }
       n1 <- dim(x[[1]])[1]
       for (nvar in 2:nvars) {
@@ -203,14 +203,14 @@ HiClimR <- function(x = list(),
     for (nvar in 1:nvars) {
       if (verbose)
         write(paste("---> weight for variable #", nvar, ": ",
-                    weightedVar[[nvar]], sep = ""),
+                    weightMVC[[nvar]], sep = ""),
               "")
-      if (!weightedVar[[nvar]] > 0) {
+      if (!weightMVC[[nvar]] > 0) {
         stop("variable weights should be positive!")
       }
     }
   } else {
-    weightedVar <- 1
+    weightMVC <- 1
   }
   
   # Coarsening spatial resolution
@@ -439,7 +439,7 @@ HiClimR <- function(x = list(),
       }
     }
     
-    xxx <- cbind(xxx, weightedVar[[nvar]] * x)
+    xxx <- cbind(xxx, weightMVC[[nvar]] * x)
     missVal[[nvar]] <- attr(x, "na.action")
   }
   x <- xxx

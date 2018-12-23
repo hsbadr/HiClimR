@@ -63,7 +63,7 @@ HiClimR(
   # Data preprocessing:
   detrend = if(class(x) == "list") as.list(rep(FALSE, length(x))) else list(FALSE), 
   standardize = if(class(x) == "list") as.list(rep(FALSE, length(x))) else list(FALSE), 
-  weightedVar = if(class(x) == "list") as.list(rep(1, length(x))) else list(1),
+  weightMVC = if(class(x) == "list") as.list(rep(1, length(x))) else list(1),
   nPC=NULL, 
 
   # Clustering options:
@@ -198,13 +198,13 @@ HiClimR(
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.}
 
-  \item{weightedVar}{a list of positive wights (\code{weightedVar > 0}) for 
+  \item{weightMVC}{a list of positive wights (\code{weightMVC > 0}) for 
   Multivariate Clustering (MVC) with the same length of \code{x} where
   \code{length(x) = number of variables}. The filtered variables 
   are weighted and combined by column (for each object: spatial points or stations) 
   after preprocessing (detrending and standardization) and before PCA (if requested) 
   and computing the correlation/dissimilarity matrix. The default weight is 
-  \code{weightedVar = 1} for all variables.}
+  \code{weightMVC = 1} for all variables.}
 
   \item{nPC}{\code{NULL} or number of principal components (PCs) to be retained. 
   If \code{nPC = NULL}, then the raw data will be used for clustering. 
@@ -641,7 +641,7 @@ x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
-    weightedVar = list(1, 1), nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    weightMVC = list(1, 1), nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
     validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
