@@ -19,7 +19,7 @@
   efficient code execution for large datasets and options for splitting big data and 
   computing only the upper-triangular half of the correlation/dissimilarity matrix to 
   overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part 
-  of the tree above a cut to get the best of the available methods. Multi-variate clustering 
+  of the tree above a cut to get the best of the available methods. Multivariate clustering
   (MVC) provides options for filtering all variables before preprocessing, detrending and 
   standardization of each variable, and applying weights for the preprocessed variables. 
   The correlation distance for MVC represents the (weighted) average of distances between 
@@ -32,7 +32,7 @@
   (\code{\link{coarseR}} function), geographic masking (\code{\link{geogMask}} function), 
   data filtering by mean and/or variance thresholds, data preprocessing (detrending, 
   standardization, and PCA), faster correlation function with preliminary big data support
-  (\code{\link{fastCor}} function), hybrid hierarchical clustering, multi-variate clustering 
+  (\code{\link{fastCor}} function), hybrid hierarchical clustering, multivariate clustering
   (MVC), cluster validation (\code{\link{validClimR}} and \code{\link{minSigCor}} functions), 
   and visualization of region maps. Badr et. al (2015) describes the regionalization 
   algorithms, features, and data processing tools included in the package and presents a 
@@ -90,7 +90,7 @@ HiClimR(
   observations) are allowed. The zero-variance rows and the columns with
   missing values will be removed. However, it is recommended to take care of 
   both zero-variance rows and missing values before clustering.
-  For Multi-Variate Clustering (MVC), \code{x} can be a list of \code{nvar} matrices 
+  For Multivariate Clustering (MVC), \code{x} can be a list of \code{nvar} matrices
   for the \code{nvar} variables (one matrix for each variable). The matrixes in
   \code{x} list should have the same number of rows (objects: spatial points or stations) 
   Data preprocessing is specified by lists of \code{meanThresh}, \code{varThresh}, 
@@ -155,7 +155,7 @@ HiClimR(
   be removed. If \code{meanThresh = NULL}, then the \code{varThresh} will 
   be used either to mask zero-variance data by default or by increased 
   variance threshold to mask near-zero-variance data.
-  For Multi-Variate Clustering (MVC), \code{meanThresh} is a list of thresholds 
+  For Multivariate Clustering (MVC), \code{meanThresh} is a list of thresholds
   with the same length of \code{x} where \code{length(x) = nvar}. 
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
@@ -166,7 +166,7 @@ HiClimR(
   Observations with variance less than or equal to varThresh will 
   be removed. If \code{varThresh = 0}, then the zero-variance data 
   will masked (defaut).
-  For Multi-Variate Clustering (MVC), \code{varThresh} is a list of thresholds 
+  For Multivariate Clustering (MVC), \code{varThresh} is a list of thresholds
   with the same length of \code{x} where \code{length(x) = nvar}. 
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
@@ -177,7 +177,7 @@ HiClimR(
   temporal point to another is of interest (e.g., interannual variability). 
   The columns of the data matrix \code{x} should be temporally ordered (constant 
   step size) or have appropriate names (e.g., \code{colnames(x) = years[1:M]}).
-  For Multi-Variate Clustering (MVC), \code{detrend} is a list of thresholds 
+  For Multivariate Clustering (MVC), \code{detrend} is a list of thresholds
   with the same length of \code{x} where \code{length(x) = nvar}. 
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
@@ -189,14 +189,14 @@ HiClimR(
   within the cluster). Otherwise, the mean of raw data will be used (cluster 
   mean = mean of raw variables within the cluster). The variance of the mean 
   is updated at each agglomeration step.
-  For Multi-Variate Clustering (MVC), \code{standardize} is a list of thresholds 
+  For Multivariate Clustering (MVC), \code{standardize} is a list of thresholds
   with the same length of \code{x} where \code{length(x) = nvar}. 
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.}
 
   \item{weightedVar}{a list of positive wights (\code{weightedVar > 0}) for 
-  Multi-Variate Clustering (MVC) with the same length of \code{x} where 
+  Multivariate Clustering (MVC) with the same length of \code{x} where
   \code{length(x) = number of variables}. The filtered variables 
   are weighted and combined by column (for each object: spatial points or stations) 
   after preprocessing (detrending and standardization) and before PCA (if requested) 
@@ -364,7 +364,7 @@ HiClimR(
     if \code{lon} and \code{lat} vectors were defined. It will be similar to the provided 
     \code{lon} and \code{lat} if \code{lonStep = 1} and \code{latStep = 1}.}
 
-  \item{nvars}{number of variables used for multi-variate clustering (MVC).}
+  \item{nvars}{number of variables used for multivariate clustering (MVC).}
 
   \item{ncols}{number of columns for each variable.}
 
@@ -609,7 +609,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 
 
 #----------------------------------------------------------------------------------#
-# Typical use of HiClimR for multi-variate clustering:                             #
+# Typical use of HiClimR for multivariate clustering:                              #
 #----------------------------------------------------------------------------------#
 
 ## Load the test data included/loaded in the package (1 degree resolution)
@@ -634,7 +634,7 @@ y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 ## Generate a random matrix with the same number of rows
 x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 
-## Multi-Variate Hierarchical Climate Regionalization
+## Multivariate Hierarchical Climate Regionalization
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 

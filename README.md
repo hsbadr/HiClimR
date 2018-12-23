@@ -42,12 +42,12 @@ Table of Contents
         * [2014-03-07: version 1.0.0](#2014-03-07-version-100)
     * [Examples](#examples)
         * [Single-Variate Clustering](#single-variate-clustering)
-        * [Multi-Variate Clustering](#multi-variate-clustering)
+        * [Multivariate Clustering](#multivariate-clustering)
         * [Miscellaneous Examples](#miscellaneous-examples)
 
 ## Introduction
 
-[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to implement a cluster validation function with an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut to get the best of the available methods. Multi-variate clustering (MVC) provides options for filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is a tool for **Hi**erarchical **Clim**ate **R**egionalization applicable to any correlation-based clustering. Climate regionalization is the process of dividing an area into smaller regions that are homogeneous with respect to a specified climatic metric. Several features are added to facilitate the applications of climate regionalization (or spatiotemporal analysis in general) and to implement a cluster validation function with an objective tree cutting to find an optimal number of clusters for a user-specified confidence level. These include options for preprocessing and postprocessing as well as efficient code execution for large datasets and options for splitting big data and computing only the upper-triangular half of the correlation/dissimilarity matrix to overcome memory limitations. Hybrid hierarchical clustering reconstructs the upper part of the tree above a cut to get the best of the available methods. Multivariate clustering (MVC) provides options for filtering all variables before preprocessing, detrending and standardization of each variable, and applying weights for the preprocessed variables.
 
 [⇪](#hiclimr)
 
@@ -88,7 +88,7 @@ Table of Contents
    * the upper part of the tree is reconstructed above a cut
    * the lower part of the tree uses user-selected method
    * the upper part of the tree uses `regional` linkage method
-* multi-variate clustering (MVC)
+* multivariate clustering (MVC)
    * filtering all variables before preprocessing
    * detrending and standardization of each variable
    * applying weight for the preprocessed variables
@@ -103,7 +103,7 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 ## Implementation
 
-[Badr et. al (2015)](https://dx.doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multi-variate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
+[Badr et. al (2015)](https://dx.doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multivariate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
 
 ![HiClimR Flowchart](https://pages.jh.edu/~hbadr1/images/HiClimR_flowchart.png)
 *[`HiClimR`](https://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
@@ -246,7 +246,7 @@ Copyright © 2013-2018 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-05-24: version 1.2.1
 
-* Updating variance for multi-variate clustering
+* Updating variance for multivariate clustering
 * More plotting options (`pch` and `cex`)
 * `geogMask` supports ungridded data
 * Updated user manual with the following notes:
@@ -263,7 +263,7 @@ Copyright © 2013-2018 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 
 #### 2015-03-27: version 1.2.0
 
-* Multi-variate clustering (MVC)
+* Multivariate clustering (MVC)
    * the input matrix `x` can now be a list of matrices (one matrix for each variable)
      * `length(x) = nvars` where `nvars` is the number of variables
      * number of rows `N` = number of objects (e.g., stations) to be clustered
@@ -525,13 +525,13 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 ```
 [⇪](#hiclimr)
 
-#### Multi-Variate Clustering
+#### Multivariate Clustering
 
 ```R
 require(HiClimR)
 
 #----------------------------------------------------------------------------------#
-# Typical use of HiClimR for multi-variate clustering:                             #
+# Typical use of HiClimR for multivariate clustering:                              #
 #----------------------------------------------------------------------------------#
  
 ## Load the test data included/loaded in the package (1 degree resolution)
@@ -556,7 +556,7 @@ y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 ## Generate a random matrix with the same number of rows
 x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 
-## Multi-Variate Hierarchical Climate Regionalization
+## Multivariate Hierarchical Climate Regionalization
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 

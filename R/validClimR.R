@@ -87,7 +87,7 @@ validClimR <-
           cutHight <- y$treeH$height
         }
         
-        # multi-variate clustering
+        # multivariate clustering
         nvars <- y$nvars
         missVal <- y$missVal
         n.missVal <- 0

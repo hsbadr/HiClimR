@@ -144,7 +144,7 @@ HiClimR <- function(x = list(),
   
   # Check number of variable
   if (verbose)
-    write("Checking Multi-Variate Clustering (MVC)...", "")
+    write("Checking Multivariate Clustering (MVC)...", "")
   nvars <- 1
   if (class(x) == "list") {
     if (verbose)
@@ -168,7 +168,7 @@ HiClimR <- function(x = list(),
       }
       n1 <- dim(x[[1]])[1]
       for (nvar in 2:nvars) {
-        # Check dimensions for multi-variate analysis
+        # Check dimensions for multivariate analysis
         if (dim(x[[nvar]])[1] != n1) {
           stop("matrices in x list should have the same number of rows!")
         }
@@ -191,7 +191,7 @@ HiClimR <- function(x = list(),
     if (nvars == 1) {
       write("---> single-variate clustering: 1 variable", "")
     } else {
-      write(paste("---> multi-variate clustering:", nvars, "variables"),
+      write(paste("---> multivariate clustering:", nvars, "variables"),
             "")
     }
   }
@@ -459,10 +459,10 @@ HiClimR <- function(x = list(),
   if (n < 2)
     stop("must have n \u2265 2 objects to cluster")
   
-  # Update variance for multi-variate clustering
+  # Update variance for multivariate clustering
   if (nvars > 1) {
     if (verbose)
-      write("---> Updating variance for multi-variate clustering...", "")
+      write("---> Updating variance for multivariate clustering...", "")
     v <- rowSums(x ^ 2, na.rm = TRUE) / (m - 1)
   }
   

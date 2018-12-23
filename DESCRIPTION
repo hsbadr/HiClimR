@@ -14,7 +14,7 @@ Description: A tool for Hierarchical Climate Regionalization applicable to any c
              geographic masking (by continents, regions, or countries), data filtering by mean and/or variance 
              thresholds, data preprocessing (detrending, standardization, and PCA), faster correlation function
              with preliminary big data support, different clustering methods, hybrid hierarchical clustering, 
-             multi-variate clustering (MVC), cluster validation, and visualization of region maps.
+             multivariate clustering (MVC), cluster validation, and visualization of region maps.
 Packaged: 2018-12-22 12:00:00 UTC; Hamada S. Badr <badr@jhu.edu>
 RoxygenNote: 6.1.1
 Encoding: UTF-8

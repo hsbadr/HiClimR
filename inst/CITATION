@@ -15,7 +15,7 @@ citEntry(entry = "Article",
   doi          = "10.1007/s12145-015-0221-7",
   url          = "https://dx.doi.org/10.1007/s12145-015-0221-7",
   publisher    = "Springer Berlin Heidelberg",
-  keywords     = "Climate regionalization; Spatio-temporal analysis; Africa; Precipitation; Hierarchical clustering; Hybrid clustering; Multi-variate clustering; Cluster validation",
+  keywords     = "Climate regionalization; Spatio-temporal analysis; Africa; Precipitation; Hierarchical clustering; Hybrid clustering; Multivariate clustering; Cluster validation",
   language     = "English",
 
   textVersion  =
