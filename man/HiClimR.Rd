@@ -30,8 +30,8 @@
   hierarchical clustering in R (\code{\link{hclust}} function in \emph{stats} library): 
   data regridding (\code{\link{grid2D}} function), coarsening spatial resolution 
   (\code{\link{coarseR}} function), geographic masking (\code{\link{geogMask}} function), 
-  data filtering by mean and/or variance thresholds, data preprocessing (detrending, 
-  standardization, and PCA), faster correlation function with preliminary big data support
+  contiguity-constrained clustering, data filtering by mean and/or variance thresholds,
+  data preprocessing (detrending, standardization, and PCA), faster correlation function
   (\code{\link{fastCor}} function), hybrid hierarchical clustering, multivariate clustering
   (MVC), cluster validation (\code{\link{validClimR}} and \code{\link{minSigCor}} functions), 
   and visualization of region maps. Badr et. al (2015) describes the regionalization 
@@ -55,6 +55,9 @@ HiClimR(
 
   # Geographic masking:
   geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL,
+
+  # Contiguity constraint:
+  contigConst = 0,
 
   # Data thresholds:
   meanThresh = if(class(x) == "list") vector("list", length(x)) else list(NULL), 
@@ -151,6 +154,17 @@ HiClimR(
   \code{region}, or \code{country} should be speciefied. Valid list of 
   \code{country} ISO3 character code(s) can be obtained by running 
   \code{geogMask()}.}
+
+  \item{contigConst}{\code{0} or a positive value for contiguity constraint:
+  This is used to apply weighted geographic distances on the initial
+  dissimilarity matrix between the variable(s) in the data matrix \code{x}.
+  It should be a positive real value (\code{contigConst > 0}, recommended
+  between \code{0} and \code{1}) where \code{contigConst = 0} means that clustering
+  is completely based on the data with no constraints for contiguity while
+  \code{contigConst > 0} gives priority to merging contiguous points.
+  Geographic coordinates \code{lon} and \code{lat} are required to compute
+  the geographic distances.
+  \code{regional} linkage method does not support contiguity constraints.}
 
   \item{meanThresh}{\code{NULL} or a threshold for the temporal mean: 
   This is used with \code{varThresh} to mask zero- and near-zero-variance 
@@ -572,9 +586,9 @@ lat <- c(xGrid$lat)
 ## Single-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE, 
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## For more examples: https://github.com/hsbadr/HiClimR#examples
@@ -590,7 +604,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Use data splitting for big data
@@ -598,7 +612,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL,
     members = NULL, nSplit = 10, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Use hybrid Ward-Regional method
@@ -606,7 +620,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = TRUE, kH = NULL,
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01,
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## Check senitivity to kH for the hybrid method above
 
@@ -629,9 +643,9 @@ lat <- c(xGrid$lat)
 y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
     varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
-    nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Generate a random matrix with the same number of rows
@@ -641,9 +655,9 @@ x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
     geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
     varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
-    weightMVC = list(1, 1), nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    weightMVC = list(1, 1), nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## You can apply all clustering methods and options
 
@@ -681,28 +695,37 @@ gMask <- geogMask(continent = "Africa", lon = lon, lat = lat, plot = TRUE,
 ## Hierarchical Climate Regionalization Without geographic masking
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## With geographic masking (specify the mask produced bove to save time)
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = TRUE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, kH = NULL, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = NULL, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
+    plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
+
+## With geographic masking and contiguity contraint
+## Change contigConst as appropriate
+y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = TRUE,
+    continent = "Africa", contigConst = 1, meanThresh = 10, varThresh = 0, detrend = TRUE,
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Find minimum significant correlation at 95% confidence level
 rMin <- minSigCor(n = nrow(x), alpha = 0.05, r = seq(0, 1, by = 1e-06))
 
 ## Validtion of Hierarchical Climate Regionalization
-z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, 
+z <- validClimR(y, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL)
 
 ## Apply minimum cluster size (minSize = 25)
-z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, 
+z <- validClimR(y, k = 12, minSize = 25, alpha = 0.01, 
     plot = TRUE, colPalette = NULL)
 
 ## The optimal number of clusters, including small clusters

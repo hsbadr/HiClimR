@@ -97,6 +97,7 @@ HiClimR <- function(x = list(),
                     continent = NULL,
                     region = NULL,
                     country = NULL,
+                    contigConst = 0,
                     meanThresh = if (class(x) == "list")
                       vector("list", length(x))
                     else
@@ -534,6 +535,20 @@ HiClimR <- function(x = list(),
   # Dissimilarity matrix (correlation distance)
   d <- 1 - r1
   
+  # Contiguity constraint
+  if (contigConst > 0 &&
+      pmatch(method, "regional", nomatch = 0) == 0 &&
+      !is.null(lon) && !is.null(lat)) {
+    if (verbose)
+      write("---> Applying contiguity constraint...", "")
+    if (length(mask) > 0) {
+      dcontig <- dist(cbind(lon[-mask], lat[-mask]))
+    } else {
+      dcontig <- dist(cbind(lon, lat))
+    }
+    d <- d + contigConst * dcontig * max(d) / max(dcontig)
+  }
+  
   # Check dissimilarity matrix
   len <- as.integer(n * (n - 1) / 2)
   if (length(d) != len)
@@ -679,7 +694,8 @@ HiClimR <- function(x = list(),
       
       # Update variances dissimilarities of the upper part of the tree
       if (verbose)
-        write("---> Updating correlation/dissimilarity matrix...", "")
+        write("---> Updating correlation/dissimilarity matrix...",
+              "")
       cutTreeH <- cutree(tree, k = kH)
       RMH <-
         t(apply(tree$data, 2, function(r)

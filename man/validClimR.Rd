@@ -153,18 +153,18 @@ lat <- c(xGrid$lat)
 ## Hierarchical Climate Regionalization
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
-    standardize = TRUE, nPC = NULL, method = "regional", hybrid = FALSE, 
-    kH = NULL, members = NULL, validClimR = TRUE, k = NULL, minSize = 1, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, 
+    kH = NULL, members = NULL, validClimR = TRUE, k = 12, minSize = 1, 
     alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Validtion of Hierarchical Climate Regionalization
-z <- validClimR(y, k = NULL, minSize = 1, alpha = 0.01, plot = TRUE)
+z <- validClimR(y, k = 12, minSize = 1, alpha = 0.01, plot = TRUE)
 
 ## Use a specified number of clusters (k = 12)
 z <- validClimR(y, k = 12, minSize = 1, alpha = 0.01, plot = TRUE)
 
 ## Apply minimum cluster size (minSize = 25)
-z <- validClimR(y, k = NULL, minSize = 25, alpha = 0.01, plot = TRUE)
+z <- validClimR(y, k = 12, minSize = 25, alpha = 0.01, plot = TRUE)
 
 ## The optimal number of clusters, including small clusters
 k <- length(z$clustFlag)

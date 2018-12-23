@@ -3,5 +3,5 @@ exportPattern("^[[:alpha:]]+")
 
 importFrom("graphics", "axis", "par")
 importFrom("grDevices", "colorRampPalette", "dev.new")
-importFrom("stats", "cor", "cutree", "fitted", "lm", "na.omit", "pf", "var")
+importFrom("stats", "cor", "cutree", "dist", "fitted", "lm", "na.omit", "pf", "var")
 importFrom("utils", "combn")

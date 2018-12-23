@@ -31,7 +31,7 @@ minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
   range with larger step (e.g., seq(0.1, 0.5, by=1e-3)).}
 }
 \value{
-  A positive value beween \code{0} and \code{1} for the estimated the minimum 
+  A positive value between \code{0} and \code{1} for the estimated the minimum 
   significant correlation.
 }
 \details{
