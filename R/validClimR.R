@@ -230,8 +230,8 @@ validClimR <-
       }
       index$region <- Regions
       index$regionID <-
-        (1:sum(index$clustFlag)) * index$clustFlag[-which(index$clustFlag !=
-                                                            1)]
+        (1:sum(index$clustFlag)) * index$clustFlag[which(index$clustFlag ==
+                                                           1)]
       
       if (plot) {
         if (verbose)
