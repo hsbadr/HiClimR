@@ -34,10 +34,12 @@
   data preprocessing (detrending, standardization, and PCA), faster correlation function
   (\code{\link{fastCor}} function), hybrid hierarchical clustering, multivariate clustering
   (MVC), cluster validation (\code{\link{validClimR}} and \code{\link{minSigCor}} functions), 
-  and visualization of region maps. Badr et. al (2015) describes the regionalization 
-  algorithms, features, and data processing tools included in the package and presents a 
-  demonstration application in which the package is used to regionalize Africa on the 
-  basis of interannual precipitation variability.
+  and visualization of regionalization results, and exporting region map and mean timeseries
+  into NetCDF-4 file.
+
+  Badr et. al (2015) describes the regionalization algorithms, features, and data processing
+  tools included in the package and presents a demonstration application in which the package
+  is used to regionalize Africa on the basis of interannual precipitation variability.
   
   \emph{\pkg{HiClimR} is applicable to any correlation-based clustering.}
 }
@@ -561,7 +563,7 @@ HiClimR(
   contributed to STATLIB by F. Murtagh.
 }
 \seealso{
-  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
+  \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
   \code{\link{coarseR}}, \code{\link{fastCor}}, \code{\link{grid2D}}, 
   \code{\link{minSigCor}}. \code{\link{identify.hclust}}, \code{\link{rect.hclust}}, 
   \code{\link{cutree}}, \code{\link{dendrogram}}, and \code{\link{kmeans}}.

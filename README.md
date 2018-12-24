@@ -96,7 +96,8 @@ Table of Contents
 * cluster validation
    * summary statistics based on raw data or the data reconstructed by PCA
    * objective tree cut using minimum significant correlation between region means
-* visualization of region maps
+* visualization of regionaliztion results
+* exporting region map and mean timeseries into NetCDF-4
 
 The `regional` linkage method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`. It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step). It modifies the update formulae of `average` linkage method by incorporating the standard deviation of the merged region timeseries, which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `regional` linkage method is reduced to the classic `average` linkage clustering method.
 
@@ -471,7 +472,7 @@ Copyright © 2013-2018 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 #### Single-Variate Clustering
 
 ```R
-require(HiClimR)
+library(HiClimR)
 
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for single-variate clustering:                            #
@@ -662,6 +663,10 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 ## Visualization for gridded or ungridded data
 plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(y$region, na.rm = TRUE))[y$region], pch = 15, cex = 1)
 ## Change pch and cex as appropriate!
+
+## Export region map and mean timeseries into NetCDF-4 file
+library(ncdf4)
+HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
 
 ```
 

@@ -78,9 +78,9 @@ coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1, verbose = TRUE)
   Amin Dezfuli <dez@jhu.edu>.
 }
 \seealso{
-  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
-  \code{\link{coarseR}}, \code{\link{fastCor}}, \code{\link{grid2D}}, and 
-  \code{\link{minSigCor}}.
+  \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}},
+  \code{\link{geogMask}}, \code{\link{coarseR}}, \code{\link{fastCor}},
+  \code{\link{grid2D}} and \code{\link{minSigCor}}.
 }
 \examples{
 require(HiClimR)

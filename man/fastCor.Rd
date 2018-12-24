@@ -92,9 +92,9 @@ fastCor(xt, nSplit = 1, upperTri = FALSE, optBLAS = FALSE, verbose = TRUE)
   Amin Dezfuli <dez@jhu.edu>.
 }
 \seealso{
-  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
-  \code{\link{coarseR}}, \code{\link{fastCor}}, \code{\link{grid2D}}, and 
-  \code{\link{minSigCor}}.
+  \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}},
+  \code{\link{geogMask}}, \code{\link{coarseR}}, \code{\link{fastCor}},
+  \code{\link{grid2D}} and \code{\link{minSigCor}}.
 }
 \examples{
 require(HiClimR)

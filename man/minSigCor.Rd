@@ -55,9 +55,9 @@ minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
   Amin Dezfuli <dez@jhu.edu>.
 }
 \seealso{
-  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
-  \code{\link{coarseR}}, \code{\link{fastCor}}, \code{\link{grid2D}}, and 
-  \code{\link{minSigCor}}.
+  \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}},
+  \code{\link{geogMask}}, \code{\link{coarseR}}, \code{\link{fastCor}},
+  \code{\link{grid2D}} and \code{\link{minSigCor}}.
 }
 \examples{
 require(HiClimR)

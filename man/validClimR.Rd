@@ -136,8 +136,9 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
   contributed to STATLIB by F. Murtagh.
 }
 \seealso{
-  \code{\link{HiClimR}}, \code{\link{validClimR}}, \code{\link{geogMask}}, 
-  \code{\link{fastCor}}, \code{\link{grid2D}}, and \code{\link{minSigCor}}.
+  \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}},
+  \code{\link{geogMask}}, \code{\link{coarseR}}, \code{\link{fastCor}},
+  \code{\link{grid2D}} and \code{\link{minSigCor}}.
 }
 \examples{
 require(HiClimR)
