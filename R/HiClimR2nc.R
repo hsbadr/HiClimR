@@ -68,8 +68,8 @@ HiClimR2nc <-
     
     timeseries <- y$clustMean
     
-    ID <- colnames(timeseries)
-    Time <- rownames(timeseries)
+    ID <- y$regionID
+    Time <- 1:dim(timeseries)[1]
     
     # define dimensions
     londim <- ncdim_def("lon", "degrees_east", as.double(Longitude))
