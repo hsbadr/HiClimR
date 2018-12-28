@@ -1,2 +1,3 @@
+^.*\.png$
 ^.*\.Rproj$
 ^\.Rproj\.user$

@@ -106,7 +106,8 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 [Badr et. al (2015)](https://doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multivariate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
 
-![HiClimR Flowchart](https://pages.jh.edu/~hbadr1/images/HiClimR_flowchart.png)
+<img src="HiClimR.png" title="HiClimR Flowchart" alt="HiClimR Flowchart" style="display: block; margin: auto;" />
+
 *[`HiClimR`](https://cran.r-project.org/package=HiClimR) is applicable to any correlation-based clustering.*
 
 [⇪](#hiclimr)
