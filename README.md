@@ -1,10 +1,9 @@
 HiClimR
 =======
 
-``HiClimR`` — **Hi**erarchical **Clim**ate **R**egionalization
+**``HiClimR``** — **Hi**erarchical **Clim**ate **R**egionalization
 
-Table of Contents
-=================
+## Table of Contents
 
   * [HiClimR](#hiclimr)
     * [Introduction](#introduction)
@@ -147,8 +146,7 @@ This is intended for developers and requires a development environment (compiler
 * Install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ```R
-        library(devtools)
-        install_github("hsbadr/HiClimR")
+        devtools::install_github("hsbadr/HiClimR")
 ```
 
 [⇪](#hiclimr)
@@ -161,7 +159,7 @@ The source code repository can be found on GitHub at [https://github.com/hsbadr/
 
 ## License
 
-[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://pages.jh.edu/~hbadr1/) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2018 The [**R**](https://www.r-project.org) Core Team.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://pages.jh.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2018 The [**R**](https://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
