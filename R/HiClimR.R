@@ -5,12 +5,14 @@
 #-------------------------------------------------------------------------#
 #  References:                                                            #
 #                                                                         #
-#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                #
-#  A Tool for Hierarchical Climate Regionalization.                       #
-#  Earth Science Informatics, In Review.                                  #
+#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015):                #
+#  A Tool for Hierarchical Climate Regionalization,                       #
+#  Earth Science Informatics, 8(4), 949-958,                              #
+#  https://doi.org/10.1007/s12145-015-0221-7.                             #
 #                                                                         #
-#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2015).                #
-#  Hierarchical Climate Regionalization. CRAN,                            #
+#  Badr, H. S., Zaitchik, B. F. and Dezfuli, A. K. (2014):                #
+#  HiClimR: Hierarchical Climate Regionalization,                         #
+#  Comprehensive R Archive Network (CRAN),                                #
 #  https://cran.r-project.org/package=HiClimR.                            #
 #                                                                         #
 #  Source Code: https://github.com/hsbadr/HiClimR                         #
