@@ -32,7 +32,7 @@
 # File src/library/stats/R/hclust.R                                       #
 # Part of the R package, https://www.R-project.org                        #
 #                                                                         #
-# Copyright(C)  1995-2018  The R Core Team                                #
+# Copyright(C)  1995-2019  The R Core Team                                #
 #                                                                         #
 # This program is free software; you can redistribute it and/or modify    #
 # it under the terms of the GNU General Public License as published by    #
@@ -84,7 +84,7 @@
 #-------------------------------------------------------------------------#
 #   2.0.0   |  12/22/18  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-# COPYRIGHT(C) 2013-2018 Earth and Planetary Sciences (EPS), JHU.         #
+# COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
 # Function: Hierarchical Climate Regionalization                          #
 #-------------------------------------------------------------------------#

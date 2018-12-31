@@ -60,7 +60,7 @@
 !               File src/library/stats/src/hclust.f                       !
 !  Part of the R package, https://www.R-project.org                        !
 !                                                                         !
-!  Copyright(C)  1995-2015  The R Core Team                               !
+!  Copyright(C)  1995-2019  The R Core Team                               !
 !                                                                         !
 !  This program is free software; you can redistribute it and/or          !
 !  modify it under the terms of the GNU General Public License as         !
@@ -116,7 +116,7 @@
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !
-! COPYRIGHT(C) 2013-2018 Earth and Planetary Sciences (EPS), JHU.         !
+! COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         !
 !                                                                         !
 !+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++!
 !                                                                         !
