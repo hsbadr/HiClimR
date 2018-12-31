@@ -56,9 +56,9 @@ fastCor <-
     ii <- which(apply(xt, 2, var) > 0)
     if (verbose) {
       write("---> Checking zero-variance data...", "")
-      write(paste("--->\t Total number of variables: ", nn),
-            "")
       if (length(nn[ii]) < nn) {
+        write(paste("--->\t Total number of variables: ", nn),
+              "")
         write(paste(
           "--->\t WARNING:",
           nn - length(nn[ii]),
