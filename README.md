@@ -17,6 +17,7 @@ HiClimR
     * [Citation](#citation)
     * [History](#history)
     * [Changes](#changes)
+        * [2019-01-01: version 2.1.0](#2019-01-01-version-210)
         * [2018-12-22: version 2.0.0](#2018-12-22-version-200)
         * [2015-08-05: version 1.2.3](#2015-08-05-version-123)
         * [2015-07-21: version 1.2.2](#2015-07-21-version-122)
@@ -219,10 +220,21 @@ https://cran.r-project.org/package=HiClimR.
 |   **1.2.2**   |   07/21/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.3**   |   08/05/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.0.0**   |   12/22/18   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.0**   |   01/01/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2019-01-01: version 2.1.0
+
+* Added contiguity constraint based on geographic distance
+* Exporting region map and mean timeseries into NetCDF-4 file
+* Replaced `multi-variate` with `multivariate`
+* Renamed `weightedVar` to `weightMVC`
+* Updated citation information
+* Updated and cleaned up package DESCRIPTION
+* Updated and cleaned up README
 
 #### 2018-12-22: version 2.0.0
 

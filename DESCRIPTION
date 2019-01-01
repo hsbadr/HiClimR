@@ -1,5 +1,5 @@
 Package: HiClimR
-Version: 2.0.0
+Version: 2.1.0
 Title: Hierarchical Climate Regionalization
 Author: Hamada S. Badr [aut, cre], Benjamin F. Zaitchik [aut], Amin K. Dezfuli [aut]
 Description: A tool for Hierarchical Climate Regionalization applicable to any correlation-based clustering.
