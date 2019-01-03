@@ -56,18 +56,16 @@ fastCor <-
     # Remove zero-variance data
     nn <- ncol(xt)
     ii <- which(apply(xt, 2, var) > 0)
-    if (verbose) {
+    if (verbose && length(ii) < nn) {
       write("---> Checking zero-variance data...", "")
-      if (length(ii) < nn) {
-        write(paste("--->\t Total number of variables: ", nn),
-              "")
-        write(paste(
-          "--->\t WARNING:",
-          nn - length(nn[ii]),
-          "variables found with zero variance"
-        ),
-        "")
-      }
+      write(paste("--->\t Total number of variables: ", nn),
+            "")
+      write(paste(
+        "--->\t WARNING:",
+        nn - length(nn[ii]),
+        "variables found with zero variance"
+      ),
+      "")
     }
     xt <- xt[, ii]
     
