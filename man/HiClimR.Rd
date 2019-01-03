@@ -703,7 +703,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
-## With geographic masking (specify the mask produced bove to save time)
+## With geographic masking (you may specify the mask produced above to save time)
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = TRUE, 
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE, 
     standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
