@@ -51,13 +51,14 @@ fastCor <-
            upperTri = FALSE,
            optBLAS = FALSE,
            verbose = TRUE) {
+    varnames <- colnames(xt)
     
     # Remove zero-variance data
     nn <- ncol(xt)
     ii <- which(apply(xt, 2, var) > 0)
     if (verbose) {
       write("---> Checking zero-variance data...", "")
-      if (length(nn[ii]) < nn) {
+      if (length(ii) < nn) {
         write(paste("--->\t Total number of variables: ", nn),
               "")
         write(paste(
@@ -76,8 +77,6 @@ fastCor <-
     n <- ncol(xt)
     
     r <- matrix(NA, nrow = n, ncol = n)
-    rownames(r) <- colnames(xt)
-    colnames(r) <- rownames(r)
     
     # Check if nSplit is a valid number
     nSplitMax <- floor(n / 2)
@@ -177,6 +176,8 @@ fastCor <-
     
     rr <- matrix(NA, nrow = nn, ncol = nn)
     rr[ii, ii] <- r
+    rownames(rr) <- varnames
+    colnames(rr) <- varnames
     
     #gc()
     return(rr)
