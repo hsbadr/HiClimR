@@ -16,7 +16,8 @@ BugReports: https://github.com/hsbadr/HiClimR/issues
 Maintainer: Hamada S. Badr <badr@jhu.edu>
 Depends: R (>= 2.10)
 Imports: graphics, grDevices, stats, utils, ncdf4
-Suggests: devtools
+Suggests: devtools, knitr, roxygen2
+VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
