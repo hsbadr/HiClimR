@@ -17,6 +17,7 @@ HiClimR
     * [Citation](#citation)
     * [History](#history)
     * [Changes](#changes)
+        * [2019-01-02: version 2.1.1](#2019-01-02-version-211)
         * [2019-01-01: version 2.1.0](#2019-01-01-version-210)
         * [2018-12-22: version 2.0.0](#2018-12-22-version-200)
         * [2015-08-05: version 1.2.3](#2015-08-05-version-123)
@@ -221,10 +222,17 @@ https://cran.r-project.org/package=HiClimR.
 |   **1.2.3**   |   08/05/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.0.0**   |   12/22/18   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.0**   |   01/01/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.1**   |   01/01/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2019-01-02: version 2.1.1
+
+* `fastCor`: Fixed row/col names of the correlation matrix
+* `fastCor`: Cleaned up zero-variance data check
+* Examples: Minor comment update
 
 #### 2019-01-01: version 2.1.0
 
