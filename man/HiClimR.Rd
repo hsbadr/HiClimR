@@ -754,6 +754,9 @@ image(unique(y$coords[, 1]), unique(y$coords[, 2]), RegionsMap, col = colPalette
 plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(Regions, na.rm = TRUE))[y$region],
     pch = 15, cex = 1)
 
+## Export region map and mean timeseries into NetCDF-4 file
+HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+
 }
 }
 \keyword{HiClimR}
