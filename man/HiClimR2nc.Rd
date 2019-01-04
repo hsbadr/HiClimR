@@ -74,7 +74,11 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
     kH = NULL, members = NULL, validClimR = TRUE, k = 12, minSize = 1,
     alpha = 0.01, plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
+\dontrun{
+
 ## Export region map and mean timeseries into NetCDF-4 file
 HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+
+}
 }
 \keyword{HiClimR}
