@@ -1,7 +1,7 @@
 HiClimR
 =======
 
-**``HiClimR``** — **Hi**erarchical **Clim**ate **R**egionalization
+[**``HiClimR``**](https://cran.r-project.org/package=HiClimR) — **Hi**erarchical **Clim**ate **R**egionalization
 
 ## Table of Contents
 
