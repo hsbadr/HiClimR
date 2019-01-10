@@ -99,7 +99,7 @@ HiClimR2nc <-
       ncvar_def(
         "timeseries",
         dataunit,
-        list(iddim, timedim),
+        list(timedim, iddim),
         fillvalue,
         "Region mean timeseries",
         prec = "double",
