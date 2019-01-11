@@ -19,7 +19,7 @@
 #-------------------------------------------------------------------------#
 #  Clustering Methods:                                                    #
 #                                                                         #
-#  0. REGIONAL linakage or minimum inter-regional correlation             #
+#  0. REGIONAL linkage or minimum inter-regional correlation             #
 #  1. WARD's minimum variance or error sum of squares method              #
 #  2. SINGLE linkage or nearest neighbor method                           #
 #  3. COMPLETE linkage or diameter                                        #

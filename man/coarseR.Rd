@@ -30,7 +30,7 @@ coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1, verbose = TRUE)
 
   \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
-  \item{lonStep}{an integer greater than or equal to \code{1} for longitdue 
+  \item{lonStep}{an integer greater than or equal to \code{1} for longitude 
   step to coarsen gridded data in the longitudinal direction. If \code{lonStep = 1}, 
   gridded data will not be coarsened in the longitudinal direction (the default).
   If \code{lonStep = 2}, every other grid in longitudinal direction will be retained.}

@@ -79,7 +79,7 @@ HiClimR
      * `OpenBLAS`
      * `Intel MKL`
 * different clustering methods
-   * `regional` linakage or minimum inter-regional correlation
+   * `regional` linkage or minimum inter-regional correlation
    * `ward`'s minimum variance or error sum of squares method
    * `single` linkage or nearest neighbor method
    * `complete` linkage or diameter
@@ -98,16 +98,16 @@ HiClimR
 * cluster validation
    * summary statistics based on raw data or the data reconstructed by PCA
    * objective tree cut using minimum significant correlation between region means
-* visualization of regionaliztion results
+* visualization of regionalization results
 * exporting region map and mean timeseries into NetCDF-4
 
-The `regional` linkage method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`. It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step). It modifies the update formulae of `average` linkage method by incorporating the standard deviation of the merged region timeseries, which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `regional` linkage method is reduced to the classic `average` linkage clustering method.
+The `regional` linkage method is explained in the context of a spatiotemporal problem, in which `N` spatial elements (e.g., weather stations) are divided into `k` regions, given that each element has a time series of length `M`. It is based on inter-regional correlation distance between the temporal means of different regions (or elements at the first merging step). It modifies the update formulae of `average` linkage method by incorporating the standard deviation of the merged region timeseries, which is a function of the correlation between the individual regions, and their standard deviations before merging. It is equal to the average of their standard deviations if and only if the correlation between the two merged regions is `100%`. In this special case, the `regional` linkage method is reduced to the classic `average` linkage clustering method.
 
 [⇪](#hiclimr)
 
 ## Implementation
 
-[Badr et. al (2015)](https://doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multivariate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
+[Badr et al. (2015)](https://doi.org/10.1007/s12145-015-0221-7) describes the regionalization algorithms, features, and data processing tools included in the package and presents a demonstration application in which the package is used to regionalize Africa on the basis of interannual precipitation variability. The figure below shows a detailed flowchart for the package. `Cyan` blocks represent helper functions, `green` is input data or parameters, `yellow` indicates agglomeration Fortran code, and `purple` shows graphics options. For multivariate clustering (MVC), the input data is a list of matrices (one matrix for each variable with the same number of rows to be clustered; the number of columns may vary per variable). The blue dashed boxes involve a loop for all variables to apply mean and/or variance thresholds, detrending, and/or standardization per variable before weighing the preprocessed variables and binding them by columns in one matrix for clustering. `x` is the input `N x M` data matrix, `xc` is the coarsened `N0 x M` data matrix where `N0 ≤ N` (`N0 = N` only if `lonStep = 1` and `latStep = 1`), `xm` is the masked and filtered `N1 x M1` data matrix where `N1 ≤ N0` (`N1 = N0` only if the number of masked stations/points is zero) and `M1 ≤ M` (`M1 = M` only if no columns are removed due to missing values), and `x1` is the reconstructed `N1` x `M1` data matrix if PCA is performed.
 
 <img src="https://github.com/hsbadr/HiClimR/raw/master/HiClimR.png" title="HiClimR Flowchart" alt="HiClimR Flowchart" style="display: block; margin: auto;" />
 
@@ -117,7 +117,7 @@ The `regional` linkage method is explained in the context of a spatio-temporal p
 
 ## Installation
 
-There are many ways to install an R package from precombiled binareies or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR): 
+There are many ways to install an R package from precompiled binaries or source code. For more details, you may search for how to install an R package, but here are the most convenient ways to install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR): 
 
 #### From CRAN
 
@@ -143,7 +143,7 @@ This is intended for developers and requires a development environment (compiler
 
 * Make sure you have a working development environment:
 
-    * **Windows**: Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+    * **Windows**: Install [`Rtools`](https://cran.r-project.org/bin/windows/Rtools/).
     * **Mac**: Install Xcode from the Mac App Store.
     * **Linux**: Install a compiler and various development libraries (details vary across different flavors of **Linux**).
 
@@ -157,7 +157,7 @@ This is intended for developers and requires a development environment (compiler
 
 ## Source
 
-The source code repository can be found on GitHub at [https://github.com/hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
+The source code repository can be found on GitHub at [hsbadr/HiClimR](https://github.com/hsbadr/HiClimR).
 
 [⇪](#hiclimr)
 
@@ -200,7 +200,7 @@ https://cran.r-project.org/package=HiClimR.
 |               |   Dec 1996   |  Modified     |  Ross Ihaka      |                |
 |               |   Apr 1998   |  Modified     |  F. Leisch       |                |
 |               |   Jun 2000   |  Modified     |  F. Leisch       |                |
-|   **1.0.0**   |   03/07/14   |  **HiClimR**  |  Hamada S. Badr  |  badr@jhu.edu  | 
+|   **1.0.0**   |   03/07/14   |  **HiClimR**  |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.0.1**   |   03/08/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.0.2**   |   03/09/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.0.3**   |   03/12/14   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
@@ -249,8 +249,8 @@ https://cran.r-project.org/package=HiClimR.
 * Replaced `multi-variate` with `multivariate`
 * Renamed `weightedVar` to `weightMVC`
 * Updated citation information
-* Updated and cleaned up package DESCRIPTION
-* Updated and cleaned up README
+* Updated and cleaned up package `DESCRIPTION`
+* Updated and cleaned up `README`
 
 #### 2018-12-22: version 2.0.0
 
@@ -266,7 +266,7 @@ https://cran.r-project.org/package=HiClimR.
 #### 2015-08-05: version 1.2.3
 
 * Fixed `geogMask` confusing country codes/names
-* Fixed `geogMask` filtering InDispute areas
+* Fixed `geogMask` filtering `InDispute` areas
 * Corrected data construction in the user manual
    * `x` should be created using `as.vector(t(x0))`
    * `x0` is the `n by m` original data matrix
@@ -334,7 +334,7 @@ https://cran.r-project.org/package=HiClimR.
 * Adds a logical parameter `dendrogram` for plotting dendrogram
 * Uses `\dontrun{}` to skip time-consuming examples
    * for more examples: https://github.com/hsbadr/HiClimR#examples
-* Backword compatibility with previous versions
+* Backward compatibility with previous versions
 * The user manual is updated and revised
 
 [⇪](#hiclimr)
@@ -360,7 +360,7 @@ https://cran.r-project.org/package=HiClimR.
 #### 2014-09-01: version 1.1.4
 
 * Addresses an issue for zero-length mask vector: `Error in -mask : invalid argument to unary operator`
-   * this error was intoduced in v1.1.2+ after fixing the data-mean bug
+   * this error was introduced in v1.1.2+ after fixing the data-mean bug
 
 [⇪](#hiclimr)
 
@@ -376,7 +376,7 @@ https://cran.r-project.org/package=HiClimR.
 
 * A bug has been fixed where data mean is added to centered data if `standardize = FALSE`
    * objective tree cut and `data` component are now corrected 
-     * to match input parameters especially when clustring of raw data
+     * to match input parameters especially when clustering of raw data
      * centered data was used in previous versions
 
 [⇪](#hiclimr)
@@ -404,7 +404,7 @@ https://cran.r-project.org/package=HiClimR.
 * For memory considerations,
    * smaller test case with 1 degree resolution instead of 0.5 degree
    * the resolution option (`res` parameter) in geographic masking is removed
-   * Mask data is only available in 0.1 degree (~10 km) resolustion
+   * Mask data is only available in 0.1 degree (~10 km) resolution
 * `LazyLoad` and `LazyData` are enabled in the description file
 * The `worldMask` and `TestCase` data are converted to lists to avoid conflicts of variable names (`lon`, `lat`, `info`, and `mask`) with lazy loading
 
@@ -490,7 +490,7 @@ https://cran.r-project.org/package=HiClimR.
 #### 2014-03-07: version 1.0.0
 * Initial version of `HiClimR` package that modifies `hclust` function in `stats` library
 * Adds a new clustering method to the set of available methods
-* The new method is explained in the context of a spatio-temporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`
+* The new method is explained in the context of a spatiotemporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`
    *  minimizes the inter-regional correlation between region means
    *  modifies `average` update formulae by incorporating the standard deviation of the mean of the merged region
      *  a function of the correlation between the individual regions, and their standard deviations before merging

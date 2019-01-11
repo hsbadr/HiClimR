@@ -10,7 +10,7 @@
 \alias{minSigCor}
 \description{
   \code{\link{minSigCor}} is a helper function that estimates the minimum
-  significant correlation for a smaple size \code{n} at a confidence level 
+  significant correlation for a sample size \code{n} at a confidence level 
   defined by the argument \code{alpha}.
 }
 \usage{
@@ -23,9 +23,9 @@ minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
   95\% confidence level.}
 
   \item{r}{a vector of values from \code{0} to \code{1} to search for the 
-  minimum signifcant correlation for the user-specified sample size 
+  minimum significant correlation for the user-specified sample size 
   \code{n} at confidence level \code{alpha}. This should be a subset of the
-  valid positiva correlation range \code{0-1}. The default is to search for the
+  valid positive correlation range \code{0-1}. The default is to search for the
   minimum significant correlation in the complete range \code{0-1} with a very 
   fine step of \code{1e-6}. For faster computations, the user may set a shorter
   range with larger step (e.g., seq(0.1, 0.5, by=1e-3)).}

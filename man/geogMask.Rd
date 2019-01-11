@@ -6,7 +6,7 @@
 \newcommand{\CRANpkg}{\href{https://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
 \name{geogMask}
-\title{Geographic mask from longitude and latitute}
+\title{Geographic mask from longitude and latitude}
 \alias{geogMask}
 \description{
   \code{\link{geogMask}} is a helper function that preprocess input for the 
@@ -19,17 +19,17 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
 \arguments{
   \item{continent}{\code{NULL} or a string (or array of strings) to specify 
   \code{continent} name(s): only one of \code{continent}, \code{region}, or
-   \code{country} should be speciefied. Valid list of \code{continent} names 
+   \code{country} should be specified. Valid list of \code{continent} names 
   can be obtained by running \code{geogMask()}.}
 
   \item{region}{\code{NULL} or a string (or array of strings) to specify 
   \code{region} name(s): only one of \code{continent}, \code{region}, or 
-  \code{country} should be speciefied. Valid list of \code{region} names 
+  \code{country} should be specified. Valid list of \code{region} names 
   can be obtained by running \code{geogMask()}.}
 
   \item{country}{\code{NULL} or a string (or array of strings) to specify 
   \code{country} ISO3 character code(s): only one of \code{continent}, 
-  \code{region}, or \code{country} should be speciefied. Valid list of 
+  \code{region}, or \code{country} should be specified. Valid list of 
   \code{country} ISO3 character code(s) can be obtained by running 
   \code{geogMask()}.}
 
@@ -70,13 +70,13 @@ geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
   researcher might be interested in the precipitation variability only over 
   land, a country, or a list of countries (e.g., Nile Basin countries). This 
   masking capability is supported by the \code{\link{geogMask}} helper function.
-  It requires the longitute (\code{lon}) and latitude (\code{lat}) vectors 
+  It requires the longitude (\code{lon}) and latitude (\code{lat}) vectors 
   together with a string (or array of strings) to specify \code{continent} 
   name(s), \code{region} name(s), or \code{country} ISO3 character code(s) via 
   either \code{continent}, \code{region}, or \code{country} parameters. Valid 
   values for them can be obtained by running \code{geogMask()}. World mask data
   is based on the HIU Large Scale International Boundaries (LSIB) data
-  (https://hiu.state.gov/data/data.aspx).
+  (\url{https://hiu.state.gov/data}).
 }
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):

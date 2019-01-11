@@ -23,7 +23,7 @@ data(TestCase)
   \code{\link{HiClimR}} function. The rows represent spatial points (or stations),
   while the columns represent observations (temporal points or years). \code{lon}
   and \code{lat} are vectors of length \code{80} for unique longitudes and
-  latitudes corrrdinates, where \code{80 * 80 = 6400} for this gridded data.
+  latitudes coordinates, where \code{80 * 80 = 6400} for this gridded data.
 }
 \details{
   CRU TS 3.21 data (1901-2012) is monthly gridded precipitation with \code{0.5} 

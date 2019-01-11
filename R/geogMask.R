@@ -44,10 +44,10 @@
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
-# Function: Geographic mask from longitude and latitute                   #
+# Function: Geographic mask from longitude and latitude                   #
 #-------------------------------------------------------------------------#
 
-# Function: Geographic mask for an area from longitude and latitute
+# Function: Geographic mask for an area from longitude and latitude
 geogMask <-
   function(continent = NULL,
            region = NULL,

@@ -37,7 +37,7 @@
   and visualization of regionalization results, and exporting region map and mean timeseries
   into NetCDF-4 file.
 
-  Badr et. al (2015) describes the regionalization algorithms, features, and data processing
+  Badr et al. (2015) describes the regionalization algorithms, features, and data processing
   tools included in the package and presents a demonstration application in which the package
   is used to regionalize Africa on the basis of interannual precipitation variability.
   
@@ -116,7 +116,7 @@ HiClimR(
 
   \item{lat}{a vector of latitudes with length \code{N} or \code{m}. See \code{lon}.}
 
-  \item{lonStep}{an integer greater than or equal to \code{1} for longitdue 
+  \item{lonStep}{an integer greater than or equal to \code{1} for longitude 
   step to coarsen gridded data in the longitudinal direction. If \code{lonStep = 1}, 
   gridded data will not be coarsened in the longitudinal direction (the default).
   If \code{lonStep = 2}, every other grid in longitudinal direction will be retained.}
@@ -130,7 +130,7 @@ HiClimR(
   
   \item{geogMask}{a logical: if \code{geogMask = TRUE}, \code{\link{geogMask}} 
   function will be called. Additional arguments are required. 
-  It requires the longitute and latitude vector together with a string 
+  It requires the longitude and latitude vector together with a string 
   (or array of strings) to specify \code{continent}, \code{region} 
   name(s), or \code{country} ISO3 character code(s). If \code{gMask != NULL}, 
   the provided \code{gmask} vector will be used for geographic masking without 
@@ -143,17 +143,17 @@ HiClimR(
 
   \item{continent}{\code{NULL} or a string (or array of strings) to specify 
   \code{continent} name(s): only one of \code{continent}, \code{region}, or
-   \code{country} should be speciefied. Valid list of \code{continent} names 
+   \code{country} should be specified. Valid list of \code{continent} names 
   can be obtained by running \code{geogMask()}.}
 
   \item{region}{\code{NULL} or a string (or array of strings) to specify 
   \code{region} name(s): only one of \code{continent}, \code{region}, or 
-  \code{country} should be speciefied. Valid list of \code{region} names 
+  \code{country} should be specified. Valid list of \code{region} names 
   can be obtained by running \code{geogMask()}.}
 
   \item{country}{\code{NULL} or a string (or array of strings) to specify 
   \code{country} ISO3 character code(s): only one of \code{continent}, 
-  \code{region}, or \code{country} should be speciefied. Valid list of 
+  \code{region}, or \code{country} should be specified. Valid list of 
   \code{country} ISO3 character code(s) can be obtained by running 
   \code{geogMask()}.}
 
@@ -170,7 +170,7 @@ HiClimR(
 
   \item{meanThresh}{\code{NULL} or a threshold for the temporal mean: 
   This is used with \code{varThresh} to mask zero- and near-zero-variance 
-  data, Observations with mean less than or equal to meanThresh will 
+  data, Observations with mean less than or equal to \code{meanThresh} will 
   be removed. If \code{meanThresh = NULL}, then the \code{varThresh} will 
   be used either to mask zero-variance data by default or by increased 
   variance threshold to mask near-zero-variance data.
@@ -182,9 +182,9 @@ HiClimR(
 
   \item{varThresh}{zero or a threshold for the temporal variance: This is 
   used with \code{meanThresh} to mask zero- and near-zero-variance data, 
-  Observations with variance less than or equal to varThresh will 
+  Observations with variance less than or equal to \code{varThresh} will 
   be removed. If \code{varThresh = 0}, then the zero-variance data 
-  will masked (defaut).
+  will masked (default).
   For Multivariate Clustering (MVC), \code{varThresh} is a list of thresholds
   with the same length of \code{x} where \code{length(x) = nvar}. 
   Each variable is separately preprocessed to allow for all possible options.
@@ -236,12 +236,12 @@ HiClimR(
   \item{hybrid}{a logical: should the upper part of the tree be reconstructed
   using \code{regional} linkage clustering method?
   This adds hybrid hierarchical clustering feature to get the best of
-  the availables methods. It utilizes the pros of available methods, especially
+  the available methods. It utilizes the pros of available methods, especially
   the better overall homogeneity in \emph{ward}'s method and the separation, 
-  contguity, and objective tree cut of \emph{regional} linkage method.
-  If \code{hybrid = FALSE}, only the default clustering using the slected
+  contiguity, and objective tree cut of \emph{regional} linkage method.
+  If \code{hybrid = FALSE}, only the default clustering using the selected
   \code{method} will be used (i.e., no hybrid clustering).Otherwise, the upper part 
-  of the tree will be reconstructed above a cut of /code{kH} clusters using 
+  of the tree will be reconstructed above a cut of \code{kH} clusters using 
   \code{regional} linkage method. Note: \code{hybrid} option is redundant 
   when using \code{regional} linkage as the main clustering method.}
   
@@ -284,7 +284,7 @@ HiClimR(
   \item{validClimR}{a logical: If \code{validClimR = TRUE}, \code{\link{validClimR}} 
   will be called to compute validation indices including statistical summary for
   inter- and intra-cluster correlations. This is computationally expensive. It can
-  also objectively cut the dendrogram tree for \code{regional} custering method,
+  also objectively cut the dendrogram tree for \code{regional} clustering method,
   if \code{k = NULL}.}
 
   \item{rawStats}{a logical: should validation indices be computed based on 
@@ -388,7 +388,7 @@ HiClimR(
   \item{ncols}{number of columns for each variable.}
 
   \item{data}{the preprocessed data used for clustering will be stored here. 
-    If \code{rawData = TRUE} and {nPC != NULL}, the preprocessed data without
+    If \code{rawData = TRUE} and \code{nPC != NULL}, the preprocessed data without
     filtering (PCA) will be returned here.}
 
   \item{mask}{a vector of the indices of masked spatial points by both
@@ -414,7 +414,7 @@ HiClimR(
     \code{intraCor}, \code{diffCor}, and \code{statSum}), based on 
     \code{minSize} minimum cluster size.
     If \code{clustFlag = 0}, the cluster has been excluded because its size
-    is less than the \code{minSize} minmum cluster size. The sum of 
+    is less than the \code{minSize} minimum cluster size. The sum of 
     \code{clustFlag} elements represents the selected number clusters.}
 
   \item{interCor}{inter-cluster correlations for all selected regions. It is
@@ -459,7 +459,7 @@ HiClimR(
   update formula according to the particular clustering method being used.
 
   All clustering methods in \code{\link{hclust}} are included. The \emph{regional} 
-  linkage method mainimizes inter-cluster correlations between cluster means 
+  linkage method minimizes inter-cluster correlations between cluster means 
   (see \code{Badr et al. 2015}). \emph{Ward's} minimum variance method aims at finding 
   compact, spherical clusters. The \emph{complete linkage} method finds similar clusters. 
   The \emph{single linkage} method (which is closely related to the minimal spanning tree) 
@@ -469,7 +469,7 @@ HiClimR(
   are \emph{not} leading to a \emph{monotone distance} measure, or equivalently the 
   resulting dendrograms can have so called \emph{inversions} (which are hard to interpret).
   
-  The \code{regional} linkage method is explained in the context of a spatio-temporal 
+  The \code{regional} linkage method is explained in the context of a spatiotemporal 
   problem, in which \code{N} spatial elements (e.g., weather stations) are divided 
   into \code{k} regions, given that each element has a time series of length \code{M}. 
   It is based on inter-regional correlation distance between the temporal means of 

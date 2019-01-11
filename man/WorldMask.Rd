@@ -26,7 +26,7 @@ data(WorldMask)
 }
 \details{
   This data is used internally by \code{\link{geogMask}} function for geographic masking
-  in \code{HiClimR} package. The user is adviced to refer to the function manual for more
+  in \code{HiClimR} package. The user is advised to refer to the function manual for more
   details. The world mask is available in \code{0.1} degree (\code{10} km) resolution. The
   \code{info} data provides information for continents, regions, and country codes).
 }

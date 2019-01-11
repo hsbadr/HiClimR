@@ -10,7 +10,7 @@
 \alias{validClimR}
 \description{
   \code{\link{validClimR}} computes indices for cluster validation, and an 
-  objective tree cut for \code{regional} linkage custering method. 
+  objective tree cut for \code{regional} linkage clustering method. 
 }
 \usage{
 validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE, 
@@ -72,7 +72,7 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
     \code{intraCor}, \code{diffCor}, and \code{statSum}), based on 
     \code{minSize} minimum cluster size.
     If \code{clustFlag = 0}, the cluster has been excluded because its size
-    is less than the \code{minSize} minmum cluster size. The sum of 
+    is less than the \code{minSize} minimum cluster size. The sum of 
     \code{clustFlag} elements represents the selected number clusters.}
 
   \item{interCor}{inter-cluster correlations for all selected regions. It is
@@ -110,7 +110,7 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
   validate clustering for a selected number of clusters \code{k}. If \code{k = NULL},
   the default which supports only the \code{regional} linkage method, objective cutting 
   of the tree to find the optimal number of clusters will be applied based on a user 
-  specified significance level (/code{alpha} parameter). In \code{regional} linkage method, 
+  specified significance level (\code{alpha} parameter). In \code{regional} linkage method, 
   noisy spatial elements are isolated in very small-size clusters or individuals since
   they do not correlate well with any other elements. They can be excluded from the
   validation indices (\code{interCor}, \code{intraCor}, \code{diffCor}, and \code{statSum}),

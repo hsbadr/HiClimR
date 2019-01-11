@@ -23,7 +23,7 @@ fastCor(xt, nSplit = 1, upperTri = FALSE, optBLAS = FALSE, verbose = TRUE)
 \arguments{
   \item{xt}{an (\code{M} rows by \code{N} columns) matrix of 'double' values: 
   \code{N} objects (spatial points or stations) to be clustered by \code{M} 
-  observations (temporal points or years). It is the transpose of the imput
+  observations (temporal points or years). It is the transpose of the input
   matrix \code{x} required for \code{\link{HiClimR}} and 
   \code{\link{validClimR}} functions.}
 
