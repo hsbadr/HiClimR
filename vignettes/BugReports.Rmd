@@ -1,0 +1,26 @@
+---
+title: "HiClimR Bug Reporting"
+author: "Hamada S. Badr <badr@jhu.edu>"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    keep_md: true
+vignette: >
+  %\VignetteIndexEntry{HiClimR Bug Reporting}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Description
+Provide a clear and concise description of the problem including warning and error messages.
+
+### Reproduction
+Provide a clean R script demonstrating the issue with the necessary data files.
+
+### Environment
+Provide the following information:
+ - **OS Type:** [Linux, Mac, Windows]
+ - **OS Version:** [e.g., Ubuntu 18.04, MacOS 10.14.1, Windows 10]
+ - **R Version:** [e.g., 3.5.2]
+ - **HiClimR Version:** [e.g. 2.1.3]
+ - **Installation Method:** [binary from CRAN repository, built from source code]
