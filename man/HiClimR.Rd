@@ -334,7 +334,7 @@ HiClimR(
   be magnified relative to the \code{default = 1}.}
 }
 \value{
-  An object of class \bold{HiClimR} and \bold{hclust}, which 
+  An object of class \code{HiClimR} and \code{hclust}, which 
   describes the tree produced by the clustering process.
   The object is a list with the following components:
   
@@ -394,10 +394,10 @@ HiClimR(
   \item{mask}{a vector of the indices of masked spatial points by both
     geographic masking and data thresholds.}
 
-  \item{treeH}{An object of class \bold{hclust}, which describes the upper part of
+  \item{treeH}{An object of class \code{hclust}, which describes the upper part of
     the tree reconstructed by the hybrid clustering process if \code{hybrid = TRUE}.}
   
-  If \code{validClimR = TRUE}, an object of class \bold{HiClimR}, which produces 
+  If \code{validClimR = TRUE}, an object of class \code{HiClimR}, which produces 
   indices for validating the tree produced by the clustering process, will be merged 
   in the dendrogram tree above. This object is a list with the following components:
   

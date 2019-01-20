@@ -55,7 +55,7 @@ validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
   be magnified relative to the \code{default = 1}.}
 }
 \value{
-  An object of class \bold{HiClimR} which produces indices for validating 
+  An object of class \code{HiClimR} which produces indices for validating 
   the tree produced by the clustering process.
   The object is a list with the following components:
   

@@ -31,7 +31,7 @@ HiClimR2nc(y=NULL, ncfile="HiClimR.nc", timeunit="", dataunit="")
 }
 \details{
   \code{\link{HiClimR2nc}} function exports region map and mean timeseries
-  from \bold{HiClimR} tree into NetCDF-4 file, using the \code{ncdf4} package.
+  from \code{HiClimR} tree into NetCDF-4 file, using the \code{ncdf4} package.
   The NetCDF-4 file will be open to add other variables, if needed.
   It is important to close the created file using \code{\link[ncdf4]{nc_close}},
   which flushes any unwritten data to disk.
