@@ -150,7 +150,4 @@ HiClimR2nc <-
     
     #gc()
     return(ncout)
-    
-    # close the file, writing data to disk
-    nc_close(ncout)
   }

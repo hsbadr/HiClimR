@@ -712,7 +712,9 @@ plot(y$coords[, 1], y$coords[, 2], col = colPalette(max(y$region, na.rm = TRUE))
 
 ## Export region map and mean timeseries into NetCDF-4 file
 library(ncdf4)
-HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+y.nc <- HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+## The NetCDF-4 file is still open to add other variables or close it
+nc_close(y.nc)
 
 ```
 

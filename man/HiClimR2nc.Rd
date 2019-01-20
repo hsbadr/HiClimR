@@ -30,11 +30,11 @@ HiClimR2nc(y=NULL, ncfile="HiClimR.nc", timeunit="", dataunit="")
   An object of class \code{ncdf4}, which has the fields described in \code{\link[ncdf4]{nc_open}}.
 }
 \details{
-  \code{\link{HiClimR2nc}} function estimates the minimum significant correlation 
-  for a sample size (number of observations or temporal points in a timeseries) 
-  at a certain confidence level selected by the argument \code{alpha} and an 
-  optional search range \code{r}. It is called by \code{\link{validClimR}}
-  function objective tree cut based on the specified confidence level.
+  \code{\link{HiClimR2nc}} function exports region map and mean timeseries
+  from \bold{HiClimR} tree into NetCDF-4 file, using the \code{ncdf4} package.
+  The NetCDF-4 file will be open to add other variables, if needed.
+  It is important to close the created file using \code{\link[ncdf4]{nc_close}},
+  which flushes any unwritten data to disk.
 }
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
@@ -77,7 +77,9 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 \dontrun{
 
 ## Export region map and mean timeseries into NetCDF-4 file
-HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+y.nc <- HiClimR2nc(y=y, ncfile="HiClimR.nc", timeunit="years", dataunit="mm")
+## The NetCDF-4 file is still open to add other variables or close it
+nc_close(y.nc)
 
 }
 }
