@@ -17,6 +17,7 @@ HiClimR
     * [Citation](#citation)
     * [History](#history)
     * [Changes](#changes)
+        * [2019-01-20: version 2.1.4](#2019-01-20-version-214)
         * [2019-01-10: version 2.1.3](#2019-01-10-version-213)
         * [2019-01-04: version 2.1.2](#2019-01-04-version-212)
         * [2019-01-02: version 2.1.1](#2019-01-02-version-211)
@@ -227,10 +228,17 @@ https://cran.r-project.org/package=HiClimR.
 |   **2.1.1**   |   01/02/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.2**   |   01/04/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.3**   |   01/10/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.4**   |   01/20/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2019-01-20: version 2.1.4
+
+* Added vignette for HiClimR Bug Reporting
+* `HiClimR2nc`: Updated documentation and examples
+* man: Use `\code{}` instead of `\bold{}` for classes
 
 #### 2019-01-10: version 2.1.3
 

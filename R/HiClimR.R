@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v2.1.3 2019/01/10 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v2.1.4 2019/01/20 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -87,6 +87,7 @@
 #   2.1.1   |  01/02/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.2   |  01/04/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.3   |  01/10/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.4   |  01/20/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
