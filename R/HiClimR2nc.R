@@ -59,7 +59,7 @@ HiClimR2nc <-
     {
       stop("\tHiClimR tree is not provided!")
     } else {
-      if (!"HiClimR"  %in% class(y) || is.null(y$region))
+      if (! inherits(y, "HiClimR") || is.null(y$region))
       {
         stop("\tinvalid HiClimR tree")
       }

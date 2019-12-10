@@ -105,23 +105,23 @@ HiClimR <- function(x = list(),
                     region = NULL,
                     country = NULL,
                     contigConst = 0,
-                    meanThresh = if (class(x) == "list")
+                    meanThresh = if (inherits(x, "list"))
                       vector("list", length(x))
                     else
                       list(NULL),
-                    varThresh = if (class(x) == "list")
+                    varThresh = if (inherits(x, "list"))
                       as.list(rep(0, length(x)))
                     else
                       list(0),
-                    detrend = if (class(x) == "list")
+                    detrend = if (inherits(x, "list"))
                       as.list(rep(FALSE, length(x)))
                     else
                       list(FALSE),
-                    standardize = if (class(x) == "list")
+                    standardize = if (inherits(x, "list"))
                       as.list(rep(FALSE, length(x)))
                     else
                       list(FALSE),
-                    weightMVC = if (class(x) == "list")
+                    weightMVC = if (inherits(x, "list"))
                       as.list(rep(1, length(x)))
                     else
                       list(1),
@@ -154,7 +154,7 @@ HiClimR <- function(x = list(),
   if (verbose)
     write("Checking Multivariate Clustering (MVC)...", "")
   nvars <- 1
-  if (class(x) == "list") {
+  if (inherits(x, "list")) {
     if (verbose)
       write("---> x is a list", "")
     
@@ -186,7 +186,7 @@ HiClimR <- function(x = list(),
     }
     x <- xx
     rm(xx)
-  } else if (class(x) == "matrix") {
+  } else if (inherits(x, "matrix")) {
     if (verbose)
       write("---> x is a matrix", "")
     mm <- dim(x)[2]
@@ -304,7 +304,7 @@ HiClimR <- function(x = list(),
         write("---> Geographic mask is provided!", "")
     }
     
-    if (length(gMask) > 0 && class(gMask) != "list") {
+    if (length(gMask) > 0 && ! inherits(gMask, "list")) {
       if (min(gMask) >= 1 && max(gMask) <= n) {
         mask <- union(mask, as.integer(gMask))
       }
