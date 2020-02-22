@@ -324,7 +324,7 @@ HiClimR <- function(x = list(),
     }
     
     m <- mm[nvar]
-    x <- xx[, (mm0 + 1):(mm0 + m)]
+    x <- xx[, (mm0 + 1):(mm0 + m), drop=FALSE]
     
     if (verbose)
       write("---> Computing mean for each row...", "")
@@ -393,7 +393,7 @@ HiClimR <- function(x = list(),
     
     m <- mm[nvar]
     v <- vv[[nvar]]
-    x <- xx[, (mm0 + 1):(mm0 + m)]
+    x <- xx[, (mm0 + 1):(mm0 + m), drop=FALSE]
     
     if (verbose)
       write("---> Applying mask...", "")
