@@ -1,4 +1,4 @@
-# $Id: minSigCor.R, v2.1.5 2019/12/10 12:00:00 hsbadr EPS JHU             #
+# $Id: minSigCor.R, v2.1.6 2020/02/22 12:00:00 hsbadr EPS JHU             #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -37,13 +37,14 @@
 #   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-#   2.0.0   |  12/22/18  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
-#   2.1.0   |  01/01/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.0.0   |  12/22/18  |  NOTE      |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.0   |  01/01/19  |  NetCDF    |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.1   |  01/02/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.2   |  01/04/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.3   |  01/10/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.4   |  01/20/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.5   |  12/10/19  |  inherits  |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.6   |  02/22/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#

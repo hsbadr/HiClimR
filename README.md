@@ -17,6 +17,7 @@ HiClimR
     * [Citation](#citation)
     * [History](#history)
     * [Changes](#changes)
+        * [2020-02-22: version 2.1.6](#2020-02-22-version-216)
         * [2019-12-10: version 2.1.5](#2019-12-10-version-215)
         * [2019-01-20: version 2.1.4](#2019-01-20-version-214)
         * [2019-01-10: version 2.1.3](#2019-01-10-version-213)
@@ -224,17 +225,23 @@ https://cran.r-project.org/package=HiClimR.
 |   **1.2.1**   |   05/24/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.2**   |   07/21/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **1.2.3**   |   08/05/15   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.0.0**   |   12/22/18   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.1.0**   |   01/01/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.1.1**   |   01/02/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.1.2**   |   01/04/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.1.3**   |   01/10/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
-|   **2.1.4**   |   01/20/19   |  **Updated**  |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.0.0**   |   12/22/18   |  **NOTE**     |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.0**   |   01/01/19   |  **NetCDF**   |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.1**   |   01/02/19   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.2**   |   01/04/19   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.3**   |   01/10/19   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.4**   |   01/20/19   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.5**   |   12/10/19   |  **inherits** |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.6**   |   02/22/20   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2020-02-22: version 2.1.6
+
+* README: Added CRAN downloads badge
+* R: Fix non-informative failure for unsupported input of a vector
 
 #### 2019-12-10: version 2.1.5
 

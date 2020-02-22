@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v2.1.5 2019/12/10 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R, v2.1.6 2020/02/22 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
@@ -19,7 +19,7 @@
 #-------------------------------------------------------------------------#
 #  Clustering Methods:                                                    #
 #                                                                         #
-#  0. REGIONAL linkage or minimum inter-regional correlation             #
+#  0. REGIONAL linkage or minimum inter-regional correlation              #
 #  1. WARD's minimum variance or error sum of squares method              #
 #  2. SINGLE linkage or nearest neighbor method                           #
 #  3. COMPLETE linkage or diameter                                        #
@@ -45,7 +45,7 @@
 # GNU General Public License for more details.                            #
 #                                                                         #
 # A copy of the GNU General Public License is available at                #
-# https://www.r-project.org/Licenses                                       #
+# https://www.r-project.org/Licenses                                      #
 #-------------------------------------------------------------------------#
 #  HISTORY:                                                               #
 #-------------------------------------------------------------------------#
@@ -82,13 +82,14 @@
 #   1.2.2   |  07/21/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   1.2.3   |  08/05/15  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-#   2.0.0   |  12/22/18  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
-#   2.1.0   |  01/01/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.0.0   |  12/22/18  |  NOTE      |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.0   |  01/01/19  |  NetCDF    |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.1   |  01/02/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.2   |  01/04/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.3   |  01/10/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.4   |  01/20/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.5   |  12/10/19  |  inherits  |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.6   |  02/22/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
