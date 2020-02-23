@@ -46,7 +46,7 @@
 #   2.1.5   |  12/10/19  |  inherits  |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.6   |  02/22/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-# COPYRIGHT(C) 2013-2019 Earth and Planetary Sciences (EPS), JHU.         #
+# COPYRIGHT(C) 2013-2020 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
 # Function: Export NetCDF-4 file for Hierarchical Climate Regionalization #
 #-------------------------------------------------------------------------#
