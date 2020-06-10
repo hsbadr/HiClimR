@@ -1,7 +1,11 @@
 HiClimR
 =======
+![Stable Version](https://img.shields.io/badge/version-2.1.6-blue)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![GitHub Commit](https://img.shields.io/github/last-commit/hsbadr/HiClimR)](https://github.com/hsbadr/HiClimR/commits/master)
 
-[**``HiClimR``**](https://cran.r-project.org/package=HiClimR): **Hi**erarchical **Clim**ate **R**egionalization ![](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)
+[**``HiClimR``**](https://cran.r-project.org/package=HiClimR): **Hi**erarchical **Clim**ate **R**egionalization
 
 ## Table of Contents
 
