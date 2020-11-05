@@ -1,6 +1,6 @@
 HiClimR
 =======
-[![Stable Version](https://img.shields.io/badge/version-2.1.6-blue)](https://cran.r-project.org/package=HiClimR)
+[![Stable Version](https://img.shields.io/badge/version-2.1.7-blue)](https://cran.r-project.org/package=HiClimR)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)](https://cran.r-project.org/package=HiClimR)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![DOI: 10.1007/s12145-015-0221-7](https://zenodo.org/badge/DOI/10.1007%2Fs12145-015-0221-7.svg)](https://doi.org/10.1007/s12145-015-0221-7)
@@ -22,6 +22,7 @@ HiClimR
     * [Citation](#citation)
     * [History](#history)
     * [Changes](#changes)
+        * [2020-11-05: version 2.1.7](#2020-11-05-version-217)
         * [2020-02-22: version 2.1.6](#2020-02-22-version-216)
         * [2019-12-10: version 2.1.5](#2019-12-10-version-215)
         * [2019-01-20: version 2.1.4](#2019-01-20-version-214)
@@ -238,10 +239,20 @@ https://cran.r-project.org/package=HiClimR.
 |   **2.1.4**   |   01/20/19   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.5**   |   12/10/19   |  **inherits** |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.6**   |   02/22/20   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.7**   |   11/05/20   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 
 ## Changes
+
+#### 2020-11-05: version 2.1.7
+
+* Updated package DESCRIPTION and author information
+* Updated copyright year to 2020
+* README: Added Markdown badges
+* README: Added Digital Object Identifier (DOI) badge
+* README: Linked version and download badges to CRAN
+* README: Updated URLs
 
 #### 2020-02-22: version 2.1.6
 

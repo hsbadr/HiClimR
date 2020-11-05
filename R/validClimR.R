@@ -1,4 +1,4 @@
-# $Id: validClimR.R, v2.1.6 2020/02/22 12:00:00 hsbadr EPS JHU            #
+# $Id: validClimR.R, v2.1.7 2020/11/05 12:00:00 hsbadr EPS JHU            #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -45,6 +45,7 @@
 #   2.1.4   |  01/20/19  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.5   |  12/10/19  |  inherits  |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.6   |  02/22/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
+#   2.1.7   |  11/05/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
 # COPYRIGHT(C) 2013-2020 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
