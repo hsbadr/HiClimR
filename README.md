@@ -142,7 +142,7 @@ In theory the package should just install, however, you may be asked to select y
 
 #### From GitHub
 
-This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/hadley/devtools) as follows:
+This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/r-lib/devtools) as follows:
 
 * Install the release version of `devtools` from [**CRAN**](https://cran.r-project.org):
 
@@ -172,7 +172,7 @@ The source code repository can be found on GitHub at [hsbadr/HiClimR](https://gi
 
 ## License
 
-[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](http://pages.jh.edu/~hbadr1) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2020 The [**R**](https://www.r-project.org) Core Team.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](https://hsbadr.github.io) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2020 The [**R**](https://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
