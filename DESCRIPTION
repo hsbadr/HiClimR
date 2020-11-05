@@ -1,7 +1,23 @@
 Package: HiClimR
-Version: 2.1.6
+Type: Package
+Version: 2.1.7
 Title: Hierarchical Climate Regionalization
-Author: Hamada S. Badr [aut, cre], Benjamin F. Zaitchik [aut], Amin K. Dezfuli [aut]
+Authors@R: c(
+    person(given = "Hamada S.",
+           family = "Badr",
+           email = "badr@jhu.edu",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9808-2344")),
+    person(given = "Amin K.",
+           family = "Dezfuli",
+           email = "amin.dezfuli@nasa.gov",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-3274-8542")),
+    person(given = "Benjamin F.",
+           family = "Zaitchik",
+           email = "zaitchik@jhu.edu",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0002-0698-0658")))
 Description: A tool for Hierarchical Climate Regionalization applicable to any correlation-based clustering.
              It adds several features and a new clustering method (called, 'regional' linkage) to hierarchical
              clustering in R ('hclust' function in 'stats' library): data regridding, coarsening spatial resolution,
@@ -14,15 +30,27 @@ License: GPL (>= 2)
 URL: https://github.com/hsbadr/HiClimR
 BugReports: https://github.com/hsbadr/HiClimR/issues
 Maintainer: Hamada S. Badr <badr@jhu.edu>
-Depends: R (>= 2.10)
-Imports: graphics, grDevices, stats, utils, ncdf4
-Suggests: devtools, knitr, rmarkdown, roxygen2
+Depends:
+    R (>= 2.10)
+Imports:
+    graphics,
+    grDevices,
+    stats,
+    utils,
+    ncdf4
+Suggests:
+    devtools,
+    knitr,
+    rmarkdown,
+    roxygen2
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 LazyData: yes
 LazyLoad: yes
+Biarch: yes
 ByteCompile: yes
 NeedsCompilation: yes
 SystemRequirements: NetCDF (>= 4.1)
+Language: en-US
