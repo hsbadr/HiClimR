@@ -1,7 +1,7 @@
 % File man/WorldMask.Rd
 % Part of the HiClimR R package
 % Copyright(C) 2013-2019 Department of Earth and Planetary Sciences, JHU.
-% Distributed under GPL 2 or later
+% Distributed under GPL v3
 
 \name{WorldMask}
 \alias{WorldMask}
