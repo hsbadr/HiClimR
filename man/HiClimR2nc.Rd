@@ -47,7 +47,7 @@ HiClimR2nc(y=NULL, ncfile="HiClimR.nc", timeunit="", dataunit="")
   \url{https://cran.r-project.org/package=HiClimR}.
 }
 \author{
-  Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and 
+  Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and
   Amin Dezfuli <dez@jhu.edu>.
 }
 \seealso{

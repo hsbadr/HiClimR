@@ -59,7 +59,7 @@ fastCor <-
            optBLAS = FALSE,
            verbose = TRUE) {
     varnames <- colnames(xt)
-    
+
     # Remove zero-variance data
     nn <- ncol(xt)
     ii <- which(apply(xt, 2, var) > 0)
@@ -75,14 +75,14 @@ fastCor <-
       "")
     }
     xt <- xt[, ii]
-    
+
     x <- t(xt) - colMeans(xt)
-    
+
     m <- nrow(xt)
     n <- ncol(xt)
-    
+
     r <- matrix(NA, nrow = n, ncol = n)
-    
+
     # Check if nSplit is a valid number
     nSplitMax <- floor(n / 2)
     if (nSplit > nSplitMax) {
@@ -99,7 +99,7 @@ fastCor <-
       }
       nSplit <- nSplitMax
     }
-    
+
     if (nSplit == 1) {
       #if (verbose) write("\t full data mtrix: no splits", "")
       if (optBLAS & .Machine$sizeof.pointer == 8) {
@@ -116,7 +116,7 @@ fastCor <-
         iSplit[[i]] <- (lSplit * (i - 1) + 1):(lSplit * i)
       }
       iSplit[[nSplit]] <- (lSplit * (nSplit - 1) + 1):n
-      
+
       if (verbose)
         write("---> Computing split combinations...", "")
       cSplit <-
@@ -178,12 +178,12 @@ fastCor <-
     }
     if (upperTri)
       r[col(r) >= row(r)] <- NA
-    
+
     rr <- matrix(NA, nrow = nn, ncol = nn)
     rr[ii, ii] <- r
     rownames(rr) <- varnames
     colnames(rr) <- varnames
-    
+
     #gc()
     return(rr)
   }

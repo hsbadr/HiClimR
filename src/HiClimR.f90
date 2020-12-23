@@ -155,15 +155,15 @@
     DATA INF/1.D+300/
 
 !  Initializations
-    
+
     IM=1
     JM=1
     JJ=1
     D12=1
     V12=1
-    
+
     DO I=1,N
-        FLAG(I)= .TRUE. 
+        FLAG(I)= .TRUE.
     END DO
     NCL=N
 
@@ -206,7 +206,7 @@
     IA(N-NCL)=I2
     IB(N-NCL)=J2
     CRIT(N-NCL)=DMIN
-    FLAG(J2)= .FALSE. 
+    FLAG(J2)= .FALSE.
 
     D12=DISS(IOFFST(N,I2,J2))
 
@@ -221,7 +221,7 @@
 
     DMIN=INF
     DO K=1,N
-    
+
         IF (FLAG(K) .AND. K /= I2) THEN
             IF (I2 < K) THEN
                 IND1=IOFFST(N,I2,K)
@@ -233,9 +233,9 @@
             ELSE
                 IND2=IOFFST(N,K,J2)
             ENDIF
-        
+
 !  Update Dissimilarities
-        
+
             !------------------------------------------------------------------!
             !     REGIONAL LINKAGE METHOD - IOPT=0.                            !
             !------------------------------------------------------------------!
@@ -285,7 +285,7 @@
                 MEMBR(I2)*MEMBR(J2)*D12/(MEMBR(I2)+MEMBR(J2)))/ &
                 (MEMBR(I2)+MEMBR(J2))
             ENDIF
-        
+
             IF (I2 < K) THEN
                 IF (DISS(IND1) < DMIN) THEN
                     DMIN=DISS(IND1)

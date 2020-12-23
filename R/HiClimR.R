@@ -152,7 +152,7 @@ HiClimR <- function(x = list(),
   start.time.sys <- Sys.time()
   if (verbose)
     write("\nPROCESSING STARTED\n", "")
-  
+
   # Check number of variable
   if (verbose)
     write("Checking Multivariate Clustering (MVC)...", "")
@@ -160,13 +160,13 @@ HiClimR <- function(x = list(),
   if (inherits(x, "list")) {
     if (verbose)
       write("---> x is a list", "")
-    
+
     nvars <- length(x)
     mm <- vector(mode = "numeric", length = nvars)
     if (nvars == 0) {
       stop("empty data list")
     }
-    
+
     xx <- x[[1]]
     mm[1] <- dim(x[[1]])[2]
     if (nvars > 1) {
@@ -197,7 +197,7 @@ HiClimR <- function(x = list(),
     if (verbose)
       write("---> x should a matrix or a list of matrices", "")
   }
-  
+
   if (verbose) {
     if (nvars == 1) {
       write("---> single-variate clustering: 1 variable", "")
@@ -206,7 +206,7 @@ HiClimR <- function(x = list(),
             "")
     }
   }
-  
+
   # Check variable weights
   if (nvars > 1) {
     if (verbose)
@@ -223,7 +223,7 @@ HiClimR <- function(x = list(),
   } else {
     weightMVC <- 1
   }
-  
+
   # Coarsening spatial resolution
   if (lonStep > 1 && latStep > 1) {
     if (verbose)
@@ -252,10 +252,10 @@ HiClimR <- function(x = list(),
   lat <- xc$lat
   x <- xc$x
   rm(xc)
-  
+
   if (verbose)
     write("Checking data...", "")
-  
+
   # Check data dimensions
   if (verbose)
     write("---> Checking dimensions...", "")
@@ -269,28 +269,28 @@ HiClimR <- function(x = list(),
     stop("size cannot be NA")
   if (n < 2)
     stop("must have n \u2265 2 objects to cluster")
-  
+
   # Check row names (important if detrending is requested)
   if (verbose)
     write("---> Checking row names...", "")
   if (is.null(rownames(x))) {
     rownames(x) <- seq(1, n)
   }
-  
+
   # Check column names (important if detrending is requested)
   if (verbose)
     write("---> Checking column names...", "")
   if (is.null(colnames(x))) {
     colnames(x) <- seq(1, m)
   }
-  
+
   # Mask geographic region
   mask <- NULL
-  
+
   if (geogMask) {
     if (verbose)
       write("Geographic masking...", "")
-    
+
     if (is.null(gMask)) {
       gMask <-
         geogMask(
@@ -306,14 +306,14 @@ HiClimR <- function(x = list(),
       if (verbose)
         write("---> Geographic mask is provided!", "")
     }
-    
+
     if (length(gMask) > 0 && ! inherits(gMask, "list")) {
       if (min(gMask) >= 1 && max(gMask) <= n) {
         mask <- union(mask, as.integer(gMask))
       }
     }
   }
-  
+
   mm0 <- 0
   xx <- x
   vv <- vector("list", nvars)
@@ -324,15 +324,15 @@ HiClimR <- function(x = list(),
       if (verbose)
         write(paste("---> VARIABLE #", nvar, ":", sep = ""), "")
     }
-    
+
     m <- mm[nvar]
     x <- xx[, (mm0 + 1):(mm0 + m), drop=FALSE]
-    
+
     if (verbose)
       write("---> Computing mean for each row...", "")
     # xmean <- rowMeans(x, na.rm=TRUE)
     xmean <- rowMeans(x)
-    
+
     # Remove rows with observations mean bellow meanThresh
     if (!is.null(meanThresh[[nvar]])) {
       if (verbose)
@@ -351,13 +351,13 @@ HiClimR <- function(x = list(),
         mask <- union(mask, meanMask)
       }
     }
-    
+
     # Center data (this has no effect on correlations but speedup compuations)
     x <- x - xmean
     if (verbose)
       write("---> Computing variance for each row...", "")
     v <- rowSums(x ^ 2, na.rm = TRUE)
-    
+
     # Remove rows with near-zero-variance observations
     if (is.null(varThresh[[nvar]])) {
       varThresh[[nvar]] <- 0
@@ -376,12 +376,12 @@ HiClimR <- function(x = list(),
     if (length(varMask) > 0) {
       mask <- union(mask, varMask)
     }
-    
+
     vv[[nvar]] <- v
     xx[, (mm0 + 1):(mm0 + m)] <- x
     mm0 <- mm0 + m
   }
-  
+
   mm0 <- 0
   xxx <- NULL
   missVal <- list()
@@ -392,11 +392,11 @@ HiClimR <- function(x = list(),
       if (verbose)
         write(paste("---> VARIABLE #", nvar, ":", sep = ""), "")
     }
-    
+
     m <- mm[nvar]
     v <- vv[[nvar]]
     x <- xx[, (mm0 + 1):(mm0 + m), drop=FALSE]
-    
+
     if (verbose)
       write("---> Applying mask...", "")
     # Mask data
@@ -404,7 +404,7 @@ HiClimR <- function(x = list(),
       x <- x[-mask,]
       v <- v[-mask]
     }
-    
+
     # Remove columns with missing values
     if (verbose)
       write("---> Checking columns with missing values...", "")
@@ -417,7 +417,7 @@ HiClimR <- function(x = list(),
       ),
       "")
     }
-    
+
     # Detrend data if requested
     if (detrend[[nvar]]) {
       if (verbose)
@@ -426,7 +426,7 @@ HiClimR <- function(x = list(),
         x
       )))))
     }
-    
+
     # Standardize data if requested
     if (standardize[[nvar]]) {
       if (verbose)
@@ -434,7 +434,7 @@ HiClimR <- function(x = list(),
       x <- x / sqrt(v)
       # Variance of each variable (object/station)
       v <- rep(1, n)
-      
+
       # Standardized data
       x <- x * sqrt(m - 1)
     } else {
@@ -449,15 +449,15 @@ HiClimR <- function(x = list(),
         x <- x + xmean
       }
     }
-    
+
     xxx <- cbind(xxx, weightMVC[[nvar]] * x)
     missVal[[nvar]] <- attr(x, "na.action")
   }
   x <- xxx
-  
+
   # Free memory
   rm(xxx, xx, mm0)
-  
+
   # Recheck data dimensions
   n <- dim(x)[1]
   m <- dim(x)[2]
@@ -469,14 +469,14 @@ HiClimR <- function(x = list(),
     stop("size cannot be NA")
   if (n < 2)
     stop("must have n \u2265 2 objects to cluster")
-  
+
   # Update variance for multivariate clustering
   if (nvars > 1) {
     if (verbose)
       write("---> Updating variance for multivariate clustering...", "")
     v <- rowSums(x ^ 2, na.rm = TRUE) / (m - 1)
   }
-  
+
   # Reconstruct data from PCs if requested
   if (!is.null(nPC)) {
     if (verbose)
@@ -491,7 +491,7 @@ HiClimR <- function(x = list(),
       x1 <-
         xSVD$u %*% diag(xSVD$d[1:nPC], nPC, nPC) %*% xSVD$vt
       x1 <- t(x1) - colMeans(x1)
-      
+
       # Cleanup memory from unnecessary variables
       rm(xSVD)
     } else {
@@ -499,10 +499,10 @@ HiClimR <- function(x = list(),
                                                                        n)))
     }
   }
-  
+
   if (verbose)
     write("Agglomerative Hierarchical Clustering...", "")
-  
+
   # Correlation matrix (fast calculation using BLAS library)
   if (verbose)
     write("---> Computing correlation/dissimilarity matrix...", "")
@@ -527,12 +527,12 @@ HiClimR <- function(x = list(),
               verbose = verbose)
     # This is equivalent to upper triangular part of dissimilarity matrix
     r <- r[col(r) < row(r)]
-    
+
     x1 <- x
     v1 <- v
     r1 <- r
   }
-  
+
   # Compute validation indices based on raw (100% of the total variance)
   # or PCA-filtered data?  Note that in both cases detrending and/or
   # standarding options are applied (before PCA)
@@ -541,10 +541,10 @@ HiClimR <- function(x = list(),
     v <- v1
     r <- r1
   }
-  
+
   # Dissimilarity matrix (correlation distance)
   d <- 1 - r1
-  
+
   # Contiguity constraint
   if (contigConst > 0 &&
       pmatch(method, "regional", nomatch = 0) == 0 &&
@@ -558,7 +558,7 @@ HiClimR <- function(x = list(),
     }
     d <- d + contigConst * dcontig * max(d) / max(dcontig)
   }
-  
+
   # Check dissimilarity matrix
   len <- as.integer(n * (n - 1) / 2)
   if (length(d) != len)
@@ -566,11 +566,11 @@ HiClimR <- function(x = list(),
       stop
      else
        warning)("data of improper length")
-  
-  
+
+
   # Cleanup memory from unnecessary variables
   rm(x1, r1)
-  
+
   # Clustering method
   METHODS <-
     c(
@@ -588,13 +588,13 @@ HiClimR <- function(x = list(),
     stop("invalid clustering method")
   if (method == -1)
     stop("ambiguous clustering method")
-  
+
   # Check for restart clustering
   if (is.null(members))
     members <- rep(1, n)
   else if (length(members) != n)
     stop("invalid length of members")
-  
+
   if (verbose)
     write("---> Starting clustering process...", "")
   # Call Fortran subroutine for agglomerative hierarchical clustering
@@ -613,7 +613,7 @@ HiClimR <- function(x = list(),
       diss = d,
       PACKAGE = "HiClimR"
     )
-  
+
   # interpret the output from previous step (such as merge, height, and
   # order lists)
   hcass <-
@@ -627,7 +627,7 @@ HiClimR <- function(x = list(),
       iib = integer(n),
       PACKAGE = "HiClimR"
     )
-  
+
   if (verbose)
     write("---> Constructing dendrogram tree...", "")
   # Construct 'hclust'/'HiClimR' dendogram tree
@@ -643,47 +643,47 @@ HiClimR <- function(x = list(),
       dist.method = "correlation"
     )
   class(tree) <- "hclust"
-  
+
   tree$skip <- c(lonStep, latStep)
   names(tree$skip) <- c("lonStep", "latStep")
-  
+
   if (!is.null(nPC)) {
     tree$PCA = cbind(eigVal = eigVal,
                      expVar = expVar,
                      accVar = accVar)
   }
-  
+
   # return coordinates
   if (!is.null(lon) && !is.null(lat)) {
     tree$coords <- cbind(lon, lat)
     colnames(tree$coords) <- c("Lon", "Lat")
   }
-  
+
   # return preprocessed raw or PCA-reconstructed data
   if (rawStats) {
     tree$data <- x
   } else {
     tree$data <- x1
   }
-  
+
   # return number of variables and equivqlent number of columns
   tree$nvars <- nvars
   tree$ncols <- mm
-  
+
   # Return mask vector
   if (length(mask) > 0) {
     tree$mask <- mask
   }
-  
+
   # Return locations of missing values
   #if (length(attr(x, "na.action")) > 0) {
   tree$missVal <- missVal
   #}
-  
+
   if (hybrid) {
     if (verbose)
       write("Hybrid Hierarchical Clustering...", "")
-    
+
     if (verbose && tree$method == "regional") {
       write("---> WARNING: hybrid option is redundant when using regional linkage method!",
             "")
@@ -697,11 +697,11 @@ HiClimR <- function(x = list(),
       kH <- as.integer(kH)
       if (kH < 2)
         stop("must have kH \u2265 2 objects to cluster")
-      
+
       lenH <- as.integer(kH * (kH - 1) / 2)
-      
+
       methodH <- pmatch("regional", METHODS) - 1
-      
+
       # Update variances dissimilarities of the upper part of the tree
       if (verbose)
         write("---> Updating correlation/dissimilarity matrix...",
@@ -719,7 +719,7 @@ HiClimR <- function(x = list(),
                 verbose = verbose)
       rH <- rH[col(rH) < row(rH)]
       dH <- 1 - rH
-      
+
       # Call Fortran subroutine for agglomerative hierarchical clustering
       if (verbose)
         write("---> Reonstructing the upper part of the tree...", "")
@@ -738,7 +738,7 @@ HiClimR <- function(x = list(),
           diss = dH,
           PACKAGE = "HiClimR"
         )
-      
+
       # interpret the output from previous step (such as merge, height, and
       # order lists)
       hcassH <-
@@ -752,7 +752,7 @@ HiClimR <- function(x = list(),
           iib = integer(kH),
           PACKAGE = "HiClimR"
         )
-      
+
       # Construct 'hclust'/'HiClimR' dendogram tree for the upper part
       treeH <-
         list(
@@ -767,14 +767,14 @@ HiClimR <- function(x = list(),
           dist.method = "correlation"
         )
       class(treeH) <- "hclust"
-      
+
       # Add the new upper part of the tree to the original tree
       if (verbose)
         write("---> Merging upper and lower parts of the tree...", "")
       tree$treeH <- treeH
     }
   }
-  
+
   # Plot dendrogram tree
   if (plot && dendrogram) {
     dev.new()
@@ -818,7 +818,7 @@ HiClimR <- function(x = list(),
       }
     }
   }
-  
+
   # Cluster validation
   if (validClimR) {
     if (verbose)
@@ -835,21 +835,21 @@ HiClimR <- function(x = list(),
         pch = pch,
         cex = cex
       )
-    
+
     tree <- c(tree, z)
   }
-  
+
   class(tree) <- c("hclust", "HiClimR")
   if (verbose)
     write("\nPROCESSING COMPLETED", "")
-  
+
   # Print running time
   write("\nRunning Time:", "")
   print(proc.time() - start.time.proc)
   print(Sys.time() - start.time.sys)
-  
+
   gc()
-  
+
   # Output Tree
   tree
 }

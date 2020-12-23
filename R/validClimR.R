@@ -65,10 +65,10 @@ validClimR <-
     # Coordinates
     lon <- y$coords[, 1]
     lat <- y$coords[, 2]
-    
+
     # Preprocessed raw or PCA-reconstructed data
     x <- y$data
-    
+
     # Cut tree based on minimum significant inter-regional correlation
     if (is.null(k)) {
       if (verbose)
@@ -94,7 +94,7 @@ validClimR <-
         } else {
           cutHight <- y$treeH$height
         }
-        
+
         # multivariate clustering
         nvars <- y$nvars
         missVal <- y$missVal
@@ -104,7 +104,7 @@ validClimR <-
             n.missVal <- n.missVal + length(missVal[[nvar]])
           }
         }
-        
+
         # Minimum significant correlation coefficient
         if (verbose)
           write("---> Computing minimum significant correlation coefficient...",
@@ -116,13 +116,13 @@ validClimR <-
           minSigCor(n = nn,
                     alpha = alpha,
                     r = seq(0, 1, by = 1e-06))$cor
-        
+
         k <-
           ifelse(length(which(1 - cutHight < RsMin)) > 0, (length(cutHight) -
                                                              min(which(
                                                                1 - cutHight < RsMin
                                                              )) + 1), 2)
-        
+
         # Set minimum k = 2, for objective tree cutting
         k <- ifelse(k < 2, 2, k)
       }
@@ -130,7 +130,7 @@ validClimR <-
       alpha <- NULL
       RsMin <- NULL
     }
-    
+
     index <- list()
     if (!is.null(k)) {
       # Tree cut
@@ -141,10 +141,10 @@ validClimR <-
         if (verbose)
           write("---> Retrieving the reconstructed upper-part tree...", "")
         yH <- y$treeH
-        
+
         cutTreeH <- cutree(yH, k = k)
         cutTree0 <- cutree(y, k = length(cutTreeH))
-        
+
         cutTree <- cutTree0 + NA
         for (ik in 1:k) {
           cutTree[which(cutTree0 %in% as.integer(names(which(
@@ -154,59 +154,59 @@ validClimR <-
         }
       }
       # table(cutTree)
-      
+
       # Check cluster size
       clustFlag <- rep(1, k)
       if (minSize > 1) {
         clustFlag[which(table(cutTree) < minSize)] <- NA
       }
-      
+
       # Region Means
       if (verbose)
         write("---> Computing cluster means...", "")
       RM <- t(apply(x, 2, function(r)
         tapply(r, cutTree, mean)))
-      
+
       # Correlation between Region Means
       if (verbose)
         write("---> Computing inter-cluster correlations...", "")
       RMcor <-
         t(fastCor(RM, upperTri = TRUE, verbose = verbose) * clustFlag) * clustFlag
       #RMcor[lower.tri(RMcor, diag = TRUE)] <- NA
-      
+
       # Correlation between Region Means and Region Members
       if (verbose)
         write("---> Computing intra-cluster correlations...", "")
       Rcor <- cor(RM, t(x))
-      
+
       # Average Correlation between Region Means and Members
       RcorAvg <-
         t(apply(Rcor, 1, function(r)
           tapply(r, cutTree, mean)) *
             clustFlag)
-      
+
       clustFlag[is.na(clustFlag)] <- 0
-      
+
       if (verbose)
         write("---> Computing summary statistics...", "")
       index$cutLevel <- c(alpha, RsMin)
       index$clustMean <- RM
       index$clustSize <- table(cutTree)
-      
+
       index$clustFlag <- clustFlag
       names(index$clustFlag) <- 1:length(clustFlag)
-      
+
       index$interCor <- RMcor[!is.na(RMcor)]
       i1.interCor <- which(RMcor %in% index$interCor)
       i2.interCor <- grid2D(c(1:nrow(RMcor)), c(1:ncol(RMcor)))
       names(index$interCor) <-
         paste(i2.interCor$lat[c(i1.interCor)],
               i2.interCor$lon[c(i1.interCor)], sep = " & ")
-      
+
       index$intraCor <- diag(RcorAvg)[!is.na(diag(RcorAvg))]
-      
+
       index$diffCor <- index$intraCor - max(index$interCor)
-      
+
       index$statSum <-
         cbind(
           summary(index$interCor, digits = 7),
@@ -216,12 +216,12 @@ validClimR <-
         )
       colnames(index$statSum) <-
         c("interCor", "intraCor", "diffCor")
-      
+
       # Correct average intra-cluster correlation by cluster size
       index$statSum[4, 2] <-
         sum(index$intraCor * index$clustSize[which(clustFlag ==
                                                      1)]) / sum(index$clustSize[which(clustFlag == 1)])
-      
+
       # Oredered regions vector for the selected regions
       ks <- sum(index$clustFlag)
       Regions <- rep(NA, length(lon))
@@ -240,7 +240,7 @@ validClimR <-
       index$regionID <-
         (1:sum(index$clustFlag)) * index$clustFlag[which(index$clustFlag ==
                                                            1)]
-      
+
       if (plot) {
         if (verbose)
           write("Generating region map...", "")
@@ -276,10 +276,10 @@ validClimR <-
           cex = cex
         )
       }
-      
+
       class(index) <- "HiClimR"
     }
-    
+
     #gc()
     return(index)
   }

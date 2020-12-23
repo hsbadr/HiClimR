@@ -67,26 +67,26 @@ HiClimR2nc <-
         stop("\tinvalid HiClimR tree")
       }
     }
-    
+
     Longitude <- unique(y$coords[, 1])
     Latitude <- unique(y$coords[, 2])
-    
+
     RegionsMap <-
       matrix(y$region, nrow = length(Longitude), byrow = TRUE)
-    
+
     timeseries <- y$clustMean
-    
+
     ID <- y$regionID
     Time <- 1:dim(timeseries)[1]
-    
+
     # define dimensions
     londim <- ncdim_def("lon", "degrees_east", as.double(Longitude))
     latdim <- ncdim_def("lat", "degrees_north", as.double(Latitude))
-    
+
     iddim <- ncdim_def("id", "level", as.integer(ID))
-    
+
     timedim <- ncdim_def("time", timeunit, as.double(Time))
-    
+
     # define variables
     fillvalue <- -999
     region.def <-
@@ -110,15 +110,15 @@ HiClimR2nc <-
         prec = "double",
         compression = 9
       )
-    
+
     # create NetCDF-4 file and put arrays
     ncout <-
       nc_create(ncfile, list(region.def, timeseries.def), force_v4 = TRUE)
-    
+
     # put variables
     ncvar_put(ncout, region.def, RegionsMap)
     ncvar_put(ncout, timeseries.def, timeseries)
-    
+
     # add dimensions & global attributes
     ncatt_put(ncout, "lon", "axis", "X")
     ncatt_put(ncout, "lat", "axis", "Y")
@@ -151,7 +151,7 @@ HiClimR2nc <-
       date(),
       sep = " on "
     ))
-    
+
     #gc()
     return(ncout)
   }

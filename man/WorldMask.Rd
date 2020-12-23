@@ -17,7 +17,7 @@
 data(WorldMask)
 }
 \format{
-  \code{WorldMask} is a list with two components: \code{info} and \code{mask}. 
+  \code{WorldMask} is a list with two components: \code{info} and \code{mask}.
   \code{info} is an (\code{284} rows by \code{10} columns) matrix. The rows are for
   areas or countries while the columns are for codes required by \code{\link{geogMask}}.
   \code{mask} is an (\code{3601} rows by \code{1801} columns) matrix with integer

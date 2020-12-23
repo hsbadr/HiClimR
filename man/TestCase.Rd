@@ -26,8 +26,8 @@ data(TestCase)
   latitudes coordinates, where \code{80 * 80 = 6400} for this gridded data.
 }
 \details{
-  CRU TS 3.21 data (1901-2012) is monthly gridded precipitation with \code{0.5} 
-  degree resolution. This test data is a subset with 1 degree resolution for 
+  CRU TS 3.21 data (1901-2012) is monthly gridded precipitation with \code{0.5}
+  degree resolution. This test data is a subset with 1 degree resolution for
   African precipitation in January, 1949-1989.
 }
 \source{
