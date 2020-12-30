@@ -2,6 +2,7 @@
 
 * Code cleanup and formatting
 * Updated package DESCRIPTION and added license file
+* Updated package URL: https://hsbadr.github.io/HiClimR/
 * README: Updated README.md and added NEWS.md
 
 # HiClimR 2.1.7
