@@ -81,27 +81,35 @@ coarseR <-
 
         if (lonStep > 1 || latStep > 1) {
           xc$x <- x[which(rownames(x) %in% paste(xc$lon, xc$lat,
-                                                 sep = ",")),]
+            sep = ","
+          )), ]
 
           # Return the original row numbers
           rownumbers <- 1:nrow(x)
           xc$rownum <-
             rownumbers[which(rownames(x) %in% paste(xc$lon, xc$lat,
-                                                    sep = ","))]
+              sep = ","
+            ))]
         }
       } else {
         if (lonStep > 1 || latStep > 1) {
-          if (verbose)
-            write("---> WARNING: ungridded data is not supported for coarsening!",
-                  "")
+          if (verbose) {
+            write(
+              "---> WARNING: ungridded data is not supported for coarsening!",
+              ""
+            )
+          }
         }
       }
     } else {
-      if (verbose)
-        write("---> WARNING: valid longitude and latitude vectors are not provided!",
-              "")
+      if (verbose) {
+        write(
+          "---> WARNING: valid longitude and latitude vectors are not provided!",
+          ""
+        )
+      }
     }
 
-    #gc()
+    # gc()
     return(xc)
   }

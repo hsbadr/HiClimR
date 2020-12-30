@@ -58,12 +58,10 @@ HiClimR2nc <-
            timeunit = "",
            dataunit = "") {
     # Check input tree
-    if (is.null(y))
-    {
+    if (is.null(y)) {
       stop("\tHiClimR tree is not provided!")
     } else {
-      if (! inherits(y, "HiClimR") || is.null(y$region))
-      {
+      if (!inherits(y, "HiClimR") || is.null(y$region)) {
         stop("\tinvalid HiClimR tree")
       }
     }
@@ -124,10 +122,12 @@ HiClimR2nc <-
     ncatt_put(ncout, "lat", "axis", "Y")
     ncatt_put(ncout, "id", "axis", "Z")
     ncatt_put(ncout, "time", "axis", "T")
-    ncatt_put(ncout,
-              0,
-              "title",
-              "Hierarchical Climate Regionalization (HiClimR)")
+    ncatt_put(
+      ncout,
+      0,
+      "title",
+      "Hierarchical Climate Regionalization (HiClimR)"
+    )
     ncatt_put(
       ncout,
       0,
@@ -135,10 +135,12 @@ HiClimR2nc <-
       "Hamada S. Badr [aut, cre], Benjamin F. Zaitchik [aut], Amin K. Dezfuli [aut]"
     )
     ncatt_put(ncout, 0, "maintainer", "Hamada S. Badr <badr@jhu.edu>")
-    ncatt_put(ncout,
-              0,
-              "url",
-              "https://cran.r-project.org/package=HiClimR")
+    ncatt_put(
+      ncout,
+      0,
+      "url",
+      "https://cran.r-project.org/package=HiClimR"
+    )
     ncatt_put(
       ncout,
       0,
@@ -152,6 +154,6 @@ HiClimR2nc <-
       sep = " on "
     ))
 
-    #gc()
+    # gc()
     return(ncout)
   }

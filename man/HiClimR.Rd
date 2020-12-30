@@ -62,13 +62,33 @@ HiClimR(
   contigConst = 0,
 
   # Data thresholds:
-  meanThresh = if(inherits(x, "list")) vector("list", length(x)) else list(NULL),
-  varThresh = if(inherits(x, "list")) as.list(rep(0, length(x))) else list(0),
+  meanThresh = if (inherits(x, "list")) {
+      vector("list", length(x))
+  } else {
+      list(NULL)
+  },
+  varThresh = if (inherits(x, "list")) {
+      as.list(rep(0, length(x)))
+  } else {
+      list(0)
+  },
 
   # Data preprocessing:
-  detrend = if(inherits(x, "list")) as.list(rep(FALSE, length(x))) else list(FALSE),
-  standardize = if(inherits(x, "list")) as.list(rep(FALSE, length(x))) else list(FALSE),
-  weightMVC = if(inherits(x, "list")) as.list(rep(1, length(x))) else list(1),
+  detrend = if (inherits(x, "list")) {
+      as.list(rep(FALSE, length(x)))
+  } else {
+      list(FALSE)
+  },
+  standardize = if (inherits(x, "list")) {
+      as.list(rep(FALSE, length(x)))
+  } else {
+      list(FALSE)
+  },
+  weightMVC = if (inherits(x, "list")) {
+      as.list(rep(1, length(x)))
+  } else {
+      list(1)
+  },
   nPC=NULL,
 
   # Clustering options:

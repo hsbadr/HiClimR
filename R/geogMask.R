@@ -68,64 +68,77 @@ geogMask <-
     # Get World mask from LazyData
     wMask <- get("WorldMask", envir = .GlobalEnv)
 
-    if (verbose)
+    if (verbose) {
       write("---> Checking geographic masking options...", "")
+    }
     if (is.null(continent) && is.null(region) && is.null(country)) {
       gMask <- list()
       gMask$continent <- unique(sort(wMask$info[, 7]))
       gMask$region <- unique(sort(wMask$info[, 6]))
       gMask$country <-
-        unique(as.character(sort(wMask$info[!is.na(wMask$info[,
-                                                              3]), 3])))
+        unique(as.character(sort(wMask$info[!is.na(wMask$info[
+          ,
+          3
+        ]), 3])))
     } else {
-      if (verbose)
+      if (verbose) {
         write("---> Checking geographic masking data...", "")
+      }
 
       if (is.null(lon) ||
-          is.null(lat) || length(lon) != length(lat))
+        is.null(lat) || length(lon) != length(lat)) {
         stop("invalid coordinates")
+      }
 
       if (!is.null(continent)) {
-        if (verbose)
+        if (verbose) {
           write("---> Geographic masking by continent...", "")
+        }
 
         area <- which(wMask$info[, 7] %in% continent)
 
-        if (length(area) < 1)
+        if (length(area) < 1) {
           stop("invalid continent")
-
+        }
       } else if (!is.null(region)) {
-        if (verbose)
+        if (verbose) {
           write("---> Geographic masking by region...", "")
+        }
 
         area <- which(wMask$info[, 6] %in% region)
 
-        if (length(area) < 1)
+        if (length(area) < 1) {
           stop("invalid region")
-
+        }
       } else if (!is.null(country)) {
-        if (verbose)
+        if (verbose) {
           write("---> Geographic masking by country...", "")
+        }
 
         area <- which(wMask$info[, 3] %in% country)
 
-        if (length(area) < 1)
+        if (length(area) < 1) {
           stop("invalid country")
+        }
 
         # Fix confusing country codes/names
-        #for (i in 1:length(area)) {
+        # for (i in 1:length(area)) {
         #    area <- union(area, which(gregexpr(pattern = wMask$info[area[i],
         #      3], wMask$info[, 1]) != -1))
-        #}
+        # }
 
         # Areas in dispute
         InDisputeArea <-
-          which(gregexpr(pattern = "In dispute", wMask$info[,
-                                                            1]) != -1)
+          which(gregexpr(pattern = "In dispute", wMask$info[
+            ,
+            1
+          ]) != -1)
         if (InDispute) {
           for (i in 1:length(area)) {
-            area <- union(area, InDisputeArea[which(grepl(wMask$info[area[i],
-                                                                     1], wMask$info[InDisputeArea, 1]))])
+            area <- union(area, InDisputeArea[which(grepl(wMask$info[
+              area[i],
+              1
+            ], wMask$info[InDisputeArea, 1]))])
           }
         }
       }
@@ -149,8 +162,10 @@ geogMask <-
       gMask <- NULL
       for (nn in 1:length(lon)) {
         nnMask <-
-          ifelse(is.na(wMask$mask[i[nn], j[nn]]), -999, wMask$mask[i[nn],
-                                                                   j[nn]])
+          ifelse(is.na(wMask$mask[i[nn], j[nn]]), -999, wMask$mask[
+            i[nn],
+            j[nn]
+          ])
         if (!any(area == nnMask)) {
           gMask <- c(gMask, nn)
         }
@@ -158,8 +173,9 @@ geogMask <-
     }
 
     if (plot) {
-      if (verbose)
+      if (verbose) {
         write("---> Generating geographic mask map...", "")
+      }
       Regions <- rep(1, length(lon))
       Regions[gMask] <- NA
 
@@ -184,12 +200,13 @@ geogMask <-
       Longitude <- lon
       Latitude <- lat
       plot(Longitude,
-           Latitude,
-           col = Regions,
-           pch = pch,
-           cex = cex)
+        Latitude,
+        col = Regions,
+        pch = pch,
+        cex = cex
+      )
     }
 
-    #gc()
+    # gc()
     return(gMask)
   }

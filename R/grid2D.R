@@ -62,6 +62,6 @@ grid2D <- function(lon = lon, lat = lat) {
     gGrid$lat <- tcrossprod(lat, rep(1, length(lon)))
   }
 
-  #gc()
+  # gc()
   return(gGrid)
 }

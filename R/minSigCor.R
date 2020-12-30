@@ -57,13 +57,13 @@ minSigCor <-
            alpha = 0.05,
            r = seq(0, 1, by = 1e-06)) {
     dof <- n - 2
-    Fstat <- r ^ 2 * dof / (1 - r ^ 2)
+    Fstat <- r^2 * dof / (1 - r^2)
     p.value <- 1 - pf(Fstat, 1, dof)
     p.value[p.value > alpha] <- NA
     i <- which(p.value == max(p.value, na.rm = TRUE))
 
     RsMin <- list(cor = r[i], p.value = p.value[i])
 
-    #gc()
+    # gc()
     return(RsMin)
   }
