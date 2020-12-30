@@ -80,6 +80,7 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
+          remotes::install_cran("sessioninfo")
         shell: Rscript {0}
 
       - name: Session info
