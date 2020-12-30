@@ -147,7 +147,7 @@ The source code repository can be found on GitHub at [hsbadr/HiClimR](https://gi
 
 ## License
 
-[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under `GPL-2 | GPL-3`. The code is modified by [Hamada S. Badr](https://hsbadr.github.io) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2020 The [**R**](https://www.r-project.org) Core Team.
+[**`HiClimR`**](https://cran.r-project.org/package=HiClimR) is licensed under [`GPL v3`](https://www.gnu.org/licenses/gpl-3.0). The code is modified by [Hamada S. Badr](https://hsbadr.github.io) from `src/library/stats/R/hclust.R` part of [**R** package](https://www.R-project.org) Copyright © 1995-2021 The [**R**](https://www.r-project.org) Core Team.
 
 * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
@@ -155,7 +155,7 @@ The source code repository can be found on GitHub at [hsbadr/HiClimR](https://gi
 
 A copy of the GNU General Public License is available at https://www.r-project.org/Licenses.
 
-Copyright © 2013-2020 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
+Copyright © 2013-2021 Earth and Planetary Sciences (EPS), Johns Hopkins University (JHU).
 
 [⇪](#hiclimr)
 

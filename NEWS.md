@@ -7,7 +7,7 @@
 # HiClimR 2.1.7
 
 * Updated package DESCRIPTION and author information
-* Updated copyright year to 2020
+* Updated copyright year to 2021
 * README: Added Markdown badges
 * README: Added Digital Object Identifier (DOI) badge
 * README: Linked version and download badges to CRAN

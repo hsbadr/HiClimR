@@ -1,4 +1,4 @@
-# $Id: coarseR.R, v2.1.7 2020/11/05 12:00:00 hsbadr EPS JHU               #
+# $Id: coarseR.R, v2.1.7 2021/11/05 12:00:00 hsbadr EPS JHU               #
 #-------------------------------------------------------------------------#
 # This function is a part of HiClimR R package.                           #
 #-------------------------------------------------------------------------#
@@ -47,7 +47,7 @@
 #   2.1.6   |  02/22/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #   2.1.7   |  11/05/20  |  Updated   |  Hamada S. Badr  |  badr@jhu.edu  #
 #-------------------------------------------------------------------------#
-# COPYRIGHT(C) 2013-2020 Earth and Planetary Sciences (EPS), JHU.         #
+# COPYRIGHT(C) 2013-2021 Earth and Planetary Sciences (EPS), JHU.         #
 #-------------------------------------------------------------------------#
 # Function: Coarsening spatial resolution for gridded data                #
 #-------------------------------------------------------------------------#
