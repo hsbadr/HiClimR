@@ -1,3 +1,9 @@
+# HiClimR (development version)
+
+* Code cleanup and formatting
+* Updated package DESCRIPTION and added license file
+* README: Updated README.md and added NEWS.md
+
 # HiClimR 2.1.7
 
 * Updated package DESCRIPTION and author information
