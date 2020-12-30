@@ -50,13 +50,13 @@ HiClimR(
   x = list(),
 
   # Geographic coordinates
-  lon=NULL, lat=NULL,
+  lon = NULL, lat = NULL,
 
   # Coarsening spatial resolution
-  lonStep=1, latStep=1,
+  lonStep = 1, latStep = 1,
 
   # Geographic masking:
-  geogMask=FALSE, gMask=NULL, continent=NULL, region=NULL, country=NULL,
+  geogMask = FALSE, gMask = NULL, continent = NULL, region = NULL, country = NULL,
 
   # Contiguity constraint:
   contigConst = 0,
@@ -89,19 +89,19 @@ HiClimR(
   } else {
       list(1)
   },
-  nPC=NULL,
+  nPC = NULL,
 
   # Clustering options:
-  method="ward", hybrid=FALSE, kH=NULL, members=NULL,
+  method = "ward", hybrid = FALSE, kH = NULL, members = NULL,
 
   # Big data support:
   nSplit = 1, upperTri = TRUE, verbose = TRUE,
 
   # Cluster validation:
-  validClimR=TRUE, rawStats=TRUE, k=NULL, minSize=1, alpha=0.05,
+  validClimR = TRUE, rawStats = TRUE, k = NULL, minSize = 1, alpha = 0.05,
 
   # Graphical options:
-  plot=TRUE, dendrogram = TRUE, colPalette=NULL, hang=-1, labels=FALSE, pch = 15, cex = 1
+  plot = TRUE, dendrogram = TRUE, colPalette = NULL, hang = -1, labels = FALSE, pch = 15, cex = 1
 
   )
 

@@ -14,7 +14,7 @@
   defined by the argument \code{alpha}.
 }
 \usage{
-minSigCor(n=41, alpha=0.05, r=seq(0, 1, by=1e-6))
+minSigCor(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-6))
 }
 \arguments{
   \item{n}{sample size or the length of a timeseries vector.}

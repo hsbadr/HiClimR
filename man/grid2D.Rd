@@ -13,7 +13,7 @@
   rectangular mesh from short longitude and latitude vectors in gridded data.
 }
 \usage{
-grid2D(lon=lon, lat=lat)
+grid2D(lon = lon, lat = lat)
 }
 \arguments{
   \item{lon}{a vector of longitudes with length \code{N}. Longitudes takes

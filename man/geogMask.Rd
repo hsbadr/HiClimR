@@ -13,8 +13,8 @@
   \code{\link{HiClimR}} via \code{geogMask} parameter.
 }
 \usage{
-geogMask(continent=NULL, region=NULL, country=NULL, lon=NULL, lat=NULL,
-  InDispute=TRUE, verbose = TRUE, plot=FALSE, colPalette=NULL, pch = 15, cex = 1)
+geogMask(continent = NULL, region = NULL, country = NULL, lon = NULL, lat = NULL,
+  InDispute = TRUE, verbose = TRUE, plot = FALSE, colPalette = NULL, pch = 15, cex = 1)
 }
 \arguments{
   \item{continent}{\code{NULL} or a string (or array of strings) to specify

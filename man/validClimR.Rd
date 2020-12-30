@@ -13,8 +13,8 @@
   objective tree cut for \code{regional} linkage clustering method.
 }
 \usage{
-validClimR(y=NULL, k=NULL, minSize=1, alpha=0.05, verbose = TRUE,
-    plot=FALSE, colPalette=NULL, pch = 15, cex = 1)
+validClimR(y = NULL, k = NULL, minSize = 1, alpha = 0.05, verbose = TRUE,
+    plot = FALSE, colPalette = NULL, pch = 15, cex = 1)
 }
 \arguments{
   \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}

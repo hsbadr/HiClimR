@@ -13,7 +13,7 @@
   resolution of the input matrix for the \code{\link{HiClimR}} function.
 }
 \usage{
-coarseR(x=x, lon=lon, lat=lat, lonStep=1, latStep=1, verbose = TRUE)
+coarseR(x = x, lon = lon, lat = lat, lonStep = 1, latStep = 1, verbose = TRUE)
 }
 \arguments{
   \item{x}{an (\code{N} rows by \code{M} columns) matrix of 'double' values:

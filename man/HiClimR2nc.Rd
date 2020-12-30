@@ -13,7 +13,7 @@
   and mean timeseries into NetCDF-4 file, using the \code{ncdf4} package.
 }
 \usage{
-HiClimR2nc(y=NULL, ncfile="HiClimR.nc", timeunit="", dataunit="")
+HiClimR2nc(y = NULL, ncfile = "HiClimR.nc", timeunit = "", dataunit = "")
 }
 \arguments{
   \item{y}{a dendrogram tree produced by \code{\link{HiClimR}}.}
