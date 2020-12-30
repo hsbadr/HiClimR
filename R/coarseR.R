@@ -70,6 +70,5 @@ coarseR <-
       }
     }
 
-    # gc()
     return(xc)
   }

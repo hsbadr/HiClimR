@@ -162,6 +162,5 @@ geogMask <-
       )
     }
 
-    # gc()
     return(gMask)
   }

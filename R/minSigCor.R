@@ -19,6 +19,5 @@ minSigCor <-
 
     RsMin <- list(cor = r[i], p.value = p.value[i])
 
-    # gc()
     return(RsMin)
   }

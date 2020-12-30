@@ -109,6 +109,5 @@ HiClimR2nc <-
       sep = " on "
     ))
 
-    # gc()
     return(ncout)
   }

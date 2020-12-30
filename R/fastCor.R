@@ -163,6 +163,5 @@ fastCor <-
     rownames(rr) <- varnames
     colnames(rr) <- varnames
 
-    # gc()
     return(rr)
   }

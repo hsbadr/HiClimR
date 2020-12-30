@@ -254,6 +254,5 @@ validClimR <-
       class(index) <- "HiClimR"
     }
 
-    # gc()
     return(index)
   }
