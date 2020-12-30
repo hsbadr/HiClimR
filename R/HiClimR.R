@@ -224,7 +224,7 @@ HiClimR <- function(x = list(),
     if (verbose) {
       write("Checking variable weights...", "")
     }
-    for (nvar in 1:nvars) {
+    for (nvar in seq_len(nvars)) {
       if (verbose) {
         write(
           paste("---> weight for variable #", nvar, ": ",
@@ -348,7 +348,7 @@ HiClimR <- function(x = list(),
   if (verbose) {
     write("Data filtering...", "")
   }
-  for (nvar in 1:nvars) {
+  for (nvar in seq_len(nvars)) {
     if (nvars > 1) {
       if (verbose) {
         write(paste("---> VARIABLE #", nvar, ":", sep = ""), "")
@@ -428,7 +428,7 @@ HiClimR <- function(x = list(),
   if (verbose) {
     write("Data preprocessing...", "")
   }
-  for (nvar in 1:nvars) {
+  for (nvar in seq_len(nvars)) {
     if (nvars > 1) {
       if (verbose) {
         write(paste("---> VARIABLE #", nvar, ":", sep = ""), "")
@@ -540,10 +540,10 @@ HiClimR <- function(x = list(),
       expVar <- eigVal^2 / sum(eigVal^2) * 100
       accVar <-
         sapply(seq(1, length(expVar)), function(r) {
-          sum(expVar[1:r])
+          sum(expVar[seq_len(r)])
         })
       x1 <-
-        xSVD$u %*% diag(xSVD$d[1:nPC], nPC, nPC) %*% xSVD$vt
+        xSVD$u %*% diag(xSVD$d[seq_len(nPC)], nPC, nPC) %*% xSVD$vt
       x1 <- t(x1) - colMeans(x1)
 
       # Cleanup memory from unnecessary variables

@@ -122,7 +122,7 @@ geogMask <-
         }
 
         # Fix confusing country codes/names
-        # for (i in 1:length(area)) {
+        # for (i in seq_len(length(area))) {
         #    area <- union(area, which(gregexpr(pattern = wMask$info[area[i],
         #      3], wMask$info[, 1]) != -1))
         # }
@@ -134,7 +134,7 @@ geogMask <-
             1
           ]) != -1)
         if (InDispute) {
-          for (i in 1:length(area)) {
+          for (i in seq_len(length(area))) {
             area <- union(area, InDisputeArea[which(grepl(wMask$info[
               area[i],
               1
@@ -160,7 +160,7 @@ geogMask <-
 
       # gMask <- seq(1,length(lon))[-which(diag(wMask$mask[i,j]) %in% area)]
       gMask <- NULL
-      for (nn in 1:length(lon)) {
+      for (nn in seq_len(length(lon))) {
         nnMask <-
           ifelse(is.na(wMask$mask[i[nn], j[nn]]), -999, wMask$mask[
             i[nn],

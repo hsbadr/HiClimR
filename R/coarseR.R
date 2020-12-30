@@ -85,7 +85,7 @@ coarseR <-
           )), ]
 
           # Return the original row numbers
-          rownumbers <- 1:nrow(x)
+          rownumbers <- seq_len(nrow(x))
           xc$rownum <-
             rownumbers[which(rownames(x) %in% paste(xc$lon, xc$lat,
               sep = ","

@@ -123,7 +123,7 @@ fastCor <-
       }
       lSplit <- floor(n / nSplit)
       iSplit <- vector("list", nSplit)
-      for (i in 1:(nSplit - 1)) {
+      for (i in seq_len((nSplit - 1))) {
         iSplit[[i]] <- (lSplit * (i - 1) + 1):(lSplit * i)
       }
       iSplit[[nSplit]] <- (lSplit * (nSplit - 1) + 1):n
@@ -132,7 +132,7 @@ fastCor <-
         write("---> Computing split combinations...", "")
       }
       cSplit <-
-        cbind(combn(nSplit, 2), rbind(c(1:nSplit), c(1:nSplit)))
+        cbind(combn(nSplit, 2), rbind(seq_len(nSplit), seq_len(nSplit)))
       cSplit <- cSplit[, order(cSplit[1, ], cSplit[2, ])]
       if (verbose && n %% nSplit == 0) {
         write(
@@ -169,7 +169,7 @@ fastCor <-
           ""
         )
       }
-      for (nc in 1:max(nSplit, ncol(cSplit))) {
+      for (nc in seq_len(max(nSplit, ncol(cSplit)))) {
         i1 <- iSplit[[cSplit[1, nc]]]
         i2 <- iSplit[[cSplit[2, nc]]]
         if (verbose) {

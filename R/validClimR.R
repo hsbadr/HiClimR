@@ -103,7 +103,7 @@ validClimR <-
         missVal <- y$missVal
         n.missVal <- 0
         if (length(missVal) > 0) {
-          for (nvar in 1:length(missVal)) {
+          for (nvar in seq_len(length(missVal))) {
             n.missVal <- n.missVal + length(missVal[[nvar]])
           }
         }
@@ -155,7 +155,7 @@ validClimR <-
         cutTree0 <- cutree(y, k = length(cutTreeH))
 
         cutTree <- cutTree0 + NA
-        for (ik in 1:k) {
+        for (ik in seq_len(k)) {
           cutTree[which(cutTree0 %in% as.integer(names(which(
             cutTreeH ==
               ik
@@ -209,11 +209,11 @@ validClimR <-
       index$clustSize <- table(cutTree)
 
       index$clustFlag <- clustFlag
-      names(index$clustFlag) <- 1:length(clustFlag)
+      names(index$clustFlag) <- seq_len(length(clustFlag))
 
       index$interCor <- RMcor[!is.na(RMcor)]
       i1.interCor <- which(RMcor %in% index$interCor)
-      i2.interCor <- grid2D(c(1:nrow(RMcor)), c(1:ncol(RMcor)))
+      i2.interCor <- grid2D(seq_len(nrow(RMcor)), seq_len(ncol(RMcor)))
       names(index$interCor) <-
         paste(i2.interCor$lat[c(i1.interCor)],
           i2.interCor$lon[c(i1.interCor)],
@@ -251,12 +251,12 @@ validClimR <-
       }
       Regions[which(Regions %in% which(index$clustFlag != 1))] <-
         NA
-      for (i in 1:ks) {
+      for (i in seq_len(ks)) {
         Regions[which(Regions == which(index$clustFlag == 1)[i])] <- i
       }
       index$region <- Regions
       index$regionID <-
-        (1:sum(index$clustFlag)) * index$clustFlag[which(index$clustFlag ==
+        (seq_len(sum(index$clustFlag))) * index$clustFlag[which(index$clustFlag ==
           1)]
 
       if (plot) {
