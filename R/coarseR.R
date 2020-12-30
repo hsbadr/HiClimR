@@ -20,7 +20,9 @@ coarseR <-
     xc$x <- x
 
     if (!is.null(lon) && !is.null(lat)) {
-      if (as.numeric(dim(x)[1]) == as.numeric(length(unique(lon)) * length(unique(lat)))) {
+      nlon_unique <- length(unique(lon))
+      nlat_unique <- length(unique(lat))
+      if (as.numeric(dim(x)[1]) == as.numeric(nlon_unique * nlat_unique)) {
         lon0 <- unique(lon)
         lat0 <- unique(lat)
         xGrid <- grid2D(lon0, lat0)
