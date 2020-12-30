@@ -61,7 +61,10 @@ coarseR <-
     } else {
       if (verbose) {
         write(
-          "---> WARNING: valid longitude and latitude vectors are not provided!",
+          paste(
+            "---> WARNING:",
+            "valid longitude and latitude vectors are not provided!"
+          ),
           ""
         )
       }
