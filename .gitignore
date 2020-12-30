@@ -43,3 +43,7 @@ inst/doc
 
 # MacOS DS_Store files
 .DS_Store
+
+# Object files
+src/*.o
+src/*.so
