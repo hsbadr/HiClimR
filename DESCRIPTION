@@ -1,6 +1,6 @@
 Package: HiClimR
 Type: Package
-Version: 2.1.7.9000
+Version: 2.1.8
 Title: Hierarchical Climate Regionalization
 Authors@R: c(
     person(given = "Hamada S.",

@@ -6,7 +6,7 @@ HiClimR
 [![Last commit](https://img.shields.io/github/last-commit/hsbadr/HiClimR)](https://github.com/hsbadr/HiClimR/commits/master)
 [![R-CMD-check](https://github.com/hsbadr/HiClimR/workflows/R-CMD-check/badge.svg)](https://github.com/hsbadr/HiClimR/actions)
   
-[![CRAN Version](https://img.shields.io/badge/CRAN%20Version-2.1.7-blue)](https://cran.r-project.org/package=HiClimR)
+[![CRAN Version](https://img.shields.io/badge/CRAN%20Version-2.1.8-blue)](https://cran.r-project.org/package=HiClimR)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)](https://cran.r-project.org/package=HiClimR)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![DOI: 10.1007/s12145-015-0221-7](https://zenodo.org/badge/DOI/10.1007%2Fs12145-015-0221-7.svg)](https://doi.org/10.1007/s12145-015-0221-7)
@@ -214,6 +214,7 @@ https://cran.r-project.org/package=HiClimR.
 |   **2.1.5**   |   12/10/19   |  **inherits** |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.6**   |   02/22/20   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 |   **2.1.7**   |   11/05/20   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
+|   **2.1.8**   |   01/04/21   |  Updated      |  Hamada S. Badr  |  badr@jhu.edu  |
 
 [⇪](#hiclimr)
 

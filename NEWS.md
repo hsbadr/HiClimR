@@ -1,4 +1,4 @@
-# HiClimR (development version)
+# HiClimR 2.1.8
 
 * Code cleanup and formatting
 * Removed HISTORY comments from source code
