@@ -48,12 +48,12 @@ minSigCor(n = 41, alpha = 0.05, r = seq(0, 1, by = 1e-6))
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization,
-  \emph{Comprehensive R Archive Network (CRAN},
+  \emph{Comprehensive R Archive Network (CRAN)},
   \url{https://cran.r-project.org/package=HiClimR}.
 }
 \author{
-  Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and
-  Amin Dezfuli <dez@jhu.edu>.
+  Hamada S. Badr <badr@jhu.edu>, Benjamin F. Zaitchik <zaitchik@jhu.edu>,
+  and Amin K. Dezfuli <amin.dezfuli@nasa.gov>.
 }
 \seealso{
   \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}},

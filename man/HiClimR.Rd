@@ -535,7 +535,7 @@ HiClimR(
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization,
-  \emph{Comprehensive R Archive Network (CRAN},
+  \emph{Comprehensive R Archive Network (CRAN)},
   \url{https://cran.r-project.org/package=HiClimR}.
 
   Wilks, D. S. (2011):
@@ -579,10 +579,10 @@ HiClimR(
   Source Code: \url{https://github.com/hsbadr/HiClimR}
 }
 \author{
-  Hamada Badr <badr@jhu.edu>, Ben Zaitchik <zaitchik@jhu.edu>, and
-  Amin Dezfuli <dez@jhu.edu>. The \code{\link{HiClimR}} is a modification of
-  \code{\link{hclust}} function, which is based on Fortran code
-  contributed to STATLIB by F. Murtagh.
+  Hamada S. Badr <badr@jhu.edu>, Benjamin F. Zaitchik <zaitchik@jhu.edu>,
+  and Amin K. Dezfuli <amin.dezfuli@nasa.gov>. \code{\link{HiClimR}} is
+  a modification of \code{\link{hclust}} function, which is based
+  on Fortran code contributed to STATLIB by F. Murtagh.
 }
 \seealso{
   \code{\link{HiClimR}}, \code{\link{HiClimR2nc}}, \code{\link{validClimR}}, \code{\link{geogMask}},

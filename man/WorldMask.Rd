@@ -41,7 +41,7 @@ data(WorldMask)
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization,
-  \emph{Comprehensive R Archive Network (CRAN},
+  \emph{Comprehensive R Archive Network (CRAN)},
   \url{https://cran.r-project.org/package=HiClimR}.
 
   LSIB Data: \url{https://hiu.state.gov/data/}.

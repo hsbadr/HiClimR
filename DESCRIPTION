@@ -8,16 +8,16 @@ Authors@R: c(
            email = "badr@jhu.edu",
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9808-2344")),
-    person(given = "Amin K.",
-           family = "Dezfuli",
-           email = "amin.dezfuli@nasa.gov",
-           role = c("aut"),
-           comment = c(ORCID = "0000-0003-3274-8542")),
     person(given = "Benjamin F.",
            family = "Zaitchik",
            email = "zaitchik@jhu.edu",
            role = c("aut"),
-           comment = c(ORCID = "0000-0002-0698-0658")))
+           comment = c(ORCID = "0000-0002-0698-0658")),
+    person(given = "Amin K.",
+           family = "Dezfuli",
+           email = "amin.dezfuli@nasa.gov",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0003-3274-8542")))
 Description: A tool for Hierarchical Climate Regionalization applicable to any correlation-based clustering.
              It adds several features and a new clustering method (called, 'regional' linkage) to hierarchical
              clustering in R ('hclust' function in 'stats' library): data regridding, coarsening spatial resolution,
