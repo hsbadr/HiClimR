@@ -1,4 +1,4 @@
-# $Id: HiClimR.R, v2.1.7 2021/11/05 12:00:00 hsbadr EPS JHU               #
+# $Id: HiClimR.R                                                          #
 #-------------------------------------------------------------------------#
 # This is the main function of                                            #
 # HiClimR (Hierarchical Climate Regionalization) R package                #
