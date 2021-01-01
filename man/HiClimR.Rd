@@ -101,7 +101,8 @@ HiClimR(
   validClimR = TRUE, rawStats = TRUE, k = NULL, minSize = 1, alpha = 0.05,
 
   # Graphical options:
-  plot = TRUE, dendrogram = TRUE, colPalette = NULL, hang = -1, labels = FALSE, pch = 15, cex = 1
+  plot = TRUE, dendrogram = TRUE, colPalette = NULL,
+  hang = -1, labels = FALSE, pch = 15, cex = 1
 
   )
 
