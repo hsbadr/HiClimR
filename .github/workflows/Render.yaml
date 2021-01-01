@@ -21,7 +21,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
 
       - uses: r-lib/actions/setup-r@master
 
@@ -36,7 +36,7 @@ jobs:
 
       - name: Cache R packages
         if: runner.os != 'Windows'
-        uses: actions/cache@v2
+        uses: actions/cache@main
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
@@ -45,6 +45,7 @@ jobs:
       - name: Install system dependencies
         if: runner.os == 'Linux'
         run: |
+          set -x
           while read -r cmd
           do
             eval sudo $cmd
