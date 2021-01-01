@@ -39,7 +39,7 @@ HiClimR2nc(y = NULL, ncfile = "HiClimR.nc", timeunit = "", dataunit = "")
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
   A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics},
-  \bold{8}(4), 949-958, \url{https://doi.org/10.1007/s12145-015-0221-7}.
+  \bold{8}(4), 949-958, \doi{10.1007/s12145-015-0221-7}.
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization,

@@ -37,7 +37,7 @@ data(TestCase)
 \references{
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
   A Tool for Hierarchical Climate Regionalization, \emph{Earth Science Informatics},
-  \bold{8}(4), 949-958, \url{https://doi.org/10.1007/s12145-015-0221-7}.
+  \bold{8}(4), 949-958, \doi{10.1007/s12145-015-0221-7}.
 
   Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
   Hierarchical Climate Regionalization,
@@ -47,7 +47,7 @@ data(TestCase)
   Harris, I., Jones, P. D., Osborn, T. J., and Lister, D. H. (2014):
   Updated high-resolution grids of monthly climatic observations - the CRU TS3.10 Dataset,
   \emph{International journal of climatology}, \bold{34}, 623-642,
-  \url{https://doi.org/10.1002/joc.3711}.
+  \doi{10.1002/joc.3711}.
 }
 \examples{
 require(HiClimR)
