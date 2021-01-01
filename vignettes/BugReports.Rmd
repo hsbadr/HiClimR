@@ -20,7 +20,8 @@ Provide a clean R script demonstrating the issue with the necessary data files.
 ### Environment
 Provide the following information:
  - **OS Type:** [Linux, Mac, Windows]
- - **OS Version:** [e.g., Ubuntu 18.04, MacOS 10.14.1, Windows 10]
- - **R Version:** [e.g., 3.5.2]
- - **HiClimR Version:** [e.g. 2.1.3]
- - **Installation Method:** [binary from CRAN repository, built from source code]
+ - **OS Version:** [e.g., macOS 10.15.7, Windows 10, or Ubuntu 20.04]
+ - **R Version:** [e.g., 4.0.3]
+ - **HiClimR Version:** [e.g. 2.1.7 or development]
+ - **Source:** [binary or source code]
+ - **Repository:** [CRAN, Bioconductor, GitHub, or Other]
