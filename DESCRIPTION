@@ -26,7 +26,7 @@ Description: A tool for Hierarchical Climate Regionalization applicable to any c
              with preliminary big data support, different clustering methods, hybrid hierarchical clustering,
              multivariate clustering (MVC), cluster validation, visualization of regionalization results, and
              exporting region map and mean timeseries into NetCDF-4 file.
-License: GPL-3 + file LICENSE
+License: GPL-3
 URL: https://hsbadr.github.io/HiClimR/,
      https://github.com/hsbadr/HiClimR
 BugReports: https://github.com/hsbadr/HiClimR/issues

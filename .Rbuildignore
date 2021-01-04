@@ -19,6 +19,7 @@
 ^info\.log$
 ^inst/dev$
 ^inst/pkg-structure$
+^LICENSE$
 ^LICENSE\.md$
 ^libs$
 ^logs$
