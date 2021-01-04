@@ -5,7 +5,7 @@
 * Replaced `1:n` expressions with `seq_len(n)`
 * Updated citation, manual, and user information
 * Updated documents after code formatting
-* Updated package DESCRIPTION
+* Updated package DESCRIPTION and added reference DOI
 * Updated package URL: https://hsbadr.github.io/HiClimR/
 * README: Updated README.md and added NEWS.md
 
