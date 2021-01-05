@@ -4,6 +4,7 @@
 ^\.cache$
 ^\.DS_Store$
 ^\.github$
+^\.lintr$
 ^\.RData$
 ^\.Rhistory$
 ^_pkgdown.yml$
