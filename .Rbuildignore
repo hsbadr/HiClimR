@@ -9,8 +9,6 @@
 ^_pkgdown.yml$
 ^codecov\.yml$
 ^CODE_OF_CONDUCT\.md$
-^configure$
-^configure\.win$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
 ^data-raw$
