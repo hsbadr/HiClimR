@@ -6,7 +6,7 @@ HiClimR
 [![Last commit](https://img.shields.io/github/last-commit/hsbadr/HiClimR)](https://github.com/hsbadr/HiClimR/commits/master)
 [![R-CMD-check](https://github.com/hsbadr/HiClimR/workflows/R-CMD-check/badge.svg)](https://github.com/hsbadr/HiClimR/actions)
   
-[![CRAN Version](https://img.shields.io/badge/CRAN%20Version-2.1.8-blue)](https://cran.r-project.org/package=HiClimR)
+[![CRAN Status](https://www.r-pkg.org/badges/version/HiClimR)](https://cran.r-project.org/package=HiClimR)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)](https://cran.r-project.org/package=HiClimR)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![DOI: 10.1007/s12145-015-0221-7](https://zenodo.org/badge/DOI/10.1007%2Fs12145-015-0221-7.svg)](https://doi.org/10.1007/s12145-015-0221-7)
