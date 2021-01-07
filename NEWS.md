@@ -256,6 +256,7 @@
 * Adds `coarseR` function for coarsening spatial resolution of the input matrix `x`
 
 # HiClimR 1.0.0
+
 * Initial version of `HiClimR` package that modifies `hclust` function in `stats` library
 * Adds a new clustering method to the set of available methods
 * The new method is explained in the context of a spatiotemporal problem, in which `N` spatial elements (e.g., stations) are divided into `k` regions, given that each element has observations (or timeseries) of length `M`
