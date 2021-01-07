@@ -1,3 +1,7 @@
+# HiClimR 2.1.9
+
+* Update citation in package DESCRIPTION
+
 # HiClimR 2.1.8
 
 * Code cleanup and formatting
