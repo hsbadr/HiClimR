@@ -686,7 +686,7 @@ HiClimR is applicable to any correlation-based clustering." />
   	Only the <code>region</code> component uses ordered ID, while other components use
   	the names used during the clustering process.</p></dd>
 
-  There are <a href='https://rdrr.io/r/base/print.html'>print</a>, <a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a> and identify
+  There are <a href='https://rdrr.io/r/base/print.html'>print</a>, <a href='https://rdrr.io/r/graphics/plot.html'>plot</a> and identify
   (see <a href='https://rdrr.io/r/stats/identify.hclust.html'>identify.hclust</a>) methods and
   <a href='https://rdrr.io/r/stats/rect.hclust.html'>rect.hclust</a>() functions for hclust objects.
 
@@ -858,8 +858,8 @@ HiClimR is applicable to any correlation-based clustering." />
 #&gt; 
 #&gt; Running Time:
 #&gt;    user  system elapsed 
-#&gt;   0.577   0.060   0.711 
-#&gt; Time difference of 0.7118337 secs</div><div class='input'>
+#&gt;   0.666   0.056   0.894 
+#&gt; Time difference of 0.8942132 secs</div><div class='input'>
 <span class='co'>## For more examples: https://github.com/hsbadr/HiClimR#examples</span>
 
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
@@ -1004,7 +1004,7 @@ HiClimR is applicable to any correlation-based clustering." />
 <span class='va'>ks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>z</span><span class='op'>$</span><span class='va'>clustFlag</span><span class='op'>)</span>
 
 <span class='co'>## Dendrogram plot</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span>, hang <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span>, hang <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1</span>, labels <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='co'>## Tree cut</span>
 <span class='va'>cutTree</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cutree.html'>cutree</a></span><span class='op'>(</span><span class='va'>y</span>, k <span class='op'>=</span> <span class='va'>k</span><span class='op'>)</span>
@@ -1017,7 +1017,7 @@ HiClimR is applicable to any correlation-based clustering." />
 <span class='fu'><a href='https://rdrr.io/r/graphics/image.html'>image</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>, <span class='va'>RegionsMap</span>, col <span class='op'>=</span> <span class='fu'>colPalette</span><span class='op'>(</span><span class='va'>ks</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'>## Visualization for gridded or ungridded data</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>, <span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span>, col <span class='op'>=</span> <span class='fu'>colPalette</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>Regions</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[</span><span class='va'>y</span><span class='op'>$</span><span class='va'>region</span><span class='op'>]</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>, <span class='va'>y</span><span class='op'>$</span><span class='va'>coords</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>]</span>, col <span class='op'>=</span> <span class='fu'>colPalette</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>Regions</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[</span><span class='va'>y</span><span class='op'>$</span><span class='va'>region</span><span class='op'>]</span>,
     pch <span class='op'>=</span> <span class='fl'>15</span>, cex <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
 
 <span class='co'>## Export region map and mean timeseries into NetCDF-4 file</span>
