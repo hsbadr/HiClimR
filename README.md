@@ -108,7 +108,7 @@ There are many ways to install an R package from precompiled binaries or source 
 This is the easiest way to install an R package on **Windows**, **Mac**, or **Linux**. You just fire up an [**R**](https://www.r-project.org) shell and type:
 
 ```R
-        install.packages("HiClimR")
+install.packages("HiClimR")
 ```
 
 In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using **R-GUI** or **R-Studio**, you can find a menu for package installation where you can just search for [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) and install it.
@@ -122,7 +122,7 @@ This is intended for developers and requires a development environment (compiler
 * Install the release version of `devtools` from [**CRAN**](https://cran.r-project.org):
 
 ```R
-        install.packages("devtools")
+install.packages("devtools")
 ```
 
 * Make sure you have a working development environment:
@@ -134,7 +134,7 @@ This is intended for developers and requires a development environment (compiler
 * Install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ```R
-        devtools::install_github("hsbadr/HiClimR")
+devtools::install_github("hsbadr/HiClimR")
 ```
 
 [⇪](#hiclimr)
@@ -164,13 +164,13 @@ Copyright © 2013-2021 Earth and Planetary Sciences (EPS), Johns Hopkins Univers
 To cite HiClimR in publications, please use:
 
 ```R
-        citation("HiClimR")
+citation("HiClimR")
 ```
-Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
+> Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015):
 A Tool for Hierarchical Climate Regionalization, _Earth Science Informatics_,
 **8**(4), 949-958, https://doi.org/10.1007/s12145-015-0221-7.
 
-Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
+> Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014):
 HiClimR: Hierarchical Climate Regionalization, _Comprehensive R Archive Network (CRAN)_,
 https://cran.r-project.org/package=HiClimR.
 
@@ -224,7 +224,8 @@ https://cran.r-project.org/package=HiClimR.
 
 ```R
 library(HiClimR)
-
+```
+```R
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for single-variate clustering:                            #
 #----------------------------------------------------------------------------------#
@@ -242,11 +243,12 @@ lat <- c(xGrid$lat)
 ## Single-Variate Hierarchical Climate Regionalization
 y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE,
     continent = "Africa", meanThresh = 10, varThresh = 0, detrend = TRUE,
-    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
-    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE, 
-    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
+    standardize = TRUE, nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
+    members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
-
+```
+```R
 #----------------------------------------------------------------------------------#
 # Additional Examples:                                                             #
 #----------------------------------------------------------------------------------#
@@ -281,41 +283,39 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #### Multivariate Clustering
 
 ```R
-require(HiClimR)
-
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for multivariate clustering:                              #
 #----------------------------------------------------------------------------------#
- 
+
 ## Load the test data included/loaded in the package (1 degree resolution)
 x1 <- TestCase$x
 lon <- TestCase$lon
 lat <- TestCase$lat
- 
+
  ## Generate/check longitude and latitude mesh vectors for gridded data
  xGrid <- grid2D(lon = unique(TestCase$lon), lat = unique(TestCase$lat))
  lon <- c(xGrid$lon)
  lat <- c(xGrid$lat)
 
 ## Test if we can replicate single-variate region map with repeated variable
-y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
-    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10), 
-    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE), 
-    nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
+y <- HiClimR(x=list(x1, x1), lon = lon, lat = lat, lonStep = 1, latStep = 1,
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, 10),
+    varThresh = list(0, 0), detrend = list(TRUE, TRUE), standardize = list(TRUE, TRUE),
+    nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 
 ## Generate a random matrix with the same number of rows
 x2 <- matrix(rnorm(nrow(x1) * 100, mean=0, sd=1), nrow(x1), 100)
 
 ## Multivariate Hierarchical Climate Regionalization
-y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1, 
-    geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL), 
-    varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE), 
-    weightMVC = list(1, 1), nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL, 
+y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1,
+    geogMask = FALSE, continent = "Africa", meanThresh = list(10, NULL),
+    varThresh = list(0, 0), detrend = list(TRUE, FALSE), standardize = list(TRUE, TRUE),
+    weightMVC = list(1, 1), nPC = NULL, method = "ward", hybrid = FALSE, kH = NULL,
     members = NULL, nSplit = 1, upperTri = TRUE, verbose = TRUE,
-    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01, 
+    validClimR = TRUE, k = 12, minSize = 1, alpha = 0.01,
     plot = TRUE, colPalette = NULL, hang = -1, labels = FALSE)
 ## You can apply all clustering methods and options
 ```
@@ -325,11 +325,9 @@ y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 #### Miscellaneous Examples
 
 ```R
-require(HiClimR)
-
 #----------------------------------------------------------------------------------#
 # Miscellaneous examples to provide more information about functionality and usage #
-# of the helper functions that can be used separately or for other applications.   #                          #
+# of the helper functions that can be used separately or for other applications.   #
 #----------------------------------------------------------------------------------#
 
 ## Load test case data
