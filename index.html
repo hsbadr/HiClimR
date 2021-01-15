@@ -238,7 +238,7 @@
 <a href="#from-cran" class="anchor"></a>From CRAN</h4>
 <p>This is the easiest way to install an R package on <strong>Windows</strong>, <strong>Mac</strong>, or <strong>Linux</strong>. You just fire up an <a href="https://www.r-project.org"><strong>R</strong></a> shell and type:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R">        <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"HiClimR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"HiClimR"</span><span class="op">)</span></code></pre></div>
 <p>In theory the package should just install, however, you may be asked to select your local mirror (i.e. which server should you use to download the package). If you are using <strong>R-GUI</strong> or <strong>R-Studio</strong>, you can find a menu for package installation where you can just search for <a href="https://cran.r-project.org/package=HiClimR"><strong><code>HiClimR</code></strong></a> and install it.</p>
 <p><a href="#hiclimr">⇪</a></p>
 </div>
@@ -250,7 +250,7 @@
 <li>Install the release version of <code>devtools</code> from <a href="https://cran.r-project.org"><strong>CRAN</strong></a>:</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">        <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>
 <p>Make sure you have a working development environment:</p>
@@ -266,7 +266,7 @@
 <li><p>Install <a href="https://cran.r-project.org/package=HiClimR"><strong><code>HiClimR</code></strong></a> from <a href="https://github.com/hsbadr/HiClimR">GitHub source</a>:</p></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">        <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"hsbadr/HiClimR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"hsbadr/HiClimR"</span><span class="op">)</span></code></pre></div>
 <p><a href="#hiclimr">⇪</a></p>
 </div>
 </div>
@@ -293,7 +293,7 @@
 <a href="#citation" class="anchor"></a>Citation</h2>
 <p>To cite HiClimR in publications, please use:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">        <span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"HiClimR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"HiClimR"</span><span class="op">)</span></code></pre></div>
 <blockquote>
 <p>Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015): A Tool for Hierarchical Climate Regionalization, <em>Earth Science Informatics</em>, <strong>8</strong>(4), 949-958, <a href="https://doi.org/10.1007/s12145-015-0221-7" class="uri">https://doi.org/10.1007/s12145-015-0221-7</a>.</p>
 </blockquote>
@@ -570,9 +570,9 @@
 <h4 class="hasAnchor">
 <a href="#single-variate-clustering" class="anchor"></a>Single-Variate Clustering</h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span>
-
-<span class="co">#----------------------------------------------------------------------------------#</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------------#</span>
 <span class="co"># Typical use of HiClimR for single-variate clustering:                            #</span>
 <span class="co">#----------------------------------------------------------------------------------#</span>
 
@@ -589,12 +589,12 @@
 <span class="co">## Single-Variate Hierarchical Climate Regionalization</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/HiClimR.html">HiClimR</a></span><span class="op">(</span><span class="va">x</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>, geogMask <span class="op">=</span> <span class="cn">FALSE</span>,
     continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fl">10</span>, varThresh <span class="op">=</span> <span class="fl">0</span>, detrend <span class="op">=</span> <span class="cn">TRUE</span>,
-    standardize <span class="op">=</span> <span class="cn">TRUE</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>, 
-    members <span class="op">=</span> <span class="cn">NULL</span>, nSplit <span class="op">=</span> <span class="fl">1</span>, upperTri <span class="op">=</span> <span class="cn">TRUE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>, 
-    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>, 
-    plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-
-<span class="co">#----------------------------------------------------------------------------------#</span>
+    standardize <span class="op">=</span> <span class="cn">TRUE</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>,
+    members <span class="op">=</span> <span class="cn">NULL</span>, nSplit <span class="op">=</span> <span class="fl">1</span>, upperTri <span class="op">=</span> <span class="cn">TRUE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>,
+    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>,
+    plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------------#</span>
 <span class="co"># Additional Examples:                                                             #</span>
 <span class="co">#----------------------------------------------------------------------------------#</span>
 
@@ -627,42 +627,40 @@
 <div id="multivariate-clustering" class="section level4">
 <h4 class="hasAnchor">
 <a href="#multivariate-clustering" class="anchor"></a>Multivariate Clustering</h4>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span>
-
-<span class="co">#----------------------------------------------------------------------------------#</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------------#</span>
 <span class="co"># Typical use of HiClimR for multivariate clustering:                              #</span>
 <span class="co">#----------------------------------------------------------------------------------#</span>
- 
+
 <span class="co">## Load the test data included/loaded in the package (1 degree resolution)</span>
 <span class="va">x1</span> <span class="op">&lt;-</span> <span class="va">TestCase</span><span class="op">$</span><span class="va">x</span>
 <span class="va">lon</span> <span class="op">&lt;-</span> <span class="va">TestCase</span><span class="op">$</span><span class="va">lon</span>
 <span class="va">lat</span> <span class="op">&lt;-</span> <span class="va">TestCase</span><span class="op">$</span><span class="va">lat</span>
- 
+
  <span class="co">## Generate/check longitude and latitude mesh vectors for gridded data</span>
  <span class="va">xGrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/grid2D.html">grid2D</a></span><span class="op">(</span>lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span><span class="op">)</span>
  <span class="va">lon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span>
  <span class="va">lat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span>
 
 <span class="co">## Test if we can replicate single-variate region map with repeated variable</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/HiClimR.html">HiClimR</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x1</span><span class="op">)</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>, 
-    geogMask <span class="op">=</span> <span class="cn">FALSE</span>, continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span>, 
-    varThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, detrend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>, standardize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>, 
-    nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>, 
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/HiClimR.html">HiClimR</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x1</span><span class="op">)</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>,
+    geogMask <span class="op">=</span> <span class="cn">FALSE</span>, continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span>,
+    varThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, detrend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>, standardize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>,
+    nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>,
     members <span class="op">=</span> <span class="cn">NULL</span>, nSplit <span class="op">=</span> <span class="fl">1</span>, upperTri <span class="op">=</span> <span class="cn">TRUE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>,
-    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>, 
+    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>,
     plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co">## Generate a random matrix with the same number of rows</span>
 <span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>, mean<span class="op">=</span><span class="fl">0</span>, sd<span class="op">=</span><span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span>, <span class="fl">100</span><span class="op">)</span>
 
 <span class="co">## Multivariate Hierarchical Climate Regionalization</span>
-<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/HiClimR.html">HiClimR</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>, 
-    geogMask <span class="op">=</span> <span class="cn">FALSE</span>, continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">10</span>, <span class="cn">NULL</span><span class="op">)</span>, 
-    varThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, detrend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, standardize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>, 
-    weightMVC <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>, 
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/HiClimR.html">HiClimR</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">x1</span>, <span class="va">x2</span><span class="op">)</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>,
+    geogMask <span class="op">=</span> <span class="cn">FALSE</span>, continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">10</span>, <span class="cn">NULL</span><span class="op">)</span>,
+    varThresh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, detrend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, standardize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span>,
+    weightMVC <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>, kH <span class="op">=</span> <span class="cn">NULL</span>,
     members <span class="op">=</span> <span class="cn">NULL</span>, nSplit <span class="op">=</span> <span class="fl">1</span>, upperTri <span class="op">=</span> <span class="cn">TRUE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>,
-    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>, 
+    validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>,
     plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">## You can apply all clustering methods and options</span></code></pre></div>
 <p><a href="#hiclimr">⇪</a></p>
@@ -670,12 +668,10 @@
 <div id="miscellaneous-examples" class="section level4">
 <h4 class="hasAnchor">
 <a href="#miscellaneous-examples" class="anchor"></a>Miscellaneous Examples</h4>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span>
-
-<span class="co">#----------------------------------------------------------------------------------#</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#----------------------------------------------------------------------------------#</span>
 <span class="co"># Miscellaneous examples to provide more information about functionality and usage #</span>
-<span class="co"># of the helper functions that can be used separately or for other applications.   #                          #</span>
+<span class="co"># of the helper functions that can be used separately or for other applications.   #</span>
 <span class="co">#----------------------------------------------------------------------------------#</span>
 
 <span class="co">## Load test case data</span>
