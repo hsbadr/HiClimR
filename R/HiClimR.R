@@ -52,6 +52,14 @@
 # Function: Hierarchical Climate Regionalization                          #
 #-------------------------------------------------------------------------#
 
+#' @rawNamespace exportPattern("^[[:alpha:]]+")
+#' @import ncdf4
+#' @importFrom grDevices colorRampPalette dev.new
+#' @importFrom graphics axis par
+#' @importFrom stats cor cutree dist fitted lm na.omit pf var
+#' @importFrom utils combn packageVersion
+#' @useDynLib HiClimR
+
 HiClimR <- function(x = list(),
                     lon = NULL,
                     lat = NULL,
