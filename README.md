@@ -4,7 +4,7 @@ HiClimR
 [![Lifecycle: Stable](https://img.shields.io/badge/Lifecycle-Stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Commits since release](https://img.shields.io/github/commits-since/hsbadr/HiClimR/2.1.8.svg?color=green)](https://GitHub.com/hsbadr/HiClimR/commit/master/)
 [![Last commit](https://img.shields.io/github/last-commit/hsbadr/HiClimR)](https://github.com/hsbadr/HiClimR/commits/master)
-[![R-CMD-check](https://github.com/hsbadr/HiClimR/workflows/R-CMD-check/badge.svg)](https://github.com/hsbadr/HiClimR/actions)
+[![R](https://github.com/hsbadr/HiClimR/workflows/R/badge.svg)](https://github.com/hsbadr/HiClimR/actions)
   
 [![CRAN Status](https://www.r-pkg.org/badges/version/HiClimR)](https://cran.r-project.org/package=HiClimR)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/HiClimR)](https://cran.r-project.org/package=HiClimR)
