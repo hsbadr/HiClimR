@@ -40,10 +40,13 @@ Imports:
     utils,
     ncdf4
 Suggests:
+    covr,
     devtools,
     knitr,
     rmarkdown,
-    roxygen2
+    roxygen2,
+    spelling,
+    testthat
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.1

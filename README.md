@@ -117,12 +117,12 @@ In theory the package should just install, however, you may be asked to select y
 
 #### From GitHub
 
-This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`devtools`](https://github.com/r-lib/devtools) as follows:
+This is intended for developers and requires a development environment (compilers, libraries, ... etc) to install the latest development release of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On **Linux** and **Mac**, you can download the source code and use `R CMD INSTALL` to install it. In a convenient way, you may use [`remotes`](https://github.com/r-lib/remotes) as follows:
 
-* Install the release version of `devtools` from [**CRAN**](https://cran.r-project.org):
+* Install the release version of `remotes` from [**CRAN**](https://cran.r-project.org):
 
 ```R
-install.packages("devtools")
+install.packages("remotes")
 ```
 
 * Make sure you have a working development environment:
@@ -134,7 +134,7 @@ install.packages("devtools")
 * Install [**`HiClimR`**](https://cran.r-project.org/package=HiClimR) from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ```R
-devtools::install_github("hsbadr/HiClimR")
+remotes::install_github("hsbadr/HiClimR")
 ```
 
 [⇪](#hiclimr)
