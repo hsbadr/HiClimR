@@ -246,10 +246,10 @@
 </div><div class='output co'>#&gt; ---&gt; Checking zero-variance data...
 #&gt; ---&gt;	 Total number of variables:  6400
 #&gt; ---&gt;	 WARNING: 3951 variables found with zero variance</div><div class='output co'>#&gt;    user  system elapsed 
-#&gt;   0.585   0.136   0.722 </div><div class='input'><span class='co'>## compare with cor function</span>
+#&gt;   0.535   0.128   0.662 </div><div class='input'><span class='co'>## compare with cor function</span>
 <span class='va'>t0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/proc.time.html'>proc.time</a></span><span class='op'>(</span><span class='op'>)</span> ; <span class='va'>xcor0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> ; <span class='fu'><a href='https://rdrr.io/r/base/proc.time.html'>proc.time</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='va'>t0</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: the standard deviation is zero</span></div><div class='output co'>#&gt;    user  system elapsed 
-#&gt;   1.081   0.068   1.149 </div><div class='input'>
+#&gt;   0.975   0.068   1.043 </div><div class='input'>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 
 <span class='co'>## Split the data into 10 splits and return upper-triangular half only</span>
