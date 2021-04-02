@@ -1,8 +1,9 @@
 # HiClimR 2.1.9
 
 * Updated citation in package DESCRIPTION
-* Updated NAMESPACE and documentaiotns
+* Updated NAMESPACE and documentation
 * Fixed spelling errors
+* Updated lifecycle URL in the README
 
 # HiClimR 2.1.8
 
