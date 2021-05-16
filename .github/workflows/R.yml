@@ -110,7 +110,6 @@ jobs:
           - ${{ needs.initiate.outputs.os_windows }}
 
     env:
-      NOT_CRAN: true
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
@@ -267,7 +266,11 @@ jobs:
                 "CXX11FLAGS += -Wno-ignored-attributes",
                 file = path_makevars, sep = "\n", append = TRUE)
           }
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+          if (grepl("linux", R.Version()$os, ignore.case = TRUE)) {
+            rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+          } else {
+            rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--ignore-vignettes"), build_args = c("--no-build-vignettes"), error_on = "warning", check_dir = "check")
+          }
         shell: Rscript {0}
 
       - name: Show testthat output
