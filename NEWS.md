@@ -1,3 +1,7 @@
+# HiClimR 2.2.0
+
+* Fixed NOTE: Found (possibly) invalid URLs
+
 # HiClimR 2.1.9
 
 * Updated citation in package DESCRIPTION
