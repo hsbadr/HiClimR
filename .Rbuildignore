@@ -24,6 +24,7 @@
 ^logs$
 ^README\.html$
 ^README\.Rmd$
+^revdep$
 ^src/.*\.so$
 ^src/.*\.dll$
 ^src/.*\.o$
