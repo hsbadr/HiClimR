@@ -1,3 +1,4 @@
+╭
 al
 Amin
 amin
@@ -27,6 +28,7 @@ hclust
 Heinemann
 HIU
 hsbadr
+https
 Ihaka
 interannual
 intra
@@ -35,6 +37,7 @@ jhu
 JHU
 Leisch
 Lifecycle
+lifecycle
 LSIB
 macOS
 McQuitty
@@ -56,10 +59,12 @@ README
 regionalization
 regionalize
 regridding
+reprex
 Sneath
 Sokal
 spatiotemporal
 STATLIB
+tidyverse
 timeseries
 TRMM
 ultrametric
@@ -72,4 +77,5 @@ Wilks
 WPGMA
 WPGMC
 Wuerzburg
+www
 zaitchik
