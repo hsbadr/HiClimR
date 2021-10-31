@@ -167,50 +167,52 @@
 <p>LSIB Data: <a href='https://hiu.state.gov/data/'>https://hiu.state.gov/data/</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://hsbadr.github.io/HiClimR/'>HiClimR</a></span><span class='op'>)</span>
-
-<span class='fu'><a href='geogMask.html'>geogMask</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; ---&gt; Checking geographic masking options...</div><div class='output co'>#&gt; $continent
-#&gt; [1] "Africa"     "Americas"   "Antarctica" "Asia"       "Europe"    
-#&gt; [6] "Oceania"   
-#&gt; 
-#&gt; $region
-#&gt;  [1] "Antarctica"                "Australia and New Zealand"
-#&gt;  [3] "Caribbean"                 "Central America"          
-#&gt;  [5] "Central Asia"              "Eastern Africa"           
-#&gt;  [7] "Eastern Asia"              "Eastern Europe"           
-#&gt;  [9] "Melanesia"                 "Micronesia"               
-#&gt; [11] "Middle Africa"             "Northern Africa"          
-#&gt; [13] "Northern America "         "Northern Europe"          
-#&gt; [15] "Polynesia"                 "South America"            
-#&gt; [17] "South-Eastern Asia"        "Southern Africa"          
-#&gt; [19] "Southern Asia"             "Southern Europe"          
-#&gt; [21] "Western Africa"            "Western Asia"             
-#&gt; [23] "Western Europe"           
-#&gt; 
-#&gt; $country
-#&gt;   [1] "ABW" "AFG" "AGO" "AIA" "ALB" "AND" "ANT" "ARE" "ARG" "ARM" "ASM" "ATA"
-#&gt;  [13] "ATF" "ATG" "AUS" "AUT" "AZE" "BDI" "BEL" "BEN" "BFA" "BGD" "BGR" "BHR"
-#&gt;  [25] "BHS" "BIH" "BLM" "BLR" "BLZ" "BMU" "BOL" "BRA" "BRB" "BRN" "BTN" "BVT"
-#&gt;  [37] "BWA" "CAF" "CAN" "CCK" "CHE" "CHL" "CHN" "CIV" "CMR" "COD" "COG" "COK"
-#&gt;  [49] "COL" "COM" "CPV" "CRI" "CUB" "CUW" "CXR" "CYM" "CYP" "CZE" "DEU" "DJI"
-#&gt;  [61] "DMA" "DNK" "DOM" "DZA" "ECU" "EGY" "ERI" "ESH" "ESP" "EST" "ETH" "FIN"
-#&gt;  [73] "FJI" "FLK" "FRA" "FRO" "FSM" "GAB" "GBR" "GEO" "GGY" "GHA" "GIN" "GLP"
-#&gt;  [85] "GMB" "GNB" "GNQ" "GRC" "GRD" "GRL" "GTM" "GUF" "GUM" "GUY" "HKG" "HMD"
-#&gt;  [97] "HND" "HRV" "HTI" "HUN" "IDN" "IMN" "IND" "IOT" "IRL" "IRN" "IRQ" "ISL"
-#&gt; [109] "ISR" "ITA" "JAM" "JEY" "JOR" "JPN" "KAZ" "KEN" "KGZ" "KHM" "KIR" "KNA"
-#&gt; [121] "KOR" "KWT" "LAO" "LBN" "LBR" "LBY" "LCA" "LIE" "LKA" "LSO" "LTU" "LUX"
-#&gt; [133] "LVA" "MAC" "MAF" "MAR" "MCO" "MDA" "MDG" "MDV" "MEX" "MHL" "MKD" "MLI"
-#&gt; [145] "MLT" "MMR" "MNE" "MNG" "MNP" "MOZ" "MRT" "MSR" "MTQ" "MUS" "MWI" "MYS"
-#&gt; [157] "MYT" "NAM" "NCL" "NER" "NFK" "NGA" "NIC" "NIU" "NLD" "NOR" "NPL" "NRU"
-#&gt; [169] "NZL" "OMN" "PAK" "PAN" "PCN" "PER" "PHL" "PLW" "PNG" "POL" "PRI" "PRK"
-#&gt; [181] "PRT" "PRY" "PSE" "PYF" "QAT" "REU" "ROU" "RUS" "RWA" "SAU" "SDN" "SEN"
-#&gt; [193] "SGP" "SGS" "SHN" "SJM" "SLB" "SLE" "SLV" "SMR" "SOM" "SPM" "SSD" "STP"
-#&gt; [205] "SUR" "SVK" "SVN" "SWE" "SWZ" "SXM" "SYC" "SYR" "TCA" "TCD" "TGO" "THA"
-#&gt; [217] "TJK" "TKL" "TKM" "TLS" "TON" "TTO" "TUN" "TUR" "TUV" "TWN" "TZA" "UGA"
-#&gt; [229] "UKR" "UMI" "URY" "USA" "UZB" "VAT" "VCT" "VEN" "VGB" "VIR" "VNM" "VUT"
-#&gt; [241] "WLF" "WSM" "YEM" "ZAF" "ZMB" "ZWE"
-#&gt; </div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='https://hsbadr.github.io/HiClimR/'>HiClimR</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='geogMask.html'>geogMask</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ---&gt; Checking geographic masking options...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $continent</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Africa"     "Americas"   "Antarctica" "Asia"       "Europe"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [6] "Oceania"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $region</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "Antarctica"                "Australia and New Zealand"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "Caribbean"                 "Central America"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "Central Asia"              "Eastern Africa"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "Eastern Asia"              "Eastern Europe"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "Melanesia"                 "Micronesia"               </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "Middle Africa"             "Northern Africa"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [13] "Northern America "         "Northern Europe"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [15] "Polynesia"                 "South America"            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [17] "South-Eastern Asia"        "Southern Africa"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [19] "Southern Asia"             "Southern Europe"          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [21] "Western Africa"            "Western Asia"             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [23] "Western Europe"           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> $country</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   [1] "ABW" "AFG" "AGO" "AIA" "ALB" "AND" "ANT" "ARE" "ARG" "ARM" "ASM" "ATA"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [13] "ATF" "ATG" "AUS" "AUT" "AZE" "BDI" "BEL" "BEN" "BFA" "BGD" "BGR" "BHR"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [25] "BHS" "BIH" "BLM" "BLR" "BLZ" "BMU" "BOL" "BRA" "BRB" "BRN" "BTN" "BVT"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [37] "BWA" "CAF" "CAN" "CCK" "CHE" "CHL" "CHN" "CIV" "CMR" "COD" "COG" "COK"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [49] "COL" "COM" "CPV" "CRI" "CUB" "CUW" "CXR" "CYM" "CYP" "CZE" "DEU" "DJI"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [61] "DMA" "DNK" "DOM" "DZA" "ECU" "EGY" "ERI" "ESH" "ESP" "EST" "ETH" "FIN"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [73] "FJI" "FLK" "FRA" "FRO" "FSM" "GAB" "GBR" "GEO" "GGY" "GHA" "GIN" "GLP"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [85] "GMB" "GNB" "GNQ" "GRC" "GRD" "GRL" "GTM" "GUF" "GUM" "GUY" "HKG" "HMD"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [97] "HND" "HRV" "HTI" "HUN" "IDN" "IMN" "IND" "IOT" "IRL" "IRN" "IRQ" "ISL"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [109] "ISR" "ITA" "JAM" "JEY" "JOR" "JPN" "KAZ" "KEN" "KGZ" "KHM" "KIR" "KNA"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [121] "KOR" "KWT" "LAO" "LBN" "LBR" "LBY" "LCA" "LIE" "LKA" "LSO" "LTU" "LUX"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [133] "LVA" "MAC" "MAF" "MAR" "MCO" "MDA" "MDG" "MDV" "MEX" "MHL" "MKD" "MLI"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [145] "MLT" "MMR" "MNE" "MNG" "MNP" "MOZ" "MRT" "MSR" "MTQ" "MUS" "MWI" "MYS"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [157] "MYT" "NAM" "NCL" "NER" "NFK" "NGA" "NIC" "NIU" "NLD" "NOR" "NPL" "NRU"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [169] "NZL" "OMN" "PAK" "PAN" "PCN" "PER" "PHL" "PLW" "PNG" "POL" "PRI" "PRK"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [181] "PRT" "PRY" "PSE" "PYF" "QAT" "REU" "ROU" "RUS" "RWA" "SAU" "SDN" "SEN"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [193] "SGP" "SGS" "SHN" "SJM" "SLB" "SLE" "SLV" "SMR" "SOM" "SPM" "SSD" "STP"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [205] "SUR" "SVK" "SVN" "SWE" "SWZ" "SXM" "SYC" "SYR" "TCA" "TCD" "TGO" "THA"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [217] "TJK" "TKL" "TKM" "TLS" "TON" "TTO" "TUN" "TUR" "TUV" "TWN" "TZA" "UGA"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [229] "UKR" "UMI" "URY" "USA" "UZB" "VAT" "VCT" "VEN" "VGB" "VIR" "VNM" "VUT"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [241] "WLF" "WSM" "YEM" "ZAF" "ZMB" "ZWE"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

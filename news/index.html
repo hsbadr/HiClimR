@@ -152,7 +152,7 @@
 <ul>
 <li>Code cleanup and formatting</li>
 <li>Removed HISTORY comments from source code</li>
-<li>Replaced <code>1:n</code> expressions with <code><a href="https://rdrr.io/r/base/seq.html">seq_len(n)</a></code>
+<li>Replaced <code>1:n</code> expressions with <code>seq_len(n)</code>
 </li>
 <li>Updated citation, manual, and user information</li>
 <li>Updated documents after code formatting</li>
@@ -284,7 +284,7 @@
 <li>Corrected data construction in the user manual
 <ul>
 <li>
-<code>x</code> should be created using <code><a href="https://rdrr.io/r/base/vector.html">as.vector(t(x0))</a></code>
+<code>x</code> should be created using <code>as.vector(t(x0))</code>
 </li>
 <li>
 <code>x0</code> is the <code>n by m</code> original data matrix</li>
@@ -323,7 +323,7 @@
 <li>longitudes takes values from <code>-180</code> to <code>180</code> (not <code>0</code> to <code>360</code>)</li>
 <li>for gridded data, the rows of input data matrix for each variable is ordered by longitudes
 <ul>
-<li>check <code><a href="https://rdrr.io/r/base/colnames.html">rownames(TestCase$x)</a></code> for example!
+<li>check <code>rownames(TestCase$x)</code> for example!
 <ul>
 <li>each row represents a station (grid point)</li>
 <li>row name is in the form of <code>longitude,latitude</code>
