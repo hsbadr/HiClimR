@@ -241,12 +241,12 @@
 <div class="section level4">
 <h4 id="from-github">From GitHub<a class="anchor" aria-label="anchor" href="#from-github"></a>
 </h4>
-<p>This is intended for developers and requires a development environment (compilers, libraries, … etc) to install the latest development release of <a href="https://cran.r-project.org/package=HiClimR" class="external-link"><strong><code>HiClimR</code></strong></a>. On <strong>Linux</strong> and <strong>Mac</strong>, you can download the source code and use <code>R CMD INSTALL</code> to install it. In a convenient way, you may use <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a> as follows:</p>
+<p>This is intended for developers and requires a development environment (compilers, libraries, … etc) to install the latest development release of <a href="https://cran.r-project.org/package=HiClimR" class="external-link"><strong><code>HiClimR</code></strong></a>. On <strong>Linux</strong> and <strong>Mac</strong>, you can download the source code and use <code>R CMD INSTALL</code> to install it. In a convenient way, you may use <a href="https://pak.r-lib.org" class="external-link"><code>pak</code></a> as follows:</p>
 <ul>
-<li>Install the release version of <code>remotes</code> from <a href="https://cran.r-project.org" class="external-link"><strong>CRAN</strong></a>:</li>
+<li>Install <code>pak</code> from <a href="https://cran.r-project.org" class="external-link"><strong>CRAN</strong></a>:</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>
 <p>Make sure you have a working development environment:</p>
@@ -262,7 +262,7 @@
 <li><p>Install <a href="https://cran.r-project.org/package=HiClimR" class="external-link"><strong><code>HiClimR</code></strong></a> from <a href="https://github.com/hsbadr/HiClimR" class="external-link">GitHub source</a>:</p></li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"hsbadr/HiClimR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"hsbadr/HiClimR"</span><span class="op">)</span></code></pre></div>
 <p><a href="#hiclimr">⇪</a></p>
 </div>
 </div>
@@ -819,7 +819,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
