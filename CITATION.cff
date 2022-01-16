@@ -134,7 +134,6 @@ references:
     email: james.f.hester@gmail.com
   year: '2022'
   notes: Suggests
-  url: https://CRAN.R-project.org/package=covr
 - type: software
   title: 'devtools: Tools to Make Developing R Packages Easier'
   authors:
