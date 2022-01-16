@@ -134,6 +134,7 @@ references:
     email: james.f.hester@gmail.com
   year: '2022'
   notes: Suggests
+  url: https://CRAN.R-project.org/package=covr
 - type: software
   title: 'devtools: Tools to Make Developing R Packages Easier'
   authors:
@@ -213,6 +214,7 @@ references:
     given-names: Manuel
   year: '2022'
   notes: Suggests
+  url: https://CRAN.R-project.org/package=roxygen2
 - type: software
   title: 'spelling: Tools for Spell Checking in R'
   authors:
