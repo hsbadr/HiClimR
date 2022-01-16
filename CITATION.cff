@@ -1,0 +1,235 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.2.0
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "HiClimR" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'HiClimR: Hierarchical Climate Regionalization'
+version: 2.2.0
+doi: 10.1007/s12145-015-0221-7
+abstract: 'A tool for Hierarchical Climate Regionalization applicable to any correlation-based
+  clustering. It adds several features and a new clustering method (called, ''regional''
+  linkage) to hierarchical clustering in R (''hclust'' function in ''stats'' library):
+  data regridding, coarsening spatial resolution, geographic masking, contiguity-constrained
+  clustering, data filtering by mean and/or variance thresholds, data preprocessing
+  (detrending, standardization, and PCA), faster correlation function with preliminary
+  big data support, different clustering methods, hybrid hierarchical clustering,
+  multivariate clustering (MVC), cluster validation, visualization of regionalization
+  results, and exporting region map and mean timeseries into NetCDF-4 file. The technical
+  details are described in Badr et al. (2015) <doi:10.1007/s12145-015-0221-7>.'
+authors:
+- family-names: Badr
+  given-names: Hamada S.
+  email: badr@jhu.edu
+  orcid: https://orcid.org/0000-0002-9808-2344
+- family-names: Zaitchik
+  given-names: Benjamin F.
+  email: zaitchik@jhu.edu
+  orcid: https://orcid.org/0000-0002-0698-0658
+- family-names: Dezfuli
+  given-names: Amin K.
+  email: amin.dezfuli@nasa.gov
+  orcid: https://orcid.org/0000-0003-3274-8542
+preferred-citation:
+  type: article
+  title: A Tool for Hierarchical Climate Regionalization
+  authors:
+  - family-names: Badr
+    given-names: Hamada S.
+    email: badr@jhu.edu
+    orcid: https://orcid.org/0000-0002-9808-2344
+  - family-names: Zaitchik
+    given-names: Benjamin F.
+    email: zaitchik@jhu.edu
+    orcid: https://orcid.org/0000-0002-0698-0658
+  - family-names: Dezfuli
+    given-names: Amin K.
+    email: amin.dezfuli@nasa.gov
+    orcid: https://orcid.org/0000-0003-3274-8542
+  year: '2015'
+  journal: Earth Science Informatics
+  publisher:
+    name: Springer
+  volume: '8'
+  issue: '4'
+  doi: 10.1007/s12145-015-0221-7
+  url: https://doi.org/10.1007/s12145-015-0221-7
+  start: '949'
+  end: '958'
+repository: https://CRAN.R-project.org/package=HiClimR
+repository-code: https://github.com/hsbadr/HiClimR
+url: https://hsbadr.github.io/HiClimR/
+contact:
+- family-names: Badr
+  given-names: Hamada S.
+  email: badr@jhu.edu
+  orcid: https://orcid.org/0000-0002-9808-2344
+keywords:
+- clustering
+- contiguity
+- homogeneity
+- multivariate
+- r
+- regionalization
+- spatiotemporal
+references:
+- type: manual
+  title: 'HiClimR: Hierarchical Climate Regionalization'
+  authors:
+  - family-names: Badr
+    given-names: Hamada S.
+    email: badr@jhu.edu
+    orcid: https://orcid.org/0000-0002-9808-2344
+  - family-names: Zaitchik
+    given-names: Benjamin F.
+    email: zaitchik@jhu.edu
+    orcid: https://orcid.org/0000-0002-0698-0658
+  - family-names: Dezfuli
+    given-names: Amin K.
+    email: amin.dezfuli@nasa.gov
+    orcid: https://orcid.org/0000-0003-3274-8542
+  year: '2014'
+  journal: Comprehensive R Archive Network (CRAN)
+  url: https://cran.r-project.org/package=HiClimR
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  url: https://www.R-project.org/
+  institution:
+    name: R Foundation for Statistical Computing
+  version: '>= 2.10'
+  notes: Depends
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  url: https://www.R-project.org/
+  institution:
+    name: R Foundation for Statistical Computing
+  notes: Imports
+- type: software
+  title: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data Files'
+  authors:
+  - family-names: Pierce
+    given-names: David
+    email: dpierce@ucsd.edu
+  year: '2022'
+  notes: Imports
+  url: http://cirrus.ucsd.edu/~pierce/ncdf/
+- type: software
+  title: 'covr: Test Coverage for Packages'
+  authors:
+  - family-names: Hester
+    given-names: Jim
+    email: james.f.hester@gmail.com
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'devtools: Tools to Make Developing R Packages Easier'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Chang
+    given-names: Winston
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@rstudio.com
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2022'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+- type: software
+  title: 'rmarkdown: Dynamic Documents for R'
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@rstudio.com
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@rstudio.com
+  - family-names: Luraschi
+    given-names: Javier
+    email: javier@rstudio.com
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@rstudio.com
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@rstudio.com
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@rstudio.com
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@rstudio.com
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'roxygen2: In-Line Documentation for R'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Danenberg
+    given-names: Peter
+    email: pcd@roxygen.org
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Eugster
+    given-names: Manuel
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'spelling: Tools for Spell Checking in R'
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  - family-names: Hester
+    given-names: Jim
+    email: james.hester@rstudio.com
+  year: '2022'
+  notes: Suggests
+- type: software
+  title: 'testthat: Unit Testing for R'
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2022'
+  notes: Suggests
