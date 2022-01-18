@@ -1,3 +1,5 @@
+url: https://hsbadr.github.io/HiClimR/
+
 template:
   bootstrap: 5
 
@@ -23,7 +25,7 @@ navbar:
   right:
     - icon: fa-github
       text: Source Code
-      href: https://github.com/hsbadr/HiClimR
+      href: https://github.com/hsbadr/HiClimR/
 
 reference:
 - title: Main Functions
@@ -43,3 +45,5 @@ reference:
   - TestCase
   - WorldMask
 
+search:
+  exclude: ['news/index.html']
