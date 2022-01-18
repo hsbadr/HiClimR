@@ -23,6 +23,7 @@
 ^LICENSE\.md$
 ^libs$
 ^logs$
+^pkgdown$
 ^README\.html$
 ^README\.Rmd$
 ^revdep$
