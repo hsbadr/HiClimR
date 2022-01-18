@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.1
+# CITATION file created with {cffr} R package, v0.2.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -96,7 +96,6 @@ references:
   url: https://cran.r-project.org/package=HiClimR
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
-  notes: Depends
   authors:
   - name: R Core Team
   location:
@@ -106,10 +105,9 @@ references:
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 2.10'
+  notes: Depends
 - type: software
-  title: graphics
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
+  title: 'R: A Language and Environment for Statistical Computing'
   authors:
   - name: R Core Team
   location:
@@ -118,67 +116,26 @@ references:
   url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
-- type: software
-  title: grDevices
-  abstract: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
-  authors:
-  - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2022'
-  url: https://www.R-project.org/
-  institution:
-    name: R Foundation for Statistical Computing
 - type: software
-  title: stats
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2022'
-  url: https://www.R-project.org/
-  institution:
-    name: R Foundation for Statistical Computing
-- type: software
-  title: utils
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2022'
-  url: https://www.R-project.org/
-  institution:
-    name: R Foundation for Statistical Computing
-- type: software
-  title: ncdf4
-  abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
-    Files'
-  notes: Imports
+  title: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data Files'
   authors:
   - family-names: Pierce
     given-names: David
     email: dpierce@ucsd.edu
   year: '2022'
-  url: https://CRAN.R-project.org/package=ncdf4
+  notes: Imports
+  url: http://cirrus.ucsd.edu/~pierce/ncdf/
 - type: software
-  title: covr
-  abstract: 'covr: Test Coverage for Packages'
-  notes: Suggests
+  title: 'covr: Test Coverage for Packages'
   authors:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=covr
-- type: software
-  title: devtools
-  abstract: 'devtools: Tools to Make Developing R Packages Easier'
   notes: Suggests
+- type: software
+  title: 'devtools: Tools to Make Developing R Packages Easier'
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -191,22 +148,19 @@ references:
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2022'
-  url: https://CRAN.R-project.org/package=devtools
-- type: software
-  title: knitr
-  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
+- type: software
+  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
-  url: https://CRAN.R-project.org/package=knitr
-- type: software
-  title: rmarkdown
-  abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
+  url: https://yihui.org/knitr/
+- type: software
+  title: 'rmarkdown: Dynamic Documents for R'
   authors:
   - family-names: Allaire
     given-names: JJ
@@ -241,11 +195,9 @@ references:
     email: rich@rstudio.com
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2022'
-  url: https://CRAN.R-project.org/package=rmarkdown
-- type: software
-  title: roxygen2
-  abstract: 'roxygen2: In-Line Documentation for R'
   notes: Suggests
+- type: software
+  title: 'roxygen2: In-Line Documentation for R'
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -260,11 +212,10 @@ references:
   - family-names: Eugster
     given-names: Manuel
   year: '2022'
+  notes: Suggests
   url: https://CRAN.R-project.org/package=roxygen2
 - type: software
-  title: spelling
-  abstract: 'spelling: Tools for Spell Checking in R'
-  notes: Suggests
+  title: 'spelling: Tools for Spell Checking in R'
   authors:
   - family-names: Ooms
     given-names: Jeroen
@@ -274,14 +225,12 @@ references:
     given-names: Jim
     email: james.hester@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=spelling
-- type: software
-  title: testthat
-  abstract: 'testthat: Unit Testing for R'
   notes: Suggests
+- type: software
+  title: 'testthat: Unit Testing for R'
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=testthat
+  notes: Suggests
