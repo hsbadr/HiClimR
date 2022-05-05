@@ -100,16 +100,13 @@
 <div class="section level2">
 <h2 id="table-of-contents">Table of Contents<a class="anchor" aria-label="anchor" href="#table-of-contents"></a>
 </h2>
-<ul>
-<li>
-<a href="#hiclimr">HiClimR</a>
-<ul>
+<ul><li>
+<a href="#hiclimr">HiClimR</a><ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#features">Features</a></li>
 <li><a href="#implementation">Implementation</a></li>
 <li>
-<a href="#installation">Installation</a>
-<ul>
+<a href="#installation">Installation</a><ul>
 <li><a href="#from-cran">From CRAN</a></li>
 <li><a href="#from-github">From GitHub</a></li>
 </ul>
@@ -119,16 +116,14 @@
 <li><a href="#citation">Citation</a></li>
 <li><a href="#history">History</a></li>
 <li>
-<a href="#examples">Examples</a>
-<ul>
+<a href="#examples">Examples</a><ul>
 <li><a href="#single-variate-clustering">Single-Variate Clustering</a></li>
 <li><a href="#multivariate-clustering">Multivariate Clustering</a></li>
 <li><a href="#miscellaneous-examples">Miscellaneous Examples</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
+</li></ul>
 </div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -143,33 +138,28 @@
 <ul>
 <li>data regridding</li>
 <li>coarsening spatial resolution</li>
-<li>geographic masking
-<ul>
+<li>geographic masking<ul>
 <li>by continents</li>
 <li>by regions</li>
 <li>by countries</li>
 </ul>
 </li>
 <li>contiguity-constrained clustering</li>
-<li>data filtering by thresholds
-<ul>
+<li>data filtering by thresholds<ul>
 <li>mean threshold</li>
 <li>variance threshold</li>
 </ul>
 </li>
-<li>data preprocessing
-<ul>
+<li>data preprocessing<ul>
 <li>detrending</li>
 <li>standardization</li>
 <li>PCA</li>
 </ul>
 </li>
-<li>faster correlation function
-<ul>
+<li>faster correlation function<ul>
 <li>splitting big data matrix</li>
 <li>computing upper-triangular matrix</li>
-<li>using optimized <code>BLAS</code> library on 64-Bit machines
-<ul>
+<li>using optimized <code>BLAS</code> library on 64-Bit machines<ul>
 <li><code>ATLAS</code></li>
 <li><code>OpenBLAS</code></li>
 <li><code>Intel MKL</code></li>
@@ -177,8 +167,7 @@
 </li>
 </ul>
 </li>
-<li>different clustering methods
-<ul>
+<li>different clustering methods<ul>
 <li>
 <code>regional</code> linkage or minimum inter-regional correlation</li>
 <li>
@@ -197,22 +186,19 @@
 <code>centroid</code> or UPGMC method</li>
 </ul>
 </li>
-<li>hybrid hierarchical clustering
-<ul>
+<li>hybrid hierarchical clustering<ul>
 <li>the upper part of the tree is reconstructed above a cut</li>
 <li>the lower part of the tree uses user-selected method</li>
 <li>the upper part of the tree uses <code>regional</code> linkage method</li>
 </ul>
 </li>
-<li>multivariate clustering (MVC)
-<ul>
+<li>multivariate clustering (MVC)<ul>
 <li>filtering all variables before preprocessing</li>
 <li>detrending and standardization of each variable</li>
 <li>applying weight for the preprocessed variables</li>
 </ul>
 </li>
-<li>cluster validation
-<ul>
+<li>cluster validation<ul>
 <li>summary statistics based on raw data or the data reconstructed by PCA</li>
 <li>objective tree cut using minimum significant correlation between region means</li>
 </ul>
@@ -248,9 +234,7 @@
 <h4 id="from-github">From GitHub<a class="anchor" aria-label="anchor" href="#from-github"></a>
 </h4>
 <p>This is intended for developers and requires a development environment (compilers, libraries, … etc) to install the latest development release of <a href="https://cran.r-project.org/package=HiClimR" class="external-link"><strong><code>HiClimR</code></strong></a>. On <strong>Linux</strong> and <strong>Mac</strong>, you can download the source code and use <code>R CMD INSTALL</code> to install it. In a convenient way, you may use <a href="https://pak.r-lib.org" class="external-link"><code>pak</code></a> as follows:</p>
-<ul>
-<li>Install <code>pak</code> from <a href="https://cran.r-project.org" class="external-link"><strong>CRAN</strong></a>:</li>
-</ul>
+<ul><li>Install <code>pak</code> from <a href="https://cran.r-project.org" class="external-link"><strong>CRAN</strong></a>:</li></ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></code></pre></div>
 <ul>
@@ -296,12 +280,8 @@
 <p>To cite HiClimR in publications, please use:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"HiClimR"</span><span class="op">)</span></code></pre></div>
-<blockquote>
-<p>Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015): A Tool for Hierarchical Climate Regionalization, <em>Earth Science Informatics</em>, <strong>8</strong>(4), 949-958, <a href="https://doi.org/10.1007/s12145-015-0221-7" class="external-link uri">https://doi.org/10.1007/s12145-015-0221-7</a>.</p>
-</blockquote>
-<blockquote>
-<p>Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014): HiClimR: Hierarchical Climate Regionalization, <em>Comprehensive R Archive Network (CRAN)</em>, <a href="https://cran.r-project.org/package=HiClimR" class="external-link uri">https://cran.r-project.org/package=HiClimR</a>.</p>
-</blockquote>
+<blockquote><p>Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2015): A Tool for Hierarchical Climate Regionalization, <em>Earth Science Informatics</em>, <strong>8</strong>(4), 949-958, <a href="https://doi.org/10.1007/s12145-015-0221-7" class="external-link uri">https://doi.org/10.1007/s12145-015-0221-7</a>.</p></blockquote>
+<blockquote><p>Hamada S. Badr, Zaitchik, B. F. and Dezfuli, A. K. (2014): HiClimR: Hierarchical Climate Regionalization, <em>Comprehensive R Archive Network (CRAN)</em>, <a href="https://cran.r-project.org/package=HiClimR" class="external-link uri">https://cran.r-project.org/package=HiClimR</a>.</p></blockquote>
 <p><a href="#hiclimr">⇪</a></p>
 </div>
 <div class="section level2">
@@ -823,7 +803,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
     </footer>
