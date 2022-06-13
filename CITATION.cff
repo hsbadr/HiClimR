@@ -257,7 +257,6 @@ references:
   - family-names: Eugster
     given-names: Manuel
   year: '2022'
-  url: https://CRAN.R-project.org/package=roxygen2
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
