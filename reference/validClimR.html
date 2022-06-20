@@ -77,7 +77,9 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>y</dt>
 <dd><p>a dendrogram tree produced by <code><a href="HiClimR.html">HiClimR</a></code>.</p></dd>
-<dt>k</dt>
+
+
+  <dt>k</dt>
 <dd><p><code>NULL</code> or a n integer <code>k &gt; 1</code> for the number of regions/clusters.
   Only for <code>regional</code> linkage method, <code>k = NULL</code> is supported, where the
   "optimal" number of regions will be used at a user specified significance
@@ -88,45 +90,68 @@
   to compute inter-cluster correlation at different number of clusters to objectively
   cut the tree for the other methods, which could be computationally expensive to
   cover the entire merging history for large number of spatial elements.</p></dd>
-<dt>minSize</dt>
+
+
+  <dt>minSize</dt>
 <dd><p>minimum cluster size. The <code>regional</code> linkage method tend to
   isolate noisy data in small clusters. The <code>minSize</code> can be used to
   exclude these very small clusters from the <code>statSum</code> statistical
   summary, because they are most likely noisy data that need to be checked
   in a quality control step. The analysis may be then repeated.</p></dd>
-<dt>alpha</dt>
+
+
+  <dt>alpha</dt>
 <dd><p>confidence level: the default is <code>alpha = 0.05</code> for
   95% confidence level.</p></dd>
-<dt>verbose</dt>
+
+
+  <dt>verbose</dt>
 <dd><p>logical to print processing information if <code>verbose = TRUE</code>.</p></dd>
-<dt>plot</dt>
+
+
+  <dt>plot</dt>
 <dd><p>logical to call the plotting method if <code>plot = TRUE</code>.</p></dd>
-<dt>colPalette</dt>
+
+
+  <dt>colPalette</dt>
 <dd><p>a color palette or a list of colors such as that generated
   by <code>rainbow</code>, <code>heat.colors</code>, <code>topo.colors</code>,
   <code>terrain.colors</code> or similar functions.</p></dd>
-<dt>pch</dt>
+
+
+  <dt>pch</dt>
 <dd><p>Either an integer specifying a symbol or a single character to
   be used as the default in plotting points. See <code><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></code> for
   possible values.</p></dd>
-<dt>cex</dt>
+
+
+  <dt>cex</dt>
 <dd><p>A numerical value giving the amount by which plotting symbols should
   be magnified relative to the <code>default = 1</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>An object of class <code>HiClimR</code> which produces indices for validating
+    
+
+<p>An object of class <code>HiClimR</code> which produces indices for validating
   the tree produced by the clustering process.
   The object is a list with the following components:</p>
 <dl><dt>cutLevel</dt>
 <dd><p>the minimum significant correlation used for objective
     tree cut together with the corresponding confidence level.</p></dd>
-<dt>clustMean</dt>
+
+
+  <dt>clustMean</dt>
 <dd><p>the cluster means which are the region's mean timeseries for
     all selected regions.</p></dd>
-<dt>clustSize</dt>
+
+
+  <dt>clustSize</dt>
 <dd><p>cluster sizes for all selected regions.</p></dd>
-<dt>clustFlag</dt>
+
+
+  <dt>clustFlag</dt>
 <dd><p>a flag <code>0 or 1</code> to indicate the cluster used
     in <code>statSum</code> validation indices (<code>interCor</code>,
     <code>intraCor</code>, <code>diffCor</code>, and <code>statSum</code>), based on
@@ -134,32 +159,45 @@
     If <code>clustFlag = 0</code>, the cluster has been excluded because its size
     is less than the <code>minSize</code> minimum cluster size. The sum of
     <code>clustFlag</code> elements represents the selected number clusters.</p></dd>
-<dt>interCor</dt>
+
+
+  <dt>interCor</dt>
 <dd><p>inter-cluster correlations for all selected regions. It is
     the inter-cluster correlations between cluster means. The maximum inter-cluster
     correlation is a measure for separation or contiguity, and it is
     used for objective tree cut (to find the "optimal" number of clusters).</p></dd>
-<dt>intraCor</dt>
+
+
+  <dt>intraCor</dt>
 <dd><p>intra-cluster correlations for all selected regions. It is
     the intra-cluster correlations between the mean of each cluster and its
     members. The average intra-cluster correlation is a weighted average for
     all clusters, and it is a measure for homogeneity.</p></dd>
-<dt>diffCor</dt>
+
+
+  <dt>diffCor</dt>
 <dd><p>difference between intra-cluster correlation and maximum
   	inter-cluster correlation for all selected regions.</p></dd>
-<dt>statSum</dt>
+
+
+  <dt>statSum</dt>
 <dd><p>overall statistical summary for i<code>nterCluster</code>,
     <code>intraCor</code>, and <code>diffCor</code>.</p></dd>
-<dt>region</dt>
+
+
+  <dt>region</dt>
 <dd><p>ordered regions vector of size <code>N</code> number of spatial
   	elements for the selected number of clusters, after excluding the
   	small clusters defined by <code>minSize</code> argument.</p></dd>
-<dt>regionID</dt>
+
+
+  <dt>regionID</dt>
 <dd><p>ordered regions ID vector of length equals the selected number
   	of clusters, after excluding the small clusters defined by <code>minSize</code> argument.
   	It helps in mapping ordered regions and their actual names before ordering.
   	Only the <code>region</code> component uses ordered ID, while other components use
   	the names used during the clustering process.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -261,8 +299,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Running Time:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    user  system elapsed </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.335   0.036   0.371 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 0.3710606 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.430   0.052   0.483 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 0.4824975 secs</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Validtion of Hierarchical Climate Regionalization</span></span>
 <span class="r-in"><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu">validClimR</span><span class="op">(</span><span class="va">y</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>, alpha <span class="op">=</span> <span class="fl">0.01</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -304,7 +342,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
     </footer></div>

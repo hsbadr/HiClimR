@@ -240,26 +240,36 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   since their magnitude range could be different.
   Note that: for gridded data, the rows of input data matrix for each variable is
   ordered by longitudes (check <code>TestCase$x</code> for more details).</p></dd>
-<dt>lon</dt>
+
+
+  <dt>lon</dt>
 <dd><p>a vector of longitudes with length <code>N</code>. Longitudes takes
   values from <code>-180</code> to <code>180</code> (not <code>0</code> to <code>360</code>).
   For gridded data, the length may have the value (<code>n</code>) provided that
   <code>n * m = N</code> where <code>n = length(unique(lon))</code> and <code>m = length(unique(lat))</code>.</p></dd>
-<dt>lat</dt>
+
+
+  <dt>lat</dt>
 <dd><p>a vector of latitudes with length <code>N</code> or <code>m</code>. See <code>lon</code>.</p></dd>
-<dt>lonStep</dt>
+
+
+  <dt>lonStep</dt>
 <dd><p>an integer greater than or equal to <code>1</code> for longitude
   step to coarsen gridded data in the longitudinal direction. If <code>lonStep = 1</code>,
   gridded data will not be coarsened in the longitudinal direction (the default).
   If <code>lonStep = 2</code>, every other grid in longitudinal direction will be retained.</p></dd>
-<dt>latStep</dt>
+
+
+  <dt>latStep</dt>
 <dd><p>an integer greater than or equal to <code>1</code> for latitude
   step to coarsen gridded data in the latitudinal direction. If <code>latStep = 1</code>,
   gridded data will not be coarsened in the latitudinal direction (the default).
   If <code>latStep = 2</code>, every other grid in latitudinal direction will be retained.
   <code>lonStep</code> and <code>latStep</code> are independent so that user can optionally
   apply different coarsening level to each dimension.</p></dd>
-<dt>geogMask</dt>
+
+
+  <dt>geogMask</dt>
 <dd><p>a logical: if <code>geogMask = TRUE</code>, <code><a href="geogMask.html">geogMask</a></code>
   function will be called. Additional arguments are required.
   It requires the longitude and latitude vector together with a string
@@ -267,28 +277,38 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   name(s), or <code>country</code> ISO3 character code(s). If <code>gMask != NULL</code>,
   the provided <code>gmask</code> vector will be used for geographic masking without
   calling <code><a href="geogMask.html">geogMask</a></code>.</p></dd>
-<dt>gMask</dt>
+
+
+  <dt>gMask</dt>
 <dd><p>A vector of indices for the spatial elements to be masked,
   as required by <code>HiClimR</code>. This is typically an output vector
   from <code><a href="geogMask.html">geogMask</a></code> function. This helps in saving time when the
   same geographic mask will be used many times.</p></dd>
-<dt>continent</dt>
+
+
+  <dt>continent</dt>
 <dd><p><code>NULL</code> or a string (or array of strings) to specify
   <code>continent</code> name(s): only one of <code>continent</code>, <code>region</code>, or
    <code>country</code> should be specified. Valid list of <code>continent</code> names
   can be obtained by running <code><a href="geogMask.html">geogMask()</a></code>.</p></dd>
-<dt>region</dt>
+
+
+  <dt>region</dt>
 <dd><p><code>NULL</code> or a string (or array of strings) to specify
   <code>region</code> name(s): only one of <code>continent</code>, <code>region</code>, or
   <code>country</code> should be specified. Valid list of <code>region</code> names
   can be obtained by running <code><a href="geogMask.html">geogMask()</a></code>.</p></dd>
-<dt>country</dt>
+
+
+  <dt>country</dt>
 <dd><p><code>NULL</code> or a string (or array of strings) to specify
   <code>country</code> ISO3 character code(s): only one of <code>continent</code>,
   <code>region</code>, or <code>country</code> should be specified. Valid list of
   <code>country</code> ISO3 character code(s) can be obtained by running
   <code><a href="geogMask.html">geogMask()</a></code>.</p></dd>
-<dt>contigConst</dt>
+
+
+  <dt>contigConst</dt>
 <dd><p><code>0</code> or a positive value for contiguity constraint:
   This is used to apply weighted geographic distances on the initial
   dissimilarity matrix between the variable(s) in the data matrix <code>x</code>.
@@ -299,7 +319,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   Geographic coordinates <code>lon</code> and <code>lat</code> are required to compute
   the geographic distances.
   <code>regional</code> linkage method does not support contiguity constraints.</p></dd>
-<dt>meanThresh</dt>
+
+
+  <dt>meanThresh</dt>
 <dd><p><code>NULL</code> or a threshold for the temporal mean:
   This is used with <code>varThresh</code> to mask zero- and near-zero-variance
   data, Observations with mean less than or equal to <code>meanThresh</code> will
@@ -311,7 +333,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.</p></dd>
-<dt>varThresh</dt>
+
+
+  <dt>varThresh</dt>
 <dd><p>zero or a threshold for the temporal variance: This is
   used with <code>meanThresh</code> to mask zero- and near-zero-variance data,
   Observations with variance less than or equal to <code>varThresh</code> will
@@ -322,7 +346,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.</p></dd>
-<dt>detrend</dt>
+
+
+  <dt>detrend</dt>
 <dd><p>a logical: should the data be detrended before clustering?
   Detrending (removing the linear trend) is important when variations from
   temporal point to another is of interest (e.g., interannual variability).
@@ -333,7 +359,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.</p></dd>
-<dt>standardize</dt>
+
+
+  <dt>standardize</dt>
 <dd><p>a logical: should the data be standardized before
   clustering? The standardized data makes use of the mean of equally-weighted
   objects within each cluster (cluster mean = mean of standardized variables
@@ -345,7 +373,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   Each variable is separately preprocessed to allow for all possible options.
   However, it is strongly recommended to standardize all variables since their
   magnitude range could be different.</p></dd>
-<dt>weightMVC</dt>
+
+
+  <dt>weightMVC</dt>
 <dd><p>a list of positive wights (<code>weightMVC &gt; 0</code>) for
   Multivariate Clustering (MVC) with the same length of <code>x</code> where
   <code>length(x) = number of variables</code>. The filtered variables
@@ -353,18 +383,24 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   after preprocessing (detrending and standardization) and before PCA (if requested)
   and computing the correlation/dissimilarity matrix. The default weight is
   <code>weightMVC = 1</code> for all variables.</p></dd>
-<dt>nPC</dt>
+
+
+  <dt>nPC</dt>
 <dd><p><code>NULL</code> or number of principal components (PCs) to be retained.
   If <code>nPC = NULL</code>, then the raw data will be used for clustering.
   Otherwise, the data will be filtered and reconstructed using <code>nPC</code> PCs
   obtained from SVD-based PCA. The <code>detrend</code> and/or <code>standardize</code>
   options will be applied, if requested, before PCA.</p></dd>
-<dt>method</dt>
+
+
+  <dt>method</dt>
 <dd><p>the agglomeration method to be used. This should be (an
   unambiguous abbreviation of) one of <code>"regional"</code>, <code>"ward"</code>,
   <code>"single"</code>, <code>"complete"</code>, <code>"average"</code>, <code>"mcquitty"</code>,
   <code>"median"</code> or <code>"centroid"</code>. The default is <code>"ward"</code> method.</p></dd>
-<dt>hybrid</dt>
+
+
+  <dt>hybrid</dt>
 <dd><p>a logical: should the upper part of the tree be reconstructed
   using <code>regional</code> linkage clustering method?
   This adds hybrid hierarchical clustering feature to get the best of
@@ -376,7 +412,9 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   of the tree will be reconstructed above a cut of <code>kH</code> clusters using
   <code>regional</code> linkage method. Note: <code>hybrid</code> option is redundant
   when using <code>regional</code> linkage as the main clustering method.</p></dd>
-<dt>kH</dt>
+
+
+  <dt>kH</dt>
 <dd><p><code>NULL</code> or an integer for the number of regions/clusters in the
   upper part of the tree to be reconstructed with <code>regional</code> linkage method,
   if <code>hybrid = TRUE</code>. If <code>kH = NULL</code>, the tree will be reconstructed
@@ -384,10 +422,14 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   for the entire tree. If hybrid clustering is requested, the updated upper part
   of the tree will be used for cluster validation, and so <code>kH</code> should be
   greater than the final number of clusters <code>k</code>, if selected.</p></dd>
-<dt>members</dt>
+
+
+  <dt>members</dt>
 <dd><p><code>NULL</code> or a vector with length size of <code>d</code>.
   See the ‘Details’ section.</p></dd>
-<dt>nSplit</dt>
+
+
+  <dt>nSplit</dt>
 <dd><p>integer number greater than or equal to one, to split the data matrix into
   <code>nSplit</code> splits of the total number of columns <code>ncol(xt)</code>. If <code>nSplit = 1</code>,
   the default method will be used to compute correlation matrix for the full data matrix
@@ -405,23 +447,33 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   compared to the physical memory, it is highly recommended to use a 64-Bit machine
   with enough memory resources and/or use coarsening feature for gridded data by setting
   <code>lonStep &gt; 1</code> and <code>latStep &gt; 1</code>.</p></dd>
-<dt>upperTri</dt>
+
+
+  <dt>upperTri</dt>
 <dd><p>logical to compute only the upper-triangular half of the correlation
   matrix if <code>upperTri = TRUE</code> and <code>nSplit &gt; 1</code>., which includes all required info
   since the correlation/dissimilarity matrix is symmetric. This almost halves memory use,
   which can be very important for big data.</p></dd>
-<dt>verbose</dt>
+
+
+  <dt>verbose</dt>
 <dd><p>logical to print processing information if <code>verbose = TRUE</code>.</p></dd>
-<dt>validClimR</dt>
+
+
+  <dt>validClimR</dt>
 <dd><p>a logical: If <code>validClimR = TRUE</code>, <code><a href="validClimR.html">validClimR</a></code>
   will be called to compute validation indices including statistical summary for
   inter- and intra-cluster correlations. This is computationally expensive. It can
   also objectively cut the dendrogram tree for <code>regional</code> clustering method,
   if <code>k = NULL</code>.</p></dd>
-<dt>rawStats</dt>
+
+
+  <dt>rawStats</dt>
 <dd><p>a logical: should validation indices be computed based on
   the raw data or PCA-filtered data?</p></dd>
-<dt>k</dt>
+
+
+  <dt>k</dt>
 <dd><p><code>NULL</code> or an integer <code>k &gt; 1</code> for the number of regions/clusters.
   Only for <code>regional</code> linkage method, <code>k = NULL</code> is supported, where the
   "optimal" number of regions will be used at a user specified significance
@@ -432,42 +484,63 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
   to compute inter-cluster correlation at different number of clusters to objectively
   cut the tree for the other methods, which could be computationally expensive to
   cover the entire merging history for large number of spatial elements.</p></dd>
-<dt>minSize</dt>
+
+
+  <dt>minSize</dt>
 <dd><p>minimum cluster size. The <code>regional</code> linkage method tend to
   isolate noisy data in small clusters. The <code>minSize</code> can be used to
   exclude these very small clusters from the <code>statSum</code> statistical
   summary, because they are most likely noisy data that need to be checked
   in a quality control step. The analysis may be then repeated.</p></dd>
-<dt>alpha</dt>
+
+
+  <dt>alpha</dt>
 <dd><p>confidence level: the default is <code>alpha = 0.05</code> for
   95% confidence level.</p></dd>
-<dt>plot</dt>
+
+
+  <dt>plot</dt>
 <dd><p>logical to call the plotting method if <code>plot = TRUE</code>.</p></dd>
-<dt>dendrogram</dt>
+
+
+  <dt>dendrogram</dt>
 <dd><p>logical to enable or disable dendrogram plotting.</p></dd>
-<dt>colPalette</dt>
+
+
+  <dt>colPalette</dt>
 <dd><p>a color palette or a list of colors such as that generated
   by <code>rainbow</code>, <code>heat.colors</code>, <code>topo.colors</code>,
   <code>terrain.colors</code> or similar functions.</p></dd>
-<dt>hang</dt>
+
+
+  <dt>hang</dt>
 <dd><p>The fraction of the plot height by which labels should hang
     below the rest of the plot.
     A negative value will cause the labels to hang down from 0.</p></dd>
-<dt>labels</dt>
+
+
+  <dt>labels</dt>
 <dd><p>A character vector of labels for the leaves of the
     tree. By default the row names or row numbers of the original data are
     used. If <code>labels = FALSE</code> no labels at all are plotted.</p></dd>
-<dt>pch</dt>
+
+
+  <dt>pch</dt>
 <dd><p>Either an integer specifying a symbol or a single character to
   be used as the default in plotting points. See <code><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></code> for
   possible values.</p></dd>
-<dt>cex</dt>
+
+
+  <dt>cex</dt>
 <dd><p>A numerical value giving the amount by which plotting symbols should
   be magnified relative to the <code>default = 1</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>An object of class <code>HiClimR</code> and <code>hclust</code>, which
+    
+
+<p>An object of class <code>HiClimR</code> and <code>hclust</code>, which
   describes the tree produced by the clustering process.
   The object is a list with the following components:</p>
 <dl><dt>merge</dt>
@@ -482,65 +555,101 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
     Thus negative entries in <code>merge</code> indicate agglomerations
     of singletons, and positive entries indicate agglomerations
     of non-singletons.</p></dd>
-<dt>height</dt>
+
+
+  <dt>height</dt>
 <dd><p>a set of \(n-1\) real values (non-decreasing for
     ultrametric trees).
     The clustering <em>height</em>: that is, the value of
     the criterion associated with the clustering
     <code>method</code> for the particular agglomeration.</p></dd>
-<dt>order</dt>
+
+
+  <dt>order</dt>
 <dd><p>a vector giving the permutation of the original
     observations suitable for plotting, in the sense that a cluster
     plot using this ordering and matrix <code>merge</code> will not have
     crossings of the branches.</p></dd>
-<dt>labels</dt>
+
+
+  <dt>labels</dt>
 <dd><p>labels for each of the objects being clustered.</p></dd>
-<dt>method</dt>
+
+
+  <dt>method</dt>
 <dd><p>the cluster method that has been used.</p></dd>
-<dt>call</dt>
+
+
+  <dt>call</dt>
 <dd><p>the call which produced the result.</p></dd>
-<dt>dist.method</dt>
+
+
+  <dt>dist.method</dt>
 <dd><p>the distance that has been used to create <code>d</code>
     (only returned if the distance object has a <code>"method"</code>
     attribute).</p></dd>
-<dt>skip</dt>
+
+
+  <dt>skip</dt>
 <dd><p>a vector of <code>lonStep</code> and <code>latStep</code> if <code>coarseR = TRUE</code>.</p></dd>
-<dt>PCA</dt>
+
+
+  <dt>PCA</dt>
 <dd><p>if <code>nPC != NULL</code>, the eigenvalues, explained variance,
     and accumulated variance will be stored here.</p></dd>
-<dt>coords</dt>
+
+
+  <dt>coords</dt>
 <dd><p>an (<code>Nc</code> rows by <code>2</code> columns) matrix of 'double' values:
     longitude and latitude coordinates for the preprocessed data used for clustering,
     where <code>NC</code> is the number of spatial elements to be clustered after coarsening
     spatial resolution by <code>lonStep</code> and <code>latStep</code>. It will be returned only
     if <code>lon</code> and <code>lat</code> vectors were defined. It will be similar to the provided
     <code>lon</code> and <code>lat</code> if <code>lonStep = 1</code> and <code>latStep = 1</code>.</p></dd>
-<dt>nvars</dt>
+
+
+  <dt>nvars</dt>
 <dd><p>number of variables used for multivariate clustering (MVC).</p></dd>
-<dt>ncols</dt>
+
+
+  <dt>ncols</dt>
 <dd><p>number of columns for each variable.</p></dd>
-<dt>data</dt>
+
+
+  <dt>data</dt>
 <dd><p>the preprocessed data used for clustering will be stored here.
     If <code>rawData = TRUE</code> and <code>nPC != NULL</code>, the preprocessed data without
     filtering (PCA) will be returned here.</p></dd>
-<dt>mask</dt>
+
+
+  <dt>mask</dt>
 <dd><p>a vector of the indices of masked spatial points by both
     geographic masking and data thresholds.</p></dd>
-<dt>treeH</dt>
+
+
+  <dt>treeH</dt>
 <dd><p>An object of class <code>hclust</code>, which describes the upper part of
     the tree reconstructed by the hybrid clustering process if <code>hybrid = TRUE</code>.</p></dd>
+
+
 </dl><p>If <code>validClimR = TRUE</code>, an object of class <code>HiClimR</code>, which produces
   indices for validating the tree produced by the clustering process, will be merged
   in the dendrogram tree above. This object is a list with the following components:</p>
 <dl><dt>cutLevel</dt>
 <dd><p>the minimum significant correlation used for objective
     tree cut together with the corresponding confidence level.</p></dd>
-<dt>clustMean</dt>
+
+
+  <dt>clustMean</dt>
 <dd><p>the cluster means which are the region's mean timeseries for
     all selected regions.</p></dd>
-<dt>clustSize</dt>
+
+
+  <dt>clustSize</dt>
 <dd><p>cluster sizes for all selected regions.</p></dd>
-<dt>clustFlag</dt>
+
+
+  <dt>clustFlag</dt>
 <dd><p>a flag <code>0 or 1</code> to indicate the cluster used
     in <code>statSum</code> validation indices (<code>interCor</code>,
     <code>intraCor</code>, <code>diffCor</code>, and <code>statSum</code>), based on
@@ -548,34 +657,52 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
     If <code>clustFlag = 0</code>, the cluster has been excluded because its size
     is less than the <code>minSize</code> minimum cluster size. The sum of
     <code>clustFlag</code> elements represents the selected number clusters.</p></dd>
-<dt>interCor</dt>
+
+
+  <dt>interCor</dt>
 <dd><p>inter-cluster correlations for all selected regions. It is
     the inter-cluster correlations between cluster means. The maximum inter-cluster
     correlation is a measure for separation or contiguity, and it is
     used for objective tree cut (to find the "optimal" number of clusters).</p></dd>
-<dt>intraCor</dt>
+
+
+  <dt>intraCor</dt>
 <dd><p>intra-cluster correlations for all selected regions. It is
     the intra-cluster correlations between the mean of each cluster and its
     members. The average intra-cluster correlation is a weighted average for
     all clusters, and it is a measure for homogeneity.</p></dd>
-<dt>diffCor</dt>
+
+
+  <dt>diffCor</dt>
 <dd><p>difference between intra-cluster correlation and maximum
   	inter-cluster correlation for all selected regions.</p></dd>
-<dt>statSum</dt>
+
+
+  <dt>statSum</dt>
 <dd><p>overall statistical summary for i<code>nterCluster</code>,
     <code>intraCor</code>, and <code>diffCor</code>.</p></dd>
-<dt>region</dt>
+
+
+  <dt>region</dt>
 <dd><p>ordered regions vector of size <code>N</code> number of spatial
   	elements for the selected number of clusters, after excluding the
   	small clusters defined by <code>minSize</code> argument.</p></dd>
-<dt>regionID</dt>
+
+
+  <dt>regionID</dt>
 <dd><p>ordered regions ID vector of length equals the selected number
   	of clusters, after excluding the small clusters defined by <code>minSize</code> argument.
   	It helps in mapping ordered regions and their actual names before ordering.
   	Only the <code>region</code> component uses ordered ID, while other components use
   	the names used during the clustering process.</p></dd>
-</dl><p>There are <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></code> and <code>identify</code>  (see <code><a href="https://rdrr.io/r/stats/identify.hclust.html" class="external-link">identify.hclust</a></code>) methods and
-<code><a href="https://rdrr.io/r/stats/rect.hclust.html" class="external-link">rect.hclust</a>()</code> functions for <code>hclust</code> objects.</p>
+
+
+</dl><p>There are <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></code> and <code>identify</code></p>
+
+
+<p>(see <code><a href="https://rdrr.io/r/stats/identify.hclust.html" class="external-link">identify.hclust</a></code>) methods and</p>
+<p></p>
+<p><code><a href="https://rdrr.io/r/stats/rect.hclust.html" class="external-link">rect.hclust</a>()</code> functions for <code>hclust</code> objects.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -752,8 +879,8 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Running Time:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    user  system elapsed </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.529   0.024   0.584 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 0.5835402 secs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.763   0.048   1.018 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 1.018932 secs</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## For more examples: https://github.com/hsbadr/HiClimR#examples</span></span>
 <span class="r-in"></span>
@@ -932,7 +1059,7 @@ HiClimR is applicable to any correlation-based clustering."><!-- mathjax --><scr
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
     </footer></div>
