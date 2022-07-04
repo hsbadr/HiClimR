@@ -69,7 +69,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">HiClimR2nc</span><span class="op">(</span>y <span class="op">=</span> <span class="cn">NULL</span>, ncfile <span class="op">=</span> <span class="st">"HiClimR.nc"</span>, timeunit <span class="op">=</span> <span class="st">""</span>, dataunit <span class="op">=</span> <span class="st">""</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">HiClimR2nc</span><span class="op">(</span>y <span class="op">=</span> <span class="cn">NULL</span>, ncfile <span class="op">=</span> <span class="st">"HiClimR.nc"</span>, timeunit <span class="op">=</span> <span class="st">""</span>, dataunit <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -131,24 +131,24 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://cirrus.ucsd.edu/~pierce/ncdf/" class="external-link">ncdf4</a></span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://hsbadr.github.io/HiClimR/">HiClimR</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="http://cirrus.ucsd.edu/~pierce/ncdf/" class="external-link">ncdf4</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: ncdf4</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Load test case data</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">TestCase</span><span class="op">$</span><span class="va">x</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Generate longitude and latitude mesh vectors</span></span>
-<span class="r-in"><span class="va">xGrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="grid2D.html">grid2D</a></span><span class="op">(</span>lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">lon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">lat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Hierarchical Climate Regionalization</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="HiClimR.html">HiClimR</a></span><span class="op">(</span><span class="va">x</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>, geogMask <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">    continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fl">10</span>, varThresh <span class="op">=</span> <span class="fl">0</span>, detrend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">    standardize <span class="op">=</span> <span class="cn">TRUE</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">    kH <span class="op">=</span> <span class="cn">NULL</span>, members <span class="op">=</span> <span class="cn">NULL</span>, validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">    alpha <span class="op">=</span> <span class="fl">0.01</span>, plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Load test case data</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">TestCase</span><span class="op">$</span><span class="va">x</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Generate longitude and latitude mesh vectors</span></span></span>
+<span class="r-in"><span><span class="va">xGrid</span> <span class="op">&lt;-</span> <span class="fu"><a href="grid2D.html">grid2D</a></span><span class="op">(</span>lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span>, lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">TestCase</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lon</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">xGrid</span><span class="op">$</span><span class="va">lat</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Hierarchical Climate Regionalization</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="HiClimR.html">HiClimR</a></span><span class="op">(</span><span class="va">x</span>, lon <span class="op">=</span> <span class="va">lon</span>, lat <span class="op">=</span> <span class="va">lat</span>, lonStep <span class="op">=</span> <span class="fl">1</span>, latStep <span class="op">=</span> <span class="fl">1</span>, geogMask <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>    continent <span class="op">=</span> <span class="st">"Africa"</span>, meanThresh <span class="op">=</span> <span class="fl">10</span>, varThresh <span class="op">=</span> <span class="fl">0</span>, detrend <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>    standardize <span class="op">=</span> <span class="cn">TRUE</span>, nPC <span class="op">=</span> <span class="cn">NULL</span>, method <span class="op">=</span> <span class="st">"ward"</span>, hybrid <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>    kH <span class="op">=</span> <span class="cn">NULL</span>, members <span class="op">=</span> <span class="cn">NULL</span>, validClimR <span class="op">=</span> <span class="cn">TRUE</span>, k <span class="op">=</span> <span class="fl">12</span>, minSize <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>    alpha <span class="op">=</span> <span class="fl">0.01</span>, plot <span class="op">=</span> <span class="cn">TRUE</span>, colPalette <span class="op">=</span> <span class="cn">NULL</span>, hang <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PROCESSING STARTED</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -186,17 +186,17 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Running Time:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    user  system elapsed </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.495   0.012   0.507 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 0.5065901 secs</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Export region map and mean timeseries into NetCDF-4 file</span></span>
-<span class="r-in"><span class="va">y.nc</span> <span class="op">&lt;-</span> <span class="fu">HiClimR2nc</span><span class="op">(</span>y<span class="op">=</span><span class="va">y</span>, ncfile<span class="op">=</span><span class="st">"HiClimR.nc"</span>, timeunit<span class="op">=</span><span class="st">"years"</span>, dataunit<span class="op">=</span><span class="st">"mm"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## The NetCDF-4 file is still open to add other variables or close it</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/ncdf4/man/nc_close.html" class="external-link">nc_close</a></span><span class="op">(</span><span class="va">y.nc</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.761   0.032   0.792 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Time difference of 0.7927206 secs</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Export region map and mean timeseries into NetCDF-4 file</span></span></span>
+<span class="r-in"><span><span class="va">y.nc</span> <span class="op">&lt;-</span> <span class="fu">HiClimR2nc</span><span class="op">(</span>y<span class="op">=</span><span class="va">y</span>, ncfile<span class="op">=</span><span class="st">"HiClimR.nc"</span>, timeunit<span class="op">=</span><span class="st">"years"</span>, dataunit<span class="op">=</span><span class="st">"mm"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## The NetCDF-4 file is still open to add other variables or close it</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/ncdf4/man/nc_close.html" class="external-link">nc_close</a></span><span class="op">(</span><span class="va">y.nc</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
