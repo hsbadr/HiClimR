@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.2.2
+# CITATION file created with {cffr} R package, v0.2.3
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -257,7 +257,6 @@ references:
   - family-names: Eugster
     given-names: Manuel
   year: '2022'
-  url: https://CRAN.R-project.org/package=roxygen2
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
