@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.3.0
+# CITATION file created with {cffr} R package, v0.4.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -97,12 +97,12 @@ references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends
+  url: https://www.R-project.org/
   authors:
   - name: R Core Team
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 2.10'
@@ -115,7 +115,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -127,7 +126,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -139,7 +137,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -151,7 +148,6 @@ references:
   location:
     name: Vienna, Austria
   year: '2022'
-  url: https://www.R-project.org/
   institution:
     name: R Foundation for Statistical Computing
 - type: software
@@ -159,16 +155,19 @@ references:
   abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
     Files'
   notes: Imports
+  url: http://cirrus.ucsd.edu/~pierce/ncdf/
+  repository: https://CRAN.R-project.org/package=ncdf4
   authors:
   - family-names: Pierce
     given-names: David
     email: dpierce@ucsd.edu
   year: '2022'
-  url: http://cirrus.ucsd.edu/~pierce/ncdf/
 - type: software
   title: covr
   abstract: 'covr: Test Coverage for Packages'
   notes: Suggests
+  url: https://covr.r-lib.org
+  repository: https://CRAN.R-project.org/package=covr
   authors:
   - family-names: Hester
     given-names: Jim
@@ -178,6 +177,8 @@ references:
   title: devtools
   abstract: 'devtools: Tools to Make Developing R Packages Easier'
   notes: Suggests
+  url: https://devtools.r-lib.org/
+  repository: https://CRAN.R-project.org/package=devtools
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -194,17 +195,20 @@ references:
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
   authors:
   - family-names: Xie
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
-  url: https://yihui.org/knitr/
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
   authors:
   - family-names: Allaire
     given-names: JJ
@@ -243,6 +247,8 @@ references:
   title: roxygen2
   abstract: 'roxygen2: In-Line Documentation for R'
   notes: Suggests
+  url: https://roxygen2.r-lib.org/
+  repository: https://CRAN.R-project.org/package=roxygen2
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -257,11 +263,12 @@ references:
   - family-names: Eugster
     given-names: Manuel
   year: '2022'
-  url: https://CRAN.R-project.org/package=roxygen2
 - type: software
   title: spelling
   abstract: 'spelling: Tools for Spell Checking in R'
   notes: Suggests
+  url: https://docs.ropensci.org/spelling/
+  repository: https://CRAN.R-project.org/package=spelling
   authors:
   - family-names: Ooms
     given-names: Jeroen
@@ -275,6 +282,8 @@ references:
   title: testthat
   abstract: 'testthat: Unit Testing for R'
   notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
   authors:
   - family-names: Wickham
     given-names: Hadley
