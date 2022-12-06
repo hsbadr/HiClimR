@@ -155,7 +155,7 @@ references:
   abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
     Files'
   notes: Imports
-  url: http://cirrus.ucsd.edu/~pierce/ncdf/
+  url: https://cirrus.ucsd.edu/~pierce/ncdf/
   repository: https://CRAN.R-project.org/package=ncdf4
   authors:
   - family-names: Pierce
