@@ -1,57 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/404.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/articles/BugReports.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/index.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/HiClimR.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/HiClimR2nc.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/TestCase.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/WorldMask.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/coarseR.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/fastCor.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/geogMask.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/grid2D.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/minSigCor.html</loc>
-  </url>
-  <url>
-    <loc>https://hsbadr.github.io/HiClimR/reference/validClimR.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://hsbadr.github.io/HiClimR/404.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/LICENSE-text.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/articles/BugReports.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/articles/index.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/authors.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/index.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/news/index.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/HiClimR.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/HiClimR2nc.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/TestCase.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/WorldMask.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/coarseR.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/fastCor.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/geogMask.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/grid2D.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/index.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/minSigCor.html</loc></url>
+<url><loc>https://hsbadr.github.io/HiClimR/reference/validClimR.html</loc></url>
 </urlset>
+
