@@ -10,6 +10,9 @@ license: GPL-3.0-only
 title: 'HiClimR: Hierarchical Climate Regionalization'
 version: 2.2.1
 doi: 10.1007/s12145-015-0221-7
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.HiClimR
 abstract: 'A tool for Hierarchical Climate Regionalization applicable to any correlation-based
   clustering. It adds several features and a new clustering method (called, ''regional''
   linkage) to hierarchical clustering in R (''hclust'' function in ''stats'' library):
@@ -115,6 +118,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.graphics
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -125,6 +129,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.grDevices
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -135,6 +140,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.stats
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -145,6 +151,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2024'
+  doi: 10.32614/CRAN.package.utils
 - type: software
   title: ncdf4
   abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
