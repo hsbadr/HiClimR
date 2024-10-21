@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   BugReports: BugReports.html
-last_built: 2024-10-14T12:12Z
+last_built: 2024-10-21T12:12Z
 urls:
   reference: https://hsbadr.github.io/HiClimR/reference
   article: https://hsbadr.github.io/HiClimR/articles
