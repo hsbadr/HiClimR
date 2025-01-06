@@ -106,7 +106,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2024'
+  year: '2025'
   version: '>= 2.10'
 - type: software
   title: graphics
@@ -117,7 +117,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2024'
+  year: '2025'
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -127,7 +127,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2024'
+  year: '2025'
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -137,7 +137,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2024'
+  year: '2025'
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -147,7 +147,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2024'
+  year: '2025'
 - type: software
   title: ncdf4
   abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
@@ -160,7 +160,7 @@ references:
     given-names: David
     email: dpierce@ucsd.edu
     orcid: https://orcid.org/0000-0002-2453-9030
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.ncdf4
 - type: software
   title: covr
@@ -172,7 +172,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.covr
 - type: software
   title: devtools
@@ -191,7 +191,7 @@ references:
     given-names: Jennifer
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.devtools
 - type: software
   title: knitr
@@ -204,7 +204,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
@@ -248,7 +248,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: roxygen2
@@ -269,7 +269,7 @@ references:
     email: csardi.gabor@gmail.com
   - family-names: Eugster
     given-names: Manuel
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.roxygen2
 - type: software
   title: spelling
@@ -285,7 +285,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.hester@rstudio.com
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.spelling
 - type: software
   title: testthat
@@ -297,6 +297,6 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.testthat
 
