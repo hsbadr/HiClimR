@@ -107,6 +107,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
+  doi: 10.32614/R.manuals
   version: '>= 2.10'
 - type: software
   title: graphics
@@ -118,6 +119,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
+  doi: 10.32614/R.manuals
 - type: software
   title: grDevices
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -128,6 +130,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
+  doi: 10.32614/R.manuals
 - type: software
   title: stats
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -138,6 +141,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
+  doi: 10.32614/R.manuals
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -148,6 +152,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
+  doi: 10.32614/R.manuals
 - type: software
   title: ncdf4
   abstract: 'ncdf4: Interface to Unidata netCDF (Version 4 or Earlier) Format Data
