@@ -130,8 +130,8 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #> 
 #> Running Time:
 #>    user  system elapsed 
-#>   0.400   0.006   0.406 
-#> Time difference of 0.4059319 secs
+#>   0.384   0.007   0.392 
+#> Time difference of 0.3915679 secs
 
 if (FALSE) { # \dontrun{
 
