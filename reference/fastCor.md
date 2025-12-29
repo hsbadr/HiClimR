@@ -134,12 +134,12 @@ t0 <- proc.time() ; xcor <- fastCor(t(x)) ; proc.time() - t0
 #> --->   Total number of variables:  6400
 #> --->   WARNING: 3951 variables found with zero variance
 #>    user  system elapsed 
-#>   0.546   0.039   0.585 
+#>   0.532   0.040   0.573 
 ## compare with cor function
 t0 <- proc.time() ; xcor0 <- cor(t(x)) ; proc.time() - t0
 #> Warning: the standard deviation is zero
 #>    user  system elapsed 
-#>   0.535   0.028   0.563 
+#>   0.526   0.030   0.556 
 
 if (FALSE) { # \dontrun{
 
