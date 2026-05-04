@@ -175,6 +175,7 @@ or **Linux**. You just fire up an [**R**](https://www.r-project.org)
 shell and type:
 
 ``` r
+
 install.packages("HiClimR")
 ```
 
@@ -199,6 +200,7 @@ of [**`HiClimR`**](https://cran.r-project.org/package=HiClimR). On
 - Install `pak` from [**CRAN**](https://cran.r-project.org):
 
 ``` r
+
 install.packages("pak")
 ```
 
@@ -214,6 +216,7 @@ install.packages("pak")
   from [GitHub source](https://github.com/hsbadr/HiClimR):
 
 ``` r
+
 pak::pkg_install("hsbadr/HiClimR")
 ```
 
@@ -258,6 +261,7 @@ University (JHU).
 To cite HiClimR in publications, please use:
 
 ``` r
+
 citation("HiClimR")
 ```
 
@@ -318,10 +322,12 @@ citation("HiClimR")
 #### Single-Variate Clustering
 
 ``` r
+
 library(HiClimR)
 ```
 
 ``` r
+
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for single-variate clustering:                            #
 #----------------------------------------------------------------------------------#
@@ -346,6 +352,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 ```
 
 ``` r
+
 #----------------------------------------------------------------------------------#
 # Additional Examples:                                                             #
 #----------------------------------------------------------------------------------#
@@ -381,6 +388,7 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #### Multivariate Clustering
 
 ``` r
+
 #----------------------------------------------------------------------------------#
 # Typical use of HiClimR for multivariate clustering:                              #
 #----------------------------------------------------------------------------------#
@@ -423,6 +431,7 @@ y <- HiClimR(x=list(x1, x2), lon = lon, lat = lat, lonStep = 1, latStep = 1,
 #### Miscellaneous Examples
 
 ``` r
+
 #----------------------------------------------------------------------------------#
 # Miscellaneous examples to provide more information about functionality and usage #
 # of the helper functions that can be used separately or for other applications.   #
