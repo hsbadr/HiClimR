@@ -49,7 +49,6 @@ Suggests:
     testthat
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 LazyData: yes
 LazyLoad: yes
@@ -58,3 +57,4 @@ ByteCompile: yes
 NeedsCompilation: yes
 SystemRequirements: NetCDF (>= 4.1)
 Language: en-US
+Config/roxygen2/version: 8.0.0
