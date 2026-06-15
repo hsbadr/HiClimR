@@ -800,8 +800,8 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #> 
 #> Running Time:
 #>    user  system elapsed 
-#>   0.492   0.029   0.564 
-#> Time difference of 0.5639794 secs
+#>   0.472   0.038   0.598 
+#> Time difference of 0.5976396 secs
 
 ## For more examples: https://github.com/hsbadr/HiClimR#examples
 
