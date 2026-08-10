@@ -2,18 +2,26 @@
 
 exportPattern("^[[:alpha:]]+")
 import(ncdf4)
-importFrom(grDevices,colorRampPalette)
-importFrom(grDevices,dev.new)
-importFrom(graphics,axis)
-importFrom(graphics,par)
-importFrom(stats,cor)
-importFrom(stats,cutree)
-importFrom(stats,dist)
-importFrom(stats,fitted)
-importFrom(stats,lm)
-importFrom(stats,na.omit)
-importFrom(stats,pf)
-importFrom(stats,var)
-importFrom(utils,combn)
-importFrom(utils,packageVersion)
+importFrom(grDevices,
+  colorRampPalette,
+  dev.new
+)
+importFrom(graphics,
+  axis,
+  par
+)
+importFrom(stats,
+  cor,
+  cutree,
+  dist,
+  fitted,
+  lm,
+  na.omit,
+  pf,
+  var
+)
+importFrom(utils,
+  combn,
+  packageVersion
+)
 useDynLib(HiClimR)
