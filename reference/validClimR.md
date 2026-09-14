@@ -250,8 +250,8 @@ y <- HiClimR(x, lon = lon, lat = lat, lonStep = 1, latStep = 1, geogMask = FALSE
 #> 
 #> Running Time:
 #>    user  system elapsed 
-#>   0.261   0.081   0.343 
-#> Time difference of 0.343049 secs
+#>   0.267   0.055   0.322 
+#> Time difference of 0.3221643 secs
 
 ## Validtion of Hierarchical Climate Regionalization
 z <- validClimR(y, k = 12, minSize = 1, alpha = 0.01, plot = TRUE)
